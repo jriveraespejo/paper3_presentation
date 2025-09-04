@@ -1,0 +1,605 @@
+---
+title: |
+  Bayesian modeling of comparative judgment data with `R` and `Stan`
+author:
+  - name: 
+      given: Jose(ma)
+      family: Rivera
+    orcid: 0000-0002-3088-2783
+    url: https://www.uantwerpen.be/en/staff/jose-manuel-rivera-espejo_23166/
+    email: JoseManuel.RiveraEspejo@uantwerpen.be
+    corresponding: true
+    affiliation:
+      - name: University of Antwerp
+        department: Training and education sciences
+        group: Edubron
+  - name: 
+      given: Tine
+      family: van Daal
+    orcid: 0000-0001-9398-9775
+    url: https://www.uantwerpen.be/en/staff/tine-vandaal/
+    email: tine.vandaal@uantwerpen.be
+    corresponding: false
+    affiliation:
+      - name: University of Antwerp
+        department: Training and education sciences
+        group: Edubron
+  - name: 
+      given: Sven
+      family: De Maeyer
+    orcid: 0000-0003-2888-1631
+    url: https://www.uantwerpen.be/en/staff/sven-demaeyer/
+    email: sven.demaeyer@uantwerpen.be
+    corresponding: false
+    affiliation:
+      - name: University of Antwerp
+        department: Training and education sciences
+        group: Edubron
+  - name: 
+      given: Steven
+      family: Gillis
+    orcid: 
+    url: https://www.uantwerpen.be/nl/personeel/steven-gillis/
+    email: steven.gillis@uantwerpen.be
+    corresponding: false
+    affiliation:
+      - name: University of Antwerp
+        department: Linguistics
+        group: Centre for computational linguistics, psycholinguistics, and sociolinguistics (CLiPS)
+date: last-modified
+bibliography: references.bib
+title-slide-attributes: 
+  data-notes: | 
+    (to do) 
+---
+
+# 1. Introduction {style="font-size:80%;"}
+
+---
+
+## 1. Introduction {style="font-size:80%;"}
+
+The Bradley-Terry-Luce (BTL) model [@Bradley_et_al_1952; @Luce_1959] offers a **simple method** for measuring traits and conducting statistical inference from comparative judgment (CJ) data [@Andrich_1978; @Pollitt_2012b]. [Its simplicity stems from two features:]{.fragment}
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. A reliance on an extensive set of simplifying assumptions about the traits, judges, and stimuli involved in CJ assessments [@Thurstone_1927b; @Bramley_2008],
+2. The use of ad hoc procedures to handle inferences, including hypothesis testing [@Pollitt_2012b].
+:::
+:::
+
+::: {.fragment}
+However, recent studies question:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Do these assumptions hold in modern CJ applications? [@Bramley_2008; @Kelly_et_al_2022; @Rivera_et_al_2025]
+- Do the ad hoc procedures effectively fulfill their intended analytical purpose? [@Kelly_et_al_2022; @Rivera_et_al_2025]
+:::
+:::
+:::
+
+---
+
+## 1. Introduction {style="font-size:80%;"}
+
+To address these concerns, Rivera et al. [@Rivera_et_al_2025] proposed *The Information-Theoretical model for CJ*. 
+
+[The approach extends the general form of Thurstone's law of comparative judgment [@Thurstone_1927a; @Thurstone_1927b], combining Thurstone's core theoretical principles with key CJ assessment design features.]{.fragment style="font-size:80%;"}
+
+[This integration enables the development of models tailored to the assumed data-generating process of the CJ system under study, thus:]{.fragment style="font-size:80%;"}
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Eliminating the need to rely on the simplifying assumptions of the BTL model,
+- Removing the dependence on ad hoc hypothesis-testing procedures.
+:::
+:::
+
+[Nevertheless, although approach has the potential to yield reliable trait estimates and accurate statistical inferences, **this promise still needs to be empirically tested**.]{.fragment style="font-size:80%;"} 
+
+<!-- ######################################### -->
+
+# 2. Research goals
+
+---
+
+## 2. Research goals {style="font-size:80%;"}
+
+Thus, this tutorial has two overarching goals:
+
+::: {.fragment style="font-size:80%;"}
+1. **To show how apply the Information-Theoretical model for CJ to a simulated dataset**,
+
+    A **tutorial component**, offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software `R` and `Stan`.
+:::
+
+::: {.fragment style="font-size:80%;"}
+Once a *sufficiently trustworthy model* is found in goal 1,
+
+2. **Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences**,
+
+    A **model validation component** benchmarked against the classical BTL analysis.
+:::
+
+<!-- ######################################### -->
+
+# 3. A tale of two analytical methods
+
+---
+
+## 3. A tale of two analytical methods {style="font-size:80%;"}
+
+CJ data can be analyzed under two analytical approaches:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. **The classical BTL analysis** [@Pollitt_2012a; @Pollitt_2012b]
+    
+    It applies several sequential methods to estimate (generate) the traits and conduct inferences,
+
+2. **The Information-Theoretical model for CJ** [@Rivera_et_al_2025]
+
+    It applies one systematic, integrated approach for the same two purposes.
+:::
+:::
+
+<!-- ######################################### -->
+
+---
+
+## 3.1 The classical BTL analysis {style="font-size:80%;"}
+
+This paradigm applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. **Apply the BTL model**,
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- To estimate the traits of the stimuli (mean and standard error)
+- To generate the model residuals
+:::
+:::
+
+2. **Generate summaries** or **apply (multilevel) regression** to the stimuli's trait (mean estimates),
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- To aggregate the trait of the stimuli at the individual level
+- To assess the variability and conduct inferences at the stimuli and individual levels
+- To calculate correlation with other methods (a way of "concurrent validity")
+:::
+:::
+
+3. **Generate summaries** or **apply (multilevel) regression** to the model residuals,
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- To aggregate the remaining variability at the judges level (investigate bias)
+- To assess the remaining variability and conduct inferences about judges biases
+- To conduct *misfit* identification for stimuli, individuals, and judges
+:::
+:::
+
+:::
+:::
+
+<!-- ######################################### -->
+
+--- 
+
+## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+
+In contrast, this paradigm applies one systematic, integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. [This approach can be expressed as a three-step procedure:]{.fragment}
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. Start with the proposed general CJ structure, represented by a DAG and an SCM (see next slide),
+2. Adapt the structure to the assumed data-generating process of the CJ system under study,
+3. Develop a *bespoke* statistical model for the analysis of the CJ system (possible multiple models)
+:::
+:::
+
+::: {.fragment}
+
+With these three steps a researcher can:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Estimate the traits of the stimuli and individuals (mean and standard error)
+- Assess the variability and conduct inferences at the stimuli and individual levels
+- Estimate the biases of the judges and judgments (mean and standard error)
+- Assess the variability and conduct inferences at the judgments and judges levels
+- Conduct *oulier* identification for stimuli, individuals, judgments, and judges (akin to *misfit* identification)
+:::
+:::
+
+:::
+
+--- 
+
+## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+
+<!-- commands for d-separation -->
+\newcommand{\dsep}{\:\bot\:}
+\newcommand{\ndsep}{\:\not\bot\:}
+\newcommand{\cond}{\:|\:}
+
+The general CJ structure proposed by Rivera et al. [@Rivera_et_al_2025] takes the following form:
+
+::: {.fragment}
+
+::: {#fig-cj15 layout-ncol=2}
+
+![](/images/CJ_TM_15.png){width=100%}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\
+  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\
+  T_{I} & := f_{T}(X_{I}, e_{I}) \\
+  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\
+  B_{J} & := f_{B}(Z_{J}, e_{J}) \\
+  e_{I} & \dsep \{ e_{J}, e_{IA}, e_{JK} \} \\
+  e_{J} & \dsep \{ e_{IA}, e_{JK} \} \\
+  e_{IA} & \dsep e_{JK} 
+\end{aligned}
+$$
+
+Comparative judgment model. *Left panel* illustrates the DAG. *Right panel * depicts the associated SCM.
+:::
+
+:::
+
+---
+
+## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+
+Leading to the general probabilistic and statistical model:
+
+::: {.fragment}
+
+::: {#fig-cj16 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\ 
+  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\
+  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\
+  T_{I} & := f_{T}(X_{I}, e_{I}) \\
+  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\
+  B_{J} & := f_{B}(Z_{J}, e_{J}) \\ \\
+  e_{I} & \dsep \{ e_{J}, e_{IA}, e_{JK} \} \\
+  e_{J} & \dsep \{ e_{IA}, e_{JK} \} \\
+  e_{IA} & \dsep e_{JK}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA}, B_{JK} ) \\
+  & P( T_{IA} \mid T_{I}, X_{IA}, e_{IA} ) \\
+  & P( T_{I} \mid X_{I}, e_{I} ) \\
+  & P( B_{JK} \mid B_{J}, Z_{JK}, e_{JK} ) \\
+  & P( B_{J} \mid Z_{J}, e_{J} ) \\ \\
+  & P( e_{I} ) P( e_{IA} ) P( e_{J} ) P( e_{JK} ) \\ \\ \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{JK}[j,k] \\
+  T_{IA} & = T_{I} + \beta_{XA} X_{IA} + e_{IA} \\
+  T_{I} & = \beta_{XI} X_{I} + e_{I} \\
+  B_{JK} & = B_{J} + \beta_{ZK} Z_{JK} + e_{JK} \\
+  B_{J} & = \beta_{ZJ} Z_{J} + e_{J} \\ \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V} \\ \\
+\end{aligned}
+$$
+
+Comparative judgment model, SCM, probabilistic and statistical model assuming different discriminal dispersions for the student's traits
+:::
+
+:::
+
+
+::: {.fragment}
+::: {style="font-size:80%;"}
+With the following constraints to solve indeterminacies in *location*, *orientation*, and *scale* of $T_{I}$, $T_{IA}$, $B_{J}$, and $B_{JK}$ [@Depaoli_2021]: 
+:::
+:::
+
+::: {.fragment}
+$$
+\boldsymbol{\mu} = [0, 0, 0, 0]^{T}; \quad 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 
+  \end{bmatrix}; \quad 
+  \boldsymbol{V} = \begin{bmatrix}
+    s_{XI} & 0 & 0 & 0 \\
+    0 & p_{IA} & 0 & 0 \\
+    0 & 0 & s_{ZJ} & 0 \\
+    0 & 0 & 0 & p_{JK} 
+  \end{bmatrix}; \quad 
+  \sum_{g=1}^{2} s_{XI}[g]/2 = 1; \quad
+  0< p_{IA} < 1; \quad 
+  \sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \quad
+  0< p_{JK} < 1
+$$ 
+:::
+
+<!-- ######################################### -->
+
+# 4. Methods 
+
+---
+
+## 4. Methods {style="font-size:80%;"}
+
+To achieve the two overarching goals of the study, the tutorial and model validation components, this study proceeds through the following steps:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. Simulate **two replicable datasets** based on a CJ structure of interest,
+
+     $\longrightarrow$ *Tutorial and model validation component* 
+
+2.  Apply the Information-Theoretical Model for CJ to the **first dataset**,
+
+    $\longrightarrow$ *Tutorial component*
+
+3.  Apply the classical BTL analysis to the **first dataset**,
+
+    $\longrightarrow$ *Model validation component*
+
+4.  Compare parameter recovery, in-sample fit, and out-of-sample fit between the two models obtained in steps 2 and 3,
+
+    $\longrightarrow$ *Model validation component*
+
+5.  Use the models obtained in steps 2 and 3 to predict outcomes in the **second dataset** and compare their out-of-sample predictive accuracy.
+
+    $\longrightarrow$ *Model validation component*
+:::
+:::
+
+
+<!-- ######################################### -->
+
+---
+
+## 4.1 Dataset simulation {style="font-size:80%;"}
+
+The dataset simulation is inspired by the analysis of Boonen et al. [@Boonen_et_al_2020], because of the data characteristics and the study results. 
+
+::: {.fragment style="font-size:80%;"}
+Regarding the data characteristics:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- It includes multiple stimuli nested within individuals,
+- It includes multiple individuals,
+- Individuals differ in characteristics, such as age or hearing status,
+- Each judge makes only one comparison per stimulus pair, and comparisons are conducted by multiple judges,
+- Judges differ in characteristics, such as experience level,
+- Stimuli, individuals, and judges are selected using a (pseudo) random sampling algorithm,
+- Comparisons are assigned using a random comparison algorithm.
+:::
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Regarding the study results:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Individuals with different hearing statuses differ in their (latent) mean levels.
+- There is more unexplained variability between rather than within individuals (stimuli level)
+- No evidence of judges biases
+- Judges with different levels of experience did not differ in their (latent) mean levels.
+:::
+:::
+
+:::
+
+---
+
+## 4.1 Dataset simulation {style="font-size:80%;"}
+
+Differing only in the replication seed, the study simulates **two datasets** using the following steps:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. Simulate a *conceptual population* from a data-generating process of interest (see next slide) 
+2. Simulate *two random samples* of stimuli, individual and judges (differing by replication seed)
+3. Simulate *two sets of random pair comparisons* (differing by replication seed)
+:::
+:::
+
+---
+
+## 4.1 Dataset simulation {style="font-size:80%;"}
+
+[Assumed data-generating process:]{style="font-size:80%;"}
+
+::: {.fragment}
+
+::: {#fig-sim layout-ncol=2}
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{JK}[j,k] \\
+  T_{IA} & = T_{I} + \beta_{XA} X_{IA} + e_{IA} \\
+  T_{I} & = \beta_{XI} X_{I} + e_{I} \\
+  B_{JK} & = B_{J} + \beta_{ZK} Z_{JK} + e_{JK} \\
+  B_{J} & = \beta_{ZJ} Z_{J} + e_{J} \\ \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V} \\ \\
+\end{aligned}
+$$
+
+$$
+\begin{split}
+  \text{with} & \; \text{general parameters:} \\
+  & \beta_{XA} = 0 \\
+  & XI = \{ XIc, XI[g=1], XI[g=2], XI[g=3] \} \\
+  & \beta_{XI} = \{ \beta_{XIc}, \beta_{XI[g=1]}, \beta_{XI[g=2]}, \beta_{XI[g=3]} \} = \{ 0.1, 1, 0, -1\} \\
+  & \beta_{ZK} = 0 \\
+  & ZJ = \{ ZJ[g=1], ZJ[g=2], ZJ[g=3] \} \\
+  & \beta_{ZJ} = \{ \beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]} \} = \{ 0, 0, 0\} \\ \\
+  \text{with} & \; \text{error parameters:}\\
+  & \boldsymbol{\mu} = [0, 0, 0, 0]^{T}; \quad \boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 
+  \end{bmatrix} ;
+  \boldsymbol{V} = \begin{bmatrix}
+    s_{XI} & 0 & 0 & 0 \\
+    0 & p_{IA} & 0 & 0 \\
+    0 & 0 & s_{ZJ} & 0 \\
+    0 & 0 & 0 & p_{JK} 
+  \end{bmatrix} \\ 
+  \text{and} & \\
+  & s_{XI[g]} = 1 \; \forall g=\{1,2,3\} \\
+  & s_{ZJ} = \{ s_{ZJ[g=1]}, s_{ZJ[g=2]}, s_{ZJ[g=3]} \} = \{ 0.5, 1, 1.5\} \\
+  & p_{IA} = 0.2; \quad p_{JK} = 0
+\end{split}
+$$
+
+Data-generating process for simulated CJ data, generative statistical model and parameter assumptions
+:::
+
+:::
+
+---
+
+## 4.1 Dataset simulation {style="font-size:80%;"}
+
+[In layman terms:]{style="font-size:80%;"}
+
+::: incremental 
+::: {style="font-size:70%;"}
+- No difference between stimuli characteristics $(\beta_{XA})$,
+- Individual characteristics $(XI)$ consider one continuous variable and three groups,
+- There is a "small" but increasing effect from the continuous variable $(\beta_{XIc})$ [@Cohen_1988; @Sawilowsky_2009]
+- There are "very large" differences in the (latent) mean of the individual' groups $(\beta_{XI[g=1]}, \beta_{XI[g=2]}, \beta_{XI[g=3]})$ [@Cohen_1988; @Sawilowsky_2009],
+- No difference between judgment characteristics $(\beta_{ZK})$, because judges only make one comparison,
+- Judges characteristics $(ZJ)$ consider three groups,
+- The are judges biases, but no differences between the mean bias of the judges' groups $(\beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]})$,
+- Errors (residuals) are centered around zero with zero correlation among them $(\boldsymbol{\mu}, \boldsymbol{Q})$,
+- Individual residual variability is the same across individual' groups $(s_{XI[g]})$,
+- Judges (bias) residual variability is different for different judges' groups, but they fulfill: $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$,
+- Stimuli remaining variability is less than individual variability $(p_{IA})$,
+- There is no judgment remaining variability $(p_{JK})$, because the judges only make one comparison.
+:::
+:::
+
+<!-- ######################################### -->
+
+---
+
+## 4.2 Bayesian estimation and analysis {style="font-size:80%;"}
+
+This section is **only relevant to the tutorial component** of the study. 
+
+::: {.fragment style="font-size:80%;"}
+The tutorial offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software `R` and `Stan` using the Information-Theoretical model for CJ, will closely follow recommendations from:
+
+::: incremental 
+1. The *Bayesian workflow* proposed by Gelman et al. [@Gelman_et_al_2020] 
+2. The *WAMBS checklist* proposed by Depaoli et al. [@Depaoli_et_al_2017]
+:::
+
+:::
+
+<!-- ######################################### -->
+
+---
+
+## 4.3 Evaluation metrics {style="font-size:80%;"}
+
+This section is **only relevant to the model validation component** of the study. 
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. Using the two analytical methods on the first dataset, the model validation will compare:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- in-sample fit
+- out-of-sample fit
+- The general parameters' recovery between the two models
+- The error parameters' recovery between the two models
+- The traits of stimuli and individuals between the two models
+- The presence of judges biases and their estimates between the two models
+:::
+:::
+
+2. Predicting the second dataset with the two analytical methods will provide a measure of out-of-sample predictive accuracy
+
+:::
+:::
+
+
+<!-- ######################################### -->
+
+# 5. Results
+
+---
+
+## 5. Results {style="font-size:80%;"}
+
+
+
+<!-- ######################################### -->
+
+# 6. Discussion
+
+---
+
+## 6. Discussion {style="font-size:80%;"}
+
+
+<!-- ######################################### -->
+
+---
+
+## 6.1 Future research directions {style="font-size:80%;"}
+
+<!-- ######################################### -->
+
+---
+
+## 6.2 Study limitations {style="font-size:80%;"}
+
+
+<!-- ######################################### -->
+
+# 7. Conclusion
+
+---
+
+## 7. Conclusion {style="font-size:80%;"}
+
+<!-- ######################################### -->
+
+---
+
+# References {style="font-size:80%;"}
+
+:::{#refs style="font-size:80%;"}
+
+:::

@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+    
+execute:
+  freeze: auto
+  cache: true
+  # eval: true
+  echo: false
+  # output: true
+  # include: true
+  warning: false
+  error: false
+  message: false
+
+format:
+  revealjs: 
+    slide-number: true
+    #number-sections: true
+    #number-depth: 2
+    chalkboard: true
+    preview-links: auto
+    csl: diabetologia.csl
+    css: styles.css
+    logo: images/logo-uantwerpen-sw-en-cmyk-pos.png
+    footer: '[Online manuscript (work in progress)](https://jriveraespejo.github.io/paper3_manuscript/)'
+    #embed-resources: true

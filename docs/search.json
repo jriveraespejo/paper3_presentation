@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "presentation.html#introduction-1",
+    "href": "presentation.html#introduction-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "1. Introduction",
+    "text": "1. Introduction\nThe Bradley-Terry-Luce (BTL) model [1, 2] offers a simple method for measuring traits and conducting statistical inference from comparative judgment (CJ) data [3, 4]. Its simplicity stems from two features:\n\n\n\nA reliance on an extensive set of simplifying assumptions about the traits, judges, and stimuli involved in CJ assessments [5, 6],\nThe use of ad hoc procedures to handle inferences, including hypothesis testing [4].\n\n\n\n\nHowever, recent studies question:\n\n\n\nDo these assumptions hold in modern CJ applications? [6–8]\nDo the ad hoc procedures effectively fulfill their intended analytical purpose? [7, 8]"
+  },
+  {
+    "objectID": "presentation.html#introduction-2",
+    "href": "presentation.html#introduction-2",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "1. Introduction",
+    "text": "1. Introduction\nTo address these concerns, Rivera et al. [8] proposed The Information-Theoretical model for CJ.\nThe approach extends the general form of Thurstone’s law of comparative judgment [5, 9], combining Thurstone’s core theoretical principles with key CJ assessment design features.\nThis integration enables the development of models tailored to the assumed data-generating process of the CJ system under study, thus:\n\n\n\nEliminating the need to rely on the simplifying assumptions of the BTL model,\nRemoving the dependence on ad hoc hypothesis-testing procedures.\n\n\n\nNevertheless, although approach has the potential to yield reliable trait estimates and accurate statistical inferences, this promise still needs to be empirically tested."
+  },
+  {
+    "objectID": "presentation.html#research-goals-1",
+    "href": "presentation.html#research-goals-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "2. Research goals",
+    "text": "2. Research goals\nThus, this tutorial has two overarching goals:\n\n\nTo show how apply the Information-Theoretical model for CJ to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software R and Stan.\n\n\n\nOnce a sufficiently trustworthy model is found in goal 1,\n\nEvaluate whether the approach yield reliable trait estimates and accurate statistical inferences,\nA model validation component benchmarked against the classical BTL analysis."
+  },
+  {
+    "objectID": "presentation.html#a-tale-of-two-analytical-methods-1",
+    "href": "presentation.html#a-tale-of-two-analytical-methods-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "3. A tale of two analytical methods",
+    "text": "3. A tale of two analytical methods\nCJ data can be analyzed under two analytical approaches:\n\n\n\nThe classical BTL analysis [4, 10]\nIt applies several sequential methods to estimate (generate) the traits and conduct inferences,\nThe Information-Theoretical model for CJ [8]\nIt applies one systematic, integrated approach for the same two purposes."
+  },
+  {
+    "objectID": "presentation.html#the-classical-btl-analysis",
+    "href": "presentation.html#the-classical-btl-analysis",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "3.1 The classical BTL analysis",
+    "text": "3.1 The classical BTL analysis\nThis paradigm applies several sequential methods, each with different purposes [4, 10–14]:\n\n\n\nApply the BTL model,\n\n\n\n\nTo estimate the traits of the stimuli (mean and standard error)\nTo generate the model residuals\n\n\n\n\nGenerate summaries or apply (multilevel) regression to the stimuli’s trait (mean estimates),\n\n\n\n\nTo aggregate the trait of the stimuli at the individual level\nTo assess the variability and conduct inferences at the stimuli and individual levels\nTo calculate correlation with other methods (a way of “concurrent validity”)\n\n\n\n\nGenerate summaries or apply (multilevel) regression to the model residuals,\n\n\n\n\nTo aggregate the remaining variability at the judges level (investigate bias)\nTo assess the remaining variability and conduct inferences about judges biases\nTo conduct misfit identification for stimuli, individuals, and judges"
+  },
+  {
+    "objectID": "presentation.html#the-information-theoretical-model-for-cj",
+    "href": "presentation.html#the-information-theoretical-model-for-cj",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "3.2 The Information-Theoretical model for CJ",
+    "text": "3.2 The Information-Theoretical model for CJ\nIn contrast, this paradigm applies one systematic, integrated approach to estimate traits and conduct inferences [8]. This approach can be expressed as a three-step procedure:\n\n\n\nStart with the proposed general CJ structure, represented by a DAG and an SCM (see next slide),\nAdapt the structure to the assumed data-generating process of the CJ system under study,\nDevelop a bespoke statistical model for the analysis of the CJ system (possible multiple models)\n\n\n\n\nWith these three steps a researcher can:\n\n\n\nEstimate the traits of the stimuli and individuals (mean and standard error)\nAssess the variability and conduct inferences at the stimuli and individual levels\nEstimate the biases of the judges and judgments (mean and standard error)\nAssess the variability and conduct inferences at the judgments and judges levels\nConduct oulier identification for stimuli, individuals, judgments, and judges (akin to misfit identification)"
+  },
+  {
+    "objectID": "presentation.html#the-information-theoretical-model-for-cj-1",
+    "href": "presentation.html#the-information-theoretical-model-for-cj-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "3.2 The Information-Theoretical model for CJ",
+    "text": "3.2 The Information-Theoretical model for CJ\n\nThe general CJ structure proposed by Rivera et al. [8] takes the following form:\n\n\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}, e_{IA}, e_{JK} \\} \\\\\n  e_{J} & \\:\\bot\\:\\{ e_{IA}, e_{JK} \\} \\\\\n  e_{IA} & \\:\\bot\\:e_{JK}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 1: Comparative judgment model. Left panel illustrates the DAG. Right panel  depicts the associated SCM."
+  },
+  {
+    "objectID": "presentation.html#the-information-theoretical-model-for-cj-2",
+    "href": "presentation.html#the-information-theoretical-model-for-cj-2",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "3.2 The Information-Theoretical model for CJ",
+    "text": "3.2 The Information-Theoretical model for CJ\nLeading to the general probabilistic and statistical model:\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\ \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}, e_{IA}, e_{JK} \\} \\\\\n  e_{J} & \\:\\bot\\:\\{ e_{IA}, e_{JK} \\} \\\\\n  e_{IA} & \\:\\bot\\:e_{JK}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA}, B_{JK} ) \\\\\n  & P( T_{IA} \\mid T_{I}, X_{IA}, e_{IA} ) \\\\\n  & P( T_{I} \\mid X_{I}, e_{I} ) \\\\\n  & P( B_{JK} \\mid B_{J}, Z_{JK}, e_{JK} ) \\\\\n  & P( B_{J} \\mid Z_{J}, e_{J} ) \\\\ \\\\\n  & P( e_{I} ) P( e_{IA} ) P( e_{J} ) P( e_{JK} ) \\\\ \\\\ \\\\\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) + B_{JK}[j,k] \\\\\n  T_{IA} & = T_{I} + \\beta_{XA} X_{IA} + e_{IA} \\\\\n  T_{I} & = \\beta_{XI} X_{I} + e_{I} \\\\\n  B_{JK} & = B_{J} + \\beta_{ZK} Z_{JK} + e_{JK} \\\\\n  B_{J} & = \\beta_{ZJ} Z_{J} + e_{J} \\\\ \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V} \\\\ \\\\\n\\end{aligned}\n\\]\n\n\n\n\nFigure 2: Comparative judgment model, SCM, probabilistic and statistical model assuming different discriminal dispersions for the student’s traits\n\n\n\n\n\n\nWith the following constraints to solve indeterminacies in location, orientation, and scale of \\(T_{I}\\), \\(T_{IA}\\), \\(B_{J}\\), and \\(B_{JK}\\) [15]:\n\n\n\n\\[\n\\boldsymbol{\\mu} = [0, 0, 0, 0]^{T}; \\quad\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 & 0 \\\\\n    0 & 1 & 0 & 0 \\\\\n    0 & 0 & 1 & 0 \\\\\n    0 & 0 & 0 & 1\n  \\end{bmatrix}; \\quad\n  \\boldsymbol{V} = \\begin{bmatrix}\n    s_{XI} & 0 & 0 & 0 \\\\\n    0 & p_{IA} & 0 & 0 \\\\\n    0 & 0 & s_{ZJ} & 0 \\\\\n    0 & 0 & 0 & p_{JK}\n  \\end{bmatrix}; \\quad\n  \\sum_{g=1}^{2} s_{XI}[g]/2 = 1; \\quad\n  0&lt; p_{IA} &lt; 1; \\quad\n  \\sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \\quad\n  0&lt; p_{JK} &lt; 1\n\\]"
+  },
+  {
+    "objectID": "presentation.html#methods-1",
+    "href": "presentation.html#methods-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4. Methods",
+    "text": "4. Methods\nTo achieve the two overarching goals of the study, the tutorial and model validation components, this study proceeds through the following steps:\n\n\n\nSimulate two replicable datasets based on a CJ structure of interest,\n\\(\\longrightarrow\\) Tutorial and model validation component\nApply the Information-Theoretical Model for CJ to the first dataset,\n\\(\\longrightarrow\\) Tutorial component\nApply the classical BTL analysis to the first dataset,\n\\(\\longrightarrow\\) Model validation component\nCompare parameter recovery, in-sample fit, and out-of-sample fit between the two models obtained in steps 2 and 3,\n\\(\\longrightarrow\\) Model validation component\nUse the models obtained in steps 2 and 3 to predict outcomes in the second dataset and compare their out-of-sample predictive accuracy.\n\\(\\longrightarrow\\) Model validation component"
+  },
+  {
+    "objectID": "presentation.html#dataset-simulation",
+    "href": "presentation.html#dataset-simulation",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.1 Dataset simulation",
+    "text": "4.1 Dataset simulation\nThe dataset simulation is inspired by the analysis of Boonen et al. [12], because of the data characteristics and the study results.\n\nRegarding the data characteristics:\n\n\n\nIt includes multiple stimuli nested within individuals,\nIt includes multiple individuals,\nIndividuals differ in characteristics, such as age or hearing status,\nEach judge makes only one comparison per stimulus pair, and comparisons are conducted by multiple judges,\nJudges differ in characteristics, such as experience level,\nStimuli, individuals, and judges are selected using a (pseudo) random sampling algorithm,\nComparisons are assigned using a random comparison algorithm.\n\n\n\n\n\nRegarding the study results:\n\n\n\nIndividuals with different hearing statuses differ in their (latent) mean levels.\nThere is more unexplained variability between rather than within individuals (stimuli level)\nNo evidence of judges biases\nJudges with different levels of experience did not differ in their (latent) mean levels."
+  },
+  {
+    "objectID": "presentation.html#dataset-simulation-1",
+    "href": "presentation.html#dataset-simulation-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.1 Dataset simulation",
+    "text": "4.1 Dataset simulation\nDiffering only in the replication seed, the study simulates two datasets using the following steps:\n\n\n\nSimulate a conceptual population from a data-generating process of interest (see next slide)\nSimulate two random samples of stimuli, individual and judges (differing by replication seed)\nSimulate two sets of random pair comparisons (differing by replication seed)"
+  },
+  {
+    "objectID": "presentation.html#dataset-simulation-2",
+    "href": "presentation.html#dataset-simulation-2",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.1 Dataset simulation",
+    "text": "4.1 Dataset simulation\nAssumed data-generating process:\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) + B_{JK}[j,k] \\\\\n  T_{IA} & = T_{I} + \\beta_{XA} X_{IA} + e_{IA} \\\\\n  T_{I} & = \\beta_{XI} X_{I} + e_{I} \\\\\n  B_{JK} & = B_{J} + \\beta_{ZK} Z_{JK} + e_{JK} \\\\\n  B_{J} & = \\beta_{ZJ} Z_{J} + e_{J} \\\\ \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V} \\\\ \\\\\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\n  \\text{with} & \\; \\text{general parameters:} \\\\\n  & \\beta_{XA} = 0 \\\\\n  & XI = \\{ XIc, XI[g=1], XI[g=2], XI[g=3] \\} \\\\\n  & \\beta_{XI} = \\{ \\beta_{XIc}, \\beta_{XI[g=1]}, \\beta_{XI[g=2]}, \\beta_{XI[g=3]} \\} = \\{ 0.1, 1, 0, -1\\} \\\\\n  & \\beta_{ZK} = 0 \\\\\n  & ZJ = \\{ ZJ[g=1], ZJ[g=2], ZJ[g=3] \\} \\\\\n  & \\beta_{ZJ} = \\{ \\beta_{ZJ[g=1]}, \\beta_{ZJ[g=2]}, \\beta_{ZJ[g=3]} \\} = \\{ 0, 0, 0\\} \\\\ \\\\\n  \\text{with} & \\; \\text{error parameters:}\\\\\n  & \\boldsymbol{\\mu} = [0, 0, 0, 0]^{T}; \\quad \\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 & 0 \\\\\n    0 & 1 & 0 & 0 \\\\\n    0 & 0 & 1 & 0 \\\\\n    0 & 0 & 0 & 1\n  \\end{bmatrix} ;\n  \\boldsymbol{V} = \\begin{bmatrix}\n    s_{XI} & 0 & 0 & 0 \\\\\n    0 & p_{IA} & 0 & 0 \\\\\n    0 & 0 & s_{ZJ} & 0 \\\\\n    0 & 0 & 0 & p_{JK}\n  \\end{bmatrix} \\\\\n  \\text{and} & \\\\\n  & s_{XI[g]} = 1 \\; \\forall g=\\{1,2,3\\} \\\\\n  & s_{ZJ} = \\{ s_{ZJ[g=1]}, s_{ZJ[g=2]}, s_{ZJ[g=3]} \\} = \\{ 0.5, 1, 1.5\\} \\\\\n  & p_{IA} = 0.2; \\quad p_{JK} = 0\n\\end{split}\n\\]\n\n\n\n\nFigure 3: Data-generating process for simulated CJ data, generative statistical model and parameter assumptions"
+  },
+  {
+    "objectID": "presentation.html#dataset-simulation-3",
+    "href": "presentation.html#dataset-simulation-3",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.1 Dataset simulation",
+    "text": "4.1 Dataset simulation\nIn layman terms:\n\n\n\nNo difference between stimuli characteristics \\((\\beta_{XA})\\),\nIndividual characteristics \\((XI)\\) consider one continuous variable and three groups,\nThere is a “small” but increasing effect from the continuous variable \\((\\beta_{XIc})\\) [16, 17]\nThere are “very large” differences in the (latent) mean of the individual’ groups \\((\\beta_{XI[g=1]}, \\beta_{XI[g=2]}, \\beta_{XI[g=3]})\\) [16, 17],\nNo difference between judgment characteristics \\((\\beta_{ZK})\\), because judges only make one comparison,\nJudges characteristics \\((ZJ)\\) consider three groups,\nThe are judges biases, but no differences between the mean bias of the judges’ groups \\((\\beta_{ZJ[g=1]}, \\beta_{ZJ[g=2]}, \\beta_{ZJ[g=3]})\\),\nErrors (residuals) are centered around zero with zero correlation among them \\((\\boldsymbol{\\mu}, \\boldsymbol{Q})\\),\nIndividual residual variability is the same across individual’ groups \\((s_{XI[g]})\\),\nJudges (bias) residual variability is different for different judges’ groups, but they fulfill: \\(\\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1\\),\nStimuli remaining variability is less than individual variability \\((p_{IA})\\),\nThere is no judgment remaining variability \\((p_{JK})\\), because the judges only make one comparison."
+  },
+  {
+    "objectID": "presentation.html#bayesian-estimation-and-analysis",
+    "href": "presentation.html#bayesian-estimation-and-analysis",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.2 Bayesian estimation and analysis",
+    "text": "4.2 Bayesian estimation and analysis\nThis section is only relevant to the tutorial component of the study.\n\nThe tutorial offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software R and Stan using the Information-Theoretical model for CJ, will closely follow recommendations from:\n\n\nThe Bayesian workflow proposed by Gelman et al. [18]\nThe WAMBS checklist proposed by Depaoli et al. [19]"
+  },
+  {
+    "objectID": "presentation.html#evaluation-metrics",
+    "href": "presentation.html#evaluation-metrics",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "4.3 Evaluation metrics",
+    "text": "4.3 Evaluation metrics\nThis section is only relevant to the model validation component of the study.\n\n\n\nUsing the two analytical methods on the first dataset, the model validation will compare:\n\n\n\n\nin-sample fit\nout-of-sample fit\nThe general parameters’ recovery between the two models\nThe error parameters’ recovery between the two models\nThe traits of stimuli and individuals between the two models\nThe presence of judges biases and their estimates between the two models\n\n\n\n\nPredicting the second dataset with the two analytical methods will provide a measure of out-of-sample predictive accuracy"
+  },
+  {
+    "objectID": "presentation.html#results-1",
+    "href": "presentation.html#results-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5. Results",
+    "text": "5. Results"
+  },
+  {
+    "objectID": "presentation.html#discussion-1",
+    "href": "presentation.html#discussion-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "6. Discussion",
+    "text": "6. Discussion"
+  },
+  {
+    "objectID": "presentation.html#future-research-directions",
+    "href": "presentation.html#future-research-directions",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "6.1 Future research directions",
+    "text": "6.1 Future research directions"
+  },
+  {
+    "objectID": "presentation.html#study-limitations",
+    "href": "presentation.html#study-limitations",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "6.2 Study limitations",
+    "text": "6.2 Study limitations"
+  },
+  {
+    "objectID": "presentation.html#conclusion-1",
+    "href": "presentation.html#conclusion-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "7. Conclusion",
+    "text": "7. Conclusion"
+  }
+]
