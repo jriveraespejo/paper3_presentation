@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-09-04">
+  <meta name="dcterms.date" content="2025-09-11">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-09-04</p>
+  <p class="date">2025-09-11</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -454,32 +454,31 @@
 </section>
 <section id="research-goals-1" class="slide level2" style="font-size:80%;">
 <h2>2. Research goals</h2>
-<p>Thus, this tutorial has two overarching goals:</p>
+<p>Thus, this study has <strong>two overarching goals</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <ol type="1">
-<li><p><strong>To show how apply the Information-Theoretical model for CJ to a simulated dataset</strong>,</p>
-<p>A <strong>tutorial component</strong>, offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software <code>R</code> and <code>Stan</code>.</p></li>
+<li><p><em>To show how apply the Information-Theoretical model for CJ to a simulated dataset</em>,</p>
+<p>A <strong>tutorial component</strong>, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software <code>R</code> and <code>Stan</code>.</p></li>
 </ol>
 </div>
 <div class="fragment" style="font-size:80%;">
 <p>Once a <em>sufficiently trustworthy model</em> is found in goal 1,</p>
 <ol start="2" type="1">
-<li><p><strong>Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences</strong>,</p>
+<li><p><em>Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences</em>,</p>
 <p>A <strong>model validation component</strong> benchmarked against the classical BTL analysis.</p></li>
 </ol>
 </div>
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="a-tale-of-two-analytical-methods" class="title-slide slide level1 center">
-<h1>3. A tale of two analytical methods</h1>
+<section id="a-tale-of-two-analytical-approaches" class="title-slide slide level1 center">
+<h1>3. A tale of two analytical approaches</h1>
 
 </section>
-<section id="a-tale-of-two-analytical-methods-1" class="slide level2" style="font-size:80%;">
-<h2>3. A tale of two analytical methods</h2>
+<section id="a-tale-of-two-analytical-approaches-1" class="slide level2" style="font-size:80%;">
+<h2>3. A tale of two analytical approaches</h2>
 <p>CJ data can be analyzed under two analytical approaches:</p>
 <div>
-<div style="font-size:80%;">
 <ol type="1">
 <li class="fragment"><p><strong>The classical BTL analysis</strong> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span></p>
 <p>It applies several sequential methods to estimate (generate) the traits and conduct inferences,</p></li>
@@ -487,12 +486,11 @@
 <p>It applies one systematic, integrated approach for the same two purposes.</p></li>
 </ol>
 </div>
-</div>
 <!-- ######################################### -->
 </section>
 <section id="the-classical-btl-analysis" class="slide level2" style="font-size:80%;">
 <h2>3.1 The classical BTL analysis</h2>
-<p>This paradigm applies several sequential methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
+<p>This Approach applies several sequential methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
@@ -536,24 +534,25 @@
 </section>
 <section id="the-information-theoretical-model-for-cj" class="slide level2" style="font-size:80%;">
 <h2>3.2 The Information-Theoretical model for CJ</h2>
-<p>In contrast, this paradigm applies one systematic, integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. <span class="fragment">This approach can be expressed as a three-step procedure:</span></p>
+<p>In contrast, this approach applies one systematic, integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. In broad terms, the approach:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment">Start with the proposed general CJ structure, represented by a DAG and an SCM (see next slide),</li>
-<li class="fragment">Adapt the structure to the assumed data-generating process of the CJ system under study,</li>
-<li class="fragment">Develop a <em>bespoke</em> statistical model for the analysis of the CJ system (possible multiple models)</li>
+<li class="fragment">Begins with the general CJ structure proposed by Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> (see next slide),</li>
+<li class="fragment">Adapts this structure to the assumed data-generating process of the CJ system under study,</li>
+<li class="fragment">Develops one or more <em>bespoke</em> statistical models for analyzing the CJ system.</li>
+<li class="fragment">Use the one or more statistical models to estimate traits and conduct inferences.</li>
 </ol>
 </div>
 </div>
 <div class="fragment">
-<p>With these three steps a researcher can:</p>
+<p>With these steps a researcher can:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Estimate the traits of the stimuli and individuals (mean and standard error)</li>
+<li class="fragment">Estimate the traits of the stimuli and individuals (full distribution)</li>
 <li class="fragment">Assess the variability and conduct inferences at the stimuli and individual levels</li>
-<li class="fragment">Estimate the biases of the judges and judgments (mean and standard error)</li>
+<li class="fragment">Estimate the biases of the judges and judgments (full distribution)</li>
 <li class="fragment">Assess the variability and conduct inferences at the judgments and judges levels</li>
 <li class="fragment">Conduct <em>oulier</em> identification for stimuli, individuals, judgments, and judges (akin to <em>misfit</em> identification)</li>
 </ul>
@@ -561,7 +560,7 @@
 </div>
 </div>
 </section>
-<section id="the-information-theoretical-model-for-cj-1" class="slide level2" style="font-size:80%;">
+<section id="sec-3.2" class="slide level2" style="font-size:80%;">
 <h2>3.2 The Information-Theoretical model for CJ</h2>
 <!-- commands for d-separation -->
 <p>The general CJ structure proposed by Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> takes the following form:</p>
@@ -597,7 +596,7 @@ Figure&nbsp;1: Comparative judgment model. <em>Left panel</em> illustrates the D
 </div>
 </div>
 </section>
-<section id="the-information-theoretical-model-for-cj-2" class="slide level2" style="font-size:80%;">
+<section id="the-information-theoretical-model-for-cj-1" class="slide level2" style="font-size:80%;">
 <h2>3.2 The Information-Theoretical model for CJ</h2>
 <p>Leading to the general probabilistic and statistical model:</p>
 <div class="fragment">
@@ -676,7 +675,7 @@ Figure&nbsp;2: Comparative judgment model, SCM, probabilistic and statistical mo
     0 &amp; 0 &amp; s_{ZJ} &amp; 0 \\
     0 &amp; 0 &amp; 0 &amp; p_{JK}
   \end{bmatrix}; \quad
-  \sum_{g=1}^{2} s_{XI}[g]/2 = 1; \quad
+  \sum_{g=1}^{3} s_{XI}[g]/3 = 1; \quad
   0&lt; p_{IA} &lt; 1; \quad
   \sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \quad
   0&lt; p_{JK} &lt; 1
@@ -689,30 +688,58 @@ Figure&nbsp;2: Comparative judgment model, SCM, probabilistic and statistical mo
 <h1>4. Methods</h1>
 
 </section>
+<section id="sec-methods" class="slide level2" style="font-size:80%;">
+<h2>4. Methods</h2>
+<p>To meet the tutorial and model validation goals, this study follows the workflow below <span class="citation" data-cites="Depaoli_et_al_2017 Neal_2020 Gelman_et_al_2020 Schad_et_al_2020 Betancourt_2020 McElreath_2024b McElreath_2024c">[<a href="#/references" role="doc-biblioref" onclick="">16</a>–<a href="#/references" role="doc-biblioref" onclick="">22</a>]</span>:</p>
+
+<img data-src="./images/workflow.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;3: Bayesian (research) workflow.
+</p></section>
 <section id="methods-1" class="slide level2" style="font-size:80%;">
 <h2>4. Methods</h2>
-<p>To achieve the two overarching goals of the study, the tutorial and model validation components, this study proceeds through the following steps:</p>
+<p>Specifically, it will follow these steps:</p>
 <div>
-<div style="font-size:80%;">
+<div style="font-size:75%;">
 <ol type="1">
-<li class="fragment"><p>Simulate <strong>two replicable datasets</strong> based on a CJ structure of interest,</p>
-<p><span class="math inline">\(\longrightarrow\)</span> <em>Tutorial and model validation component</em></p></li>
-<li class="fragment"><p>Apply the Information-Theoretical Model for CJ to the <strong>first dataset</strong>,</p>
-<p><span class="math inline">\(\longrightarrow\)</span> <em>Tutorial component</em></p></li>
-<li class="fragment"><p>Apply the classical BTL analysis to the <strong>first dataset</strong>,</p>
-<p><span class="math inline">\(\longrightarrow\)</span> <em>Model validation component</em></p></li>
-<li class="fragment"><p>Compare parameter recovery, in-sample fit, and out-of-sample fit between the two models obtained in steps 2 and 3,</p>
-<p><span class="math inline">\(\longrightarrow\)</span> <em>Model validation component</em></p></li>
-<li class="fragment"><p>Use the models obtained in steps 2 and 3 to predict outcomes in the <strong>second dataset</strong> and compare their out-of-sample predictive accuracy.</p>
-<p><span class="math inline">\(\longrightarrow\)</span> <em>Model validation component</em></p></li>
+<li class="fragment"><p><strong>Theory</strong></p>
+<p>Specify the assumptions of interest based on relevant literature;</p></li>
+<li class="fragment"><p><strong>Estimand</strong></p>
+<p>Define the estimands of interest;</p></li>
+<li class="fragment"><p><strong>Theory <span class="math inline">\(\rightarrow\)</span> Design</strong></p>
+<p>Simulate a <em>synthetic conceptual population</em> grounded in the CJ structure and assumptions of interest;</p></li>
+<li class="fragment"><p><strong>Design <span class="math inline">\(\rightarrow\)</span> Sample</strong></p>
+<p>Generate <em><strong>two</strong> synthetic samples and comparison datasets</em> from the conceptual population in step <span class="math inline">\(3\)</span>;</p></li>
+<li class="fragment"><p><strong>{Theory, Design, Estimand} <span class="math inline">\(\rightarrow\)</span> Estimator</strong></p>
+<p>Specify models for analyzing the <em><strong>first</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model for CJ;</p></li>
+<li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Prior predictive</strong></p>
+<p>Perform prior predictive checks;</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="methods-2" class="slide level2" style="font-size:80%;">
+<h2>4. Methods</h2>
+<div>
+<div style="font-size:75%;">
+<ol start="7" type="1">
+<li class="fragment"><p><strong>{Estimator, Sample} <span class="math inline">\(\rightarrow\)</span> Estimates</strong></p>
+<p>Apply both the classical BTL model and the Information-Theoretical model for CJ to the <em><strong>first</strong> synthetic comparison dataset</em>;</p></li>
+<li class="fragment"><p><strong>Estimates <span class="math inline">\(\rightarrow\)</span> {Diagnostic, Post predictive}</strong></p>
+<p>Assess the quality of the models and estimates in terms of convergence, parameter recovery, in-sample fit, out-of-sample fit, and in-sample predictive accuracy;</p></li>
+<li class="fragment"><p><strong>{Diagnostic, Post predictive} <span class="math inline">\(\rightarrow\)</span> Estimator</strong></p>
+<p>Incrementally refine the model specified in step 5, repeating steps 5–9 until a <em>sufficiently trustworthy model</em> is obtained according to the criteria outlined in step 8;</p></li>
+<li class="fragment"><p><strong>Estimates <span class="math inline">\(\rightarrow\)</span> Effects <span class="math inline">\(\leftarrow\)</span> Estimand</strong></p>
+<p>Generate the <em>estimates</em> of interest for CJ the <em><strong>first</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model, and interpret the results;</p></li>
+<li class="fragment"><p><strong>Estimates <span class="math inline">\(\rightarrow\)</span> Predictions <span class="math inline">\(\leftarrow\)</span> Estimand</strong></p>
+<p>Generate predictions for the <em><strong>second</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model for CJ, and compare their out-of-sample predictive accuracy.</p></li>
 </ol>
 </div>
 </div>
 <!-- ######################################### -->
 </section>
-<section id="dataset-simulation" class="slide level2" style="font-size:80%;">
-<h2>4.1 Dataset simulation</h2>
-<p>The dataset simulation is inspired by the analysis of Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span>, because of the data characteristics and the study results.</p>
+<section id="from-theory-to-design" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design</h2>
+<p>The conceptual population simulation is based on the analysis of Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span>, due to the data characteristics and study findings.</p>
 <div class="fragment" style="font-size:80%;">
 <p>Regarding the data characteristics:</p>
 <div>
@@ -734,31 +761,18 @@ Figure&nbsp;2: Comparative judgment model, SCM, probabilistic and statistical mo
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Individuals with different hearing statuses differ in their (latent) mean levels.</li>
+<li class="fragment">Individuals with different hearing statuses differ in their (latent) mean levels and <strong>error variances</strong>.</li>
 <li class="fragment">There is more unexplained variability between rather than within individuals (stimuli level)</li>
-<li class="fragment">No evidence of judges biases</li>
-<li class="fragment">Judges with different levels of experience did not differ in their (latent) mean levels.</li>
+<li class="fragment">No evidence of judges biases?</li>
+<li class="fragment">Judges with different levels of experience did not differ in their (latent) mean levels or <strong>error variances</strong>.</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="dataset-simulation-1" class="slide level2" style="font-size:80%;">
-<h2>4.1 Dataset simulation</h2>
-<p>Differing only in the replication seed, the study simulates <strong>two datasets</strong> using the following steps:</p>
-<div>
-<div style="font-size:80%;">
-<ol type="1">
-<li class="fragment">Simulate a <em>conceptual population</em> from a data-generating process of interest (see next slide)</li>
-<li class="fragment">Simulate <em>two random samples</em> of stimuli, individual and judges (differing by replication seed)</li>
-<li class="fragment">Simulate <em>two sets of random pair comparisons</em> (differing by replication seed)</li>
-</ol>
-</div>
-</div>
-</section>
-<section id="dataset-simulation-2" class="slide level2" style="font-size:80%;">
-<h2>4.1 Dataset simulation</h2>
-<p><span style="font-size:80%;">Assumed data-generating process:</span></p>
+<section id="from-theory-to-design-1" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design</h2>
+<p>Thus, the assumed data-generating process for the conceptual population is the following:</p>
 <div class="fragment">
 <div id="fig-sim" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -803,7 +817,7 @@ Figure&nbsp;2: Comparative judgment model, SCM, probabilistic and statistical mo
     0 &amp; 0 &amp; 0 &amp; p_{JK}
   \end{bmatrix} \\
   \text{and} &amp; \\
-  &amp; s_{XI[g]} = 1 \; \forall g=\{1,2,3\} \\
+  &amp; s_{XI[g]} = \{ s_{XI[g=1]}, s_{XI[g=2]}, s_{XI[g=3]} \} = \{ 1.5, 0.75, 0.75\} \\
   &amp; s_{ZJ} = \{ s_{ZJ[g=1]}, s_{ZJ[g=2]}, s_{ZJ[g=3]} \} = \{ 0.5, 1, 1.5\} \\
   &amp; p_{IA} = 0.2; \quad p_{JK} = 0
 \end{split}
@@ -812,27 +826,27 @@ Figure&nbsp;2: Comparative judgment model, SCM, probabilistic and statistical mo
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Data-generating process for simulated CJ data, generative statistical model and parameter assumptions
+Figure&nbsp;4: Data-generating process for simulated CJ data, generative statistical model and parameter assumptions
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="dataset-simulation-3" class="slide level2" style="font-size:80%;">
-<h2>4.1 Dataset simulation</h2>
-<p><span style="font-size:80%;">In layman terms:</span></p>
+<section id="from-theory-to-design-2" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design</h2>
+<p>In layman terms:</p>
 <div>
-<div style="font-size:70%;">
+<div style="font-size:68%;">
 <ul>
 <li class="fragment">No difference between stimuli characteristics <span class="math inline">\((\beta_{XA})\)</span>,</li>
 <li class="fragment">Individual characteristics <span class="math inline">\((XI)\)</span> consider one continuous variable and three groups,</li>
-<li class="fragment">There is a “small” but increasing effect from the continuous variable <span class="math inline">\((\beta_{XIc})\)</span> <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">16</a>, <a href="#/references" role="doc-biblioref" onclick="">17</a>]</span></li>
-<li class="fragment">There are “very large” differences in the (latent) mean of the individual’ groups <span class="math inline">\((\beta_{XI[g=1]}, \beta_{XI[g=2]}, \beta_{XI[g=3]})\)</span> <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">16</a>, <a href="#/references" role="doc-biblioref" onclick="">17</a>]</span>,</li>
+<li class="fragment">There is a “small” but increasing effect from the continuous variable <span class="math inline">\((\beta_{XIc})\)</span> <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">23</a>, <a href="#/references" role="doc-biblioref" onclick="">24</a>]</span></li>
+<li class="fragment">There are “very large” differences in the (latent) mean of the individual’ groups <span class="math inline">\((\beta_{XI[g=1]}, \beta_{XI[g=2]}, \beta_{XI[g=3]})\)</span> <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">23</a>, <a href="#/references" role="doc-biblioref" onclick="">24</a>]</span>,</li>
 <li class="fragment">No difference between judgment characteristics <span class="math inline">\((\beta_{ZK})\)</span>, because judges only make one comparison,</li>
 <li class="fragment">Judges characteristics <span class="math inline">\((ZJ)\)</span> consider three groups,</li>
-<li class="fragment">The are judges biases, but no differences between the mean bias of the judges’ groups <span class="math inline">\((\beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]})\)</span>,</li>
+<li class="fragment">There are judges biases, but no differences between the mean bias of the judges’ groups <span class="math inline">\((\beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]})\)</span>,</li>
 <li class="fragment">Errors (residuals) are centered around zero with zero correlation among them <span class="math inline">\((\boldsymbol{\mu}, \boldsymbol{Q})\)</span>,</li>
-<li class="fragment">Individual residual variability is the same across individual’ groups <span class="math inline">\((s_{XI[g]})\)</span>,</li>
+<li class="fragment">Individual’s residual variability is different for different individual’s groups, but they fulfill: <span class="math inline">\(\sum_{g=1}^{3} s_{XI[g]}/3 = 1\)</span>,</li>
 <li class="fragment">Judges (bias) residual variability is different for different judges’ groups, but they fulfill: <span class="math inline">\(\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1\)</span>,</li>
 <li class="fragment">Stimuli remaining variability is less than individual variability <span class="math inline">\((p_{IA})\)</span>,</li>
 <li class="fragment">There is no judgment remaining variability <span class="math inline">\((p_{JK})\)</span>, because the judges only make one comparison.</li>
@@ -841,54 +855,49 @@ Figure&nbsp;3: Data-generating process for simulated CJ data, generative statist
 </div>
 <!-- ######################################### -->
 </section>
-<section id="bayesian-estimation-and-analysis" class="slide level2" style="font-size:80%;">
-<h2>4.2 Bayesian estimation and analysis</h2>
-<p>This section is <strong>only relevant to the tutorial component</strong> of the study.</p>
+<section id="from-design-to-sample" class="slide level2" style="font-size:80%;">
+<h2>4.2 From Design to Sample</h2>
+<p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic samples and comparison datasets</em> from the conceptual population.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The tutorial offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software <code>R</code> and <code>Stan</code> using the Information-Theoretical model for CJ, will closely follow recommendations from:</p>
+<p>For the sampling and comparison mechanisms illustrated in <a href="#/sec-3.2" class="quarto-xref">Figure&nbsp;1</a> (<span class="math inline">\(S\)</span> and <span class="math inline">\(C\)</span>, respectively) the study conducts sample size calculations (see next slides) and adopts the following design:</p>
 <div>
-<ol type="1">
-<li class="fragment">The <em>Bayesian workflow</em> proposed by Gelman et al. <span class="citation" data-cites="Gelman_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">18</a>]</span></li>
-<li class="fragment">The <em>WAMBS checklist</em> proposed by Depaoli et al. <span class="citation" data-cites="Depaoli_et_al_2017">[<a href="#/references" role="doc-biblioref" onclick="">19</a>]</span></li>
-</ol>
-</div>
-</div>
-<!-- ######################################### -->
-</section>
-<section id="evaluation-metrics" class="slide level2" style="font-size:80%;">
-<h2>4.3 Evaluation metrics</h2>
-<p>This section is <strong>only relevant to the model validation component</strong> of the study.</p>
-<div>
-<div style="font-size:80%;">
-<ol type="1">
-<li class="fragment">Using the two analytical methods on the first dataset, the model validation will compare:</li>
-</ol>
-<div>
-<div style="font-size:80%;">
 <ul>
-<li class="fragment">in-sample fit</li>
-<li class="fragment">out-of-sample fit</li>
-<li class="fragment">The general parameters’ recovery between the two models</li>
-<li class="fragment">The error parameters’ recovery between the two models</li>
-<li class="fragment">The traits of stimuli and individuals between the two models</li>
-<li class="fragment">The presence of judges biases and their estimates between the two models</li>
+<li class="fragment">A sample of <span class="math inline">\(59\)</span> individuals, divided into three groups: <span class="math inline">\(45\)</span> normal-hearing (NH), <span class="math inline">\(7\)</span> hearing-impaired with hearing aids (HI-HA), and <span class="math inline">\(7\)</span> hearing-impaired with cochlear implants (HI-CI);</li>
+<li class="fragment">A sample of <span class="math inline">\(10\)</span> stimuli per individual;</li>
+<li class="fragment">A sample of <span class="math inline">\(90\)</span> judges, divided into three groups: <span class="math inline">\(10\)</span> audiologist (AU), <span class="math inline">\(10\)</span> primary teachers (PT), and <span class="math inline">\(25\)</span> inexperienced listeners (IL);</li>
+<li class="fragment">Judges conduct only one-comparison of the same stimulus pair (i.e., not repeated measures design <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>)</li>
+<li class="fragment">Stimuli is compared a total of <span class="math inline">\(20\)</span> times across all judges.</li>
 </ul>
 </div>
 </div>
-<ol start="2" type="1">
-<li class="fragment">Predicting the second dataset with the two analytical methods will provide a measure of out-of-sample predictive accuracy</li>
-</ol>
-</div>
-</div>
+</section>
+<section id="from-design-to-sample-1" class="slide level2" style="font-size:80%;">
+<h2>4.2 From Design to Sample</h2>
+
+<img data-src="./images/sim_individual_sample_size.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;5: Individual’s sample size calculation.
+</p></section>
+<section id="from-design-to-sample-2" class="slide level2" style="font-size:80%;">
+<h2>4.2 From Design to Sample</h2>
+
 <!-- ######################################### -->
-</section></section>
+<img data-src="./images/sim_judges_sample_size.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;6: Judges’s sample size calculation.
+</p></section></section>
 <section>
 <section id="results" class="title-slide slide level1 center">
 <h1>5. Results</h1>
 
 </section>
-<section id="results-1" class="slide level2" style="font-size:80%;">
-<h2>5. Results</h2>
+<section id="from-theory-to-estimator" class="slide level2" style="font-size:80%;">
+<h2>5.1 From Theory to Estimator</h2>
+</section>
+<section id="the-classical-btl-analysis-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.1 The classical BTL analysis</h2>
+</section>
+<section id="the-information-theoretical-model-for-cj-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2 The Information-Theoretical model for CJ</h2>
+<!-- ######################################### -->
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -968,17 +977,35 @@ Figure&nbsp;3: Data-generating process for simulated CJ data, generative statist
 <div id="ref-Depaoli_2021" class="csl-entry" role="listitem">
 <div class="csl-left-margin">15. </div><div class="csl-right-inline">Depaoli S (2021) <a href="">Bayesian structural equation modeling</a>. The Guilford Press</div>
 </div>
-<div id="ref-Cohen_1988" class="csl-entry" role="listitem">
-<div class="csl-left-margin">16. </div><div class="csl-right-inline">Cohen J (1988) <a href="">Statistical power analysis for the behavioral sciences</a>. Routledge</div>
+<div id="ref-Depaoli_et_al_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Depaoli S, van de Schoot R (2017) Improving transparency and replication in bayesian statistics: The WAMBS-checklist. Psychological Methods 22(2):240–261. <a href="https://doi.org/10.1037/met0000065">https://doi.org/10.1037/met0000065</a></div>
 </div>
-<div id="ref-Sawilowsky_2009" class="csl-entry" role="listitem">
-<div class="csl-left-margin">17. </div><div class="csl-right-inline">Sawilowsky S (2009) New effect size rules of thumb. Journal of Modern Applied Statistical Methods 8(2). <a href="https://doi.org/10.22237/jmasm/1257035100">https://doi.org/10.22237/jmasm/1257035100</a></div>
+<div id="ref-Neal_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Neal B (2020) <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">Introduction to causal inference from a machine learning perspective</a></div>
 </div>
 <div id="ref-Gelman_et_al_2020" class="csl-entry" role="listitem">
 <div class="csl-left-margin">18. </div><div class="csl-right-inline">Gelman A, Vehtari A, Simpson D, et al (2020) <a href="https://arxiv.org/abs/2011.01808">Bayesian workflow</a></div>
 </div>
-<div id="ref-Depaoli_et_al_2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline">Depaoli S, van de Schoot R (2017) Improving transparency and replication in bayesian statistics: The WAMBS-checklist. Psychological Methods 22(2):240–261. <a href="https://doi.org/10.1037/met0000065">https://doi.org/10.1037/met0000065</a></div>
+<div id="ref-Schad_et_al_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Schad DJ, Betancourt M, Vasishth S (2020) <a href="https://arxiv.org/abs/1904.12765">Toward a principled bayesian workflow in cognitive science</a></div>
+</div>
+<div id="ref-Betancourt_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Betancourt M (2020) <a href="https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html">Toward a principled Bayesian workflow</a></div>
+</div>
+<div id="ref-McElreath_2024b" class="csl-entry" role="listitem">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">McElreath R (2024) The Third Edition, the Dotted Half Note of Editions. <a href="https://elevanth.org/2024_01_02_third_edition.html">https://elevanth.org/2024_01_02_third_edition.html</a></div>
+</div>
+<div id="ref-McElreath_2024c" class="csl-entry" role="listitem">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">McElreath R (2024) Understanding Bayesian Statistics Without Frequentist Language. <a href="http://talmo.uk/2024/slides/mcelreath.pdf">http://talmo.uk/2024/slides/mcelreath.pdf</a></div>
+</div>
+<div id="ref-Cohen_1988" class="csl-entry" role="listitem">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">Cohen J (1988) <a href="">Statistical power analysis for the behavioral sciences</a>. Routledge</div>
+</div>
+<div id="ref-Sawilowsky_2009" class="csl-entry" role="listitem">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">Sawilowsky S (2009) New effect size rules of thumb. Journal of Modern Applied Statistical Methods 8(2). <a href="https://doi.org/10.22237/jmasm/1257035100">https://doi.org/10.22237/jmasm/1257035100</a></div>
+</div>
+<div id="ref-Lawson_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">Lawson J (2015) <a href="">Design and analysis of experiments with r</a>. Chapman; Hall/CRC</div>
 </div>
 </div>
 

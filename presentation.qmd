@@ -106,34 +106,33 @@ To address these concerns, Rivera et al. [@Rivera_et_al_2025] proposed *The Info
 
 ## 2. Research goals {style="font-size:80%;"}
 
-Thus, this tutorial has two overarching goals:
+Thus, this study has **two overarching goals**:
 
 ::: {.fragment style="font-size:80%;"}
-1. **To show how apply the Information-Theoretical model for CJ to a simulated dataset**,
+1. *To show how apply the Information-Theoretical model for CJ to a simulated dataset*,
 
-    A **tutorial component**, offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software `R` and `Stan`.
+    A **tutorial component**, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software `R` and `Stan`.
 :::
 
 ::: {.fragment style="font-size:80%;"}
 Once a *sufficiently trustworthy model* is found in goal 1,
 
-2. **Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences**,
+2. *Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences*,
 
     A **model validation component** benchmarked against the classical BTL analysis.
 :::
 
 <!-- ######################################### -->
 
-# 3. A tale of two analytical methods
+# 3. A tale of two analytical approaches
 
 ---
 
-## 3. A tale of two analytical methods {style="font-size:80%;"}
+## 3. A tale of two analytical approaches {style="font-size:80%;"}
 
 CJ data can be analyzed under two analytical approaches:
 
 ::: incremental 
-::: {style="font-size:80%;"}
 1. **The classical BTL analysis** [@Pollitt_2012a; @Pollitt_2012b]
     
     It applies several sequential methods to estimate (generate) the traits and conduct inferences,
@@ -142,7 +141,6 @@ CJ data can be analyzed under two analytical approaches:
 
     It applies one systematic, integrated approach for the same two purposes.
 :::
-:::
 
 <!-- ######################################### -->
 
@@ -150,7 +148,7 @@ CJ data can be analyzed under two analytical approaches:
 
 ## 3.1 The classical BTL analysis {style="font-size:80%;"}
 
-This paradigm applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
+This Approach applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -192,25 +190,25 @@ This paradigm applies several sequential methods, each with different purposes [
 
 ## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
 
-In contrast, this paradigm applies one systematic, integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. [This approach can be expressed as a three-step procedure:]{.fragment}
+In contrast, this approach applies one systematic, integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. In broad terms, the approach:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. Start with the proposed general CJ structure, represented by a DAG and an SCM (see next slide),
-2. Adapt the structure to the assumed data-generating process of the CJ system under study,
-3. Develop a *bespoke* statistical model for the analysis of the CJ system (possible multiple models)
+1. Begins with the general CJ structure proposed by Rivera et al. [@Rivera_et_al_2025] (see next slide),
+2. Adapts this structure to the assumed data-generating process of the CJ system under study,
+3. Develops one or more *bespoke* statistical models for analyzing the CJ system.
+4. Use the one or more statistical models to estimate traits and conduct inferences.
 :::
 :::
 
 ::: {.fragment}
-
-With these three steps a researcher can:
+With these steps a researcher can:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Estimate the traits of the stimuli and individuals (mean and standard error)
+- Estimate the traits of the stimuli and individuals (full distribution)
 - Assess the variability and conduct inferences at the stimuli and individual levels
-- Estimate the biases of the judges and judgments (mean and standard error)
+- Estimate the biases of the judges and judgments (full distribution)
 - Assess the variability and conduct inferences at the judgments and judges levels
 - Conduct *oulier* identification for stimuli, individuals, judgments, and judges (akin to *misfit* identification)
 :::
@@ -220,7 +218,7 @@ With these three steps a researcher can:
 
 --- 
 
-## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;" #sec-3.2}
 
 <!-- commands for d-separation -->
 \newcommand{\dsep}{\:\bot\:}
@@ -331,7 +329,7 @@ $$
     0 & 0 & s_{ZJ} & 0 \\
     0 & 0 & 0 & p_{JK} 
   \end{bmatrix}; \quad 
-  \sum_{g=1}^{2} s_{XI}[g]/2 = 1; \quad
+  \sum_{g=1}^{3} s_{XI}[g]/3 = 1; \quad
   0< p_{IA} < 1; \quad 
   \sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \quad
   0< p_{JK} < 1
@@ -344,31 +342,75 @@ $$
 
 ---
 
+## 4. Methods {#sec-methods style="font-size:80%;"}
+
+To meet the tutorial and model validation goals, this study follows the workflow below [@Depaoli_et_al_2017; @Neal_2020; @Gelman_et_al_2020; @Schad_et_al_2020; @Betancourt_2020; @McElreath_2024b; @McElreath_2024c]:
+
+::: {#fig-workflow}
+![](/images/workflow.png){width=100%}
+
+Bayesian (research) workflow.
+:::
+
+---
+
 ## 4. Methods {style="font-size:80%;"}
 
-To achieve the two overarching goals of the study, the tutorial and model validation components, this study proceeds through the following steps:
+Specifically, it will follow these steps:
 
 ::: incremental 
-::: {style="font-size:80%;"}
-1. Simulate **two replicable datasets** based on a CJ structure of interest,
+::: {style="font-size:75%;"}
+1. **Theory** 
 
-     $\longrightarrow$ *Tutorial and model validation component* 
+    Specify the assumptions of interest based on relevant literature;
 
-2.  Apply the Information-Theoretical Model for CJ to the **first dataset**,
+2. **Estimand** 
 
-    $\longrightarrow$ *Tutorial component*
+    Define the estimands of interest;
 
-3.  Apply the classical BTL analysis to the **first dataset**,
+3. **Theory $\rightarrow$ Design** 
 
-    $\longrightarrow$ *Model validation component*
+    Simulate a *synthetic conceptual population* grounded in the CJ structure and assumptions of interest;
 
-4.  Compare parameter recovery, in-sample fit, and out-of-sample fit between the two models obtained in steps 2 and 3,
+4. **Design $\rightarrow$ Sample** 
+    
+    Generate _**two** synthetic samples and comparison datasets_ from the conceptual population in step $3$;
 
-    $\longrightarrow$ *Model validation component*
+5. **{Theory, Design, Estimand} $\rightarrow$ Estimator** 
 
-5.  Use the models obtained in steps 2 and 3 to predict outcomes in the **second dataset** and compare their out-of-sample predictive accuracy.
+    Specify models for analyzing the _**first** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model for CJ;
+    
+6. **Estimator $\rightarrow$ Prior predictive** 
 
-    $\longrightarrow$ *Model validation component*
+    Perform prior predictive checks;
+:::
+:::
+
+---
+
+## 4. Methods {style="font-size:80%;"}
+
+::: incremental 
+::: {style="font-size:75%;"}
+7. **{Estimator, Sample} $\rightarrow$ Estimates** 
+
+    Apply both the classical BTL model and the Information-Theoretical model for CJ to the _**first** synthetic comparison dataset_;
+
+8. **Estimates $\rightarrow$ {Diagnostic, Post predictive}** 
+
+    Assess the quality of the models and estimates in terms of convergence, parameter recovery, in-sample fit, out-of-sample fit, and in-sample predictive accuracy;
+    
+9. **{Diagnostic, Post predictive} $\rightarrow$ Estimator** 
+
+    Incrementally refine the model specified in step 5, repeating steps 5–9 until a *sufficiently trustworthy model* is obtained according to the criteria outlined in step 8;
+
+10. **Estimates $\rightarrow$ Effects $\leftarrow$ Estimand**
+
+    Generate the *estimates* of interest for CJ the _**first** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model, and interpret the results;
+    
+11. **Estimates $\rightarrow$ Predictions $\leftarrow$ Estimand**
+
+    Generate predictions for the _**second** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model for CJ, and compare their out-of-sample predictive accuracy.
 :::
 :::
 
@@ -377,9 +419,9 @@ To achieve the two overarching goals of the study, the tutorial and model valida
 
 ---
 
-## 4.1 Dataset simulation {style="font-size:80%;"}
+## 4.1 From Theory to Design {style="font-size:80%;"}
 
-The dataset simulation is inspired by the analysis of Boonen et al. [@Boonen_et_al_2020], because of the data characteristics and the study results. 
+The conceptual population simulation is based on the analysis of Boonen et al. [@Boonen_et_al_2020], due to the data characteristics and study findings. 
 
 ::: {.fragment style="font-size:80%;"}
 Regarding the data characteristics:
@@ -403,10 +445,10 @@ Regarding the study results:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Individuals with different hearing statuses differ in their (latent) mean levels.
+- Individuals with different hearing statuses differ in their (latent) mean levels and **error variances**.
 - There is more unexplained variability between rather than within individuals (stimuli level)
-- No evidence of judges biases
-- Judges with different levels of experience did not differ in their (latent) mean levels.
+- No evidence of judges biases?
+- Judges with different levels of experience did not differ in their (latent) mean levels or **error variances**.
 :::
 :::
 
@@ -414,23 +456,9 @@ Regarding the study results:
 
 ---
 
-## 4.1 Dataset simulation {style="font-size:80%;"}
+## 4.1 From Theory to Design {style="font-size:80%;"}
 
-Differing only in the replication seed, the study simulates **two datasets** using the following steps:
-
-::: incremental 
-::: {style="font-size:80%;"}
-1. Simulate a *conceptual population* from a data-generating process of interest (see next slide) 
-2. Simulate *two random samples* of stimuli, individual and judges (differing by replication seed)
-3. Simulate *two sets of random pair comparisons* (differing by replication seed)
-:::
-:::
-
----
-
-## 4.1 Dataset simulation {style="font-size:80%;"}
-
-[Assumed data-generating process:]{style="font-size:80%;"}
+Thus, the assumed data-generating process for the conceptual population is the following:
 
 ::: {.fragment}
 
@@ -473,7 +501,7 @@ $$
     0 & 0 & 0 & p_{JK} 
   \end{bmatrix} \\ 
   \text{and} & \\
-  & s_{XI[g]} = 1 \; \forall g=\{1,2,3\} \\
+  & s_{XI[g]} = \{ s_{XI[g=1]}, s_{XI[g=2]}, s_{XI[g=3]} \} = \{ 1.5, 0.75, 0.75\} \\
   & s_{ZJ} = \{ s_{ZJ[g=1]}, s_{ZJ[g=2]}, s_{ZJ[g=3]} \} = \{ 0.5, 1, 1.5\} \\
   & p_{IA} = 0.2; \quad p_{JK} = 0
 \end{split}
@@ -486,21 +514,21 @@ Data-generating process for simulated CJ data, generative statistical model and 
 
 ---
 
-## 4.1 Dataset simulation {style="font-size:80%;"}
+## 4.1 From Theory to Design {style="font-size:80%;"}
 
-[In layman terms:]{style="font-size:80%;"}
+In layman terms:
 
 ::: incremental 
-::: {style="font-size:70%;"}
+::: {style="font-size:68%;"}
 - No difference between stimuli characteristics $(\beta_{XA})$,
 - Individual characteristics $(XI)$ consider one continuous variable and three groups,
 - There is a "small" but increasing effect from the continuous variable $(\beta_{XIc})$ [@Cohen_1988; @Sawilowsky_2009]
 - There are "very large" differences in the (latent) mean of the individual' groups $(\beta_{XI[g=1]}, \beta_{XI[g=2]}, \beta_{XI[g=3]})$ [@Cohen_1988; @Sawilowsky_2009],
 - No difference between judgment characteristics $(\beta_{ZK})$, because judges only make one comparison,
 - Judges characteristics $(ZJ)$ consider three groups,
-- The are judges biases, but no differences between the mean bias of the judges' groups $(\beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]})$,
+- There are judges biases, but no differences between the mean bias of the judges' groups $(\beta_{ZJ[g=1]}, \beta_{ZJ[g=2]}, \beta_{ZJ[g=3]})$,
 - Errors (residuals) are centered around zero with zero correlation among them $(\boldsymbol{\mu}, \boldsymbol{Q})$,
-- Individual residual variability is the same across individual' groups $(s_{XI[g]})$,
+- Individual's residual variability is different for different individual's groups, but they fulfill: $\sum_{g=1}^{3} s_{XI[g]}/3 = 1$,
 - Judges (bias) residual variability is different for different judges' groups, but they fulfill: $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$,
 - Stimuli remaining variability is less than individual variability $(p_{IA})$,
 - There is no judgment remaining variability $(p_{JK})$, because the judges only make one comparison.
@@ -511,48 +539,42 @@ Data-generating process for simulated CJ data, generative statistical model and 
 
 ---
 
-## 4.2 Bayesian estimation and analysis {style="font-size:80%;"}
+## 4.2 From Design to Sample {style="font-size:80%;"}
 
-This section is **only relevant to the tutorial component** of the study. 
+Differing only by replication seed, the study generates _**two** synthetic samples and comparison datasets_ from the conceptual population. 
 
 ::: {.fragment style="font-size:80%;"}
-The tutorial offering detailed guidance on data simulation, model and prior specification, estimation, and interpretation using the software `R` and `Stan` using the Information-Theoretical model for CJ, will closely follow recommendations from:
+For the sampling and comparison mechanisms illustrated in @fig-cj15 ($S$ and $C$, respectively) the study conducts sample size calculations (see next slides) and adopts the following design:
 
 ::: incremental 
-1. The *Bayesian workflow* proposed by Gelman et al. [@Gelman_et_al_2020] 
-2. The *WAMBS checklist* proposed by Depaoli et al. [@Depaoli_et_al_2017]
+- A sample of $59$ individuals, divided into three groups: $45$ normal-hearing (NH), $7$ hearing-impaired with hearing aids (HI-HA), and $7$ hearing-impaired with cochlear implants (HI-CI);
+- A sample of $10$ stimuli per individual;
+- A sample of $90$ judges, divided into three groups: $10$ audiologist (AU), $10$ primary teachers (PT), and $25$ inexperienced listeners (IL);
+- Judges conduct only one-comparison of the same stimulus pair (i.e., not repeated measures design [@Lawson_2015])
+- Stimuli is compared a total of $20$ times across all judges.
 :::
 
 :::
-
-<!-- ######################################### -->
 
 ---
 
-## 4.3 Evaluation metrics {style="font-size:80%;"}
+## 4.2 From Design to Sample {style="font-size:80%;"}
 
-This section is **only relevant to the model validation component** of the study. 
+::: {#fig-individual_ss}
+![](/images/sim_individual_sample_size.png){width=100%}
 
-::: incremental 
-::: {style="font-size:80%;"}
-1. Using the two analytical methods on the first dataset, the model validation will compare:
-
-::: incremental 
-::: {style="font-size:80%;"}
-- in-sample fit
-- out-of-sample fit
-- The general parameters' recovery between the two models
-- The error parameters' recovery between the two models
-- The traits of stimuli and individuals between the two models
-- The presence of judges biases and their estimates between the two models
-:::
+Individual's sample size calculation.
 :::
 
-2. Predicting the second dataset with the two analytical methods will provide a measure of out-of-sample predictive accuracy
+---
 
-:::
-:::
+## 4.2 From Design to Sample {style="font-size:80%;"}
 
+::: {#fig-judges_ss}
+![](/images/sim_judges_sample_size.png){width=100%}
+
+Judges's sample size calculation.
+:::
 
 <!-- ######################################### -->
 
@@ -560,8 +582,19 @@ This section is **only relevant to the model validation component** of the study
 
 ---
 
-## 5. Results {style="font-size:80%;"}
+## 5.1 From Theory to Estimator {style="font-size:80%;"}
 
+---
+
+## 5.1.1 The classical BTL analysis {style="font-size:80%;"}
+
+
+---
+
+## 5.1.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+
+
+<!-- ######################################### -->
 
 
 <!-- ######################################### -->
