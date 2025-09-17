@@ -148,7 +148,7 @@ CJ data can be analyzed under two analytical approaches:
 
 ---
 
-## 3.1 The classical BTL analysis {style="font-size:80%;"}
+## 3.1 The classical BTL analysis {#sec-BTL style="font-size:80%;"}
 
 This approach applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
 
@@ -169,7 +169,7 @@ This approach applies several sequential methods, each with different purposes [
 ::: {style="font-size:80%;"}
 - To aggregate the trait of the stimuli at the individual level
 - To assess the variability and conduct inferences at the stimuli and individual levels
-- To calculate correlation with other methods (a way of "concurrent validity")
+- To calculate correlation with other methods (a way of "concurrent validity") or conduct inferences.
 :::
 :::
 
@@ -179,7 +179,7 @@ This approach applies several sequential methods, each with different purposes [
 ::: {style="font-size:80%;"}
 - To aggregate the remaining variability at the judges level (investigate bias)
 - To assess the remaining variability and conduct inferences about judges biases
-- To conduct *misfit* identification for stimuli, individuals, and judges
+- To conduct inferences, including *misfit* identification, for stimuli, individuals, and judges
 :::
 :::
 
@@ -229,11 +229,11 @@ With these steps a researcher can:
 
 The general CJ structure proposed by Rivera et al. [@Rivera_et_al_2025] takes the following form:
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
 
-::: {#fig-cj15 layout-ncol=2}
+::: {#fig-cj15 layout-ncol=2 }
 
-![](/images/CJ_TM_15.png){width=100%}
+![](/images/CJ_TM_15.png){width=80%}
 
 $$
 \begin{aligned}
@@ -260,9 +260,9 @@ Comparative judgment model. *Left panel* illustrates the DAG. *Right panel * dep
 
 Leading to the general probabilistic and statistical model:
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
 
-::: {#fig-cj16 layout-ncol=3}
+::: {#fig-cj16a layout-ncol=3}
 
 $$
 \begin{aligned}
@@ -304,19 +304,19 @@ $$
 \end{aligned}
 $$
 
-Comparative judgment model, SCM, probabilistic and statistical model assuming different discriminal dispersions for the student's traits
+Comparative judgment model, assuming different discriminal dispersions for traits. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model. 
 :::
 
 :::
 
 
 ::: {.fragment}
-::: {style="font-size:80%;"}
-With the following constraints to solve indeterminacies in *location*, *orientation*, and *scale* of $T_{I}$, $T_{IA}$, $B_{J}$, and $B_{JK}$ [@Depaoli_2021]: 
-:::
+Imposing the following constraints to solve indeterminacies in *location*, *orientation*, and *scale* of $T_{I}$, $T_{IA}$, $B_{J}$, and $B_{JK}$ [@Depaoli_2021]: 
 :::
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
+
+::: {#fig-cj16b}
 $$
 \boldsymbol{\mu} = [0, 0, 0, 0]^{T}; \quad 
 \boldsymbol{Q} = \begin{bmatrix}
@@ -336,6 +336,9 @@ $$
   \sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \quad
   0< p_{JK} < 1
 $$ 
+
+Constraints of the CJ model to solve indeterminacies in *location*, *orientation*, and *scale* of $T_{I}$, $T_{IA}$, $B_{J}$, and $B_{JK}$.
+:::
 :::
 
 <!-- ######################################### -->
@@ -349,7 +352,7 @@ $$
 To meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow [@Depaoli_et_al_2017; @Neal_2020; @Gelman_et_al_2020; @Schad_et_al_2020; @Betancourt_2020; @McElreath_2024b; @McElreath_2024c]:
 
 ::: {#fig-workflow}
-![](/images/workflow.png){width=100%}
+![](/images/workflow.png){width=80%}
 
 Bayesian (research) workflow.
 :::
@@ -364,11 +367,17 @@ Specifically, the study follows these steps (overarching goals in parenthesis):
 ::: {style="font-size:75%;"}
 1. **Theory $\rightarrow$ Estimand(s) $\rightarrow$ Design** (*Tutorial and Model validation*)
 
-    Considering three steps: (1) define the CJ structure and explicitly state its assumptions from relevant literature, (2) specify the estimand(s) of interest and provide formal definitions for each target parameter, and (3) simulate a synthetic conceptual population that reflects the defined structure and assumptions;
+    Considering three steps: 
+
+::: incremental 
+a. Define the CJ structure and explicitly state its assumptions from relevant literature; 
+b. Specify the estimand(s) of interest and provide formal definitions for each target parameter;
+c. Simulate a _synthetic conceptual population_ that reflects the defined structure and assumptions;
+:::
 
 2. **Design $\rightarrow$ Sample** (*Tutorial and Model validation*)
     
-    Generate _**two** synthetic samples and comparison datasets_ from the conceptual population in step $3$;
+    Generate _**two** synthetic samples and comparison datasets_ from the conceptual population in step $1$;
 
 3. **{Theory, Design, Estimand(s)} $\rightarrow$ Estimator** (*Tutorial and Model validation*)
 
@@ -392,11 +401,11 @@ Specifically, the study follows these steps (overarching goals in parenthesis):
 
 6. **Estimate(s) $\rightarrow$ {Diagnostic, Post predictive}** (*Tutorial*)
 
-    Assess the quality of the models and estimate(s) in terms of convergence, parameter recovery, in-sample fit, out-of-sample fit, and in-sample predictive accuracy;
+    Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample fit, approximate out-of-sample fit, and in-sample predictive accuracy;
     
 7. **{Diagnostic, Post predictive} $\rightarrow$ Estimator** (*Tutorial*)
 
-    Incrementally refine the model specified in step 5, repeating steps 5–9 until a *sufficiently trustworthy model* is obtained according to the criteria outlined in step 8;
+    Incrementally refine the statistical model repeating steps 3–6 until a *sufficiently trustworthy model* is obtained according to the criteria outlined in step 6;
 
 8. **Estimator $\rightarrow$ Estimate(s) $\rightarrow$ Effects $\leftarrow$ Estimand(s)** (*Model validation*)
 
@@ -413,36 +422,35 @@ Specifically, the study follows these steps (overarching goals in parenthesis):
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-The conceptual population simulation is based on the analysis of Boonen et al. [@Boonen_et_al_2020], due to the data characteristics and study findings. 
+The conceptual population simulation is based on the data characteristics and findings reported by Boonen et al. [@Boonen_et_al_2020]:
 
 ::: {.fragment style="font-size:80%;"}
-Regarding the data characteristics:
+Regarding the data characteristics, the study:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- It includes multiple stimuli nested within individuals,
-- It includes multiple individuals,
-- Individuals differ in characteristics, such as age or hearing status,
-- Each judge makes only one comparison per stimulus pair, and comparisons are conducted by multiple judges,
-- Judges differ in characteristics, such as experience level,
-- Stimuli, individuals, and judges are selected using a (pseudo) random sampling algorithm,
-- Comparisons are assigned using a random comparison algorithm.
+- Includes multiple stimuli nested within multiple individuals,
+- Considers individuals with different characteristics (e.g., age, hearing status),
+- Assigns each judge to make only one comparison per stimulus pair,
+- Involves judges who differ in characteristics (e.g., experience level),
+- Selects stimuli, individuals, and judges using a (pseudo-)random sampling algorithm,
+- Involves multiple judges performing multiple comparisons, assigned through a random comparison algorithm.
 :::
 :::
 
 :::
 
 ::: {.fragment style="font-size:80%;"}
-Regarding the study results:
+Regarding the study findings, the study report that:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Individuals with different hearing statuses differ in their (latent) mean levels and **error variances**.
-- There is more unexplained variability between rather than within individuals (stimuli level)
-- No evidence of judges biases?
-- Judges with different levels of experience did not differ in their (latent) mean levels or **error variances**.
+- Individuals with different hearing statuses differ in both their mean latent trait levels and their **error variances**,
+- More unexplained variability exists between individuals than within individuals (i.e., at the stimulus level),
+- No evidence of systematic judge bias was found (treated here as a model assumption),
+- Judges' experience levels did not account for differences in mean latent traits between stimuli, but differences in **error variances** were not assessed.
 :::
 :::
 
@@ -450,15 +458,15 @@ Regarding the study results:
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-Thus, the assumed data-generating process for the conceptual population is:
+Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_al_2025] to the data characteristics reported by Boonen et al. [@Boonen_et_al_2020] lead to the following conceptual population data-generating process:
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
 
 ::: {#fig-cj17 layout-ncol=2}
 
-![](/images/CJ_population_DAG.png){width=100%}
+![](/images/CJ_population_DAG.png){width=85%}
 
 $$
 \begin{aligned}
@@ -478,16 +486,15 @@ CJ data-generating process for the conceptual population. *Left panel* shows the
 
 :::
 
-
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-Leading to the statistical data-generating process:
+Moreover, integrating the adapted CJ structure with assumptions derived from Boonen et al.'s [@Boonen_et_al_2020] findings results in the following statistical data-generating process:
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
 
-::: {#fig-cj18 layout-ncol=3}
+::: {#fig-cj18a layout-ncol=3}
 
 $$
 \begin{aligned}
@@ -528,13 +535,17 @@ $$
 \end{aligned}
 $$
 
-Data-generating process for simulated CJ data, SCM, probabilistic and statistical model
+Data-generating process for simulated CJ data. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
 :::
 
 ::: {.fragment}
-::: {#fig-cj19 layout-ncol=2}
+With the following parameter assumptions:
+:::
+
+::: {.fragment style="font-size:80%;"}
+::: {#fig-cj18b layout-ncol=2 }
 
 $$
 \begin{split}
@@ -564,31 +575,48 @@ p_{IA} &= 0.2 \\
 \end{split}
 $$
 
-Data-generating assumptions
+Simulating parameter assumptions.
 :::
-
 :::
 
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
 In layman terms:
 
 ::: incremental 
 ::: {style="font-size:60%;"}
 - No stimuli characteristics $(X_{IA})$,
-- Individual characteristics $(X_{I})$ considers one continuous variable $(X_{Ic})$ and a categorical variable with three levels $(X_{Id})$ corresponding to the individual' groups,
-- There is a "small" [@Cohen_1988; @Sawilowsky_2009] but increasing effect from the continuous variable $(\beta_{XIc})$ on the (latent) traits of individuals, 
-- There are "very large" [@Cohen_1988; @Sawilowsky_2009] differences in the (latent) mean of individual' groups $(\beta_{XId[g=1]} > \beta_{XId[g=2]} > \beta_{XId[g=3]})$,
-- Judges make only one comparison; therefore, there are no judgment-level characteristics $(Z_{JK})$, no judgement-level effects $(\beta_{ZJK})$, and no residual judgment variability $(p_{JK})$.
-- Judges characteristics $(Z_{J})$ consider a categorical variable with three levels corresponding to the judges' groups,
-- Judges exhibit individual biases, but there are no differences in the mean bias across judge groups $(\beta_{ZJd[g=1]}=\beta_{ZJd[g=2]}=\beta_{ZJd[g=3]}=0)$,
-- Errors (residuals) are centered around zero with zero correlation among them $(\boldsymbol{\mu}, \boldsymbol{Q})$,
-- Individual's residual variability is different for different individual's groups ($s_{XId[g=1]} > s_{XId[g=2]} = s_{XId[g=3]}$, with $\sum_{g=1}^{3} s_{XId[g]}/3 = 1$),
-- Judges (bias) residual variability is different for different judges' groups ($s_{ZJd[g=1]} < s_{ZJd[g=2]} < s_{ZJD[g=3]}$, with $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$),
-- Stimuli remaining variability is less than individual variability $(p_{IA})$,
+- Individual characteristics $(X_{I})$ include a continuous variable $(X_{Ic})$ for the age of children, and a categorical variable with three levels representing individual groups: normal-hearing (NH, $X_{Id}[g=1]$), hearing-impaired with hearing aids (HI-HA, $X_{Id}[g=2]$), and hearing-impaired with cochlear implants (HI-CI, $X_{Id}[g=3]$) children;
+- There is a "small" [@Cohen_1988; @Sawilowsky_2009] but increasing effect of the continuous variable $(\beta_{XIc})$ on the mean latent trait of individuals;
+- There are "very large" [@Cohen_1988; @Sawilowsky_2009] differences in the mean latent trait across individual groups $(\beta_{XId[g=1]} > \beta_{XId[g=2]} > \beta_{XId[g=3]})$;
+- Judges make only one comparison; thus, there are no judgment-level characteristics $(Z_{JK})$, judgement-level effects $(\beta_{ZJK})$, or residual judgment variability $(p_{JK})$;
+- Judges characteristics $(Z_{J})$ include a categorical variable with three levels representing judge groups: audiologist (AU, $Z_{Jd}[g=1]$), primary teachers (PT, $Z_{Jd}[g=2]$), and inexperienced listeners (IL, $Z_{Jd}[g=3]$);
+- Judges exhibit biases, but mean latent biases across judge groups are equal to zero $(\beta_{ZJd[g=1]}=\beta_{ZJd[g=2]}=\beta_{ZJd[g=3]}=0)$;
+- Residual latent errors $(\boldsymbol{e})$ are centered around zero with zero correlation $(\boldsymbol{\mu}, \boldsymbol{Q})$;
+- Individual latent trait residual variability differs by groups ($s_{XId[g=1]} > s_{XId[g=2]} = s_{XId[g=3]}$, with $\sum_{g=1}^{3} s_{XId[g]}/3 = 1$);
+- Judges' latent bias residual variability differs by groups ($s_{ZJd[g=1]} < s_{ZJd[g=2]} < s_{ZJD[g=3]}$, with $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$);
+- Stimuli latent trait residual variability is smaller than average individual latent trait residual variability $(p_{IA} < 1)$.
+:::
+:::
+
+
+---
+
+## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+
+More importantly, the simulation parameters define the **_estimands_** of interest:
+
+::: incremental 
+::: {style="font-size:65%;"}
+- $\beta_{XIc}$ represents the expected change in the individuals' mean latent trait for one additional year of age;
+- $(\beta_{XId[g=1]} - \beta_{XId[g=2]})$, $(\beta_{XId[g=1]} - \beta_{XId[g=3]})$, and  $(\beta_{XId[g=2]} - \beta_{XId[g=3]})$ represent the expected differences in mean latent  traits between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;
+- $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]})$, $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]})$, and $(\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]})$ represent the expected differences in mean latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;
+- $(s_{XId[g=1]} - s_{XId[g=2]})$, $(s_{XId[g=1]} - s_{XId[g=3]})$, and $(s_{XId[g=2]} - s_{XId[g=3]})$ represent the expected differences in residual variability of the latent trait between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;
+- $(s_{ZJd[g=1]} - s_{ZJd[g=2]})$, $(s_{ZJd[g=1]} - s_{ZJd[g=3]})$, and $(s_{ZJd[g=2]} - s_{ZJd[g=3]})$ represent the expected differences in residual variability of the latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;
+- $p_{IA}$ represents the residual variability of the stimuli latent trait.
 :::
 :::
 
@@ -598,17 +626,19 @@ In layman terms:
 
 ## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
 
-Differing only by replication seed, the study generates _**two** synthetic samples and comparison datasets_ from the conceptual population. 
+Differing only by replication seed, the study generates _**two** synthetic samples and comparison datasets_ from the conceptual population in **Step 1**. 
 
-::: {.fragment style="font-size:80%;"}
-More specifically, for the sampling and comparison mechanisms illustrated in @fig-cj17 ($S$ and $C$, respectively) the study conducts sample size calculations (see next slides) and adopts the following design:
+::: {.fragment}
+More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms shown in @fig-cj17, sample size calculations were conducted (see next slides) and the following design was adopted:
 
 ::: incremental 
-- A sample of $54$ individuals, divided into three groups: $40$ normal-hearing (NH, $g=1$), $7$ hearing-impaired with hearing aids (HI-HA, $g=2$), and $7$ hearing-impaired with cochlear implants (HI-CI, $g=3$);
+::: {style="font-size:80%;"}
+- A sample of $54$ individuals, divided into three groups: $40$ NH $(X_{Id}[g=1])$, $7$ HI-HA $(X_{Id}[g=2])$, and $7$ HI-CI $(X_{Id}[g=3])$ children;
 - A sample of $10$ stimuli per individual;
-- A sample of $60$ judges, divided into three groups: $10$ audiologist (AU, $g=1$), $10$ primary teachers (PT, $g=2$), and $40$ inexperienced listeners (IL, $g=3$);
-- Judges conduct only one-comparison of the same stimulus pair (i.e., NOT repeated measures design [@Lawson_2015, chap. 9.5])
-- Each stimulus is compared a total of $20$ times again another stimulus, across all judges.
+- A sample of $60$ judges, divided into three groups: $10$ AU $(Z_{Jd}[g=1])$, $10$ PT $(Z_{Jd}[g=2])$, and $40$ IL $(Z_{Jd}[g=3])$;
+- Judges conduct only one-comparison of the same stimulus pair (i.e., design is NOT a *repeated measures design* [@Lawson_2015, chap. 9.5])
+- Each stimulus is compared 20 times in total against other stimuli, across all judges.
+:::
 :::
 
 :::
@@ -617,21 +647,160 @@ More specifically, for the sampling and comparison mechanisms illustrated in @fi
 
 ## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
 
+::: {.fragment style="font-size:80%;"}
 ::: {#fig-individual_ss}
 ![](/images/sim_individual_sample_size.png){width=100%}
 
 Individual's sample size calculation, considering requirements for Power, Efficiency and Cost.
 :::
+:::
 
 ---
 
 ## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
 
+::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_ss}
 ![](/images/sim_judges_sample_size.png){width=100%}
 
 Judges's sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 :::
+:::
+
+<!-- ######################################### -->
+
+---
+
+## 4.3 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
+
+All analysis were conducted using `R` version 4.2.2 [@R_2015]. Specifically:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. For the **classical BTL analysis** described in @sec-BTL [@Pollitt_2012a; @Pollitt_2012b], the study uses:
+    
+::: incremental 
+::: {style="font-size:80%;"}
+a. The `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b] and its `BTm()` function to fit the BTL model to the data, and estimate both the stimuli traits and model residuals.
+b. The `brms` package [@Burkner_2017; @Burkner_2018] and `Stan` version 2.26.1 [@Stan_2020] to fit two separate Bayesian multilevel regression models: one for the stimuli mean traits and another for the model residuals. 
+c. Additional `R` packages to generate summaries and predictions from the data and fitted models, such as [ADD]{style="color:red;"}
+:::
+:::
+
+2. For the **Information-Theoretical model for CJ** [@Rivera_et_al_2025], the study uses:
+
+::: incremental 
+::: {style="font-size:80%;"}
+a. `Stan` version 2.26.1 [@Stan_2020] to fit a series of increasingly complex Bayesian Information-Theoretical CJ models,
+b. Additional `R` packages to generate summaries and predictions from the data and fitted models, such as [ADD]{style="color:red;"}
+:::
+:::
+
+:::
+:::
+
+::: {.fragment style="font-size:80%;"}
+Notably, **for each Bayesian model**, four Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples.
+:::
+
+<!-- ######################################### -->
+
+---
+
+## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+
+The study assess the quality of the models and estimate(s) in terms of:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. **_Stationarity, convergence, and mixing_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Graphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plot of prior to posterior distributions,
+- Diagnostic statistics, including the potential scale reduction factor statistics $(\hat{R})$ with a cut-off value of $1.05$ [@Vehtari_et_al_2021] and effective sample size statistics $(n_{\text{eff}})$ [@Gelman_et_al_2014].
+:::
+:::
+
+2. **_Parameter recovery_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The graphical comparisons of "true" parameters values versus posterior estimates,
+- The parameter posterior Root Mean Squared Error $(\text{RMSE})$, defined as follows:
+:::
+:::
+    
+:::
+:::
+
+::: {.fragment}
+$$
+\text{RMSE}( \boldsymbol{\hat{\theta}}, \theta) = \sqrt{ \frac{1}{S} \sum_{s=1}^{S} ( \hat{\theta}_{s} - \theta )^2 }
+$$
+:::
+
+::: {.fragment style="font-size:64%;"}
+where $\boldsymbol{\hat{\theta}}$ is the vector of posterior samples associated with the "true" parameter $\theta$, and $\hat{\theta}_{s}$ is the $s$-th sample out of a total of $S$ posterior draws.
+:::
+
+---
+
+## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+
+The study assess the quality of the models and estimate(s) in terms of:
+
+::: incremental 
+::: {style="font-size:80%;"}
+3. **_In-sample fit_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The deviance information criterion $(\text{DIC})$ [@Spiegelhalter_et_al_2002]
+:::
+:::
+
+4. **_Approximate out-of-sample fit_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The widely applicable information criterion $(\text{WAIC})$ [@Watanabe_2013] and its standard error $(\text{SE}_{W})$, along with the differences in $\text{WAIC}$ between models $(\text{dWAIC} \pm 1 \cdot \text{dSE}_{W})$
+- The Pareto Smoothing Importance Sampling criterion $(\text{PSIS})$ [@Vehtari_et_al_2017] and its standard error $(\text{SE}_{P})$, along with the differences in $\text{PSIS}$ between models $(\text{dPSIS} \pm 1 \cdot \text{dSE}_{P})$
+:::
+:::
+
+5. **_In-sample predictive accuracy_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Confusion matrix comparing expected posterior predictions $E( \boldsymbol{\hat{y}_{s}})$ with observed outcomes $\boldsymbol{y}$ from the **_first_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+- Confusion matrix comparing the posterior predictions $\hat{y}_{s}$ with observed outcomes  $\boldsymbol{y}$ from the **_first_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+:::
+:::
+
+:::
+:::
+
+---
+
+## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+
+The study assess the quality of the models and estimate(s) in terms of:
+
+::: incremental 
+::: {style="font-size:80%;"}
+6. **_Out-of-sample predictive accuracy_**, using
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Confusion matrix comparing expected posterior predictions $E( \boldsymbol{\hat{y}_{s}})$ with observed outcomes $\boldsymbol{y}$ from the **_second_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+- Confusion matrix comparing the posterior predictions $\hat{y}_{s}$ with observed outcomes  $\boldsymbol{y}$ from the **_second_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+:::
+:::
+
+:::
+:::
+
 
 <!-- ######################################### -->
 
@@ -639,112 +808,120 @@ Judges's sample size calculation, considering requirements for Confidence, Effic
 
 ---
 
-## 5.1 From Theory to Estimator: Steps 3-7 {style="font-size:80%;"}
+## 5. Results {style="font-size:80%;"}
 
-In this section the study will:
+In this section, the study will:
 
 ::: incremental 
 1. Describe the _**first** synthetic comparison dataset_;
-2. Progress through the steps 3-7 of the workflow, described in @sec-methods.
+2. Progress through the steps 3-7 of the Bayesian (research) workflow, described in @sec-methods, using:
+
+::: incremental 
+- The classical BTL analysis, and 
+- The Information-Theoretical model for CJ
+:::
+
 :::
 
 ---
 
-## 5.1.1 The first synthetic comparison dataset {style="font-size:80%;"}
+## 5.1 The first synthetic comparison dataset {style="font-size:80%;"}
 
-In terms of design, the data reveals:
+In terms of design, the dataset reveals that:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Most stimuli were compared $20$ times, the design is *balanced* for stimuli [@Lawson_2015, chap. 7.4];
-- Two stimuli (IDs $2$ and $3$) from individual $58$ were compared fewer times due to random design variation; 
+- Most stimuli were compared $20$ times; only two stimuli (IDs $2$ and $3$) from individual $58$ were compared slightly fewer times due to random variation.
+- The stimuli comparison network indicates a random *balanced design* [@Lawson_2015, chap. 7.4].
 :::
 :::
 
-::: {.fragment}
+::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_comparisons layout-ncol=2}
-![](/images/stimuli_comparisons_top.png){width=60%}
-
 ![](/images/stimuli_comparisons_bottom.png){width=60%}
 
-Comparison design, left and right panels shows the pairs individuals $(Is)$ and stimuli $(As)$
+![](/images/stimuli_network.png){width=60%}
+
+Comparison design. *Left panel* shows the number of comparisons for individuals $(Is)$ and stimuli $(As)$. *Right panel* shows the stimuli comparison network.
 :::
 :::
 
 ---
 
-## 5.1.1 The first synthetic comparison dataset {style="font-size:80%;"}
+## 5.1 The first synthetic comparison dataset {style="font-size:80%;"}
 
 In a similar manner, the data indicates:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Most individuals were compared $200$ times ($20$ comparisons × $10$ stimuli each);
-- One individual (ID $58$) was compared slightly fewer times due to random design variation;
-- The resulting fully connected undirected graph indicates a *balanced design* for individuals [@Lawson_2015, chap. 7.4].
+- Most individuals were compared $200$ times ($20$ comparisons × $10$ stimuli each); only one individual (ID $58$) was compared slightly fewer times due to random design variation;
+- The connected component analysis and individual comparison network indicates a fully connected network and a *balanced design* for individuals [@Lawson_2015, chap. 7.4].
 :::
-:::
-
-::: {.fragment}
-::: {#fig-individual_comparisons layout-ncol=2}
-![](/images/individual_network.png){width=60%}
-
-![](/images/individuals_comparisons.png){width=60%}
-
-Comparison design, left panel shows the network of connected individuals and right panel the number of comparisons per individual.
-:::
-:::
-
----
-
-## 5.1.1 The first synthetic comparison dataset {style="font-size:80%;"}
-
-On the other hand, the data shows:
-
-::: incremental 
-::: {style="font-size:80%;"}
-- Judges compare individuals with varying frequency, ranging from $0$ to $13$ comparisons per individual;
-:::
-:::
-
-::: {.fragment}
-::: {#fig-judges_individuals_comparisons}
-![](/images/judges_individuals_network.png){width=100%}
-
-Bipartite graph of comparison design for judges and individuals.
-:::
-:::
-
-
----
-
-## 5.1.1 The first synthetic comparison dataset {style="font-size:80%;"}
-
-On the other hand, the data shows:
-
-::: {style="font-size:80%;"}
-- Judges compare individuals with varying frequency, ranging from $0$ to $13$ comparisons per individual;
 :::
 
 ::: {.fragment style="font-size:80%;"}
-- Most judges complete $262$ comparisons (some $264$), yielding an overall *balanced design* [@Lawson_2015, chap. 7.4].
+::: {#fig-individual_comparisons layout-ncol=2}
+
+![](/images/individuals_comparisons.png){width=60%}
+
+![](/images/individual_network.png){width=55%}
+
+Comparison design. *Left panel* shows the number of comparisons for individuals. *Right panel* shows the individual comparison network.
+:::
 :::
 
-::: {.fragment}
+---
+
+## 5.1 The first synthetic comparison dataset {style="font-size:80%;"}
+
+On the other hand, the dataset shows:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Judges compare individuals with varying frequency, ranging from $0$ to $13$ comparisons;
+- Most judges complete $262$ comparisons, while some $264$ due to random design variation;
+:::
+:::
+
+::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_comparisons layout-ncol=2}
 ![](/images/judges2individuals_comparisons.png){width=60%}
 
 ![](/images/judges_comparisons.png){width=90%}
 
-Comparison design, left panel shows the judges $(Js)$ vs the first $10$ individuals, and right panel show the total number of judges' comparisons.
+Comparison design. *Left panel* shows the judges $(Js)$ vs the first $10$ individuals $(Is)$. *Right panel* shows the total number of judges' comparisons.
 :::
 :::
+
+
+
+
+---
+
+## 5.1 The first synthetic comparison dataset {style="font-size:80%;"}
+
+Moreover,
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Judges to individual comparison network indicates a fully connected network
+:::
+:::
+
+::: {.fragment style="font-size:80%;"}
+::: {#fig-judges_individuals_comparisons}
+![](/images/judges_individuals_network.png){width=100%}
+
+Bipartite graph of judges to individual comparison network.
+:::
+:::
+
 
 <!-- ######################################### -->
 
 ---
 
-## 5.1.2 The classical BTL analysis {style="font-size:80%;"}
+## 5.2 The classical BTL analysis {style="font-size:80%;"}
 
 This approach applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
 
@@ -752,7 +929,7 @@ This approach applies several sequential methods, each with different purposes [
 
 ---
 
-## 5.1.3 The Information-Theoretical model for CJ {style="font-size:80%;"}
+## 5.3 The Information-Theoretical model for CJ {style="font-size:80%;"}
 
 <!-- ######################################### -->
 
@@ -811,9 +988,9 @@ This approach applies several sequential methods, each with different purposes [
 
 ---
 
-## Licence
+## Licence {style="font-size:80%;"}
 
-All the code that is original to this study and not attributed to any other authors is copyrighted by Jose Manuel Rivera Espejo and released under the New BSD (3-Clause) License: [https://opensource.org/license/BSD-3-Clause][https://opensource.org/license/BSD-3-Clause]
+All the code that is original to this study and not attributed to any other authors is copyrighted by *Jose Manuel Rivera Espejo* and released under the New BSD (3-Clause) License: [https://opensource.org/license/BSD-3-Clause](https://opensource.org/license/BSD-3-Clause)
 
 <!-- ######################################### -->
 
