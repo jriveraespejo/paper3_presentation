@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-09-19">
+  <meta name="dcterms.date" content="2025-09-22">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-09-19</p>
+  <p class="date">2025-09-22</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -481,26 +481,26 @@
 <p>CJ data can be analyzed under two analytical approaches:</p>
 <div>
 <ol type="1">
-<li class="fragment"><p><strong>The classical BTL analysis</strong> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>,</p>
-<p>which applies several sequential methods to estimate (generate) the traits and conduct inferences,</p></li>
-<li class="fragment"><p><strong>The Information-Theoretical model for CJ</strong> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>,</p>
-<p>which applies one systematic, integrated approach for the same two purposes.</p></li>
+<li class="fragment"><p><em>The classical BTL analysis</em> (hereafter, <strong>CBTL</strong>) <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> ,</p>
+<p>which relies on a sequence of separate methods to estimate traits and draw inferences,</p></li>
+<li class="fragment"><p><em>The Information-Theoretical model for CJ</em> (hereafter, <strong>ITCJ</strong>) <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>,</p>
+<p>which employs a single, systematic, and integrated approach for the same two purposes.</p></li>
 </ol>
 </div>
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="the-classical-btl-analysis" class="title-slide slide level1 center">
-<h1>3.1 The classical BTL analysis</h1>
+<section id="the-cbtl-analysis" class="title-slide slide level1 center">
+<h1>3.1 The CBTL analysis</h1>
 
 </section>
-<section id="sec-BTL" class="slide level2" style="font-size:80%;">
-<h2>3.1 The classical BTL analysis</h2>
-<p>This approach applies several sequential methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
+<section id="sec-CBTL" class="slide level2" style="font-size:80%;">
+<h2>3.1 The CBTL analysis</h2>
+<p>This approach relies on a sequence of separate methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment"><strong>Apply the BTL model</strong>,</li>
+<li class="fragment"><strong>Apply the BTL model</strong> to data, e.g.,</li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -511,7 +511,7 @@
 </div>
 </div>
 <ol start="2" type="1">
-<li class="fragment"><strong>Generate summaries</strong> or <strong>apply (multilevel) regression</strong> to the stimuli’s trait (mean estimates),</li>
+<li class="fragment"><strong>Generate summaries</strong> or <strong>apply (multilevel) regression</strong> to the stimuli’ mean trait estimates, e.g.,</li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -523,7 +523,7 @@
 </div>
 </div>
 <ol start="3" type="1">
-<li class="fragment"><strong>Generate summaries</strong> or <strong>apply (multilevel) regression</strong> to the model residuals,</li>
+<li class="fragment"><strong>Generate summaries</strong> or <strong>apply (multilevel) regression</strong> to the model residuals, e.g.,</li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -539,13 +539,13 @@
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="the-information-theoretical-model-for-cj" class="title-slide slide level1 center">
-<h1>3.2 The Information-Theoretical model for CJ</h1>
+<section id="the-itcj-analysis" class="title-slide slide level1 center">
+<h1>3.2 The ITCJ analysis</h1>
 
 </section>
 <section id="sec-ITCJ" class="slide level2" style="font-size:80%;">
-<h2>3.2 The Information-Theoretical model for CJ</h2>
-<p>In contrast, this approach applies one systematic, integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. In broad terms, the approach:</p>
+<h2>3.2 The ITCJ analysis</h2>
+<p>This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. In broad terms, the approach:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
@@ -572,7 +572,7 @@
 </div>
 </section>
 <section id="sec-3.2" class="slide level2" style="font-size:80%;">
-<h2>3.2 The Information-Theoretical model for CJ</h2>
+<h2>3.2 The ITCJ analysis</h2>
 <!-- commands for d-separation -->
 <p>The general CJ structure proposed by Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> takes the following form:</p>
 <div class="fragment" style="font-size:80%;">
@@ -581,7 +581,7 @@
 <div aria-describedby="fig-cj15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/CJ_TM_15.png" style="width:80.0%"></p>
+<p><img data-src="./figures/CJ_TM_15.png" style="width:80.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
@@ -607,7 +607,7 @@ Figure&nbsp;1: Comparative judgment model. <em>Left panel</em> illustrates the D
 </div>
 </div>
 </section>
-<section id="the-information-theoretical-model-for-cj-1" class="slide level2" style="font-size:80%;">
+<section id="the-information-theoretical-model-for-cj" class="slide level2" style="font-size:80%;">
 <h2>3.2 The Information-Theoretical model for CJ</h2>
 <p>Leading to the general probabilistic and statistical model:</p>
 <div class="fragment" style="font-size:80%;">
@@ -706,14 +706,14 @@ Figure&nbsp;3: Constraints of the CJ model to solve indeterminacies in <em>locat
 <h1>4. Methods</h1>
 
 </section>
-<section id="sec-methods" class="slide level2" style="font-size:80%;">
+<section id="methods-1" class="slide level2" style="font-size:80%;">
 <h2>4. Methods</h2>
 <p>To meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow <span class="citation" data-cites="Depaoli_et_al_2017 Neal_2020 Gelman_et_al_2020 Schad_et_al_2020 Betancourt_2020 McElreath_2024b McElreath_2024c">[<a href="#/references" role="doc-biblioref" onclick="">16</a>–<a href="#/references" role="doc-biblioref" onclick="">22</a>]</span>:</p>
 
-<img data-src="./images/workflow.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">
+<img data-src="./figures/workflow.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">
 Figure&nbsp;4: Bayesian (research) workflow.
 </p></section>
-<section id="methods-1" class="slide level2" style="font-size:80%;">
+<section id="sec-methods" class="slide level2" style="font-size:80%;">
 <h2>4. Methods</h2>
 <p>Specifically, the study follows these steps (overarching goals in parenthesis):</p>
 <div>
@@ -724,16 +724,16 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </ol>
 <div>
 <ol type="a">
-<li class="fragment">Define the CJ structure and explicitly state its assumptions from relevant literature;</li>
+<li class="fragment">Define a CJ structure of interest and explicitly state its assumptions from relevant literature;</li>
 <li class="fragment">Specify the estimand(s) of interest and provide formal definitions for each target parameter;</li>
 <li class="fragment">Simulate a <em>synthetic conceptual population</em> that reflects the defined structure and assumptions;</li>
 </ol>
 </div>
 <ol start="2" type="1">
 <li class="fragment"><p><strong>Design <span class="math inline">\(\rightarrow\)</span> Sample</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Generate <em><strong>two</strong> synthetic samples and comparison datasets</em> from the conceptual population in step <span class="math inline">\(1\)</span>;</p></li>
+<p>Generate <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population simulated in step <span class="math inline">\(1\)</span>;</p></li>
 <li class="fragment"><p><strong>{Theory, Design, Estimand(s)} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Specify models for analyzing the <em><strong>first</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model for CJ;</p></li>
+<p>Specify models for analyzing the <em><strong>first</strong> synthetic</em> random comparison dataset using both the CBTL and the ITCJ analysis;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Prior predictive</strong> (<em>Tutorial</em>)</p>
 <p>Perform prior predictive checks;</p></li>
 </ol>
@@ -746,15 +746,15 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <div style="font-size:75%;">
 <ol start="5" type="1">
 <li class="fragment"><p><strong>{Estimator, Sample} <span class="math inline">\(\rightarrow\)</span> Estimate(s)</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Apply both the classical BTL model and the Information-Theoretical model for CJ to the <em><strong>first</strong> synthetic comparison dataset</em>;</p></li>
+<p>Apply both the CBTL and ITCJ methods to the <em><strong>first</strong> synthetic</em> random comparison dataset;</p></li>
 <li class="fragment"><p><strong>Estimate(s) <span class="math inline">\(\rightarrow\)</span> {Diagnostic, Post predictive}</strong> (<em>Tutorial</em>)</p>
 <p>Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample fit, approximate out-of-sample fit, and in-sample predictive accuracy;</p></li>
 <li class="fragment"><p><strong>{Diagnostic, Post predictive} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial</em>)</p>
 <p>Incrementally refine the statistical model repeating steps 3–6 until a <em>sufficiently trustworthy model</em> is obtained according to the criteria outlined in step 6;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Effects <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
-<p>Generate the <em>estimate(s)</em> of interest for CJ the <em><strong>first</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model, and interpret the results;</p></li>
+<p>Generate the <em>estimate(s)</em> of interest for the <em><strong>first</strong> synthetic</em> random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Predictions <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
-<p>Generate predictions for the <em><strong>second</strong> synthetic comparison dataset</em> using both the classical BTL analysis and the Information-Theoretical model for CJ, and compare their out-of-sample predictive accuracy.</p></li>
+<p>Generate predictions for the <em><strong>second</strong> synthetic comparison dataset</em> using both the CBTL and ITCJ analysis, and compare their out-of-sample predictive accuracy.</p></li>
 </ol>
 </div>
 </div>
@@ -799,14 +799,14 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </section>
 <section id="from-theory-to-design-steps-1a-1c-2" class="slide level2" style="font-size:80%;">
 <h2>4.1 From Theory to Design: Steps 1a-1c</h2>
-<p>Thus, adapting the general CJ structure proposed by Rivera et al.’s <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> to the data characteristics reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> lead to the following conceptual population data-generating process:</p>
+<p>Thus, adapting the general CJ structure proposed by Rivera et al.’s <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> to the data characteristics reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following conceptual population data-generating process:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj17" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-cj17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/CJ_population_DAG.png" style="width:85.0%"></p>
+<p><img data-src="./figures/CJ_population_DAG.png" style="width:85.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
@@ -833,7 +833,7 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
 </section>
 <section id="from-theory-to-design-steps-1a-1c-3" class="slide level2" style="font-size:80%;">
 <h2>4.1 From Theory to Design: Steps 1a-1c</h2>
-<p>Moreover, integrating the adapted CJ structure with assumptions derived from Boonen et al.’s <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> findings results in the following statistical data-generating process:</p>
+<p>Moreover, integrating the assumptions derived from Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following statistical data-generating process:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj18a" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -942,7 +942,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <div>
 <div style="font-size:60%;">
 <ul>
-<li class="fragment">No stimuli characteristics <span class="math inline">\((X_{IA})\)</span>,</li>
+<li class="fragment">No stimuli characteristics <span class="math inline">\((X_{IA})\)</span> are assumed to affect the comparisons,</li>
 <li class="fragment">Individual characteristics <span class="math inline">\((X_{I})\)</span> include a continuous variable <span class="math inline">\((X_{Ic})\)</span> for the age of children, and a categorical variable with three levels representing hearing status groups: normal-hearing (NH, <span class="math inline">\(X_{Id}[g=1]\)</span>), hearing-impaired with hearing aids (HI-HA, <span class="math inline">\(X_{Id}[g=2]\)</span>), and hearing-impaired with cochlear implants (HI-CI, <span class="math inline">\(X_{Id}[g=3]\)</span>) children;</li>
 <li class="fragment">There is a “small” <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">23</a>, <a href="#/references" role="doc-biblioref" onclick="">24</a>]</span> but increasing effect of age <span class="math inline">\((\beta_{XIc})\)</span> on the mean latent trait of individuals;</li>
 <li class="fragment">There are “very large” <span class="citation" data-cites="Cohen_1988 Sawilowsky_2009">[<a href="#/references" role="doc-biblioref" onclick="">23</a>, <a href="#/references" role="doc-biblioref" onclick="">24</a>]</span> differences in the mean latent trait across hearing status groups <span class="math inline">\((\beta_{XId[g=1]} &gt; \beta_{XId[g=2]} &gt; \beta_{XId[g=3]})\)</span>;</li>
@@ -950,25 +950,26 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <li class="fragment">Judges characteristics <span class="math inline">\((Z_{J})\)</span> include a categorical variable with three levels representing judge groups: audiologist (AU, <span class="math inline">\(Z_{Jd}[g=1]\)</span>), primary teachers (PT, <span class="math inline">\(Z_{Jd}[g=2]\)</span>), and inexperienced listeners (IL, <span class="math inline">\(Z_{Jd}[g=3]\)</span>);</li>
 <li class="fragment">Judges exhibit biases, but mean latent biases across judge groups are equal to zero <span class="math inline">\((\beta_{ZJd[g=1]}=\beta_{ZJd[g=2]}=\beta_{ZJd[g=3]}=0)\)</span>;</li>
 <li class="fragment">Residual latent errors <span class="math inline">\((\boldsymbol{e})\)</span> are centered around zero with zero correlation <span class="math inline">\((\boldsymbol{\mu}, \boldsymbol{Q})\)</span>;</li>
-<li class="fragment">Individual latent trait residual variability differs by groups (<span class="math inline">\(s_{XId[g=1]} &gt; s_{XId[g=2]} = s_{XId[g=3]}\)</span>, with <span class="math inline">\(\sum_{g=1}^{3} s_{XId[g]}/3 = 1\)</span>);</li>
-<li class="fragment">Judges’ latent bias residual variability differs by groups (<span class="math inline">\(s_{ZJd[g=1]} &lt; s_{ZJd[g=2]} &lt; s_{ZJD[g=3]}\)</span>, with <span class="math inline">\(\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1\)</span>);</li>
+<li class="fragment">Individual latent trait residual variability differs by groups, i.e., <span class="math inline">\(s_{XId[g=1]} &gt; s_{XId[g=2]} = s_{XId[g=3]}\)</span>, with <span class="math inline">\(\sum_{g=1}^{3} s_{XId[g]}/3 = 1\)</span>;</li>
+<li class="fragment">Judges’ latent bias residual variability differs by groups, i.e., <span class="math inline">\(s_{ZJd[g=1]} &lt; s_{ZJd[g=2]} &lt; s_{ZJD[g=3]}\)</span>, with <span class="math inline">\(\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1\)</span>;</li>
 <li class="fragment">Stimuli latent trait residual variability is smaller than average individual latent trait residual variability <span class="math inline">\((p_{IA} &lt; 1)\)</span>.</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-steps-1a-1c-5" class="slide level2" style="font-size:80%;">
+<section id="sec-pop_sim" class="slide level2" style="font-size:80%;">
 <h2>4.1 From Theory to Design: Steps 1a-1c</h2>
 <p>More importantly, the simulation parameters define the <strong><em>estimands</em></strong> of interest:</p>
 <div>
 <div style="font-size:65%;">
 <ul>
-<li class="fragment"><span class="math inline">\(\beta_{XIc}\)</span> represents the expected change in the individuals’ mean latent trait for one additional year of age;</li>
-<li class="fragment"><span class="math inline">\((\beta_{XId[g=1]} - \beta_{XId[g=2]})\)</span>, <span class="math inline">\((\beta_{XId[g=1]} - \beta_{XId[g=3]})\)</span>, and <span class="math inline">\((\beta_{XId[g=2]} - \beta_{XId[g=3]})\)</span> represent the expected differences in mean latent traits between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;</li>
-<li class="fragment"><span class="math inline">\((\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]})\)</span>, <span class="math inline">\((\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]})\)</span>, and <span class="math inline">\((\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]})\)</span> represent the expected differences in mean latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;</li>
-<li class="fragment"><span class="math inline">\((s_{XId[g=1]} - s_{XId[g=2]})\)</span>, <span class="math inline">\((s_{XId[g=1]} - s_{XId[g=3]})\)</span>, and <span class="math inline">\((s_{XId[g=2]} - s_{XId[g=3]})\)</span> represent the expected differences in residual variability of the latent trait between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;</li>
-<li class="fragment"><span class="math inline">\((s_{ZJd[g=1]} - s_{ZJd[g=2]})\)</span>, <span class="math inline">\((s_{ZJd[g=1]} - s_{ZJd[g=3]})\)</span>, and <span class="math inline">\((s_{ZJd[g=2]} - s_{ZJd[g=3]})\)</span> represent the expected differences in residual variability of the latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;</li>
-<li class="fragment"><span class="math inline">\(p_{IA}\)</span> represents the residual variability of the stimuli latent trait.</li>
+<li class="fragment">The expected change in the individuals’ mean latent trait for one additional year of age <span class="math inline">\((\beta_{XIc})\)</span>;</li>
+<li class="fragment">The expected differences in mean latent traits between NH and HI-HA children <span class="math inline">\((\beta_{XId[g=1]} - \beta_{XId[g=2]})\)</span>, NH and HI-CI children <span class="math inline">\((\beta_{XId[g=1]} - \beta_{XId[g=3]})\)</span>, and HI-HA versus HI-CI children <span class="math inline">\((\beta_{XId[g=2]} - \beta_{XId[g=3]})\)</span>;</li>
+<li class="fragment">The expected differences in mean latent bias between AU and PT judges <span class="math inline">\((\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]})\)</span>, AU and IL judges <span class="math inline">\((\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]})\)</span>, and PT and IL judges <span class="math inline">\((\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]})\)</span>;</li>
+<li class="fragment">The expected differences in residual variability of the latent trait between NH and HI-HA children <span class="math inline">\((s_{XId[g=1]} - s_{XId[g=2]})\)</span>, NH and HI-CI children <span class="math inline">\((s_{XId[g=1]} - s_{XId[g=3]})\)</span>, and HI-HA versus HI-CI children <span class="math inline">\((s_{XId[g=2]} - s_{XId[g=3]})\)</span>, respectively;</li>
+<li class="fragment">The expected differences in residual variability of the latent bias between AU and PT judges <span class="math inline">\((s_{ZJd[g=1]} - s_{ZJd[g=2]})\)</span>, AU and IL judges <span class="math inline">\((s_{ZJd[g=1]} - s_{ZJd[g=3]})\)</span>, and PT and IL judges <span class="math inline">\((s_{ZJd[g=2]} - s_{ZJd[g=3]})\)</span>;</li>
+<li class="fragment">The residual variability of the stimuli latent trait <span class="math inline">\((p_{IA})\)</span>;</li>
+<li class="fragment">Latent traits <span class="math inline">\(T_{IA}\)</span>, <span class="math inline">\(T_{I}\)</span>, and <span class="math inline">\(B_{J}\)</span>.</li>
 </ul>
 </div>
 </div>
@@ -981,7 +982,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </section>
 <section id="from-design-to-sample-step-2-1" class="slide level2" style="font-size:80%;">
 <h2>4.2 From Design to Sample: Step 2</h2>
-<p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic samples and comparison datasets</em> from the conceptual population in <strong>Step 1</strong>.</p>
+<p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
 <p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms shown in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see next slides) and the following design was adopted:</p>
 <div>
@@ -1003,7 +1004,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <div id="fig-individual_ss" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/sim_individual_sample_size.png" style="width:100.0%">
+<img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
@@ -1018,7 +1019,7 @@ Figure&nbsp;8: Individual’s sample size calculation, considering requirements 
 <div id="fig-judges_ss" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/sim_judges_sample_size.png" style="width:100.0%">
+<img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
@@ -1039,23 +1040,23 @@ Figure&nbsp;9: Judges’s sample size calculation, considering requirements for 
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment">For the <strong>classical BTL analysis</strong> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> described in <a href="#/sec-BTL" class="quarto-xref">Section&nbsp;4.1</a> , the study uses:</li>
+<li class="fragment">For the <strong>CBTL analysis</strong> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> described in <a href="#/sec-CBTL" class="quarto-xref">Section&nbsp;4.1</a>, the study uses:</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">The <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">27</a>, <a href="#/references" role="doc-biblioref" onclick="">28</a>]</span> and its <code>BTm()</code> function to fit the BTL model to the data, and estimate both the stimuli traits and model residuals.</li>
-<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">29</a>]</span> and the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">30</a>, <a href="#/references" role="doc-biblioref" onclick="">31</a>]</span> to fit two separate Bayesian multilevel regression models: one for the stimuli mean traits and another for the model residuals.</li>
+<li class="fragment">The <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">29</a>, <a href="#/references" role="doc-biblioref" onclick="">30</a>]</span> to fit two separate Bayesian multilevel regression models: one for the stimuli mean traits and another for the model residuals.</li>
 </ul>
 </div>
 </div>
 <ol start="2" type="1">
-<li class="fragment">For the <strong>Information-Theoretical model for CJ</strong> described in <a href="#/sec-ITCJ" class="quarto-xref">Section&nbsp;5.1</a>, the study uses:</li>
+<li class="fragment">For the <strong>ITCJ</strong> analysis described in <a href="#/sec-ITCJ" class="quarto-xref">Section&nbsp;5.1</a>, the study uses:</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">29</a>]</span> to fit a series of increasingly complex Bayesian Information-Theoretical CJ models,</li>
+<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">31</a>]</span> to fit a series of increasingly complex Bayesian ITCJ models,</li>
 </ul>
 </div>
 </div>
@@ -1071,7 +1072,7 @@ Figure&nbsp;9: Judges’s sample size calculation, considering requirements for 
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
-<li class="fragment">A set of additional <code>R</code> packages was used for:</li>
+<li class="fragment">A set of additional <code>R</code> packages were used for:</li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -1101,7 +1102,7 @@ Figure&nbsp;9: Judges’s sample size calculation, considering requirements for 
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Graphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plot of prior to posterior distributions,</li>
+<li class="fragment">Graphical analyses, including trace plots, rank-normalized trace (trank) plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,</li>
 <li class="fragment">Diagnostic statistics, including the potential scale reduction factor statistics <span class="math inline">\((\hat{R})\)</span> with a cut-off value of <span class="math inline">\(1.05\)</span> <span class="citation" data-cites="Vehtari_et_al_2021a">[<a href="#/references" role="doc-biblioref" onclick="">41</a>]</span> and effective sample size statistics <span class="math inline">\((n_{\text{eff}})\)</span> <span class="citation" data-cites="Gelman_et_al_2014">[<a href="#/references" role="doc-biblioref" onclick="">42</a>]</span>.</li>
 </ul>
 </div>
@@ -1198,13 +1199,13 @@ Figure&nbsp;9: Judges’s sample size calculation, considering requirements for 
 <p>In this section, the study will:</p>
 <div>
 <ol type="1">
-<li class="fragment">Describe the <em><strong>first</strong> synthetic comparison dataset</em>;</li>
-<li class="fragment">Progress through the steps 3-7 of the Bayesian (research) workflow, described in <a href="#/sec-methods" class="quarto-xref">Section&nbsp;6.1</a>, using:</li>
+<li class="fragment">Describe the <em><strong>first</strong> synthetic</em> random comparison dataset;</li>
+<li class="fragment">Progress through the steps <span class="math inline">\(3-7\)</span> of the Bayesian (research) workflow, described in <a href="#/sec-methods" class="quarto-xref">Section&nbsp;6.2</a>, using:</li>
 </ol>
 <div>
 <ul>
-<li class="fragment">The classical BTL analysis, and</li>
-<li class="fragment">The Information-Theoretical model for CJ</li>
+<li class="fragment">The CBTL analysis, and</li>
+<li class="fragment">The ITCJ analysis</li>
 </ul>
 </div>
 </div>
@@ -1237,10 +1238,10 @@ Figure&nbsp;9: Judges’s sample size calculation, considering requirements for 
 <div aria-describedby="fig-stimuli_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/stimuli_comparisons_bottom.png" style="width:60.0%"></p>
+<p><img data-src="./figures/stimuli_comparisons_bottom.png" style="width:60.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/stimuli_network.png" style="width:60.0%"></p>
+<p><img data-src="./figures/stimuli_network.png" style="width:60.0%"></p>
 </div>
 </div>
 </div>
@@ -1258,7 +1259,7 @@ Figure&nbsp;10: Comparison design. <em>Left panel</em> shows the number of compa
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">Most individuals were compared <span class="math inline">\(200\)</span> times (<span class="math inline">\(20\)</span> comparisons × <span class="math inline">\(10\)</span> stimuli each); only one individual (ID <span class="math inline">\(58\)</span>) was compared slightly fewer times due to random design variation;</li>
-<li class="fragment">The connected component analysis and individual comparison network indicates a fully connected network and a <em>balanced design</em> for individuals <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
+<li class="fragment">The connected component analysis <span class="citation" data-cites="Betancourt_2024">[<a href="#/references" role="doc-biblioref" onclick="">47</a>]</span> and individual comparison network indicates a fully connected network and a <em>balanced design</em> for individuals <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
 </ul>
 </div>
 </div>
@@ -1268,10 +1269,10 @@ Figure&nbsp;10: Comparison design. <em>Left panel</em> shows the number of compa
 <div aria-describedby="fig-individual_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/individuals_comparisons.png" style="width:60.0%"></p>
+<p><img data-src="./figures/individuals_comparisons.png" style="width:60.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/individual_network.png" style="width:55.0%"></p>
+<p><img data-src="./figures/individual_network.png" style="width:55.0%"></p>
 </div>
 </div>
 </div>
@@ -1299,10 +1300,10 @@ Figure&nbsp;11: Comparison design. <em>Left panel</em> shows the number of compa
 <div aria-describedby="fig-judges_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/judges2individuals_comparisons.png" style="width:60.0%"></p>
+<p><img data-src="./figures/judges2individuals_comparisons.png" style="width:60.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./images/judges_comparisons.png" style="width:90.0%"></p>
+<p><img data-src="./figures/judges_comparisons.png" style="width:90.0%"></p>
 </div>
 </div>
 </div>
@@ -1327,7 +1328,7 @@ Figure&nbsp;12: Comparison design. <em>Left panel</em> shows the judges <span cl
 <div id="fig-judges_individuals_comparisons" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-judges_individuals_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/judges_individuals_network.png" style="width:100.0%">
+<img data-src="./figures/judges_individuals_network.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_individuals_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13: Bipartite graph of judges to individual comparison network.
@@ -1338,12 +1339,12 @@ Figure&nbsp;13: Bipartite graph of judges to individual comparison network.
 </section>
 <section id="data-description-5" class="slide level2" style="font-size:80%;">
 <h2>5.1.1 Data description</h2>
-<p>In terms of the outcomes, we see some stimuli with higher win rates than others:</p>
+<p>In terms of the comparison outcomes, we see some stimuli with higher win rates than others:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/stimuli_wins.png" style="width:70.0%">
+<img data-src="./figures/stimuli_wins.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;14: Stimuli win rates.
@@ -1359,7 +1360,7 @@ Figure&nbsp;14: Stimuli win rates.
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/individual_wins.png" style="width:70.0%">
+<img data-src="./figures/individual_wins.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15: Individual win rates.
@@ -1383,10 +1384,10 @@ Figure&nbsp;15: Individual win rates.
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/individual_wins_groups.png" style="width:100.0%">
+<img data-src="./figures/individual_wins_groups.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Individual win rates per group. <em>Left panel</em> for NH children. <em>Middle panel</em> for HI-HA children. <em>Right panel</em> for HI-CI children.
+Figure&nbsp;16: Individual win rates per group. <em>Left panel</em> describe NH children. <em>Middle panel</em> describe HI-HA children. <em>Right panel</em> illustrate HI-CI children.
 </figcaption>
 </figure>
 </div>
@@ -1394,12 +1395,12 @@ Figure&nbsp;16: Individual win rates per group. <em>Left panel</em> for NH child
 </section>
 <section id="data-description-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.1 Data description</h2>
-<p>Considering age, no apparent relationship transpire between wins and age:</p>
+<p>However, no apparent relationship transpire between individual wins and age:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/individual_winsVSXIc.png" style="width:70.0%">
+<img data-src="./figures/individual_winsVSXIc.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;17: Individual win rates versus age.
@@ -1414,8 +1415,8 @@ Figure&nbsp;17: Individual win rates versus age.
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">We notice a slightly decreasing trend in HI-HA and HI-CI children,</li>
-<li class="fragment">This indicates that, in those groups, older children are less likely to win in a comparison.</li>
+<li class="fragment">We notice a slightly decreasing trend in HI-HA and HI-CI children, indicating that in those groups, older children are less likely to win in a comparison.</li>
+<li class="fragment">However, the results are not <em>unambiguous</em></li>
 </ul>
 </div>
 </div>
@@ -1423,7 +1424,7 @@ Figure&nbsp;17: Individual win rates versus age.
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./images/individual_winsVSXIc_groups.png" style="width:100.0%">
+<img data-src="./figures/individual_winsVSXIc_groups.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18: Individual win rates.
@@ -1433,32 +1434,78 @@ Figure&nbsp;18: Individual win rates.
 </div>
 <!-- ######################################### -->
 </section></section>
-<section>
 <section id="data-modeling" class="title-slide slide level1 center">
 <h1>5.1.2 Data modeling</h1>
 
 </section>
-<section id="data-modeling-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2 Data modeling</h2>
+
+<section>
+<section id="data-modeling-the-cbtl-analysis" class="title-slide slide level1 center">
+<h1>5.1.2.1 Data modeling: The CBTL analysis</h1>
+
+</section>
+<section id="data-modeling-the-cbtl-analysis-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>The study applies sequential methods <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span> to estimate the parameters defined in <a href="#/sec-pop_sim" class="quarto-xref">Section&nbsp;7.5</a>:</p>
+<div>
+<div style="font-size:80%;">
+<ol type="1">
+<li class="fragment"><strong>Fit the BTL model</strong> to data using the <code>BTm()</code> function from <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">27</a>, <a href="#/references" role="doc-biblioref" onclick="">28</a>]</span>,</li>
+</ol>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">To estimate the traits of the stimuli <span class="math inline">\((T_{IA})\)</span></li>
+<li class="fragment">To generate the model residuals</li>
+</ul>
+</div>
+</div>
+<ol start="2" type="1">
+<li class="fragment"><strong>Fit a (multilevel) regression</strong> to the stimuli’ mean trait estimates using <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">29</a>, <a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>,</li>
+</ol>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">To estimate the effect of age on the mean latent trait, i.e, <span class="math inline">\(\beta_{XIc}\)</span></li>
+<li class="fragment">To test hypothesis of differences in mean latent traits between groups of children, i.e., <span class="math inline">\(\beta_{XId[g=1]} - \beta_{XId[g=2]}\)</span>, <span class="math inline">\(\beta_{XId[g=1]} - \beta_{XId[g=3]}\)</span>, and <span class="math inline">\(\beta_{XId[g=2]} - \beta_{XId[g=3]}\)</span></li>
+<li class="fragment">To assess the variability within and between children, i.e., <span class="math inline">\(p_{IA}\)</span> and <span class="math inline">\(s_{XI}\)</span><span class="math inline">\(^{*}\)</span>, respectively</li>
+<li class="fragment">To aggregate stimuli traits to individual level <span class="math inline">\((T_{I})\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><span class="fragment" style="font-size:60%; color:gray"><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability for individuals, i.e., <span class="math inline">\(s_{XI}\)</span> versus <span class="math inline">\(s_{XId}\)</span>.</span></p>
+</section>
+<section id="data-modeling-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>The study applies sequential methods <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span> to estimate the parameters defined in <a href="#/sec-pop_sim" class="quarto-xref">Section&nbsp;7.5</a>:</p>
+<div>
+<div style="font-size:80%;">
+<ol start="3" type="1">
+<li class="fragment"><strong>Fit a (multilevel) regression</strong> to model residuals using <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">29</a>, <a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>,</li>
+</ol>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">To test hypothesis of differences in mean residuals between groups of judges, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]}\)</span>, <span class="math inline">\(\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]}\)</span>, and <span class="math inline">\(\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]}\)</span>;</li>
+<li class="fragment">To assess the variability within and between judges, where within-judge variability has no direct equivalent parameter, while between-judge variability corresponds to <span class="math inline">\(s_{ZJ}\)</span><span class="math inline">\(^{*}\)</span>.</li>
+<li class="fragment">To aggregate model residuals to judges biases <span class="math inline">\((B_{J})\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><span class="fragment" style="font-size:60%; color:gray"><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability for judges, i.e., <span class="math inline">\(s_{ZJ}\)</span> versus <span class="math inline">\(s_{ZJd}\)</span>.</span></p>
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="the-classical-btl-analysis-1" class="title-slide slide level1 center">
-<h1>5.1.2.1 The classical BTL analysis</h1>
+<section id="data-modeling-the-itcj-analysis" class="title-slide slide level1 center">
+<h1>5.1.2.2 Data modeling: The ITCJ analysis</h1>
 
 </section>
-<section id="the-classical-btl-analysis-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 The classical BTL analysis</h2>
-<p>This approach applies several sequential methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
-<!-- ######################################### -->
-</section></section>
-<section>
-<section id="the-information-theoretical-model-for-cj-2" class="title-slide slide level1 center">
-<h1>5.1.2.2 The Information-Theoretical model for CJ</h1>
-
-</section>
-<section id="the-information-theoretical-model-for-cj-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2 The Information-Theoretical model for CJ</h2>
+<section id="data-modeling-the-itcj-analysis-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2 Data modeling: The ITCJ analysis</h2>
 <!-- ######################################### -->
 </section></section>
 <section id="the-second-synthetic-comparison-dataset" class="title-slide slide level1 center">
@@ -1485,20 +1532,20 @@ Figure&nbsp;18: Individual win rates.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="the-classical-btl-analysis-3" class="title-slide slide level1 center">
+<section id="the-classical-btl-analysis" class="title-slide slide level1 center">
 <h1>5.2.2.1 The classical BTL analysis</h1>
 
 </section>
-<section id="the-classical-btl-analysis-4" class="slide level2" style="font-size:80%;">
+<section id="the-classical-btl-analysis-1" class="slide level2" style="font-size:80%;">
 <h2>5.2.2.1 The classical BTL analysis</h2>
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="the-information-theoretical-model-for-cj-4" class="title-slide slide level1 center">
+<section id="the-information-theoretical-model-for-cj-1" class="title-slide slide level1 center">
 <h1>5.2.2.2 The Information-Theoretical model for CJ</h1>
 
 </section>
-<section id="the-information-theoretical-model-for-cj-5" class="slide level2" style="font-size:80%;">
+<section id="the-information-theoretical-model-for-cj-2" class="slide level2" style="font-size:80%;">
 <h2>5.2.2.2 The Information-Theoretical model for CJ</h2>
 <!-- ######################################### -->
 </section></section>
@@ -1633,14 +1680,14 @@ Figure&nbsp;18: Individual win rates.
 <div id="ref-Turner_et_al_2012b" class="csl-entry" role="listitem">
 <div class="csl-left-margin">28. </div><div class="csl-right-inline">Turner H, Firth D (2012) <a href="https://cran.r-project.org/web/packages/BradleyTerry2/vignettes/BradleyTerry.html">Bradley-terry models in r: The BradleyTerry2 package</a>. University of Warwick</div>
 </div>
-<div id="ref-Stan_2020" class="csl-entry" role="listitem">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">Stan Development Team. (2021) <a href="https://mc-stan.org">Stan modeling language users guide and reference manual, version 2.26</a>. Vienna, Austria</div>
-</div>
 <div id="ref-Burkner_2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">Bürkner P-C (2017) <span class="nocase">brms</span>: An <span>R</span> package for <span>Bayesian</span> multilevel models using <span>Stan</span>. Journal of Statistical Software 80(1):1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a></div>
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">Bürkner P-C (2017) <span class="nocase">brms</span>: An <span>R</span> package for <span>Bayesian</span> multilevel models using <span>Stan</span>. Journal of Statistical Software 80(1):1–28. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a></div>
 </div>
 <div id="ref-Burkner_2018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">Bürkner P-C (2018) Advanced <span>Bayesian</span> multilevel modeling with the <span>R</span> package <span class="nocase">brms</span>. The R Journal 10(1):395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a></div>
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Bürkner P-C (2018) Advanced <span>Bayesian</span> multilevel modeling with the <span>R</span> package <span class="nocase">brms</span>. The R Journal 10(1):395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a></div>
+</div>
+<div id="ref-Stan_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Stan Development Team. (2021) <a href="https://mc-stan.org">Stan modeling language users guide and reference manual, version 2.26</a>. Vienna, Austria</div>
 </div>
 <div id="ref-Wickham_et_al_2019" class="csl-entry" role="listitem">
 <div class="csl-left-margin">32. </div><div class="csl-right-inline">Wickham H, Averick M, Bryan J, et al (2019) Welcome to the <span class="nocase">tidyverse</span>. Journal of Open Source Software 4(43):1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a></div>
@@ -1686,6 +1733,9 @@ Figure&nbsp;18: Individual win rates.
 </div>
 <div id="ref-Vehtari_et_al_2024a" class="csl-entry" role="listitem">
 <div class="csl-left-margin">46. </div><div class="csl-right-inline">Vehtari A, Simpson D, Gelman A, Yao Y, Gabry J (2024) <a href="https://arxiv.org/abs/1507.02646">Pareto smoothed importance sampling</a></div>
+</div>
+<div id="ref-Betancourt_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">47. </div><div class="csl-right-inline">Betancourt M (2024) <a href="https://betanalpha.github.io/assets/chapters_html/pairwise_comparison_modeling.html">Pairwise comparison modeling</a></div>
 </div>
 </div>
 

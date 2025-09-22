@@ -135,28 +135,28 @@ Once a *sufficiently trustworthy model* is found in goal 1,
 CJ data can be analyzed under two analytical approaches:
 
 ::: incremental 
-1. **The classical BTL analysis** [@Pollitt_2012a; @Pollitt_2012b],
+1. *The classical BTL analysis* (hereafter, **CBTL**) [@Pollitt_2012a; @Pollitt_2012b] ,
     
-    which applies several sequential methods to estimate (generate) the traits and conduct inferences,
+    which relies on a sequence of separate methods to estimate traits and draw inferences,
 
-2. **The Information-Theoretical model for CJ** [@Rivera_et_al_2025],
+2. *The Information-Theoretical model for CJ* (hereafter, **ITCJ**) [@Rivera_et_al_2025],
 
-    which applies one systematic, integrated approach for the same two purposes.
+    which employs a single, systematic, and integrated approach for the same two purposes.
 :::
 
 <!-- ######################################### -->
 
-# 3.1 The classical BTL analysis
+# 3.1 The CBTL analysis
 
 ---
 
-## 3.1 The classical BTL analysis {#sec-BTL style="font-size:80%;"}
+## 3.1 The CBTL analysis {#sec-CBTL style="font-size:80%;"}
 
-This approach applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
+This approach relies on a sequence of separate methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. **Apply the BTL model**,
+1. **Apply the BTL model** to data, e.g.,
     
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -165,7 +165,7 @@ This approach applies several sequential methods, each with different purposes [
 :::
 :::
 
-2. **Generate summaries** or **apply (multilevel) regression** to the stimuli's trait (mean estimates),
+2. **Generate summaries** or **apply (multilevel) regression** to the stimuli' mean trait estimates, e.g.,
     
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -175,7 +175,7 @@ This approach applies several sequential methods, each with different purposes [
 :::
 :::
 
-3. **Generate summaries** or **apply (multilevel) regression** to the model residuals,
+3. **Generate summaries** or **apply (multilevel) regression** to the model residuals, e.g.,
     
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -190,13 +190,13 @@ This approach applies several sequential methods, each with different purposes [
 
 <!-- ######################################### -->
 
-# 3.2 The Information-Theoretical model for CJ
+# 3.2 The ITCJ analysis
 
 --- 
 
-## 3.2 The Information-Theoretical model for CJ {#sec-ITCJ style="font-size:80%;"}
+## 3.2 The ITCJ analysis {#sec-ITCJ style="font-size:80%;"}
 
-In contrast, this approach applies one systematic, integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. In broad terms, the approach:
+This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. In broad terms, the approach:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -224,7 +224,7 @@ With these steps a researcher can:
 
 --- 
 
-## 3.2 The Information-Theoretical model for CJ {style="font-size:80%;" #sec-3.2}
+## 3.2 The ITCJ analysis {style="font-size:80%;" #sec-3.2}
 
 <!-- commands for d-separation -->
 \newcommand{\dsep}{\:\bot\:}
@@ -237,7 +237,7 @@ The general CJ structure proposed by Rivera et al. [@Rivera_et_al_2025] takes th
 
 ::: {#fig-cj15 layout-ncol=2 }
 
-![](/images/CJ_TM_15.png){width=80%}
+![](/figures/CJ_TM_15.png){width=80%}
 
 $$
 \begin{aligned}
@@ -351,19 +351,19 @@ Constraints of the CJ model to solve indeterminacies in *location*, *orientation
 
 ---
 
-## 4. Methods {#sec-methods style="font-size:80%;"}
+## 4. Methods {style="font-size:80%;"}
 
 To meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow [@Depaoli_et_al_2017; @Neal_2020; @Gelman_et_al_2020; @Schad_et_al_2020; @Betancourt_2020; @McElreath_2024b; @McElreath_2024c]:
 
 ::: {#fig-workflow}
-![](/images/workflow.png){width=80%}
+![](/figures/workflow.png){width=80%}
 
 Bayesian (research) workflow.
 :::
 
 ---
 
-## 4. Methods {style="font-size:80%;"}
+## 4. Methods {#sec-methods style="font-size:80%;"}
 
 Specifically, the study follows these steps (overarching goals in parenthesis):
 
@@ -374,18 +374,18 @@ Specifically, the study follows these steps (overarching goals in parenthesis):
     Considering three steps: 
 
 ::: incremental 
-a. Define the CJ structure and explicitly state its assumptions from relevant literature; 
+a. Define a CJ structure of interest and explicitly state its assumptions from relevant literature; 
 b. Specify the estimand(s) of interest and provide formal definitions for each target parameter;
 c. Simulate a _synthetic conceptual population_ that reflects the defined structure and assumptions;
 :::
 
 2. **Design $\rightarrow$ Sample** (*Tutorial and Model validation*)
     
-    Generate _**two** synthetic samples and comparison datasets_ from the conceptual population in step $1$;
+    Generate _**two** synthetic_ random sample and comparison datasets from the conceptual population simulated in step $1$;
 
 3. **{Theory, Design, Estimand(s)} $\rightarrow$ Estimator** (*Tutorial and Model validation*)
 
-    Specify models for analyzing the _**first** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model for CJ;
+    Specify models for analyzing the _**first** synthetic_ random comparison dataset using both the CBTL and the ITCJ analysis;
     
 4. **Estimator $\rightarrow$ Prior predictive** (*Tutorial*)
 
@@ -401,7 +401,7 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 ::: {style="font-size:75%;"}
 5. **{Estimator, Sample} $\rightarrow$ Estimate(s)** (*Tutorial and Model validation*)
 
-    Apply both the classical BTL model and the Information-Theoretical model for CJ to the _**first** synthetic comparison dataset_;
+    Apply both the CBTL and ITCJ methods to the _**first** synthetic_ random comparison dataset;
 
 6. **Estimate(s) $\rightarrow$ {Diagnostic, Post predictive}** (*Tutorial*)
 
@@ -413,11 +413,11 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 8. **Estimator $\rightarrow$ Estimate(s) $\rightarrow$ Effects $\leftarrow$ Estimand(s)** (*Model validation*)
 
-    Generate the *estimate(s)* of interest for CJ the _**first** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model, and interpret the results;
+    Generate the *estimate(s)* of interest for the _**first** synthetic_ random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;
     
 9. **Estimator $\rightarrow$ Estimate(s) $\rightarrow$ Predictions $\leftarrow$ Estimand(s)** (*Model validation*)
 
-    Generate predictions for the _**second** synthetic comparison dataset_ using both the classical BTL analysis and the Information-Theoretical model for CJ, and compare their out-of-sample predictive accuracy.
+    Generate predictions for the _**second** synthetic comparison dataset_ using both the CBTL and ITCJ analysis, and compare their out-of-sample predictive accuracy.
 :::
 :::
 
@@ -466,13 +466,13 @@ Regarding the study findings, the study report that:
 
 ## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_al_2025] to the data characteristics reported by Boonen et al. [@Boonen_et_al_2020] lead to the following conceptual population data-generating process:
+Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_al_2025] to the data characteristics reported by Boonen et al. [@Boonen_et_al_2020] leads to the following conceptual population data-generating process:
 
 ::: {.fragment style="font-size:80%;"}
 
 ::: {#fig-cj17 layout-ncol=2}
 
-![](/images/CJ_population_DAG.png){width=85%}
+![](/figures/CJ_population_DAG.png){width=85%}
 
 $$
 \begin{aligned}
@@ -496,7 +496,7 @@ CJ data-generating process for the conceptual population. *Left panel* shows the
 
 ## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-Moreover, integrating the adapted CJ structure with assumptions derived from Boonen et al.'s [@Boonen_et_al_2020] findings results in the following statistical data-generating process:
+Moreover, integrating the assumptions derived from Boonen et al. [@Boonen_et_al_2020] leads to the following statistical data-generating process:
 
 ::: {.fragment style="font-size:80%;"}
 
@@ -594,7 +594,7 @@ In layman terms:
 
 ::: incremental 
 ::: {style="font-size:60%;"}
-- No stimuli characteristics $(X_{IA})$,
+- No stimuli characteristics $(X_{IA})$ are assumed to affect the comparisons,
 - Individual characteristics $(X_{I})$ include a continuous variable $(X_{Ic})$ for the age of children, and a categorical variable with three levels representing hearing status groups: normal-hearing (NH, $X_{Id}[g=1]$), hearing-impaired with hearing aids (HI-HA, $X_{Id}[g=2]$), and hearing-impaired with cochlear implants (HI-CI, $X_{Id}[g=3]$) children;
 - There is a "small" [@Cohen_1988; @Sawilowsky_2009] but increasing effect of age $(\beta_{XIc})$ on the mean latent trait of individuals;
 - There are "very large" [@Cohen_1988; @Sawilowsky_2009] differences in the mean latent trait across hearing status groups $(\beta_{XId[g=1]} > \beta_{XId[g=2]} > \beta_{XId[g=3]})$;
@@ -602,8 +602,8 @@ In layman terms:
 - Judges characteristics $(Z_{J})$ include a categorical variable with three levels representing judge groups: audiologist (AU, $Z_{Jd}[g=1]$), primary teachers (PT, $Z_{Jd}[g=2]$), and inexperienced listeners (IL, $Z_{Jd}[g=3]$);
 - Judges exhibit biases, but mean latent biases across judge groups are equal to zero $(\beta_{ZJd[g=1]}=\beta_{ZJd[g=2]}=\beta_{ZJd[g=3]}=0)$;
 - Residual latent errors $(\boldsymbol{e})$ are centered around zero with zero correlation $(\boldsymbol{\mu}, \boldsymbol{Q})$;
-- Individual latent trait residual variability differs by groups ($s_{XId[g=1]} > s_{XId[g=2]} = s_{XId[g=3]}$, with $\sum_{g=1}^{3} s_{XId[g]}/3 = 1$);
-- Judges' latent bias residual variability differs by groups ($s_{ZJd[g=1]} < s_{ZJd[g=2]} < s_{ZJD[g=3]}$, with $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$);
+- Individual latent trait residual variability differs by groups, i.e., $s_{XId[g=1]} > s_{XId[g=2]} = s_{XId[g=3]}$, with $\sum_{g=1}^{3} s_{XId[g]}/3 = 1$;
+- Judges' latent bias residual variability differs by groups, i.e., $s_{ZJd[g=1]} < s_{ZJd[g=2]} < s_{ZJD[g=3]}$, with $\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1$;
 - Stimuli latent trait residual variability is smaller than average individual latent trait residual variability $(p_{IA} < 1)$.
 :::
 :::
@@ -611,18 +611,19 @@ In layman terms:
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+## 4.1 From Theory to Design: Steps 1a-1c {#sec-pop_sim style="font-size:80%;"}
 
 More importantly, the simulation parameters define the **_estimands_** of interest:
 
 ::: incremental 
 ::: {style="font-size:65%;"}
-- $\beta_{XIc}$ represents the expected change in the individuals' mean latent trait for one additional year of age;
-- $(\beta_{XId[g=1]} - \beta_{XId[g=2]})$, $(\beta_{XId[g=1]} - \beta_{XId[g=3]})$, and  $(\beta_{XId[g=2]} - \beta_{XId[g=3]})$ represent the expected differences in mean latent  traits between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;
-- $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]})$, $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]})$, and $(\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]})$ represent the expected differences in mean latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;
-- $(s_{XId[g=1]} - s_{XId[g=2]})$, $(s_{XId[g=1]} - s_{XId[g=3]})$, and $(s_{XId[g=2]} - s_{XId[g=3]})$ represent the expected differences in residual variability of the latent trait between NH and HI-HA children, NH and HI-CI children, and HI-HA and HI-CI children, respectively;
-- $(s_{ZJd[g=1]} - s_{ZJd[g=2]})$, $(s_{ZJd[g=1]} - s_{ZJd[g=3]})$, and $(s_{ZJd[g=2]} - s_{ZJd[g=3]})$ represent the expected differences in residual variability of the latent bias between AU and PT judges, AU and IL judges, and PT and IL judges, respectively;
-- $p_{IA}$ represents the residual variability of the stimuli latent trait.
+- The expected change in the individuals' mean latent trait for one additional year of age $(\beta_{XIc})$;
+- The expected differences in mean latent traits between NH and HI-HA children $(\beta_{XId[g=1]} - \beta_{XId[g=2]})$, NH and HI-CI children $(\beta_{XId[g=1]} - \beta_{XId[g=3]})$, and HI-HA versus HI-CI children $(\beta_{XId[g=2]} - \beta_{XId[g=3]})$;
+- The expected differences in mean latent bias between AU and PT judges $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]})$, AU and IL judges $(\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]})$, and PT and IL judges $(\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]})$;
+- The expected differences in residual variability of the latent trait between NH and HI-HA children $(s_{XId[g=1]} - s_{XId[g=2]})$, NH and HI-CI children $(s_{XId[g=1]} - s_{XId[g=3]})$, and HI-HA versus HI-CI children $(s_{XId[g=2]} - s_{XId[g=3]})$, respectively;
+- The expected differences in residual variability of the latent bias between AU and PT judges $(s_{ZJd[g=1]} - s_{ZJd[g=2]})$, AU and IL judges $(s_{ZJd[g=1]} - s_{ZJd[g=3]})$, and PT and IL judges $(s_{ZJd[g=2]} - s_{ZJd[g=3]})$;
+- The residual variability of the stimuli latent trait $(p_{IA})$;
+- Latent traits $T_{IA}$, $T_{I}$, and $B_{J}$.
 :::
 :::
 
@@ -634,7 +635,7 @@ More importantly, the simulation parameters define the **_estimands_** of intere
 
 ## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
 
-Differing only by replication seed, the study generates _**two** synthetic samples and comparison datasets_ from the conceptual population in **Step 1**. 
+Differing only by replication seed, the study generates _**two** synthetic_ random sample and comparison datasets from the conceptual population in **Step 1**. 
 
 ::: {.fragment}
 More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms shown in @fig-cj17, sample size calculations were conducted (see next slides) and the following design was adopted:
@@ -657,7 +658,7 @@ More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms shown 
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-individual_ss}
-![](/images/sim_individual_sample_size.png){width=100%}
+![](/figures/sim_individual_sample_size.png){width=100%}
 
 Individual's sample size calculation, considering requirements for Power, Efficiency and Cost.
 :::
@@ -669,7 +670,7 @@ Individual's sample size calculation, considering requirements for Power, Effici
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_ss}
-![](/images/sim_judges_sample_size.png){width=100%}
+![](/figures/sim_judges_sample_size.png){width=100%}
 
 Judges's sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 :::
@@ -687,20 +688,20 @@ All analysis were conducted using `R` version 4.2.2 [@R_2015]. Specifically:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. For the **classical BTL analysis** [@Pollitt_2012a; @Pollitt_2012b] described in @sec-BTL , the study uses:
+1. For the **CBTL analysis** [@Pollitt_2012a; @Pollitt_2012b] described in @sec-CBTL, the study uses:
     
 ::: incremental 
 ::: {style="font-size:80%;"}
 - The `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b] and its `BTm()` function to fit the BTL model to the data, and estimate both the stimuli traits and model residuals.
-- `Stan` version 2.26.1 [@Stan_2020] and the `brms` package [@Burkner_2017; @Burkner_2018] to fit two separate Bayesian multilevel regression models: one for the stimuli mean traits and another for the model residuals. 
+- The `brms` package [@Burkner_2017; @Burkner_2018] to fit two separate Bayesian multilevel regression models: one for the stimuli mean traits and another for the model residuals. 
 :::
 :::
 
-2. For the **Information-Theoretical model for CJ** described in @sec-ITCJ [@Rivera_et_al_2025], the study uses:
+2. For the **ITCJ** analysis described in @sec-ITCJ [@Rivera_et_al_2025], the study uses:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- `Stan` version 2.26.1 [@Stan_2020] to fit a series of increasingly complex Bayesian Information-Theoretical CJ models,
+- `Stan` version 2.26.1 [@Stan_2020] to fit a series of increasingly complex Bayesian ITCJ models,
 :::
 :::
 
@@ -719,7 +720,7 @@ All analysis were conducted using `R` version 4.2.2 [@R_2015]. Specifically:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-3. A set of additional `R` packages was used for:
+3. A set of additional `R` packages were used for:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -747,7 +748,7 @@ The study assess the quality of the models and estimate(s) in terms of:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Graphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plot of prior to posterior distributions,
+- Graphical analyses, including trace plots, rank-normalized trace (trank) plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,
 - Diagnostic statistics, including the potential scale reduction factor statistics $(\hat{R})$ with a cut-off value of $1.05$ [@Vehtari_et_al_2021a] and effective sample size statistics $(n_{\text{eff}})$ [@Gelman_et_al_2014].
 :::
 :::
@@ -843,12 +844,12 @@ The study assess the quality of the models and estimate(s) in terms of:
 In this section, the study will:
 
 ::: incremental 
-1. Describe the _**first** synthetic comparison dataset_;
-2. Progress through the steps 3-7 of the Bayesian (research) workflow, described in @sec-methods, using:
+1. Describe the _**first** synthetic_ random comparison dataset;
+2. Progress through the steps $3-7$ of the Bayesian (research) workflow, described in @sec-methods, using:
 
 ::: incremental 
-- The classical BTL analysis, and 
-- The Information-Theoretical model for CJ
+- The CBTL analysis, and 
+- The ITCJ analysis
 :::
 
 :::
@@ -874,9 +875,9 @@ In terms of design, the dataset reveals that:
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_comparisons layout-ncol=2}
-![](/images/stimuli_comparisons_bottom.png){width=60%}
+![](/figures/stimuli_comparisons_bottom.png){width=60%}
 
-![](/images/stimuli_network.png){width=60%}
+![](/figures/stimuli_network.png){width=60%}
 
 Comparison design. *Left panel* shows the number of comparisons for individuals $(Is)$ and stimuli $(As)$. *Right panel* shows the stimuli comparison network.
 :::
@@ -891,16 +892,16 @@ In a similar manner, the data indicates:
 ::: incremental 
 ::: {style="font-size:80%;"}
 - Most individuals were compared $200$ times ($20$ comparisons × $10$ stimuli each); only one individual (ID $58$) was compared slightly fewer times due to random design variation;
-- The connected component analysis and individual comparison network indicates a fully connected network and a *balanced design* for individuals [@Lawson_2015, chap. 7.4].
+- The connected component analysis [@Betancourt_2024] and individual comparison network indicates a fully connected network and a *balanced design* for individuals [@Lawson_2015, chap. 7.4].
 :::
 :::
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-individual_comparisons layout-ncol=2}
 
-![](/images/individuals_comparisons.png){width=60%}
+![](/figures/individuals_comparisons.png){width=60%}
 
-![](/images/individual_network.png){width=55%}
+![](/figures/individual_network.png){width=55%}
 
 Comparison design. *Left panel* shows the number of comparisons for individuals. *Right panel* shows the individual comparison network.
 :::
@@ -921,9 +922,9 @@ On the other hand, the dataset shows:
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_comparisons layout-ncol=2}
-![](/images/judges2individuals_comparisons.png){width=60%}
+![](/figures/judges2individuals_comparisons.png){width=60%}
 
-![](/images/judges_comparisons.png){width=90%}
+![](/figures/judges_comparisons.png){width=90%}
 
 Comparison design. *Left panel* shows the judges $(Js)$ vs the first $10$ individuals $(Is)$. *Right panel* shows the total number of judges' comparisons.
 :::
@@ -943,7 +944,7 @@ Moreover,
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_individuals_comparisons}
-![](/images/judges_individuals_network.png){width=100%}
+![](/figures/judges_individuals_network.png){width=100%}
 
 Bipartite graph of judges to individual comparison network.
 :::
@@ -953,11 +954,11 @@ Bipartite graph of judges to individual comparison network.
 
 ## 5.1.1 Data description {style="font-size:80%;"}
 
-In terms of the outcomes, we see some stimuli with higher win rates than others:
+In terms of the comparison outcomes, we see some stimuli with higher win rates than others:
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_wins}
-![](/images/stimuli_wins.png){width=70%}
+![](/figures/stimuli_wins.png){width=70%}
 
 Stimuli win rates.
 :::
@@ -971,7 +972,7 @@ Aggregated by individuals, we see some individuals with higher win rates than ot
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_wins}
-![](/images/individual_wins.png){width=70%}
+![](/figures/individual_wins.png){width=70%}
 
 Individual win rates.
 :::
@@ -992,9 +993,9 @@ Divided by hearing status groups,
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_wins}
-![](/images/individual_wins_groups.png){width=100%}
+![](/figures/individual_wins_groups.png){width=100%}
 
-Individual win rates per group. *Left panel* for NH children. *Middle panel* for HI-HA children. *Right panel* for HI-CI children.
+Individual win rates per group. *Left panel* describe NH children. *Middle panel* describe HI-HA children. *Right panel* illustrate HI-CI children.
 :::
 :::
 
@@ -1002,11 +1003,11 @@ Individual win rates per group. *Left panel* for NH children. *Middle panel* for
 
 ## 5.1.1 Data description {style="font-size:80%;"}
 
-Considering age, no apparent relationship transpire between wins and age:
+However, no apparent relationship transpire between individual wins and age:
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_wins}
-![](/images/individual_winsVSXIc.png){width=70%}
+![](/figures/individual_winsVSXIc.png){width=70%}
 
 Individual win rates versus age.
 :::
@@ -1021,14 +1022,14 @@ Considering the interaction of age and hearing status groups,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- We notice a slightly decreasing trend in HI-HA and HI-CI children,
-- This indicates that, in those groups, older children are less likely to win in a comparison.
+- We notice a slightly decreasing trend in HI-HA and HI-CI children, indicating that in those groups, older children are less likely to win in a comparison.
+- However, the results are not *unambiguous*
 :::
 :::
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-stimuli_wins}
-![](/images/individual_winsVSXIc_groups.png){width=100%}
+![](/figures/individual_winsVSXIc_groups.png){width=100%}
 
 Individual win rates.
 :::
@@ -1038,27 +1039,72 @@ Individual win rates.
 
 # 5.1.2 Data modeling
 
+# 5.1.2.1 Data modeling: The CBTL analysis
+
 ---
 
-## 5.1.2 Data modeling {style="font-size:80%;"}
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+The study applies sequential methods [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023] to estimate the parameters defined in @sec-pop_sim:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. **Fit the BTL model** to data using the `BTm()` function from `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b],
+
+::: incremental 
+::: {style="font-size:80%;"}
+- To estimate the traits of the stimuli $(T_{IA})$
+- To generate the model residuals
+:::
+:::
+
+2. **Fit a (multilevel) regression** to the stimuli' mean trait estimates using `brms` package [@Burkner_2017; @Burkner_2018], 
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- To estimate the effect of age on the mean latent trait, i.e, $\beta_{XIc}$
+- To test hypothesis of differences in mean latent traits between groups of children, i.e., $\beta_{XId[g=1]} - \beta_{XId[g=2]}$, $\beta_{XId[g=1]} - \beta_{XId[g=3]}$, and  $\beta_{XId[g=2]} - \beta_{XId[g=3]}$
+- To assess the variability within and between children, i.e., $p_{IA}$ and $s_{XI}$$^{*}$, respectively
+- To aggregate stimuli traits to individual level $(T_{I})$ 
+:::
+:::
+
+:::
+:::
+
+[$*$ By model assumptions, the CBTL analysis only considers one variability for individuals, i.e., $s_{XI}$ versus $s_{XId}$.]{.fragment style="font-size:60%; color:gray"} 
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+The study applies sequential methods [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023] to estimate the parameters defined in @sec-pop_sim:
+
+::: incremental 
+::: {style="font-size:80%;"}
+3. **Fit a (multilevel) regression** to model residuals using `brms` package [@Burkner_2017; @Burkner_2018], 
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- To test hypothesis of differences in mean residuals between groups of judges, i.e., $\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]}$, $\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]}$, and $\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]}$;
+- To assess the variability within and between judges, where within-judge variability has no direct equivalent parameter, while between-judge variability corresponds to $s_{ZJ}$$^{*}$.
+- To aggregate model residuals to judges biases $(B_{J})$ 
+:::
+:::
+
+:::
+:::
+
+
+[$*$ By model assumptions, the CBTL analysis only considers one variability for judges, i.e., $s_{ZJ}$ versus $s_{ZJd}$.]{.fragment style="font-size:60%; color:gray"}
 
 <!-- ######################################### -->
 
-# 5.1.2.1 The classical BTL analysis
+# 5.1.2.2 Data modeling: The ITCJ analysis 
 
 ---
 
-## 5.1.2.1 The classical BTL analysis {style="font-size:80%;"}
-
-This approach applies several sequential methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
-
-<!-- ######################################### -->
-
-# 5.1.2.2 The Information-Theoretical model for CJ 
-
----
-
-## 5.1.2.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
+## 5.1.2.2 Data modeling: The ITCJ analysis {style="font-size:80%;"}
 
 <!-- ######################################### -->
 
