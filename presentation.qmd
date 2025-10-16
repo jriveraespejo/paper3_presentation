@@ -276,9 +276,9 @@ $$
   T_{I} & := f_{T}(X_{I}, e_{I}) \\
   B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\
   B_{J} & := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} & \dsep \{ e_{J}, e_{IA}, e_{JK} \} \\
-  e_{J} & \dsep \{ e_{IA}, e_{JK} \} \\
-  e_{IA} & \dsep e_{JK}
+  e_{IA} & \dsep \{ e_{I}, e_{J}, e_{JK} \} \\
+  e_{I} & \dsep \{ e_{J}, e_{JK} \} \\
+  e_{J} & \dsep e_{JK}
 \end{aligned}
 $$
 
@@ -290,7 +290,7 @@ $$
   & P( T_{I} \mid X_{I}, e_{I} ) \\
   & P( B_{JK} \mid B_{J}, Z_{JK}, e_{JK} ) \\
   & P( B_{J} \mid Z_{J}, e_{J} ) \\ \\
-  & P( e_{I} ) P( e_{IA} ) P( e_{J} ) P( e_{JK} ) \\ \\ \\
+  & P( e_{IA} ) P( e_{I} ) P( e_{J} ) P( e_{JK} ) \\ \\ \\
 \end{aligned}
 $$
 
@@ -480,10 +480,9 @@ $$
   D_{R} & := f_{D}(T_{IA}, B_{JK}) \\
   T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
   T_{I} & := f_{T}(X_{I}, e_{I}) \\
-  B_{JK} & := f_{B}(B_{J}) \\
   B_{J} & := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} & \dsep \{ e_{J}, e_{IA} \} \\
-  e_{J} & \dsep \{ e_{IA} \}
+  e_{IA} & \dsep \{ e_{I}, e_{J} \} \\
+  e_{I} & \dsep \{ e_{J} \}
 \end{aligned}
 $$
 
@@ -508,10 +507,9 @@ $$
   D_{R} & := f_{D}(T_{IA}, B_{JK}) \\
   T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
   T_{I} & := f_{T}(X_{I}, e_{I}) \\
-  B_{JK} & := f_{B}(B_{J}) \\
   B_{J} & := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} & \dsep \{ e_{J}, e_{IA} \} \\
-  e_{J} & \dsep \{ e_{IA} \}
+  e_{IA} & \dsep \{ e_{I}, e_{J} \} \\
+  e_{I} & \dsep \{ e_{J} \}
 \end{aligned}
 $$
 
@@ -521,9 +519,8 @@ $$
   & P( D_{R} \mid T_{IA}, B_{JK} ) \\
   & P( T_{IA} \mid T_{I}, e_{IA} ) \\
   & P( T_{I} \mid X_{I}, e_{I} ) \\
-  & P( B_{JK} \mid B_{J} ) \\
   & P( B_{J} \mid Z_{J}, e_{J} ) \\ \\
-  & P( e_{I} ) P( e_{IA} ) P( e_{J} )
+  & P( e_{IA} ) P( e_{I} ) P( e_{J} )
 \end{aligned}
 $$
 
@@ -533,7 +530,6 @@ $$
   D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{JK}[j,k] \\
   T_{IA} & = T_{I} + e_{IA} \\
   T_{I} & = \beta_{XI} X_{I} + e_{I} \\
-  B_{JK} & = B_{J} \\
   B_{J} & = \beta_{ZJ} Z_{J} + e_{J} \\ \\
   \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
   \\
@@ -656,49 +652,40 @@ More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms illust
 
 <!-- ######################################### -->
 
-# 4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5
+# 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5 {style="font-size:80%;"}
+## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5 {style="font-size:80%;"}
 
 The study applies two data analysis approaches for the simulated CJ data (as described in @sec-approaches):
 
 ::: incremental 
-1. *The CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b] ,
+1. *The CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b],
 2. *The ITCJ analysis* [@Rivera_et_al_2025],
 :::
 
-::: {.fragment}
-Both approaches were conducted using `R` version 4.2.2 [@R_2015], with:
-
-::: incremental 
-::: {style="font-size:80%;"}
-- Additional `R` packages for data manipulation and visualization: `tidyverse` [@Wickham_et_al_2019], `igraph` [@Csardi_et_al_2006; @Csardi_et_al_2025], and `RColorBrewer` [@Neuwirth_2022];
-- Specific user-defined functions (`UDFs`) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).
-:::
-:::
-
-:::
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5 {style="font-size:80%;"}
+## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5 {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. **Fits a BTL model** using the `BTm()` function from the `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b],
+1. **Fits a BTL model**,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- To estimate the traits of the stimuli $(T_{IA})$
-- To generate the model residuals and conduct *misfit* analysis.
+- To estimate the traits of the stimuli $(\text{ability}_{i,a})$
+- To generate the model residuals $(\text{res}_{j,a,b})$ and conduct *misfit* analysis.
 :::
 :::
 
-2. **Fits a (multilevel) regression** to model residuals using the `brms` package [@Burkner_2017; @Burkner_2018],
+2. **Fits a (multilevel) regression** on the residuals,
+    
+    $\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)$
     
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -717,13 +704,15 @@ $*$ By model assumptions, the CBTL analysis only considers one variability param
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5 {style="font-size:80%;"}
+## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5 {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
 3. **Fits a (multilevel) regression** to the stimuli' mean trait estimates, 
+
+    $\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)$
     
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -737,24 +726,479 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 :::
 :::
 
-::: {.fragment style="font-size:80%;"}
-Notably, **for each** `brms` model, **four** Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
-:::
-
 :::{.fragment style="font-size:60%; color:gray"}
 $*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$.
+:::
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+The **first model** only considers the stimulus' traits:
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj41 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}) \\
+  T_{IA} & := f_{T}(e_{IA}) \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA} ) \\
+  & P( T_{IA} \mid e_{IA} ) \\
+  & P( e_{IA} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = e_{IA} \\
+  e_{IA} & \sim \text{Normal}( 0, 1 )
+\end{aligned}
+$$
+
+First ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+
+:::
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+Building on the first, the **second model** integrates the hierarchical structural component that captures the nesting structure of stimulus within individuals:
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj42 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(e_{I}) \\
+  e_{IA} & \dsep e_{I}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA} ) \\
+  & P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  & P( T_{I} \mid e_{I} ) \\
+  & P( e_{IA} ) P( e_{I} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = e_{I} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+Second ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+
+:::
+
+::: {.fragment}
+$$
+\begin{split}
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0  \\
+    0     & 1
+\end{bmatrix}
+\end{split}
+$$
 :::
 
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+Extending the second, the **third model** integrates covariates into the structural component to account for factors that may affect individual traits:
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj43 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(XI, e_{I}) \\
+  e_{IA} & \dsep e_{I}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA} ) \\
+  & P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  & P( T_{I} \mid XI, e_{I} ) \\
+  & P( e_{IA} ) P( e_{I} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+Third ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+
+:::
+
+::: {.fragment}
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; 
+\beta_{XId} \sim \text{Normal}(0, 0.5); \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0  \\
+    0     & 1 
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+Building upon the second, the **fourth model** incorporates a key CJ design feature: judges’ biases.
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj44 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}, B_{J}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(e_{I}) \\
+  B_{J} & := f_{B}(e_{J}) \\
+  e_{IA} & \dsep \{ e_{I}, e_{J}\} \\
+  e_{I} & \dsep \{ e_{J}\}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA}, B_{J} ) \\
+  & P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  & P( T_{I} \mid e_{I} ) \\
+  & P( B_{J} \mid e_{J} ) \\
+  & P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{J}[j]\\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = e_{I} \\
+  B_{J} & = e_{J} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+Fourth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+
+:::
+
+::: {.fragment}
+$$
+\begin{split}
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0 & 0 \\
+    0     & 1 & 0 \\
+    0     & 0 & 1
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+Combining the 2nd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases:
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj45 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(XI, e_{I}) \\
+  B_{J} & := f_{B}(ZJ, e_{J}) \\
+  e_{IA} & \dsep \{ e_{I}, e_{J}\} \\
+  e_{I} & \dsep \{ e_{J}\}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA} ) \\
+  & P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  & P( T_{I} \mid XI, e_{I} ) \\
+  & P( B_{J} \mid ZJ, e_{J} ) \\
+  & P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} & = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+Fifth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+
+:::
+
+::: {.fragment}
+
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0 & 0 \\
+    0     & 1 & 0 \\
+    0     & 0 & 1
+\end{bmatrix}
+\end{split}
+$$
+
+:::
+
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+
+::: {.fragment}
+Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases:
+:::
+
+::: {.fragment style="font-size:90%;"}
+
+::: {#fig-cj45 layout-ncol=3}
+
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(XI, e_{I}) \\
+  B_{J} & := f_{B}(ZJ, e_{J}) \\
+  e_{IA} & \dsep \{ e_{I}, e_{J}\} \\
+  e_{I} & \dsep \{ e_{J}\}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  & P( O_{R} \mid D_{R}, S, C ) \\
+  & P( D_{R} \mid T_{IA} ) \\
+  & P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  & P( T_{I} \mid XI, e_{I} ) \\
+  & P( B_{J} \mid ZJ, e_{J} ) \\
+  & P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} & = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+Sixth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
+:::
+:::
+
+::: {.fragment}
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+hs_{I} & \sim \text{Dirichlet}(5, 3); \; s_{XI} = 3 \cdot hs_{I}; \; hs_{J} \sim \text{Dirichlet}(5, 3); \; s_{ZJ} = 3 \cdot hs_{I}; \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); 
+\boldsymbol{\mu} = [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0      & 0 \\
+    0     & s_{XI} & 0 \\
+    0     & 0      & s_{ZJ}
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+<!-- ######################################### -->
+
+# 4.4 From Estimator and Sample to Estimate(s): The software of step 5
+
+---
+
+## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
+
+All analysis were conducted using `R` version 4.2.2 [@R_2015], with:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Additional `R` packages for data manipulation and visualization: `tidyverse` [@Wickham_et_al_2019], `igraph` [@Csardi_et_al_2006; @Csardi_et_al_2025], and `RColorBrewer` [@Neuwirth_2022];
+- Specific user-defined functions (`UDFs`) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).
+:::
+:::
+
+---
+
+## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
+
+Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. **Fits a BTL model** using the `BTm()` function from the `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b],
+
+::: incremental 
+::: {style="font-size:80%;"}
+- To estimate the traits of the stimuli $(\text{ability}_{i,a})$
+- To generate the model residuals $(\text{res}_{j,a,b})$ and conduct *misfit* analysis.
+:::
+:::
+
+2. **Fits a (multilevel) regression** on the residuals using the `brms` package [@Burkner_2017; @Burkner_2018],
+    
+    $\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)$
+
+3. **Fits a (multilevel) regression** on the stimulus' trait estimates with the `brms` package [@Burkner_2017; @Burkner_2018], 
+    
+    $\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)$
+:::
+:::
+
+
+::: {.fragment style="font-size:80%;"}
+Notably, **for each** `brms` model, **four** Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
+:::
+
+---
+
+## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
 
 In contrast, for the *ITCJ analysis* [@Rivera_et_al_2025], the study uses:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- `Stan` version 2.26.1 [@Stan_2020] and the interface package `cmdstanr` [@Gabry_et_al_2025] to fit a series of increasingly complex Bayesian ITCJ models,
+- `Stan` version 2.26.1 [@Stan_2020] and the interface package `cmdstanr` [@Gabry_et_al_2025] to fit the six ITCJ models described in the @sec-ITCJ_models,
 - Additional `R` packages for model summaries, predictions, and diagnostics: `loo` [@Vehtari_et_al_2024b], `posterior` [@Burkner_et_al_2024], and `bayesplot` [@Gabry_et_al_2019; @Gabry_et_al_2025].
 
 :::
@@ -764,13 +1208,14 @@ In contrast, for the *ITCJ analysis* [@Rivera_et_al_2025], the study uses:
 Notably, **for each** Bayesian model, **four** Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
 :::
 
+
 <!-- ######################################### -->
 
-# 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6
+# 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6
 
 ---
 
-## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
@@ -809,7 +1254,7 @@ where $\boldsymbol{\hat{\theta}}$ is the vector of posterior samples associated 
 
 ---
 
-## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
@@ -846,7 +1291,7 @@ The study assess the quality of the models and estimate(s) in terms of:
 
 ---
 
-## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 

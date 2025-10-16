@@ -624,9 +624,9 @@ Figure&nbsp;1: Comparative judgment model. <em>Left panel</em> illustrates the D
   T_{I} &amp; := f_{T}(X_{I}, e_{I}) \\
   B_{JK} &amp; := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\
   B_{J} &amp; := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} &amp; \:\bot\:\{ e_{J}, e_{IA}, e_{JK} \} \\
-  e_{J} &amp; \:\bot\:\{ e_{IA}, e_{JK} \} \\
-  e_{IA} &amp; \:\bot\:e_{JK}
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J}, e_{JK} \} \\
+  e_{I} &amp; \:\bot\:\{ e_{J}, e_{JK} \} \\
+  e_{J} &amp; \:\bot\:e_{JK}
 \end{aligned}
 \]</span></p>
 </div>
@@ -639,7 +639,7 @@ Figure&nbsp;1: Comparative judgment model. <em>Left panel</em> illustrates the D
   &amp; P( T_{I} \mid X_{I}, e_{I} ) \\
   &amp; P( B_{JK} \mid B_{J}, Z_{JK}, e_{JK} ) \\
   &amp; P( B_{J} \mid Z_{J}, e_{J} ) \\ \\
-  &amp; P( e_{I} ) P( e_{IA} ) P( e_{J} ) P( e_{JK} ) \\ \\ \\
+  &amp; P( e_{IA} ) P( e_{I} ) P( e_{J} ) P( e_{JK} ) \\ \\ \\
 \end{aligned}
 \]</span></p>
 </div>
@@ -815,10 +815,9 @@ Figure&nbsp;4: Bayesian (research) workflow.
   D_{R} &amp; := f_{D}(T_{IA}, B_{JK}) \\
   T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
   T_{I} &amp; := f_{T}(X_{I}, e_{I}) \\
-  B_{JK} &amp; := f_{B}(B_{J}) \\
   B_{J} &amp; := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} &amp; \:\bot\:\{ e_{J}, e_{IA} \} \\
-  e_{J} &amp; \:\bot\:\{ e_{IA} \}
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J} \} \\
+  e_{I} &amp; \:\bot\:\{ e_{J} \}
 \end{aligned}
 \]</span></p>
 </div>
@@ -846,10 +845,9 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
   D_{R} &amp; := f_{D}(T_{IA}, B_{JK}) \\
   T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
   T_{I} &amp; := f_{T}(X_{I}, e_{I}) \\
-  B_{JK} &amp; := f_{B}(B_{J}) \\
   B_{J} &amp; := f_{B}(Z_{J}, e_{J}) \\ \\
-  e_{I} &amp; \:\bot\:\{ e_{J}, e_{IA} \} \\
-  e_{J} &amp; \:\bot\:\{ e_{IA} \}
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J} \} \\
+  e_{I} &amp; \:\bot\:\{ e_{J} \}
 \end{aligned}
 \]</span></p>
 </div>
@@ -860,9 +858,8 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
   &amp; P( D_{R} \mid T_{IA}, B_{JK} ) \\
   &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
   &amp; P( T_{I} \mid X_{I}, e_{I} ) \\
-  &amp; P( B_{JK} \mid B_{J} ) \\
   &amp; P( B_{J} \mid Z_{J}, e_{J} ) \\ \\
-  &amp; P( e_{I} ) P( e_{IA} ) P( e_{J} )
+  &amp; P( e_{IA} ) P( e_{I} ) P( e_{J} )
 \end{aligned}
 \]</span></p>
 </div>
@@ -873,7 +870,6 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
   D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{JK}[j,k] \\
   T_{IA} &amp; = T_{I} + e_{IA} \\
   T_{I} &amp; = \beta_{XI} X_{I} + e_{I} \\
-  B_{JK} &amp; = B_{J} \\
   B_{J} &amp; = \beta_{ZJ} Z_{J} + e_{J} \\ \\
   \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
   \\
@@ -986,7 +982,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <h2>4.2 From Design to Sample: Step 2</h2>
 <p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a> sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;26</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a> sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;27</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1002,49 +998,39 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-and-software-of-step-5" class="title-slide slide level1 center">
-<h1>4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5</h1>
+<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5" class="title-slide slide level1 center">
+<h1>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h1>
 
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-and-software-of-step-5-1" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5</h2>
+<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-1" class="slide level2" style="font-size:80%;">
+<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h2>
 <p>The study applies two data analysis approaches for the simulated CJ data (as described in <a href="#/sec-approaches" class="quarto-xref">Section&nbsp;3</a>):</p>
 <div>
 <ol type="1">
-<li class="fragment"><em>The CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> ,</li>
+<li class="fragment"><em>The CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>,</li>
 <li class="fragment"><em>The ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>,</li>
 </ol>
 </div>
-<div class="fragment">
-<p>Both approaches were conducted using <code>R</code> version 4.2.2 <span class="citation" data-cites="R_2015">[<a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>, with:</p>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">Additional <code>R</code> packages for data manipulation and visualization: <code>tidyverse</code> <span class="citation" data-cites="Wickham_et_al_2019">[<a href="#/references" role="doc-biblioref" onclick="">27</a>]</span>, <code>igraph</code> <span class="citation" data-cites="Csardi_et_al_2006 Csardi_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">28</a>, <a href="#/references" role="doc-biblioref" onclick="">29</a>]</span>, and <code>RColorBrewer</code> <span class="citation" data-cites="Neuwirth_2022">[<a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>;</li>
-<li class="fragment">Specific user-defined functions (<code>UDFs</code>) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).</li>
-</ul>
-</div>
-</div>
-</div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-and-software-of-step-5-2" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5</h2>
-<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>:</p>
+<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5" class="slide level2" style="font-size:80%;">
+<h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5</h2>
+<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment"><strong>Fits a BTL model</strong> using the <code>BTm()</code> function from the <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">32</a>, <a href="#/references" role="doc-biblioref" onclick="">33</a>]</span>,</li>
+<li class="fragment"><strong>Fits a BTL model</strong>,</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">To estimate the traits of the stimuli <span class="math inline">\((T_{IA})\)</span></li>
-<li class="fragment">To generate the model residuals and conduct <em>misfit</em> analysis.</li>
+<li class="fragment">To estimate the traits of the stimuli <span class="math inline">\((\text{ability}_{i,a})\)</span></li>
+<li class="fragment">To generate the model residuals <span class="math inline">\((\text{res}_{j,a,b})\)</span> and conduct <em>misfit</em> analysis.</li>
 </ul>
 </div>
 </div>
 <ol start="2" type="1">
-<li class="fragment"><strong>Fits a (multilevel) regression</strong> to model residuals using the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</li>
+<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the residuals,</p>
+<p><span class="math inline">\(\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)\)</span></p></li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -1061,13 +1047,14 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for judges, i.e., <span class="math inline">\(s_{ZJ}\)</span>, versus multiple variability parameters defined by the experience of the judges, i.e., <span class="math inline">\(s_{ZJd}\)</span>.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-and-software-of-step-5-3" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5</h2>
-<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>:</p>
+<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
+<h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5</h2>
+<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
-<li class="fragment"><strong>Fits a (multilevel) regression</strong> to the stimuli’ mean trait estimates,</li>
+<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> to the stimuli’ mean trait estimates,</p>
+<p><span class="math inline">\(\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)\)</span></p></li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -1081,20 +1068,490 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 </div>
-<div class="fragment" style="font-size:80%;">
-<p>Notably, <strong>for each</strong> <code>brms</code> model, <strong>four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations were run, each with distinct starting values. The first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</p>
-</div>
 <div class="fragment" style="font-size:60%; color:gray">
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., <span class="math inline">\(s_{XI}\)</span>, versus multiple variability parameters defined by the individuals’ groups, i.e., <span class="math inline">\(s_{XId}\)</span>.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-and-software-of-step-5-4" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches and software of step 5</h2>
+<section id="sec-ITCJ_models" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>The <strong>first model</strong> only considers the stimulus’ traits:</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj41" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj41-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}) \\
+  T_{IA} &amp; := f_{T}(e_{IA}) \\
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA} ) \\
+  &amp; P( T_{IA} \mid e_{IA} ) \\
+  &amp; P( e_{IA} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = e_{IA} \\
+  e_{IA} &amp; \sim \text{Normal}( 0, 1 )
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj41-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: First ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>Building on the first, the <strong>second model</strong> integrates the hierarchical structural component that captures the nesting structure of stimulus within individuals:</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj42" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(e_{I}) \\
+  e_{IA} &amp; \:\bot\:e_{I}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA} ) \\
+  &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  &amp; P( T_{I} \mid e_{I} ) \\
+  &amp; P( e_{IA} ) P( e_{I} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = e_{I} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Second ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0  \\
+    0     &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>Extending the second, the <strong>third model</strong> integrates covariates into the structural component to account for factors that may affect individual traits:</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj43" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj43-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(XI, e_{I}) \\
+  e_{IA} &amp; \:\bot\:e_{I}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA} ) \\
+  &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  &amp; P( T_{I} \mid XI, e_{I} ) \\
+  &amp; P( e_{IA} ) P( e_{I} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj43-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Third ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \;
+\beta_{XId} \sim \text{Normal}(0, 0.5); \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0  \\
+    0     &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-2" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>Building upon the second, the <strong>fourth model</strong> incorporates a key CJ design feature: judges’ biases.</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj44" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj44-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}, B_{J}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(e_{I}) \\
+  B_{J} &amp; := f_{B}(e_{J}) \\
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J}\} \\
+  e_{I} &amp; \:\bot\:\{ e_{J}\}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA}, B_{J} ) \\
+  &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  &amp; P( T_{I} \mid e_{I} ) \\
+  &amp; P( B_{J} \mid e_{J} ) \\
+  &amp; P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) + B_{J}[j]\\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = e_{I} \\
+  B_{J} &amp; = e_{J} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj44-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Fourth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0 &amp; 0 \\
+    0     &amp; 1 &amp; 0 \\
+    0     &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-3" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>Combining the 2nd and 4th, the <strong>fifth model</strong> integrates covariates to account for factors that may affect individual traits and judge biases:</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj45" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(XI, e_{I}) \\
+  B_{J} &amp; := f_{B}(ZJ, e_{J}) \\
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J}\} \\
+  e_{I} &amp; \:\bot\:\{ e_{J}\}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA} ) \\
+  &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  &amp; P( T_{I} \mid XI, e_{I} ) \\
+  &amp; P( B_{J} \mid ZJ, e_{J} ) \\
+  &amp; P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} &amp; = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Fifth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0 &amp; 0 \\
+    0     &amp; 1 &amp; 0 \\
+    0     &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-4" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
+<div class="fragment">
+<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases:</p>
+</div>
+<div class="fragment" style="font-size:90%;">
+<div id="fig-cj45" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-cj45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(XI, e_{I}) \\
+  B_{J} &amp; := f_{B}(ZJ, e_{J}) \\
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J}\} \\
+  e_{I} &amp; \:\bot\:\{ e_{J}\}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  &amp; P( O_{R} \mid D_{R}, S, C ) \\
+  &amp; P( D_{R} \mid T_{IA} ) \\
+  &amp; P( T_{IA} \mid T_{I}, e_{IA} ) \\
+  &amp; P( T_{I} \mid XI, e_{I} ) \\
+  &amp; P( B_{J} \mid ZJ, e_{J} ) \\
+  &amp; P( e_{IA} ) P( e_{I} ) P( e_{J} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} &amp; = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cj45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Sixth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Middle panel</em> shows the probabilistic model. <em>Right panel</em> illustrates the statistical model.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+hs_{I} &amp; \sim \text{Dirichlet}(5, 3); \; s_{XI} = 3 \cdot hs_{I}; \; hs_{J} \sim \text{Dirichlet}(5, 3); \; s_{ZJ} = 3 \cdot hs_{I}; \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
+\boldsymbol{\mu} = [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix}; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0      &amp; 0 \\
+    0     &amp; s_{XI} &amp; 0 \\
+    0     &amp; 0      &amp; s_{ZJ}
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5" class="title-slide slide level1 center">
+<h1>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h1>
+
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-1" class="slide level2" style="font-size:80%;">
+<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
+<p>All analysis were conducted using <code>R</code> version 4.2.2 <span class="citation" data-cites="R_2015">[<a href="#/references" role="doc-biblioref" onclick="">27</a>]</span>, with:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Additional <code>R</code> packages for data manipulation and visualization: <code>tidyverse</code> <span class="citation" data-cites="Wickham_et_al_2019">[<a href="#/references" role="doc-biblioref" onclick="">28</a>]</span>, <code>igraph</code> <span class="citation" data-cites="Csardi_et_al_2006 Csardi_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">29</a>, <a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>, and <code>RColorBrewer</code> <span class="citation" data-cites="Neuwirth_2022">[<a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>;</li>
+<li class="fragment">Specific user-defined functions (<code>UDFs</code>) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-2" class="slide level2" style="font-size:80%;">
+<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
+<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
+<div>
+<div style="font-size:80%;">
+<ol type="1">
+<li class="fragment"><strong>Fits a BTL model</strong> using the <code>BTm()</code> function from the <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">32</a>, <a href="#/references" role="doc-biblioref" onclick="">33</a>]</span>,</li>
+</ol>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">To estimate the traits of the stimuli <span class="math inline">\((\text{ability}_{i,a})\)</span></li>
+<li class="fragment">To generate the model residuals <span class="math inline">\((\text{res}_{j,a,b})\)</span> and conduct <em>misfit</em> analysis.</li>
+</ul>
+</div>
+</div>
+<ol start="2" type="1">
+<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the residuals using the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
+<p><span class="math inline">\(\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)\)</span></p></li>
+<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the stimulus’ trait estimates with the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
+<p><span class="math inline">\(\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Notably, <strong>for each</strong> <code>brms</code> model, <strong>four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations were run, each with distinct starting values. The first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-3" class="slide level2" style="font-size:80%;">
+<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
 <p>In contrast, for the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, the study uses:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">36</a>]</span> and the interface package <code>cmdstanr</code> <span class="citation" data-cites="Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>]</span> to fit a series of increasingly complex Bayesian ITCJ models,</li>
+<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">36</a>]</span> and the interface package <code>cmdstanr</code> <span class="citation" data-cites="Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>]</span> to fit the six ITCJ models described in the <a href="#/sec-ITCJ_models" class="quarto-xref">Section&nbsp;9.4</a>,</li>
 <li class="fragment">Additional <code>R</code> packages for model summaries, predictions, and diagnostics: <code>loo</code> <span class="citation" data-cites="Vehtari_et_al_2024b">[<a href="#/references" role="doc-biblioref" onclick="">38</a>]</span>, <code>posterior</code> <span class="citation" data-cites="Burkner_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">39</a>]</span>, and <code>bayesplot</code> <span class="citation" data-cites="Gabry_et_al_2019 Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>, <a href="#/references" role="doc-biblioref" onclick="">40</a>]</span>.</li>
 </ul>
 </div>
@@ -1106,11 +1563,11 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </section></section>
 <section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6" class="title-slide slide level1 center">
-<h1>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h1>
+<h1>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h1>
 
 </section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-1" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
@@ -1148,7 +1605,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-2" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
@@ -1188,7 +1645,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-3" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
@@ -1264,7 +1721,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Comparison design. <em>Left panel</em> shows the number of comparisons for individuals <span class="math inline">\((Is)\)</span> and stimuli <span class="math inline">\((As)\)</span>. <em>Right panel</em> shows the stimuli comparison network.
+Figure&nbsp;14: Comparison design. <em>Left panel</em> shows the number of comparisons for individuals <span class="math inline">\((Is)\)</span> and stimuli <span class="math inline">\((As)\)</span>. <em>Right panel</em> shows the stimuli comparison network.
 </figcaption>
 </figure>
 </div>
@@ -1295,7 +1752,7 @@ Figure&nbsp;8: Comparison design. <em>Left panel</em> shows the number of compar
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: Comparison design. <em>Left panel</em> shows the number of comparisons for individuals. <em>Right panel</em> shows the individual comparison network.
+Figure&nbsp;15: Comparison design. <em>Left panel</em> shows the number of comparisons for individuals. <em>Right panel</em> shows the individual comparison network.
 </figcaption>
 </figure>
 </div>
@@ -1326,7 +1783,7 @@ Figure&nbsp;9: Comparison design. <em>Left panel</em> shows the number of compar
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: Comparison design. <em>Left panel</em> shows the judges <span class="math inline">\((Js)\)</span> versus the first <span class="math inline">\(10\)</span> individuals <span class="math inline">\((Is)\)</span>. <em>Right panel</em> shows the total number of judges’ comparisons.
+Figure&nbsp;16: Comparison design. <em>Left panel</em> shows the judges <span class="math inline">\((Js)\)</span> versus the first <span class="math inline">\(10\)</span> individuals <span class="math inline">\((Is)\)</span>. <em>Right panel</em> shows the total number of judges’ comparisons.
 </figcaption>
 </figure>
 </div>
@@ -1349,7 +1806,7 @@ Figure&nbsp;10: Comparison design. <em>Left panel</em> shows the judges <span cl
 <img data-src="./figures/data_summary/judges_individuals_network.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_individuals_comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11: Bipartite graph of judges to individual comparison network.
+Figure&nbsp;17: Bipartite graph of judges to individual comparison network.
 </figcaption>
 </figure>
 </div>
@@ -1365,7 +1822,7 @@ Figure&nbsp;11: Bipartite graph of judges to individual comparison network.
 <img data-src="./figures/data_summary/stimuli_wins.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: Stimuli win rates.
+Figure&nbsp;18: Stimuli win rates.
 </figcaption>
 </figure>
 </div>
@@ -1381,7 +1838,7 @@ Figure&nbsp;12: Stimuli win rates.
 <img data-src="./figures/data_summary/individual_wins.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13: Individual win rates.
+Figure&nbsp;19: Individual win rates.
 </figcaption>
 </figure>
 </div>
@@ -1405,7 +1862,7 @@ Figure&nbsp;13: Individual win rates.
 <img data-src="./figures/data_summary/individual_wins_groups.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14: Individual win rates per group. <em>Left panel</em> describe NH children. <em>Middle panel</em> describe HI-HA children. <em>Right panel</em> illustrate HI-CI children.
+Figure&nbsp;20: Individual win rates per group. <em>Left panel</em> describe NH children. <em>Middle panel</em> describe HI-HA children. <em>Right panel</em> illustrate HI-CI children.
 </figcaption>
 </figure>
 </div>
@@ -1421,7 +1878,7 @@ Figure&nbsp;14: Individual win rates per group. <em>Left panel</em> describe NH 
 <img data-src="./figures/data_summary/individual_winsVSXIc.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15: Individual win rates versus age.
+Figure&nbsp;21: Individual win rates versus age.
 </figcaption>
 </figure>
 </div>
@@ -1444,7 +1901,7 @@ Figure&nbsp;15: Individual win rates versus age.
 <img data-src="./figures/data_summary/individual_winsVSXIc_groups.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stimuli_wins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Individual win rates.
+Figure&nbsp;22: Individual win rates.
 </figcaption>
 </figure>
 </div>
@@ -1585,7 +2042,7 @@ Figure&nbsp;16: Individual win rates.
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;23: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -1600,7 +2057,7 @@ Figure&nbsp;17: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;24: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -1697,23 +2154,23 @@ Figure&nbsp;18: Judges’s sample size calculation, considering requirements for
 <div id="ref-Lawson_2015" class="csl-entry" role="listitem">
 <div class="csl-left-margin">25. </div><div class="csl-right-inline">Lawson J (2015) <a href="">Design and analysis of experiments with r</a>. Chapman; Hall/CRC</div>
 </div>
+<div id="ref-Thwaites_et_al_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">Thwaites P, Paquot M (2024) Comparative judgement for advancing research in applied linguistics. Research Methods in Applied Linguistics 3(3):100142. https://doi.org/<a href="https://doi.org/10.1016/j.rmal.2024.100142">https://doi.org/10.1016/j.rmal.2024.100142</a></div>
+</div>
 <div id="ref-R_2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline">R Core Team (2015) <a href="http://www.R-project.org/">R: A language and environment for statistical computing</a>. R Foundation for Statistical Computing, Vienna, Austria</div>
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">R Core Team (2015) <a href="http://www.R-project.org/">R: A language and environment for statistical computing</a>. R Foundation for Statistical Computing, Vienna, Austria</div>
 </div>
 <div id="ref-Wickham_et_al_2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline">Wickham H, Averick M, Bryan J, et al (2019) Welcome to the <span class="nocase">tidyverse</span>. Journal of Open Source Software 4(43):1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a></div>
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Wickham H, Averick M, Bryan J, et al (2019) Welcome to the <span class="nocase">tidyverse</span>. Journal of Open Source Software 4(43):1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a></div>
 </div>
 <div id="ref-Csardi_et_al_2006" class="csl-entry" role="listitem">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline">Csárdi G, Nepusz T (2006) <a href="https://igraph.org">The igraph software package for complex network research</a>. InterJournal Complex Systems:1695</div>
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">Csárdi G, Nepusz T (2006) <a href="https://igraph.org">The igraph software package for complex network research</a>. InterJournal Complex Systems:1695</div>
 </div>
 <div id="ref-Csardi_et_al_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">Csárdi G, Nepusz T, Traag V, et al (2025) <a href="https://doi.org/10.5281/zenodo.7682609"><span class="nocase">igraph</span>: Network analysis and visualization in r</a></div>
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Csárdi G, Nepusz T, Traag V, et al (2025) <a href="https://doi.org/10.5281/zenodo.7682609"><span class="nocase">igraph</span>: Network analysis and visualization in r</a></div>
 </div>
 <div id="ref-Neuwirth_2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">Neuwirth E (2022) <a href="https://CRAN.R-project.org/package=RColorBrewer">RColorBrewer: ColorBrewer palettes</a></div>
-</div>
-<div id="ref-Thwaites_et_al_2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">Thwaites P, Paquot M (2024) Comparative judgement for advancing research in applied linguistics. Research Methods in Applied Linguistics 3(3):100142. https://doi.org/<a href="https://doi.org/10.1016/j.rmal.2024.100142">https://doi.org/10.1016/j.rmal.2024.100142</a></div>
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Neuwirth E (2022) <a href="https://CRAN.R-project.org/package=RColorBrewer">RColorBrewer: ColorBrewer palettes</a></div>
 </div>
 <div id="ref-Turner_et_al_2012a" class="csl-entry" role="listitem">
 <div class="csl-left-margin">32. </div><div class="csl-right-inline">Turner H, Firth D (2012) Bradley-terry models in r: The BradleyTerry2 package. Journal of Statistical Software 48(9):1–21. <a href="https://doi.org/10.18637/jss.v048.i09">https://doi.org/10.18637/jss.v048.i09</a></div>
