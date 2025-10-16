@@ -22,6 +22,6 @@ format:
     preview-links: auto
     csl: diabetologia.csl
     css: styles.css
-    logo: images/logo-uantwerpen-sw-en-cmyk-pos.png
+    logo: figures/logo-uantwerpen-sw-en-cmyk-pos.png
     footer: '[Online manuscript (work in progress)](https://jriveraespejo.github.io/paper3_manuscript/)'
     #embed-resources: true
