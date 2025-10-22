@@ -135,7 +135,7 @@ Once a *sufficiently trustworthy model* is found in goal 1,
 CJ data can be analyzed under two analytical approaches:
 
 ::: incremental 
-1. *The classical BTL analysis* (hereafter, **CBTL analysis**) [@Pollitt_2012a; @Pollitt_2012b] ,
+1. *The classical BTL analysis* (hereafter, **CBTL analysis**) [@Pollitt_2012a; @Pollitt_2012b],
     
     which relies on a sequence of separate methods to estimate traits and draw inferences,
 
@@ -152,7 +152,7 @@ CJ data can be analyzed under two analytical approaches:
 
 ## 3.1 The CBTL analysis {#sec-CBTL style="font-size:80%;"}
 
-This approach relies on a sequence of separate methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]:
+This approach relies on a sequence of separate methods, each with different purposes [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023]. Specifically, the *CBTL analysis*:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -161,7 +161,7 @@ This approach relies on a sequence of separate methods, each with different purp
 ::: incremental 
 ::: {style="font-size:80%;"}
 - To estimate the traits of the stimuli (mean and standard error)
-- To generate the model residuals
+- To generate the model residuals and conduct *misfit* analysis
 :::
 :::
 
@@ -170,8 +170,8 @@ This approach relies on a sequence of separate methods, each with different purp
 ::: incremental 
 ::: {style="font-size:80%;"}
 - To aggregate the trait of the stimuli at the individual level
-- To assess the variability and conduct inferences at the stimuli and individual levels
-- To calculate correlation with other methods (a way of "concurrent validity") or conduct inferences.
+- To separate the variability in between- and within-individuals 
+- To summarize or conduct inferences at the level of stimuli and individuals
 :::
 :::
 
@@ -179,9 +179,9 @@ This approach relies on a sequence of separate methods, each with different purp
     
 ::: incremental 
 ::: {style="font-size:80%;"}
-- To aggregate the remaining variability at the judges level or to investigate bias
-- To assess the remaining variability and conduct inferences about judges biases
-- To conduct inferences, including *misfit* identification, for stimuli, individuals, and judges
+- To aggregate the remaining variability at the judges level
+- To separate the remaining variability in between- and within-judges 
+- To summarize or conduct inferences at the level of judges, including the investigation of bias
 :::
 :::
 
@@ -196,14 +196,14 @@ This approach relies on a sequence of separate methods, each with different purp
 
 ## 3.2 The ITCJ analysis {#sec-ITCJ style="font-size:80%;"}
 
-This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. In broad terms, the approach:
+This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences [@Rivera_et_al_2025]. In broad terms, the *ITCJ analysis*:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
 1. Begins with the general CJ structure proposed by Rivera et al. [@Rivera_et_al_2025] (see next slide),
 2. Adapts this structure to the assumed data-generating process of the CJ system under study,
 3. Develops one or more *bespoke* statistical models for analyzing the CJ system.
-4. Use the one or more statistical models to estimate traits and conduct inferences.
+4. Use the one (or more) statistical model(s) to estimate traits and conduct inferences.
 :::
 :::
 
@@ -216,7 +216,7 @@ With these steps a researcher can:
 - Assess the variability and conduct inferences at the stimuli and individual levels
 - Estimate the biases of the judges and judgments (full distribution)
 - Assess the variability and conduct inferences at the judgments and judges levels
-- Conduct *oulier* identification for stimuli, individuals, judgments, and judges (akin to *misfit* identification)
+- Conduct *outlier* identification for stimuli, individuals, judgments, and judges
 :::
 :::
 
@@ -472,7 +472,7 @@ Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_
 
 ::: {#fig-cj17 layout-ncol=2}
 
-![](/figures/data_summary/CJ_population_DAG.png){width=85%}
+![](/figures/population_summary/CJ_population_DAG.png){width=85%}
 
 $$
 \begin{aligned}
@@ -609,7 +609,7 @@ In layman terms:
 
 ## 4.1 From Theory to Design: Steps 1a-1c {#sec-pop_sim style="font-size:80%;"}
 
-From the simulation parameters we can define the **_estimands_** of interest:
+From the simulation parameters we can also define the **_estimands_** of interest:
 
 ::: incremental 
 ::: {style="font-size:65%;"}
@@ -636,7 +636,7 @@ From the simulation parameters we can define the **_estimands_** of interest:
 Differing only by replication seed, the study generates _**two** synthetic_ random sample and comparison datasets from the conceptual population in **Step 1**. 
 
 ::: {.fragment}
-More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms illustrated in @fig-cj17 sample size calculations were conducted (see @sec-AppA), and the following design was adopted:
+More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms illustrated in @fig-cj17, sample size calculations were conducted (see @sec-AppA), and the following design was adopted:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -662,9 +662,35 @@ The study applies two data analysis approaches for the simulated CJ data (as des
 
 ::: incremental 
 1. *The CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b],
-2. *The ITCJ analysis* [@Rivera_et_al_2025],
+2. *The ITCJ analysis* [@Rivera_et_al_2025]
 :::
 
+:::{.fragment}
+Both analysis are conducted using `R` version 4.2.2 [@R_2015], with:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Additional `R` packages for data manipulation and visualization: `tidyverse` [@Wickham_et_al_2019], `igraph` [@Csardi_et_al_2006; @Csardi_et_al_2025], and `RColorBrewer` [@Neuwirth_2022];
+- Specific user-defined functions (`UDFs`) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).
+:::
+:::
+:::
+
+---
+
+## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5 {style="font-size:80%;"}
+
+Notably, **each** `brms` multilevel regression model within the *CBTL analysis* and **each** Bayesian model within the *ITCJ analysis* were estimated using:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- **Four** Markov chains of $4000$ iterations, each with distinct starting values, where the first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
+- Prior predictive checks, which are reported in @sec-results.
+::: 
+:::
+
+
+# 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5
 
 ---
 
@@ -674,7 +700,7 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. **Fits a BTL model**,
+1. **Fits a BTL model** using the `BTm()` function from the `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b],
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -683,14 +709,14 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 :::
 :::
 
-2. **Fits a (multilevel) regression** on the residuals,
+2. **Fits a multilevel regression** on the residuals using the `brms` package [@Burkner_2017; @Burkner_2018],
     
     $\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)$
     
 ::: incremental 
 ::: {style="font-size:80%;"}
 - To test hypothesis of differences in mean residuals between groups of judges, i.e., $\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]}$, $\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]}$, and $\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]}$;
-- To assess the variability between- and within-judges, where the latter has **no direct equivalent parameter**, while former corresponds to $s_{ZJ}$$^{*}$.
+- To assess the variability within- and between-judges $(1 | Js)$, where the former has **no direct equivalent parameter**, while latter corresponds to $s_{ZJ}$$^{*}$.
 - To aggregate model residuals into judges biases $(B_{J})$ 
 :::
 :::
@@ -710,15 +736,15 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-3. **Fits a (multilevel) regression** to the stimuli' mean trait estimates, 
-
+3. **Fits a multilevel regression** on the stimulus' trait estimates with the `brms` package [@Burkner_2017; @Burkner_2018], 
+    
     $\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)$
     
 ::: incremental 
 ::: {style="font-size:80%;"}
 - To estimate the effect of age on the mean latent trait, i.e, $\beta_{XIc}$
 - To test hypothesis of differences in mean latent traits between groups of children, i.e., $\beta_{XId[g=1]} - \beta_{XId[g=2]}$, $\beta_{XId[g=1]} - \beta_{XId[g=3]}$, and  $\beta_{XId[g=2]} - \beta_{XId[g=3]}$
-- To assess the variability within and between children, i.e., $s_{A}$ and $s_{XI}$$^{*}$, respectively
+- To assess the variability within and between children $(1 | Is)$, corresponding to the parameters $s_{A}$ and $s_{XI}$$^{*}$, respectively
 - To aggregate stimuli traits into individual level $(T_{I})$ 
 :::
 :::
@@ -727,18 +753,29 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 :::
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$.
+$*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$. 
 :::
+
+# 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5
 
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
+In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models, using:
 
-::: {.fragment}
-The **first model** only considers the stimulus' traits:
+::: incremental 
+::: {style="font-size:80%;"}
+- `Stan` version 2.26.1 [@Stan_2020] with its interface package `cmdstanr` [@Gabry_et_al_2025],
+- Additional `R` packages for model summaries, predictions, and diagnostics: `loo` [@Vehtari_et_al_2024b], `posterior` [@Burkner_et_al_2024], and `bayesplot` [@Gabry_et_al_2019; @Gabry_et_al_2025].
 :::
+:::
+
+---
+
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+
+The **first model** only considers the stimulus' traits$^{*}$. 
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -766,24 +803,30 @@ $$
   O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
   D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
   T_{IA} & = e_{IA} \\
-  e_{IA} & \sim \text{Normal}( 0, 1 )
+  e_{IA} & \sim \text{Normal}( 0, s_{A} )
 \end{aligned}
 $$
 
 First ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
+$$
+\begin{split}
+s_{A} & \sim \text{Exponential}( 1/5 )
+\end{split}
+$$
+
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model would be akin to the first step of the *CBTL analysis*, with a different prior.
 :::
 
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
-
-::: {.fragment}
-Building on the first, the **second model** integrates the hierarchical structural component that captures the nesting structure of stimulus within individuals:
-:::
+Building on the first, the **second model** integrates the *hierarchical structural component* that captures the nesting structure of stimulus within individuals$^{*}$.
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -824,9 +867,6 @@ $$
 Second ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
-:::
-
-::: {.fragment}
 $$
 \begin{split}
 s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
@@ -841,18 +881,18 @@ s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
 \end{bmatrix}
 \end{split}
 $$
+
 :::
 
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model would be akin to the combination of steps one and three from the *CBTL analysis*, without covariates for the individuals.
+:::
 
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
-
-::: {.fragment}
-Extending the second, the **third model** integrates covariates into the structural component to account for factors that may affect individual traits:
-:::
+Extending the second, the **third model** integrates covariates into the *structural component* to account for factors that may affect individual traits$^{*}$. 
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -893,13 +933,17 @@ $$
 Third ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
-:::
+::: {layout-ncol=2}
 
-::: {.fragment}
 $$
 \begin{split}
-\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; 
-\beta_{XId} \sim \text{Normal}(0, 0.5); \\
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\ 
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\
+\end{split}
+$$
+
+$$
+\begin{split}
 s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
 \boldsymbol{\mu} &= [0, 0]^{T}; \; 
 \boldsymbol{Q} = \begin{bmatrix}
@@ -914,15 +958,17 @@ s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
 $$
 :::
 
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model would be akin to the combination of steps one and three from the *CBTL analysis*, with covariates for the individuals.
+:::
+
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
-
-::: {.fragment}
-Building upon the second, the **fourth model** incorporates a key CJ design feature: judges’ biases.
-:::
+Also building upon the second, but in contrast to the third, the **fourth model** only incorporates judges' biases$^{*}$.
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -967,9 +1013,6 @@ $$
 Fourth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
-:::
-
-::: {.fragment}
 $$
 \begin{split}
 s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
@@ -988,15 +1031,16 @@ s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
 $$
 :::
 
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model would be akin to the combination of all three steps from the *CBTL analysis*, without any covariates for individuals or judges. However, technically this is **no** longer a BTL model.
+:::
+
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
-
-::: {.fragment}
-Combining the 2nd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases:
-:::
+Combining the 3rd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases$^{*}$:
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -1041,13 +1085,18 @@ $$
 Fifth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
 
-:::
-
-::: {.fragment}
+::: {layout-ncol=2}
 
 $$
 \begin{split}
-\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\ 
+\beta_{ZJd}[GJ] &\sim \text{Normal}(0, 0.3); \\
+\end{split}
+$$
+
+$$
+\begin{split}
 s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
 \boldsymbol{\mu} &= [0, 0, 0]^{T}; \;
 \boldsymbol{Q} = \begin{bmatrix}
@@ -1065,16 +1114,17 @@ $$
 
 :::
 
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model would be akin to the combination of all three steps from the *CBTL analysis*, with covariates for individuals or judges. However, this is **no** longer a BTL model.
+:::
 
 ---
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
 
-In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models.
-
-::: {.fragment}
-Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases:
-:::
+Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases. **This model has no equivalent CBTL analysis**.
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -1118,15 +1168,23 @@ $$
 
 Sixth ITCJ model. *Left panel* illustrates the SCM. *Middle panel* shows the probabilistic model. *Right panel* illustrates the statistical model.
 :::
-:::
 
-::: {.fragment}
+::: {layout-ncol=2}
+
 $$
 \begin{split}
-\beta_{XIc} &\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
-hs_{I} & \sim \text{Dirichlet}(5, 3); \; s_{XI} = 3 \cdot hs_{I}; \; hs_{J} \sim \text{Dirichlet}(5, 3); \; s_{ZJ} = 3 \cdot hs_{I}; \\
-s_{A} &\sim \text{Beta_proportion}(0.5, 5); 
-\boldsymbol{\mu} = [0, 0, 0]^{T}; \;
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\ 
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\ 
+\beta_{ZJd}[GJ] &\sim \text{Normal}(0, 0.3);
+\end{split}
+$$
+
+$$
+\begin{split}
+hs_{I} &\sim \text{Dirichlet}(5, GI) \; \rightarrow \; s_{XI} = GI \cdot hs_{I}; \\
+hs_{J} &\sim \text{Dirichlet}(5, GJ); \; \rightarrow \; s_{ZJ} = GJ \cdot hs_{I}; \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \;
 \boldsymbol{Q} = \begin{bmatrix}
     1 & 0 & 0 \\
     0 & 1 & 0 \\
@@ -1141,91 +1199,26 @@ s_{A} &\sim \text{Beta_proportion}(0.5, 5);
 $$
 :::
 
-<!-- ######################################### -->
-
-# 4.4 From Estimator and Sample to Estimate(s): The software of step 5
-
----
-
-## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
-
-All analysis were conducted using `R` version 4.2.2 [@R_2015], with:
-
-::: incremental 
-::: {style="font-size:80%;"}
-- Additional `R` packages for data manipulation and visualization: `tidyverse` [@Wickham_et_al_2019], `igraph` [@Csardi_et_al_2006; @Csardi_et_al_2025], and `RColorBrewer` [@Neuwirth_2022];
-- Specific user-defined functions (`UDFs`) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).
-:::
-:::
-
----
-
-## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
-
-Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
-
-::: incremental 
-::: {style="font-size:80%;"}
-1. **Fits a BTL model** using the `BTm()` function from the `BradleyTerry2` package [@Turner_et_al_2012a; @Turner_et_al_2012b],
-
-::: incremental 
-::: {style="font-size:80%;"}
-- To estimate the traits of the stimuli $(\text{ability}_{i,a})$
-- To generate the model residuals $(\text{res}_{j,a,b})$ and conduct *misfit* analysis.
-:::
-:::
-
-2. **Fits a (multilevel) regression** on the residuals using the `brms` package [@Burkner_2017; @Burkner_2018],
-    
-    $\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)$
-
-3. **Fits a (multilevel) regression** on the stimulus' trait estimates with the `brms` package [@Burkner_2017; @Burkner_2018], 
-    
-    $\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)$
-:::
-:::
-
-
-::: {.fragment style="font-size:80%;"}
-Notably, **for each** `brms` model, **four** Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
-:::
-
----
-
-## 4.4 From Estimator and Sample to Estimate(s): The software of step 5 {style="font-size:80%;"}
-
-In contrast, for the *ITCJ analysis* [@Rivera_et_al_2025], the study uses:
-
-::: incremental 
-::: {style="font-size:80%;"}
-- `Stan` version 2.26.1 [@Stan_2020] and the interface package `cmdstanr` [@Gabry_et_al_2025] to fit the six ITCJ models described in the @sec-ITCJ_models,
-- Additional `R` packages for model summaries, predictions, and diagnostics: `loo` [@Vehtari_et_al_2024b], `posterior` [@Burkner_et_al_2024], and `bayesplot` [@Gabry_et_al_2019; @Gabry_et_al_2025].
-
-:::
-:::
-
-::: {.fragment style="font-size:80%;"}
-Notably, **for each** Bayesian model, **four** Markov chains of $4000$ iterations were run, each with distinct starting values. The first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
 :::
 
 
 <!-- ######################################### -->
 
-# 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6
+# 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6
 
 ---
 
-## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-1. **_Stationarity, convergence, and mixing_** (for Bayesian models only), using
+1. **_Stationarity, convergence, and mixing_** (for `brms` and Bayesian models only), using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Graphical analyses, including trace plots, rank-normalized trace (trank) plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,
+- Graphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,
 - Diagnostic statistics, including the potential scale reduction factor statistics $(\hat{R})$ with a cut-off value of $1.05$ [@Vehtari_et_al_2021a] and effective sample size statistics $(n_{\text{eff}})$ [@Gelman_et_al_2014].
 :::
 :::
@@ -1254,65 +1247,44 @@ where $\boldsymbol{\hat{\theta}}$ is the vector of posterior samples associated 
 
 ---
 
-## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-3. **_In-sample fit_**, using
+3. **_Approximate out-of-sample fit_**, using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- The deviance information criterion $(\text{DIC})$ [@Spiegelhalter_et_al_2002]
+- The Pareto Smoothing Importance Sampling criterion $(\text{PSIS})$ [@Vehtari_et_al_2017; @Vehtari_et_al_2024a].
 :::
 :::
 
-4. **_Approximate out-of-sample fit_**, using
-
-::: incremental 
-::: {style="font-size:80%;"}
-- The widely applicable information criterion $(\text{WAIC})$ [@Watanabe_2013] and its standard error $(\text{SE}_{W})$, along with the differences in $\text{WAIC}$ between models $(\text{dWAIC} \pm 1 \cdot \text{dSE}_{W})$
-- The Pareto Smoothing Importance Sampling criterion $(\text{PSIS})$ [@Vehtari_et_al_2017; @Vehtari_et_al_2024a] and its standard error $(\text{SE}_{P})$, along with the differences in $\text{PSIS}$ between models $(\text{dPSIS} \pm 1 \cdot \text{dSE}_{P})$
-:::
-:::
-
-5. **_In-sample predictive accuracy_**, using
+4. **_In-sample predictive accuracy_**, using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Confusion matrix comparing expected posterior predictions $E( \boldsymbol{\hat{y}})$ with observed outcomes $\boldsymbol{y}$ from the **_first_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
-- (Multiple) confusion matrix comparing the posterior predictions $\boldsymbol{\hat{y}}_{s}$ with observed outcomes  $\boldsymbol{y}$ from the **_first_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+- Confusion matrix comparing expected posterior predictions $E(\boldsymbol{\hat{y}})$ with observed outcomes $\boldsymbol{y}$ from the **first** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
+- Multiple confusion matrices comparing posterior samples $\boldsymbol{\hat{y}}_{s}$ with observed outcomes $\boldsymbol{y}$ from the **first** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
 :::
 :::
 
-:::
-:::
-
----
-
-## 4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
-
-The study assess the quality of the models and estimate(s) in terms of:
+5. **_Out-of-sample predictive accuracy_**, using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-6. **_Out-of-sample predictive accuracy_**, using
-
-::: incremental 
-::: {style="font-size:80%;"}
-- Confusion matrix comparing expected posterior predictions $E( \boldsymbol{\hat{y}})$ with observed outcomes $\boldsymbol{y}$ from the **_second_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
-- (Multiple) confusion matrix comparing the posterior predictions $\boldsymbol{\hat{y}}_{s}$ with observed outcomes  $\boldsymbol{y}$ from the **_second_** synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,
+- Confusion matrix comparing expected posterior predictions $E(\boldsymbol{\hat{y}})$ with observed outcomes $\boldsymbol{y}$ from the **second** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
+- Multiple confusion matrices comparing posterior samples $\boldsymbol{\hat{y}}_{s}$ with observed outcomes $\boldsymbol{y}$ from the **second** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
 :::
 :::
 
 :::
 :::
-
 
 <!-- ######################################### -->
 
-# 5. Results
+# 5. Results {#sec-results}
 
 ---
 
@@ -1325,8 +1297,8 @@ In this section, the study will:
 2. Progress through the steps $3-7$ of the Bayesian (research) workflow, described in @sec-methods, using:
 
 ::: incremental 
-- The CBTL analysis, and 
-- The ITCJ analysis
+- The *CBTL analysis*, and 
+- The *ITCJ analysis*
 :::
 
 :::
@@ -1521,7 +1493,186 @@ Individual win rates.
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
+First, the BTL model is applied to the data to estimate the stimuli traits.
 
+::: {.fragment style="font-size:80%;"}
+The model fit indicates that,
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The BTL model recovers the stimuli traits **reasonably well**, though with some downward bias,
+- It struggles to accurately estimate traits for certain **'extreme' stimuli**,
+- The *misfit* analysis fails to detect these 'extreme' cases, despite being **conceptually similar to** an *outlier* detection tool. 
+- **Excluding** the identified *misfitting* stimuli and judges from a model refit still produces new *misfits*, while the model continues to struggle with the **'extreme' stimuli** and its downward bias estimates (not shown here).
+:::
+:::
+
+::: {#fig-judge_trait_prior}
+![](/figures/CBTL_analysis/3_2_CBTL_stimuli_trait_comparison_plot1_2.png){width=50%}
+
+
+*CBTL analysis*, first BTL model fit. *Left panel* shows the trait estimates for all stimuli. *Right panel* shows the trait estimates for non-extreme stimuli.
+:::
+
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+
+::: {.fragment style="font-size:80%;"}
+- The **multilevel regression** on the residuals has the following specification,
+$$
+\begin{split}
+brm(& \; \text{data} \; &= & d, \\
+& \; \text{family} \; &= & gaussian, \\
+& \; \text{formula} \; &= & res ~ -1 + ZJd + (1 | Js), \\
+& \; \text{prior} \; &= c(& \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd1 ), \\
+& & & \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd2 ), \\
+& & & \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd3 ), \\
+& & & \; \text{prior}( \; exponential(50), \text{class}=sd ), \\ 
+& & & \; \text{prior}( \; exponential(25), \text{class}=sigma )
+\end{split}
+$$
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Judges' mean latent biases across groups are assigned **weakly informative priors**, reflecting no directional preference in group-level means, i.e., $\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)$,
+- Due to the $[-1,1]$ range in the residuals [@Pollitt_2012a, pp. 164; @Pollitt_2012b, pp. 289], the between-judge residual variability $(sd)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{1}^{-1}=50^{-1}$ and a variance of $\lambda_{1}^{-2}=50^{-2}$. This reflects the **strong belief** in the absence of systematic judges biases,
+- For similar reasons, the within-judge residual variability $(sigma)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{2}^{-1}=50^{-1}$ and a variance of $\lambda_{2}^{-2}=50^{-2}$. This reflects the expectation of greater unexplained residual variability unrelated to systematic judge biases, i.e., $\lambda_{1}^{-1} < \lambda_{2}^{-1}$
+:::
+:::
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the prior predictive check shows that:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Predictions still extend beyond the observed data range, despite the **highly informative priors** for between-judge $(sd)$ and within-judge $(sigma)$ residual variability.
+- However, the available data may be insufficient to overcome the constraints imposed by even **more informative priors**.
+:::
+:::
+
+::: {#fig-judge_trait_prior}
+![](/figures/CBTL_analysis/3_1_CBTL_judge_trait_prior1.png){width=50%}
+
+*CBTL analysis*, Prior predictive check for multilevel regression model on the residuals.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+
+::: {.fragment style="font-size:80%;"}
+- After evaluating four different priors, the **multilevel regression** for the stimuli traits follows,
+$$
+\begin{split}
+brm(& \; \text{data} \; &= & d, \\
+& \; \text{family} \; &= & gaussian, \\
+& \; \text{formula} \; &= & ability ~ -1 + XIc + XId + (1 | Is), \\
+& \; \text{prior} \; &= c(& \; \text{prior}( \; normal(0, 0.05), \text{class}=b, \text{coef}=XIc ), \\
+& & & \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId1 ), \\
+& & & \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId2 ), \\
+& & & \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId3 ), \\
+& & & \; \text{prior}( \; exponential(1), \text{class}=sd ), \\ 
+& & & \; \text{prior}( \; exponential(5), \text{class}=sigma )
+\end{split}
+$$
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- **No directional preference** is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for $\beta_{XIc}$ and $\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]}$,
+- Between-individual residual variability $(sd)$ is assigned a **weakly informative exponential prior** with an average of $\lambda_{1}^{-1}=1$ and a variance of $\lambda_{1}^{-1}=1$. This reflects the **mild belief** that individuals systematic variability is 'around' one,
+- Within-individual (between-stimuli) residual variability $(sigma)$ is assigned an **weakly informative exponential prior** with an average of $\lambda_{2}^{-1}=5^{-1}$ and a variance of $\lambda_{2}^{-2}=5^{-2}$. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., $\lambda_{1}^{-1} > \lambda_{2}^{-1}$
+:::
+:::
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the prior predictive check shows that:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Predictions capture the most likely range of the data, without trying to accomodate the 'extreme' estimates.
+:::
+:::
+
+::: {#fig-judge_trait_prior}
+![](/figures/CBTL_analysis/3_1_CBTL_stimuli_trait_prior2.png){width=50%}
+
+*CBTL analysis*, Prior predictive check for multilevel regression model on the residuals.
+:::
+
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.
+
+::: {style="font-size:80%;"}
+The parameter recovery plots indicates that, 
+:::
+
+::: {.fragment style="font-size:80%;"}
+
+::: {#fig-judge_trait_prior}
+![](/figures/CBTL_analysis/3_2_CBTL_parameter_recovery1.png){width=50%}
+
+*CBTL analysis*, Parameter recovery for all steps. *Top right panel* include the 'extreme' estimates for the stimuli traits. 
+:::
+
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.
+
+::: {style="font-size:80%;"}
+The parameter recovery plots indicates that, 
+:::
+
+::: {style="font-size:80%;"}
+
+::: {#fig-judge_trait_prior}
+![](/figures/CBTL_analysis/3_2_CBTL_parameter_recovery2.png){width=50%}
+
+*CBTL analysis*, Parameter recovery for all steps. *Top right panel* does not include the 'extreme' estimates for the stimuli traits. 
+:::
+
+:::
 
 
 <!-- ######################################### -->
@@ -1532,39 +1683,6 @@ Individual win rates.
 
 ## 5.1.2.2 Data modeling: The ITCJ analysis {style="font-size:80%;"}
 
-<!-- ######################################### -->
-
-# 5.2 The second synthetic comparison dataset
-
-# 5.2.1 Data description
-
----
-
-## 5.2.1 Data description {style="font-size:80%;"}
-
-<!-- ######################################### -->
-
-# 5.2.2 From Estimands and Estimator to Effects and Predictions: Steps 8 and 9
-
----
-
-## 5.2.2 From Estimands and Estimator to Effects and Predictions: Steps 8 and 9 {style="font-size:80%;"}
-
-<!-- ######################################### -->
-
-# 5.2.2.1 The classical BTL analysis
-
----
-
-## 5.2.2.1 The classical BTL analysis {style="font-size:80%;"}
-
-<!-- ######################################### -->
-
-# 5.2.2.2 The Information-Theoretical model for CJ
-
----
-
-## 5.2.2.2 The Information-Theoretical model for CJ {style="font-size:80%;"}
 
 <!-- ######################################### -->
 

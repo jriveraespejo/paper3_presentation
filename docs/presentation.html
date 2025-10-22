@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-16">
+  <meta name="dcterms.date" content="2025-10-22">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-16</p>
+  <p class="date">2025-10-22</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -481,7 +481,7 @@
 <p>CJ data can be analyzed under two analytical approaches:</p>
 <div>
 <ol type="1">
-<li class="fragment"><p><em>The classical BTL analysis</em> (hereafter, <strong>CBTL analysis</strong>) <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> ,</p>
+<li class="fragment"><p><em>The classical BTL analysis</em> (hereafter, <strong>CBTL analysis</strong>) <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>,</p>
 <p>which relies on a sequence of separate methods to estimate traits and draw inferences,</p></li>
 <li class="fragment"><p><em>The Information-Theoretical model for CJ</em> (hereafter, <strong>ITCJ analysis</strong>) <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>,</p>
 <p>which employs a single, systematic, and integrated approach for the same two purposes.</p></li>
@@ -496,7 +496,7 @@
 </section>
 <section id="sec-CBTL" class="slide level2" style="font-size:80%;">
 <h2>3.1 The CBTL analysis</h2>
-<p>This approach relies on a sequence of separate methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>:</p>
+<p>This approach relies on a sequence of separate methods, each with different purposes <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>]</span>. Specifically, the <em>CBTL analysis</em>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
@@ -506,7 +506,7 @@
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">To estimate the traits of the stimuli (mean and standard error)</li>
-<li class="fragment">To generate the model residuals</li>
+<li class="fragment">To generate the model residuals and conduct <em>misfit</em> analysis</li>
 </ul>
 </div>
 </div>
@@ -517,8 +517,8 @@
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">To aggregate the trait of the stimuli at the individual level</li>
-<li class="fragment">To assess the variability and conduct inferences at the stimuli and individual levels</li>
-<li class="fragment">To calculate correlation with other methods (a way of “concurrent validity”) or conduct inferences.</li>
+<li class="fragment">To separate the variability in between- and within-individuals</li>
+<li class="fragment">To summarize or conduct inferences at the level of stimuli and individuals</li>
 </ul>
 </div>
 </div>
@@ -528,9 +528,9 @@
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">To aggregate the remaining variability at the judges level or to investigate bias</li>
-<li class="fragment">To assess the remaining variability and conduct inferences about judges biases</li>
-<li class="fragment">To conduct inferences, including <em>misfit</em> identification, for stimuli, individuals, and judges</li>
+<li class="fragment">To aggregate the remaining variability at the judges level</li>
+<li class="fragment">To separate the remaining variability in between- and within-judges</li>
+<li class="fragment">To summarize or conduct inferences at the level of judges, including the investigation of bias</li>
 </ul>
 </div>
 </div>
@@ -545,14 +545,14 @@
 </section>
 <section id="sec-ITCJ" class="slide level2" style="font-size:80%;">
 <h2>3.2 The ITCJ analysis</h2>
-<p>This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. In broad terms, the approach:</p>
+<p>This approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>. In broad terms, the <em>ITCJ analysis</em>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
 <li class="fragment">Begins with the general CJ structure proposed by Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> (see next slide),</li>
 <li class="fragment">Adapts this structure to the assumed data-generating process of the CJ system under study,</li>
 <li class="fragment">Develops one or more <em>bespoke</em> statistical models for analyzing the CJ system.</li>
-<li class="fragment">Use the one or more statistical models to estimate traits and conduct inferences.</li>
+<li class="fragment">Use the one (or more) statistical model(s) to estimate traits and conduct inferences.</li>
 </ol>
 </div>
 </div>
@@ -565,7 +565,7 @@
 <li class="fragment">Assess the variability and conduct inferences at the stimuli and individual levels</li>
 <li class="fragment">Estimate the biases of the judges and judgments (full distribution)</li>
 <li class="fragment">Assess the variability and conduct inferences at the judgments and judges levels</li>
-<li class="fragment">Conduct <em>oulier</em> identification for stimuli, individuals, judgments, and judges (akin to <em>misfit</em> identification)</li>
+<li class="fragment">Conduct <em>outlier</em> identification for stimuli, individuals, judgments, and judges</li>
 </ul>
 </div>
 </div>
@@ -806,7 +806,7 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <div aria-describedby="fig-cj17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="./figures/data_summary/CJ_population_DAG.png" style="width:85.0%"></p>
+<p><img data-src="./figures/population_summary/CJ_population_DAG.png" style="width:85.0%"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
@@ -955,7 +955,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </section>
 <section id="sec-pop_sim" class="slide level2" style="font-size:80%;">
 <h2>4.1 From Theory to Design: Steps 1a-1c</h2>
-<p>From the simulation parameters we can define the <strong><em>estimands</em></strong> of interest:</p>
+<p>From the simulation parameters we can also define the <strong><em>estimands</em></strong> of interest:</p>
 <div>
 <div style="font-size:65%;">
 <ul>
@@ -982,7 +982,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <h2>4.2 From Design to Sample: Step 2</h2>
 <p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a> sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;27</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;23</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1008,17 +1008,45 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <div>
 <ol type="1">
 <li class="fragment"><em>The CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>,</li>
-<li class="fragment"><em>The ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>,</li>
+<li class="fragment"><em>The ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span></li>
 </ol>
 </div>
+<div class="fragment">
+<p>Both analysis are conducted using <code>R</code> version 4.2.2 <span class="citation" data-cites="R_2015">[<a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>, with:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Additional <code>R</code> packages for data manipulation and visualization: <code>tidyverse</code> <span class="citation" data-cites="Wickham_et_al_2019">[<a href="#/references" role="doc-biblioref" onclick="">27</a>]</span>, <code>igraph</code> <span class="citation" data-cites="Csardi_et_al_2006 Csardi_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">28</a>, <a href="#/references" role="doc-biblioref" onclick="">29</a>]</span>, and <code>RColorBrewer</code> <span class="citation" data-cites="Neuwirth_2022">[<a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>;</li>
+<li class="fragment">Specific user-defined functions (<code>UDFs</code>) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5" class="slide level2" style="font-size:80%;">
+<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-2" class="slide level2" style="font-size:80%;">
+<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h2>
+<p>Notably, <strong>each</strong> <code>brms</code> multilevel regression model within the <em>CBTL analysis</em> and <strong>each</strong> Bayesian model within the <em>ITCJ analysis</em> were estimated using:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment"><strong>Four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations, each with distinct starting values, where the first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</li>
+<li class="fragment">Prior predictive checks, which are reported in <a href="#/sec-results" class="quarto-xref">Section&nbsp;13</a>.</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5" class="title-slide slide level1 center">
+<h1>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5</h1>
+
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
 <h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5</h2>
-<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
+<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment"><strong>Fits a BTL model</strong>,</li>
+<li class="fragment"><strong>Fits a BTL model</strong> using the <code>BTm()</code> function from the <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">32</a>, <a href="#/references" role="doc-biblioref" onclick="">33</a>]</span>,</li>
 </ol>
 <div>
 <div style="font-size:80%;">
@@ -1029,14 +1057,14 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 <ol start="2" type="1">
-<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the residuals,</p>
+<li class="fragment"><p><strong>Fits a multilevel regression</strong> on the residuals using the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
 <p><span class="math inline">\(\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)\)</span></p></li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">To test hypothesis of differences in mean residuals between groups of judges, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} - \beta_{ZJd[g=2]}\)</span>, <span class="math inline">\(\beta_{ZJd[g=1]} - \beta_{ZJd[g=3]}\)</span>, and <span class="math inline">\(\beta_{ZJd[g=2]} - \beta_{ZJd[g=3]}\)</span>;</li>
-<li class="fragment">To assess the variability between- and within-judges, where the latter has <strong>no direct equivalent parameter</strong>, while former corresponds to <span class="math inline">\(s_{ZJ}\)</span><span class="math inline">\(^{*}\)</span>.</li>
+<li class="fragment">To assess the variability within- and between-judges <span class="math inline">\((1 | Js)\)</span>, where the former has <strong>no direct equivalent parameter</strong>, while latter corresponds to <span class="math inline">\(s_{ZJ}\)</span><span class="math inline">\(^{*}\)</span>.</li>
 <li class="fragment">To aggregate model residuals into judges biases <span class="math inline">\((B_{J})\)</span></li>
 </ul>
 </div>
@@ -1047,13 +1075,13 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for judges, i.e., <span class="math inline">\(s_{ZJ}\)</span>, versus multiple variability parameters defined by the experience of the judges, i.e., <span class="math inline">\(s_{ZJd}\)</span>.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
+<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-2" class="slide level2" style="font-size:80%;">
 <h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5</h2>
-<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
+<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
-<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> to the stimuli’ mean trait estimates,</p>
+<li class="fragment"><p><strong>Fits a multilevel regression</strong> on the stimulus’ trait estimates with the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
 <p><span class="math inline">\(\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)\)</span></p></li>
 </ol>
 <div>
@@ -1061,7 +1089,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <ul>
 <li class="fragment">To estimate the effect of age on the mean latent trait, i.e, <span class="math inline">\(\beta_{XIc}\)</span></li>
 <li class="fragment">To test hypothesis of differences in mean latent traits between groups of children, i.e., <span class="math inline">\(\beta_{XId[g=1]} - \beta_{XId[g=2]}\)</span>, <span class="math inline">\(\beta_{XId[g=1]} - \beta_{XId[g=3]}\)</span>, and <span class="math inline">\(\beta_{XId[g=2]} - \beta_{XId[g=3]}\)</span></li>
-<li class="fragment">To assess the variability within and between children, i.e., <span class="math inline">\(s_{A}\)</span> and <span class="math inline">\(s_{XI}\)</span><span class="math inline">\(^{*}\)</span>, respectively</li>
+<li class="fragment">To assess the variability within and between children <span class="math inline">\((1 | Is)\)</span>, corresponding to the parameters <span class="math inline">\(s_{A}\)</span> and <span class="math inline">\(s_{XI}\)</span><span class="math inline">\(^{*}\)</span>, respectively</li>
 <li class="fragment">To aggregate stimuli traits into individual level <span class="math inline">\((T_{I})\)</span></li>
 </ul>
 </div>
@@ -1071,13 +1099,27 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <div class="fragment" style="font-size:60%; color:gray">
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., <span class="math inline">\(s_{XI}\)</span>, versus multiple variability parameters defined by the individuals’ groups, i.e., <span class="math inline">\(s_{XId}\)</span>.</p>
 </div>
+</section></section>
+<section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5" class="title-slide slide level1 center">
+<h1>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h1>
+
 </section>
 <section id="sec-ITCJ_models" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>The <strong>first model</strong> only considers the stimulus’ traits:</p>
+<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models, using:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">36</a>]</span> with its interface package <code>cmdstanr</code> <span class="citation" data-cites="Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>]</span>,</li>
+<li class="fragment">Additional <code>R</code> packages for model summaries, predictions, and diagnostics: <code>loo</code> <span class="citation" data-cites="Vehtari_et_al_2024b">[<a href="#/references" role="doc-biblioref" onclick="">38</a>]</span>, <code>posterior</code> <span class="citation" data-cites="Burkner_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">39</a>]</span>, and <code>bayesplot</code> <span class="citation" data-cites="Gabry_et_al_2019 Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>, <a href="#/references" role="doc-biblioref" onclick="">40</a>]</span>.</li>
+</ul>
 </div>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>The <strong>first model</strong> only considers the stimulus’ traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj41" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1108,7 +1150,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
   O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
   D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
   T_{IA} &amp; = e_{IA} \\
-  e_{IA} &amp; \sim \text{Normal}( 0, 1 )
+  e_{IA} &amp; \sim \text{Normal}( 0, s_{A} )
 \end{aligned}
 \]</span></p>
 </div>
@@ -1119,14 +1161,19 @@ Figure&nbsp;8: First ITCJ model. <em>Left panel</em> illustrates the SCM. <em>Mi
 </figcaption>
 </figure>
 </div>
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp; \sim \text{Exponential}( 1/5 )
+\end{split}
+\]</span></p>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model would be akin to the first step of the <em>CBTL analysis</em>, with a different prior.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5" class="slide level2" style="font-size:80%;">
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-2" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>Building on the first, the <strong>second model</strong> integrates the hierarchical structural component that captures the nesting structure of stimulus within individuals:</p>
-</div>
+<p>Building on the first, the <strong>second model</strong> integrates the <em>hierarchical structural component</em> that captures the nesting structure of stimulus within individuals<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj42" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1174,8 +1221,6 @@ Figure&nbsp;9: Second ITCJ model. <em>Left panel</em> illustrates the SCM. <em>M
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
 <p><span class="math display">\[
 \begin{split}
 s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
@@ -1191,13 +1236,13 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \end{split}
 \]</span></p>
 </div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>Extending the second, the <strong>third model</strong> integrates covariates into the structural component to account for factors that may affect individual traits:</p>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model would be akin to the combination of steps one and three from the <em>CBTL analysis</em>, without covariates for the individuals.</p>
 </div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-3" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>Extending the second, the <strong>third model</strong> integrates covariates into the <em>structural component</em> to account for factors that may affect individual traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj43" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1245,12 +1290,19 @@ Figure&nbsp;10: Third ITCJ model. <em>Left panel</em> illustrates the SCM. <em>M
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
 \begin{split}
-\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \;
-\beta_{XId} \sim \text{Normal}(0, 0.5); \\
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+\end{split}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
 s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \boldsymbol{\mu} &amp;= [0, 0]^{T}; \;
 \boldsymbol{Q} = \begin{bmatrix}
@@ -1264,13 +1316,16 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \end{split}
 \]</span></p>
 </div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-2" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>Building upon the second, the <strong>fourth model</strong> incorporates a key CJ design feature: judges’ biases.</p>
 </div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model would be akin to the combination of steps one and three from the <em>CBTL analysis</em>, with covariates for the individuals.</p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-4" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>Also building upon the second, but in contrast to the third, the <strong>fourth model</strong> only incorporates judges’ biases<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj44" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1322,8 +1377,6 @@ Figure&nbsp;11: Fourth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
 <p><span class="math display">\[
 \begin{split}
 s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
@@ -1341,13 +1394,13 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \end{split}
 \]</span></p>
 </div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-3" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>Combining the 2nd and 4th, the <strong>fifth model</strong> integrates covariates to account for factors that may affect individual traits and judge biases:</p>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model would be akin to the combination of all three steps from the <em>CBTL analysis</em>, without any covariates for individuals or judges. However, technically this is <strong>no</strong> longer a BTL model.</p>
 </div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-5" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>Combining the 3rd and 4th, the <strong>fifth model</strong> integrates covariates to account for factors that may affect individual traits and judge biases<span class="math inline">\(^{*}\)</span>:</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1399,11 +1452,20 @@ Figure&nbsp;12: Fifth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>M
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
 \begin{split}
-\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+\beta_{ZJd}[GJ] &amp;\sim \text{Normal}(0, 0.3); \\
+\end{split}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
 s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
 \boldsymbol{Q} = \begin{bmatrix}
@@ -1419,13 +1481,16 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \end{split}
 \]</span></p>
 </div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-4" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models.</p>
-<div class="fragment">
-<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases:</p>
 </div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model would be akin to the combination of all three steps from the <em>CBTL analysis</em>, with covariates for individuals or judges. However, this is <strong>no</strong> longer a BTL model.</p>
+</div>
+</section>
+<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-6" class="slide level2" style="font-size:80%;">
+<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
+<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases. <strong>This model has no equivalent CBTL analysis</strong>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1477,14 +1542,24 @@ Figure&nbsp;13: Sixth ITCJ model. <em>Left panel</em> illustrates the SCM. <em>M
 </figcaption>
 </figure>
 </div>
-</div>
-<div class="fragment">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[
 \begin{split}
-\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \; \beta_{XId} \sim \text{Normal}(0, 0.5); \; \beta_{ZJd} \sim \text{Normal}(0, 0.3); \\
-hs_{I} &amp; \sim \text{Dirichlet}(5, 3); \; s_{XI} = 3 \cdot hs_{I}; \; hs_{J} \sim \text{Dirichlet}(5, 3); \; s_{ZJ} = 3 \cdot hs_{I}; \\
-s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
-\boldsymbol{\mu} = [0, 0, 0]^{T}; \;
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+\beta_{ZJd}[GJ] &amp;\sim \text{Normal}(0, 0.3);
+\end{split}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+hs_{I} &amp;\sim \text{Dirichlet}(5, GI) \; \rightarrow \; s_{XI} = GI \cdot hs_{I}; \\
+hs_{J} &amp;\sim \text{Dirichlet}(5, GJ); \; \rightarrow \; s_{ZJ} = GJ \cdot hs_{I}; \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
 \boldsymbol{Q} = \begin{bmatrix}
     1 &amp; 0 &amp; 0 \\
     0 &amp; 1 &amp; 0 \\
@@ -1498,86 +1573,28 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
 \end{split}
 \]</span></p>
 </div>
-<!-- ######################################### -->
-</section></section>
-<section>
-<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5" class="title-slide slide level1 center">
-<h1>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h1>
-
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-1" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
-<p>All analysis were conducted using <code>R</code> version 4.2.2 <span class="citation" data-cites="R_2015">[<a href="#/references" role="doc-biblioref" onclick="">27</a>]</span>, with:</p>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">Additional <code>R</code> packages for data manipulation and visualization: <code>tidyverse</code> <span class="citation" data-cites="Wickham_et_al_2019">[<a href="#/references" role="doc-biblioref" onclick="">28</a>]</span>, <code>igraph</code> <span class="citation" data-cites="Csardi_et_al_2006 Csardi_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">29</a>, <a href="#/references" role="doc-biblioref" onclick="">30</a>]</span>, and <code>RColorBrewer</code> <span class="citation" data-cites="Neuwirth_2022">[<a href="#/references" role="doc-biblioref" onclick="">31</a>]</span>;</li>
-<li class="fragment">Specific user-defined functions (<code>UDFs</code>) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document).</li>
-</ul>
 </div>
 </div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-2" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
-<p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">26</a>]</span>:</p>
-<div>
-<div style="font-size:80%;">
-<ol type="1">
-<li class="fragment"><strong>Fits a BTL model</strong> using the <code>BTm()</code> function from the <code>BradleyTerry2</code> package <span class="citation" data-cites="Turner_et_al_2012a Turner_et_al_2012b">[<a href="#/references" role="doc-biblioref" onclick="">32</a>, <a href="#/references" role="doc-biblioref" onclick="">33</a>]</span>,</li>
-</ol>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">To estimate the traits of the stimuli <span class="math inline">\((\text{ability}_{i,a})\)</span></li>
-<li class="fragment">To generate the model residuals <span class="math inline">\((\text{res}_{j,a,b})\)</span> and conduct <em>misfit</em> analysis.</li>
-</ul>
-</div>
-</div>
-<ol start="2" type="1">
-<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the residuals using the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
-<p><span class="math inline">\(\text{res}_{j,a,b} \sim -1 + ZJd + (1 | Js)\)</span></p></li>
-<li class="fragment"><p><strong>Fits a (multilevel) regression</strong> on the stimulus’ trait estimates with the <code>brms</code> package <span class="citation" data-cites="Burkner_2017 Burkner_2018">[<a href="#/references" role="doc-biblioref" onclick="">34</a>, <a href="#/references" role="doc-biblioref" onclick="">35</a>]</span>,</p>
-<p><span class="math inline">\(\text{ability}_{i,a} \sim -1 + XIc + XId + (1 | Is)\)</span></p></li>
-</ol>
-</div>
-</div>
-<div class="fragment" style="font-size:80%;">
-<p>Notably, <strong>for each</strong> <code>brms</code> model, <strong>four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations were run, each with distinct starting values. The first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</p>
-</div>
-</section>
-<section id="from-estimator-and-sample-to-estimates-the-software-of-step-5-3" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimator and Sample to Estimate(s): The software of step 5</h2>
-<p>In contrast, for the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, the study uses:</p>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment"><code>Stan</code> version 2.26.1 <span class="citation" data-cites="Stan_2020">[<a href="#/references" role="doc-biblioref" onclick="">36</a>]</span> and the interface package <code>cmdstanr</code> <span class="citation" data-cites="Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>]</span> to fit the six ITCJ models described in the <a href="#/sec-ITCJ_models" class="quarto-xref">Section&nbsp;9.4</a>,</li>
-<li class="fragment">Additional <code>R</code> packages for model summaries, predictions, and diagnostics: <code>loo</code> <span class="citation" data-cites="Vehtari_et_al_2024b">[<a href="#/references" role="doc-biblioref" onclick="">38</a>]</span>, <code>posterior</code> <span class="citation" data-cites="Burkner_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">39</a>]</span>, and <code>bayesplot</code> <span class="citation" data-cites="Gabry_et_al_2019 Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>, <a href="#/references" role="doc-biblioref" onclick="">40</a>]</span>.</li>
-</ul>
-</div>
-</div>
-<div class="fragment" style="font-size:80%;">
-<p>Notably, <strong>for each</strong> Bayesian model, <strong>four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations were run, each with distinct starting values. The first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</p>
 </div>
 <!-- ######################################### -->
 </section></section>
 <section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6" class="title-slide slide level1 center">
-<h1>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h1>
+<h1>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h1>
 
 </section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-1" class="slide level2" style="font-size:80%;">
-<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
-<li class="fragment"><strong><em>Stationarity, convergence, and mixing</em></strong> (for Bayesian models only), using</li>
+<li class="fragment"><strong><em>Stationarity, convergence, and mixing</em></strong> (for <code>brms</code> and Bayesian models only), using</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Graphical analyses, including trace plots, rank-normalized trace (trank) plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,</li>
+<li class="fragment">Graphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,</li>
 <li class="fragment">Diagnostic statistics, including the potential scale reduction factor statistics <span class="math inline">\((\hat{R})\)</span> with a cut-off value of <span class="math inline">\(1.05\)</span> <span class="citation" data-cites="Vehtari_et_al_2021a">[<a href="#/references" role="doc-biblioref" onclick="">41</a>]</span> and effective sample size statistics <span class="math inline">\((n_{\text{eff}})\)</span> <span class="citation" data-cites="Gelman_et_al_2014">[<a href="#/references" role="doc-biblioref" onclick="">42</a>]</span>.</li>
 </ul>
 </div>
@@ -1605,58 +1622,39 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
 </div>
 </section>
 <section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-2" class="slide level2" style="font-size:80%;">
-<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
-<li class="fragment"><strong><em>In-sample fit</em></strong>, using</li>
-</ol>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">The deviance information criterion <span class="math inline">\((\text{DIC})\)</span> <span class="citation" data-cites="Spiegelhalter_et_al_2002">[<a href="#/references" role="doc-biblioref" onclick="">43</a>]</span></li>
-</ul>
-</div>
-</div>
-<ol start="4" type="1">
 <li class="fragment"><strong><em>Approximate out-of-sample fit</em></strong>, using</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">The widely applicable information criterion <span class="math inline">\((\text{WAIC})\)</span> <span class="citation" data-cites="Watanabe_2013">[<a href="#/references" role="doc-biblioref" onclick="">44</a>]</span> and its standard error <span class="math inline">\((\text{SE}_{W})\)</span>, along with the differences in <span class="math inline">\(\text{WAIC}\)</span> between models <span class="math inline">\((\text{dWAIC} \pm 1 \cdot \text{dSE}_{W})\)</span></li>
-<li class="fragment">The Pareto Smoothing Importance Sampling criterion <span class="math inline">\((\text{PSIS})\)</span> <span class="citation" data-cites="Vehtari_et_al_2017 Vehtari_et_al_2024a">[<a href="#/references" role="doc-biblioref" onclick="">45</a>, <a href="#/references" role="doc-biblioref" onclick="">46</a>]</span> and its standard error <span class="math inline">\((\text{SE}_{P})\)</span>, along with the differences in <span class="math inline">\(\text{PSIS}\)</span> between models <span class="math inline">\((\text{dPSIS} \pm 1 \cdot \text{dSE}_{P})\)</span></li>
+<li class="fragment">The Pareto Smoothing Importance Sampling criterion <span class="math inline">\((\text{PSIS})\)</span> <span class="citation" data-cites="Vehtari_et_al_2017 Vehtari_et_al_2024a">[<a href="#/references" role="doc-biblioref" onclick="">43</a>, <a href="#/references" role="doc-biblioref" onclick="">44</a>]</span>.</li>
 </ul>
 </div>
 </div>
-<ol start="5" type="1">
+<ol start="4" type="1">
 <li class="fragment"><strong><em>In-sample predictive accuracy</em></strong>, using</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Confusion matrix comparing expected posterior predictions <span class="math inline">\(E( \boldsymbol{\hat{y}})\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong><em>first</em></strong> synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,</li>
-<li class="fragment">(Multiple) confusion matrix comparing the posterior predictions <span class="math inline">\(\boldsymbol{\hat{y}}_{s}\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong><em>first</em></strong> synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,</li>
+<li class="fragment">Confusion matrix comparing expected posterior predictions <span class="math inline">\(E(\boldsymbol{\hat{y}})\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>first</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
+<li class="fragment">Multiple confusion matrices comparing posterior samples <span class="math inline">\(\boldsymbol{\hat{y}}_{s}\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>first</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-3" class="slide level2" style="font-size:80%;">
-<h2>4.5 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
-<p>The study assess the quality of the models and estimate(s) in terms of:</p>
-<div>
-<div style="font-size:80%;">
-<ol start="6" type="1">
+<ol start="5" type="1">
 <li class="fragment"><strong><em>Out-of-sample predictive accuracy</em></strong>, using</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Confusion matrix comparing expected posterior predictions <span class="math inline">\(E( \boldsymbol{\hat{y}})\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong><em>second</em></strong> synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,</li>
-<li class="fragment">(Multiple) confusion matrix comparing the posterior predictions <span class="math inline">\(\boldsymbol{\hat{y}}_{s}\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong><em>second</em></strong> synthetic dataset, both non-aggregated and aggregated at the levels of stimuli, individuals, and judges,</li>
+<li class="fragment">Confusion matrix comparing expected posterior predictions <span class="math inline">\(E(\boldsymbol{\hat{y}})\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>second</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
+<li class="fragment">Multiple confusion matrices comparing posterior samples <span class="math inline">\(\boldsymbol{\hat{y}}_{s}\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>second</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
 </ul>
 </div>
 </div>
@@ -1665,11 +1663,11 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="results" class="title-slide slide level1 center">
+<section id="sec-results" class="title-slide slide level1 center">
 <h1>5. Results</h1>
 
 </section>
-<section id="results-1" class="slide level2" style="font-size:80%;">
+<section id="results" class="slide level2" style="font-size:80%;">
 <h2>5. Results</h2>
 <p>In this section, the study will:</p>
 <div>
@@ -1679,8 +1677,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5);
 </ol>
 <div>
 <ul>
-<li class="fragment">The CBTL analysis, and</li>
-<li class="fragment">The ITCJ analysis</li>
+<li class="fragment">The <em>CBTL analysis</em>, and</li>
+<li class="fragment">The <em>ITCJ analysis</em></li>
 </ul>
 </div>
 </div>
@@ -1734,7 +1732,7 @@ Figure&nbsp;14: Comparison design. <em>Left panel</em> shows the number of compa
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">Most individuals were compared <span class="math inline">\(200\)</span> times (<span class="math inline">\(20\)</span> comparisons × <span class="math inline">\(10\)</span> stimuli each); only one individual (ID <span class="math inline">\(58\)</span>) was compared slightly fewer times due to random design variation;</li>
-<li class="fragment">The connected component analysis <span class="citation" data-cites="Betancourt_2024">[<a href="#/references" role="doc-biblioref" onclick="">47</a>]</span> and individual comparison network indicates a fully connected network and a <em>balanced design</em> for individuals <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
+<li class="fragment">The connected component analysis <span class="citation" data-cites="Betancourt_2024">[<a href="#/references" role="doc-biblioref" onclick="">45</a>]</span> and individual comparison network indicates a fully connected network and a <em>balanced design</em> for individuals <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
 </ul>
 </div>
 </div>
@@ -1920,6 +1918,182 @@ Figure&nbsp;22: Individual win rates.
 </section>
 <section id="data-modeling-the-cbtl-analysis-1" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>First, the BTL model is applied to the data to estimate the stimuli traits.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The model fit indicates that,</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The BTL model recovers the stimuli traits <strong>reasonably well</strong>, though with some downward bias,</li>
+<li class="fragment">It struggles to accurately estimate traits for certain <strong>‘extreme’ stimuli</strong>,</li>
+<li class="fragment">The <em>misfit</em> analysis fails to detect these ‘extreme’ cases, despite being <strong>conceptually similar to</strong> an <em>outlier</em> detection tool.</li>
+<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges from a model refit still produces new <em>misfits</em>, while the model continues to struggle with the <strong>‘extreme’ stimuli</strong> and its downward bias estimates (not shown here).</li>
+</ul>
+</div>
+</div>
+<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/3_2_CBTL_stimuli_trait_comparison_plot1_2.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23: <em>CBTL analysis</em>, first BTL model fit. <em>Left panel</em> shows the trait estimates for all stimuli. <em>Right panel</em> shows the trait estimates for non-extreme stimuli.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<div class="fragment" style="font-size:80%;">
+<ul>
+<li>The <strong>multilevel regression</strong> on the residuals has the following specification, <span class="math display">\[
+\begin{split}
+brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
+&amp; \; \text{family} \; &amp;= &amp; gaussian, \\
+&amp; \; \text{formula} \; &amp;= &amp; res ~ -1 + ZJd + (1 | Js), \\
+&amp; \; \text{prior} \; &amp;= c(&amp; \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd1 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd2 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; normal(0, 0.3), \text{class}=b, \text{coef}=ZJd3 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; exponential(50), \text{class}=sd ), \\
+&amp; &amp; &amp; \; \text{prior}( \; exponential(25), \text{class}=sigma )
+\end{split}
+\]</span></li>
+</ul>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Judges’ mean latent biases across groups are assigned <strong>weakly informative priors</strong>, reflecting no directional preference in group-level means, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)\)</span>,</li>
+<li class="fragment">Due to the <span class="math inline">\([-1,1]\)</span> range in the residuals <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, the between-judge residual variability <span class="math inline">\((sd)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-2}=50^{-2}\)</span>. This reflects the <strong>strong belief</strong> in the absence of systematic judges biases,</li>
+<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of greater unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the prior predictive check shows that:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Predictions still extend beyond the observed data range, despite the <strong>highly informative priors</strong> for between-judge <span class="math inline">\((sd)\)</span> and within-judge <span class="math inline">\((sigma)\)</span> residual variability.</li>
+<li class="fragment">However, the available data may be insufficient to overcome the constraints imposed by even <strong>more informative priors</strong>.</li>
+</ul>
+</div>
+</div>
+<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/3_1_CBTL_judge_trait_prior1.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the residuals.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<div class="fragment" style="font-size:80%;">
+<ul>
+<li>After evaluating four different priors, the <strong>multilevel regression</strong> for the stimuli traits follows, <span class="math display">\[
+\begin{split}
+brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
+&amp; \; \text{family} \; &amp;= &amp; gaussian, \\
+&amp; \; \text{formula} \; &amp;= &amp; ability ~ -1 + XIc + XId + (1 | Is), \\
+&amp; \; \text{prior} \; &amp;= c(&amp; \; \text{prior}( \; normal(0, 0.05), \text{class}=b, \text{coef}=XIc ), \\
+&amp; &amp; &amp; \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId1 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId2 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; normal(0, 0.5), \text{class}=b, \text{coef}=XId3 ), \\
+&amp; &amp; &amp; \; \text{prior}( \; exponential(1), \text{class}=sd ), \\
+&amp; &amp; &amp; \; \text{prior}( \; exponential(5), \text{class}=sigma )
+\end{split}
+\]</span></li>
+</ul>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment"><strong>No directional preference</strong> is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for <span class="math inline">\(\beta_{XIc}\)</span> and <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]}\)</span>,</li>
+<li class="fragment">Between-individual residual variability <span class="math inline">\((sd)\)</span> is assigned a <strong>weakly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=1\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-1}=1\)</span>. This reflects the <strong>mild belief</strong> that individuals systematic variability is ‘around’ one,</li>
+<li class="fragment">Within-individual (between-stimuli) residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>weakly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=5^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=5^{-2}\)</span>. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., <span class="math inline">\(\lambda_{1}^{-1} &gt; \lambda_{2}^{-1}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the prior predictive check shows that:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Predictions capture the most likely range of the data, without trying to accomodate the ‘extreme’ estimates.</li>
+</ul>
+</div>
+</div>
+<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/3_1_CBTL_stimuli_trait_prior2.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the residuals.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.</p>
+<div style="font-size:80%;">
+<p>The parameter recovery plots indicates that,</p>
+</div>
+<div class="fragment" style="font-size:80%;">
+<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/3_2_CBTL_parameter_recovery1.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26: <em>CBTL analysis</em>, Parameter recovery for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.</p>
+<div style="font-size:80%;">
+<p>The parameter recovery plots indicates that,</p>
+</div>
+<div style="font-size:80%;">
+<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/3_2_CBTL_parameter_recovery2.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27: <em>CBTL analysis</em>, Parameter recovery for all steps. <em>Top right panel</em> does not include the ‘extreme’ estimates for the stimuli traits.
+</figcaption>
+</figure>
+</div>
+</div>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -1929,47 +2103,6 @@ Figure&nbsp;22: Individual win rates.
 </section>
 <section id="data-modeling-the-itcj-analysis-1" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2 Data modeling: The ITCJ analysis</h2>
-<!-- ######################################### -->
-</section></section>
-<section id="the-second-synthetic-comparison-dataset" class="title-slide slide level1 center">
-<h1>5.2 The second synthetic comparison dataset</h1>
-
-</section>
-
-<section>
-<section id="data-description-10" class="title-slide slide level1 center">
-<h1>5.2.1 Data description</h1>
-
-</section>
-<section id="data-description-11" class="slide level2" style="font-size:80%;">
-<h2>5.2.1 Data description</h2>
-<!-- ######################################### -->
-</section></section>
-<section>
-<section id="from-estimands-and-estimator-to-effects-and-predictions-steps-8-and-9" class="title-slide slide level1 center">
-<h1>5.2.2 From Estimands and Estimator to Effects and Predictions: Steps 8 and 9</h1>
-
-</section>
-<section id="from-estimands-and-estimator-to-effects-and-predictions-steps-8-and-9-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2 From Estimands and Estimator to Effects and Predictions: Steps 8 and 9</h2>
-<!-- ######################################### -->
-</section></section>
-<section>
-<section id="the-classical-btl-analysis" class="title-slide slide level1 center">
-<h1>5.2.2.1 The classical BTL analysis</h1>
-
-</section>
-<section id="the-classical-btl-analysis-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 The classical BTL analysis</h2>
-<!-- ######################################### -->
-</section></section>
-<section>
-<section id="the-information-theoretical-model-for-cj-1" class="title-slide slide level1 center">
-<h1>5.2.2.2 The Information-Theoretical model for CJ</h1>
-
-</section>
-<section id="the-information-theoretical-model-for-cj-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 The Information-Theoretical model for CJ</h2>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -2042,7 +2175,7 @@ Figure&nbsp;22: Individual win rates.
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;23: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;28: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -2057,7 +2190,7 @@ Figure&nbsp;23: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;29: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -2154,23 +2287,23 @@ Figure&nbsp;24: Judges’s sample size calculation, considering requirements for
 <div id="ref-Lawson_2015" class="csl-entry" role="listitem">
 <div class="csl-left-margin">25. </div><div class="csl-right-inline">Lawson J (2015) <a href="">Design and analysis of experiments with r</a>. Chapman; Hall/CRC</div>
 </div>
-<div id="ref-Thwaites_et_al_2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline">Thwaites P, Paquot M (2024) Comparative judgement for advancing research in applied linguistics. Research Methods in Applied Linguistics 3(3):100142. https://doi.org/<a href="https://doi.org/10.1016/j.rmal.2024.100142">https://doi.org/10.1016/j.rmal.2024.100142</a></div>
-</div>
 <div id="ref-R_2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline">R Core Team (2015) <a href="http://www.R-project.org/">R: A language and environment for statistical computing</a>. R Foundation for Statistical Computing, Vienna, Austria</div>
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">R Core Team (2015) <a href="http://www.R-project.org/">R: A language and environment for statistical computing</a>. R Foundation for Statistical Computing, Vienna, Austria</div>
 </div>
 <div id="ref-Wickham_et_al_2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline">Wickham H, Averick M, Bryan J, et al (2019) Welcome to the <span class="nocase">tidyverse</span>. Journal of Open Source Software 4(43):1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a></div>
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">Wickham H, Averick M, Bryan J, et al (2019) Welcome to the <span class="nocase">tidyverse</span>. Journal of Open Source Software 4(43):1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a></div>
 </div>
 <div id="ref-Csardi_et_al_2006" class="csl-entry" role="listitem">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">Csárdi G, Nepusz T (2006) <a href="https://igraph.org">The igraph software package for complex network research</a>. InterJournal Complex Systems:1695</div>
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Csárdi G, Nepusz T (2006) <a href="https://igraph.org">The igraph software package for complex network research</a>. InterJournal Complex Systems:1695</div>
 </div>
 <div id="ref-Csardi_et_al_2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">Csárdi G, Nepusz T, Traag V, et al (2025) <a href="https://doi.org/10.5281/zenodo.7682609"><span class="nocase">igraph</span>: Network analysis and visualization in r</a></div>
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">Csárdi G, Nepusz T, Traag V, et al (2025) <a href="https://doi.org/10.5281/zenodo.7682609"><span class="nocase">igraph</span>: Network analysis and visualization in r</a></div>
 </div>
 <div id="ref-Neuwirth_2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">Neuwirth E (2022) <a href="https://CRAN.R-project.org/package=RColorBrewer">RColorBrewer: ColorBrewer palettes</a></div>
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Neuwirth E (2022) <a href="https://CRAN.R-project.org/package=RColorBrewer">RColorBrewer: ColorBrewer palettes</a></div>
+</div>
+<div id="ref-Thwaites_et_al_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Thwaites P, Paquot M (2024) Comparative judgement for advancing research in applied linguistics. Research Methods in Applied Linguistics 3(3):100142. https://doi.org/<a href="https://doi.org/10.1016/j.rmal.2024.100142">https://doi.org/10.1016/j.rmal.2024.100142</a></div>
 </div>
 <div id="ref-Turner_et_al_2012a" class="csl-entry" role="listitem">
 <div class="csl-left-margin">32. </div><div class="csl-right-inline">Turner H, Firth D (2012) Bradley-terry models in r: The BradleyTerry2 package. Journal of Statistical Software 48(9):1–21. <a href="https://doi.org/10.18637/jss.v048.i09">https://doi.org/10.18637/jss.v048.i09</a></div>
@@ -2205,20 +2338,14 @@ Figure&nbsp;24: Judges’s sample size calculation, considering requirements for
 <div id="ref-Gelman_et_al_2014" class="csl-entry" role="listitem">
 <div class="csl-left-margin">42. </div><div class="csl-right-inline">Gelman A, Carlin J, Stern H, Dunson D, Vehtari A, Rubin D (2014) <a href="">Bayesian data analysis</a>, 3rd ed. Chapman; Hall/CRC</div>
 </div>
-<div id="ref-Spiegelhalter_et_al_2002" class="csl-entry" role="listitem">
-<div class="csl-left-margin">43. </div><div class="csl-right-inline">Spiegelhalter D, Best N, Carlin B, van der Linde A (2002) <span class="nocase">Bayesian Measures of Model Complexity and Fit</span>. Journal of the Royal Statistical Society Series B: Statistical Methodology 64(4):583–639. <a href="https://doi.org/10.1111/1467-9868.00353">https://doi.org/10.1111/1467-9868.00353</a></div>
-</div>
-<div id="ref-Watanabe_2013" class="csl-entry" role="listitem">
-<div class="csl-left-margin">44. </div><div class="csl-right-inline">Watanabe S (2013) <a href="">A widely applicable bayesian information criterion</a>. Journal of Machine Learning Research 14:867–897</div>
-</div>
 <div id="ref-Vehtari_et_al_2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">45. </div><div class="csl-right-inline">Vehtari A, Gelman A, Gabry J (2017) Practical bayesian model evaluation using leave-one-out cross-validation and WAIC. Statistics and Computing 27(5):1413–1432. <a href="https://doi.org/10.1007/s11222-016-9696-4">https://doi.org/10.1007/s11222-016-9696-4</a></div>
+<div class="csl-left-margin">43. </div><div class="csl-right-inline">Vehtari A, Gelman A, Gabry J (2017) Practical bayesian model evaluation using leave-one-out cross-validation and WAIC. Statistics and Computing 27(5):1413–1432. <a href="https://doi.org/10.1007/s11222-016-9696-4">https://doi.org/10.1007/s11222-016-9696-4</a></div>
 </div>
 <div id="ref-Vehtari_et_al_2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">46. </div><div class="csl-right-inline">Vehtari A, Simpson D, Gelman A, Yao Y, Gabry J (2024) <a href="https://arxiv.org/abs/1507.02646">Pareto smoothed importance sampling</a></div>
+<div class="csl-left-margin">44. </div><div class="csl-right-inline">Vehtari A, Simpson D, Gelman A, Yao Y, Gabry J (2024) <a href="https://arxiv.org/abs/1507.02646">Pareto smoothed importance sampling</a></div>
 </div>
 <div id="ref-Betancourt_2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">47. </div><div class="csl-right-inline">Betancourt M (2024) <a href="https://betanalpha.github.io/assets/chapters_html/pairwise_comparison_modeling.html">Pairwise comparison modeling</a></div>
+<div class="csl-left-margin">45. </div><div class="csl-right-inline">Betancourt M (2024) <a href="https://betanalpha.github.io/assets/chapters_html/pairwise_comparison_modeling.html">Pairwise comparison modeling</a></div>
 </div>
 </div>
 
