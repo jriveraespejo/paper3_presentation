@@ -780,7 +780,7 @@ Similarly, prior selection for the six ITCJ models relied on **prior predictive 
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models1 style="font-size:80%;"}
 
 The **first model** only considers the stimulus' traits$^{*}$. 
 
@@ -826,12 +826,12 @@ $$
 :::
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ This model would be akin to the first step of the *CBTL analysis*, with a different prior.
+$*$ This model is akin to Step $1$ of the *CBTL analysis*, but with a different prior.
 :::
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models2 style="font-size:80%;"}
 
 Building on the first, the **second model** integrates the *hierarchical structural component* that captures the nesting structure of stimulus within individuals$^{*}$.
 
@@ -892,12 +892,12 @@ $$
 :::
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ This model would be akin to the combination of steps one and three from the *CBTL analysis*, without covariates for the individuals.
+$*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL analysis*, without covariates for the individuals.
 :::
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models3 style="font-size:80%;"}
 
 Extending the second, the **third model** integrates covariates into the *structural component* to account for factors that may affect individual traits$^{*}$. 
 
@@ -968,12 +968,12 @@ $$
 :::
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ This model would be akin to the combination of steps one and three from the *CBTL analysis*, with covariates for the individuals.
+$*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL analysis*, with covariates for the individuals.
 :::
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models4 style="font-size:80%;"}
 
 Also building upon the second, but in contrast to the third, the **fourth model** only incorporates judges' biases$^{*}$.
 
@@ -1040,12 +1040,12 @@ $$
 
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ This model would be akin to the combination of all three steps from the *CBTL analysis*, without any covariates for individuals or judges. However, technically this is **no** longer a BTL model.
+$*$ This model is akin to the combination of all three steps from the *CBTL analysis*, without any covariates for individuals or judges. However, technically this is **no** longer a BTL model.
 :::
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models5 style="font-size:80%;"}
 
 Combining the 3rd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases$^{*}$:
 
@@ -1124,12 +1124,12 @@ $$
 :::
 
 :::{.fragment style="font-size:60%; color:gray"}
-$*$ This model would be akin to the combination of all three steps from the *CBTL analysis*, with covariates for individuals or judges. However, this is **no** longer a BTL model.
+$*$ This model is akin to the combination of all three steps from the *CBTL analysis*, with covariates for individuals and judges. However, this is **no** longer a BTL model.
 :::
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models6 style="font-size:80%;"}
 
 Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases. **This model has no equivalent CBTL analysis**.
 
@@ -1208,6 +1208,9 @@ $$
 
 :::
 
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model has no equivalent in the current CJ literature.
+:::
 
 <!-- ######################################### -->
 
@@ -1551,8 +1554,8 @@ Assumptions:
 ::: incremental 
 ::: {style="font-size:80%;"}
 - Judges' mean latent biases across groups are assigned **weakly informative priors**, reflecting no directional preference in group-level means, i.e., $\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)$,
-- Due to the $[-1,1]$ range in the residuals [@Pollitt_2012a, pp. 164; @Pollitt_2012b, pp. 289], the between-judge residual variability $(sd)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{1}^{-1}=50^{-1}$ and a variance of $\lambda_{1}^{-2}=50^{-2}$. This reflects the **strong belief** in the absence of systematic judges biases,
-- For similar reasons, the within-judge residual variability $(sigma)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{2}^{-1}=50^{-1}$ and a variance of $\lambda_{2}^{-2}=50^{-2}$. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., $\lambda_{1}^{-1} < \lambda_{2}^{-1}$
+- Due to the $[-1,1]$ range in the residuals [@Pollitt_2012a, pp. 164; @Pollitt_2012b, pp. 289], the between-judge residual variability $(sd)$ is assigned a **highly informative exponential prior** with an average of $\lambda_{1}^{-1}=50^{-1}$ and a variance of $\lambda_{1}^{-2}=50^{-2}$. This reflects the **strong belief** in the absence of systematic judges biases,
+- For similar reasons, the within-judge residual variability $(sigma)$ is assigned a **highly informative exponential prior** with an average of $\lambda_{2}^{-1}=50^{-1}$ and a variance of $\lambda_{2}^{-2}=50^{-2}$. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., $\lambda_{1}^{-1} < \lambda_{2}^{-1}$
 :::
 :::
 :::
@@ -1566,21 +1569,18 @@ Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors
 ::: {.fragment style="font-size:80%;"}
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
-::: incremental 
-::: {style="font-size:80%;"}
-- Predictions still extend beyond the observed data range, despite the **highly informative priors** for the between-judge $(sd)$ and within-judge $(sigma)$ residual variability.
-- Although **more informative priors** could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.
-:::
-:::
-
 ::: {#fig-CBTL_judge_prior}
 ![](/figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png){width=50%}
 
-*CBTL analysis*, Prior predictive check for multilevel regression model on the residuals.
+*CBTL analysis*, prior predictive check for multilevel regression model on the residuals.
 :::
 
 :::
 
+::: {.notes}
+- Predictions still extend beyond the observed data range, despite the **highly informative priors** for the between-judge $(sd)$ and within-judge $(sigma)$ residual variability.
+- Although **more informative priors** could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.
+:::
 
 ---
 
@@ -1612,7 +1612,7 @@ Assumptions:
 ::: {style="font-size:80%;"}
 - **No directional preference** is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for $\beta_{XIc}$ and $\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]}$,
 - Between-individual residual variability $(sd)$ is assigned a **weakly informative exponential prior** with an average of $\lambda_{1}^{-1}=1$ and a variance of $\lambda_{1}^{-1}=1$. This reflects the **mild belief** that individuals systematic variability is 'around' one,
-- Within-individual (between-stimuli) residual variability $(sigma)$ is assigned an **weakly informative exponential prior** with an average of $\lambda_{2}^{-1}=5^{-1}$ and a variance of $\lambda_{2}^{-2}=5^{-2}$. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., $\lambda_{1}^{-1} > \lambda_{2}^{-1}$
+- Within-individual (between-stimuli) residual variability $(sigma)$ is assigned a **weakly informative exponential prior** with an average of $\lambda_{2}^{-1}=5^{-1}$ and a variance of $\lambda_{2}^{-2}=5^{-2}$. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., $\lambda_{1}^{-1} > \lambda_{2}^{-1}$
 :::
 :::
 :::
@@ -1626,18 +1626,16 @@ Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors
 ::: {.fragment style="font-size:80%;"}
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
-::: incremental 
-::: {style="font-size:80%;"}
-- Predictions capture the most likely range of the data, without trying to accommodate the 'extreme' estimates.
-:::
-:::
-
 ::: {#fig-CBTL_individual_prior}
 ![](/figures/CBTL_analysis/cropped/3_1_CBTL_stimuli_trait_prior2.png){width=50%}
 
-*CBTL analysis*, Prior predictive check for multilevel regression model on the estimated stimuli traits.
+*CBTL analysis*, prior predictive check for multilevel regression model on the estimated stimuli traits.
 :::
 
+:::
+
+::: {.notes}
+- Predictions capture the most likely range of the data, without trying to accommodate the 'extreme' estimates.
 :::
 
 ---
@@ -1647,7 +1645,7 @@ As a result of the prior assumptions, the **prior predictive check** shows that:
 Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
 
 ::: {.fragment style="font-size:80%;"}
-First, `brms` parameters (Steps $2$ and $3$) achieve **stationarity, convergence and and 'good' mixing**
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-CBTL_diagnostics layout-ncol=2}
 
@@ -1663,6 +1661,7 @@ First, `brms` parameters (Steps $2$ and $3$) achieve **stationarity, convergence
 ::: {.notes}
 - All $\hat{R}$ are in the vicinity of $1$, and none is above $1.05$
 - Only $bZJd[3]$ has a $n_{eff} < 1000$, the rest have $n_{eff} > 1300$
+- There is sufficient information in the posterior distributions
 :::
 
 ---
@@ -1800,10 +1799,10 @@ Second, we use the refitted BTL model (without *misfits*) and the specified prio
 ::: {style="font-size:80%;"}
 The **posterior predictive plots** indicates that, 
 
-::: {#fig-CBTL_posterior_pred2}
+::: {#fig-CBTL_posterior_pred3}
 ![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=50%}
 
-*CBTL analysis*, posterior predictive for stimuli wins based only on Step $1$. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+*CBTL analysis*, posterior predictive for individual wins based only on Step $1$. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
 :::
 
 :::
@@ -1822,7 +1821,7 @@ Second, we use the refitted BTL model (without *misfits*) and the specified prio
 ::: {style="font-size:80%;"}
 The **influential points plots** indicates that, 
 
-::: {#fig-CBTL_influential_points layout-ncol=2}
+::: {#fig-CBTL_influential layout-ncol=2}
 
 ![](/figures/CBTL_analysis/cropped/3_2_CBTL_judges_influential.png){width=70%}
 
@@ -1842,9 +1841,1440 @@ The **influential points plots** indicates that,
 
 # 5.1.2.2 Data modeling: The ITCJ analyses 
 
+# 5.1.2.2.1 Data modeling: The ITCJ analysis 1 
+
 ---
 
-## 5.1.2.2 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models1, the **first** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = e_{IA} \\
+  e_{IA} & \sim \text{Normal}( 0, s_{A} )
+\end{aligned}
+$$
+
+$$
+\begin{split}
+s_{A} & \sim \text{Exponential}( 1/5 )
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The between-stimuli variability $(s_{A})$ is assigned a **non-informative exponential prior** with an average of $\lambda^{-1}=5$ and a variance of $\lambda^{-2}=5^{2}$. This reflects the lack of any expectation regarding the between-stimuli variability.
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model is akin to Step $1$ of the *CBTL analysis*, but with a different prior.
+:::
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ1_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_individual.png){width=75%}
+
+First *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ1_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_1_2_stimuli_trait_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_1_2_stimuli_trait_rank.png){width=100%}
+
+First *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ1_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_1_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the first *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ1_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_1_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the first *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ1_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the first *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ1_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the first *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ1_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the first *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+
+Second, we fit the **first** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ1_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_1_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the first *ITCJ analysis*.
+:::
+
+:::
+
+
+<!-- ######################################### -->
+
+# 5.1.2.2.2 Data modeling: The ITCJ analysis 2
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models2, the **second** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = e_{I} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+$$
+\begin{split}
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0  \\
+    0     & 1
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Between-individual variability is assumed to be equal to $1$. Thus, the prior distribution is used to define the scale of individual latent traits, as it is required in latent variable models [@Depaoli_2021].
+- The within-individual (between-stimuli) variability $(s_{A})$ is assigned a **weakly informative Beta-proportion prior** with an average of $\mu=0.5$ and a 'sample size' of $M=5$. This reflects the expectation that the stimuli within the individuals are more homogeneous than the individuals themselves [@Lawson_2015].
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL analysis*, without covariates for the individuals.
+
+:::
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_individual.png){width=75%}
+
+Second *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ2_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_2_2_individual_trait_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_2_2_individual_trait_rank.png){width=100%}
+
+Second *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ2_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_2_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the second *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ2_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_2_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the second *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the second *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the second *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the second *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ2_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_2_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the second *ITCJ analysis*.
+:::
+
+:::
+
+
+<!-- ######################################### -->
+
+# 5.1.2.2.3 Data modeling: The ITCJ analysis 3
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models3, the **third** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\ 
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0  \\
+    0     & 1 
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The effects of age and the hearing status groups on the mean latent trait of individuals has the same **weakly informative prior** as in the *CBTL analysis*,
+- Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ model.
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL analysis*, with covariates for the individuals.
+:::
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_individual.png){width=75%}
+
+Third *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ2_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_3_2_betas_sigmas_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_3_2_betas_sigmas__rank.png){width=100%}
+
+Third *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ2_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_3_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the third *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ2_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_3_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the third *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the third *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the third *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the third *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+
+Second, we fit the **third** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ2_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_3_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the third *ITCJ analysis*.
+:::
+
+:::
+
+
+<!-- ######################################### -->
+
+# 5.1.2.2.4 Data modeling: The ITCJ analysis 4
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models4, the **fourth** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & := f_{O}(D_{R}, S, C) \\
+  D_{R} & := f_{D}(T_{IA}, B_{J}) \\
+  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} & := f_{T}(e_{I}) \\
+  B_{J} & := f_{B}(e_{J}) \\
+  e_{IA} & \dsep \{ e_{I}, e_{J}\} \\
+  e_{I} & \dsep \{ e_{J}\}
+\end{aligned}
+$$
+
+$$
+\begin{split}
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \; 
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0 & 0 \\
+    0     & 1 & 0 \\
+    0     & 0 & 1
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,
+- Between-judge variability is assumed to be equal to $1$. Thus, the prior distribution is used to define the scale of judges latent biases, as it is required in latent variable models [@Depaoli_2021].
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model is akin to the combination of all three steps from the *CBTL analysis*, without any covariates for individuals or judges. However, technically this is **no** longer a BTL model.
+:::
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_individual.png){width=75%}
+
+Fourth *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ2_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_4_2_judge_bias_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_4_2_judge_bias_rank.png){width=100%}
+
+Fourth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ2_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_4_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the fourth *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ2_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_4_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the fourth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fourth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fourth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fourth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+
+Second, we fit the **fourth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ2_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_4_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the fourth *ITCJ analysis*.
+:::
+
+:::
+
+
+<!-- ######################################### -->
+
+# 5.1.2.2.5 Data modeling: The ITCJ analysis 5
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models5, the **fifth** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} & = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\ 
+\beta_{ZJd}[GJ] &\sim \text{Normal}(0, 0.3); \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0 & 0 \\
+    0     & 1 & 0 \\
+    0     & 0 & 1
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The effects of age and the hearing status groups on the mean latent trait of individuals has the same **weakly informative prior** as in the *CBTL analysis*,
+- The effects of judges groups on the mean latent bias has the same **weakly informative prior** as in the *CBTL analysis*,
+- Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,
+- Between-judge variability has the same prior as the previous ITCJ models.
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model is akin to the combination of all three steps from the *CBTL analysis*, with covariates for individuals and judges. However, this is **no** longer a BTL model.
+:::
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_individual.png){width=75%}
+
+Fifth *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ2_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_5_2_betas_sigmas_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_5_2_betas_sigmas__rank){width=100%}
+
+Fifth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ2_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_5_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the fifth *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ2_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_5_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the fifth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fifth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fifth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the fifth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+
+Second, we fit the **fifth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ2_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_5_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the fifth *ITCJ analysis*.
+:::
+
+:::
+
+
+<!-- ######################################### -->
+
+# 5.1.2.2.6 Data modeling: The ITCJ analysis 6
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As seen in @sec-ITCJ_models6, the **sixth** ITCJ model is represented by,
+
+::: {layout-ncol=2}
+$$
+\begin{aligned}
+  O_{R} & \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} & = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} & = T_{I} + e_{IA} \\
+  T_{I} & = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} & = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} & \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+$$
+
+$$
+\begin{split}
+\beta_{XIc} &\sim \text{Normal}(0, 0.05); \\ 
+\beta_{XId}[GI] &\sim \text{Normal}(0, 0.5); \\ 
+\beta_{ZJd}[GJ] &\sim \text{Normal}(0, 0.3); \\
+hs_{I} &\sim \text{Dirichlet}(5, GI) \; \rightarrow \; s_{XI} = GI \cdot hs_{I}; \\
+hs_{J} &\sim \text{Dirichlet}(5, GJ); \; \rightarrow \; s_{ZJ} = GJ \cdot hs_{I}; \\
+s_{A} &\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} & 0      & 0 \\
+    0     & s_{XI} & 0 \\
+    0     & 0      & s_{ZJ}
+\end{bmatrix}
+\end{split}
+$$
+:::
+
+:::
+
+::: {.fragment style="font-size:80%;"}
+Assumptions:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The effects of age and the hearing status groups on the mean latent trait of individuals has the same **weakly informative prior** as in the *CBTL analysis*,
+- The effects of judges groups on the mean latent bias has the same **weakly informative prior** as in the *CBTL analysis*,
+- Within-individual (between-stimuli) variability has the same prior as the previous ITCJ models.
+- Between-individual and between-judges variability are now constraint to add to one (i.e., a simplex) across hearing status and judges groups, respectively. This requirement is enforced through a *weakly informative Dirichlet prior*. 
+:::
+:::
+:::
+
+:::{.fragment style="font-size:60%; color:gray"}
+$*$ This model has no equivalent in the current CJ literature.
+:::
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+First, we need specify the appropriate **priors** for the model:
+
+::: {.fragment style="font-size:80%;"}
+As a result of the prior assumptions, the **prior predictive check** shows that:
+
+::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+![](/figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_confusion.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_stimulus.png){width=75%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_individual.png){width=75%}
+
+Sixth *ITCJ analysis*, prior predictive checks.
+:::
+
+:::
+
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **second** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+
+::: {#fig-ITCJ2_diagnostics layout-ncol=2}
+
+![](/figures/ITCJ_analysis/non-cropped/4_6_2_betas_sigmas_trace.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_6_2_betas_sigmas__rank){width=100%}
+
+Sixth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
+:::
+
+:::
+
+::: {.notes}
+- All $\hat{R}$ are equal to $1$, and none is above $1.05$
+- Only $s_{A}$ has a $n_{eff} \approx 3000$, the rest have $n_{eff} > 10000$
+- There is sufficient information in the posterior distributions
+:::
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-ITCJ2_recovery layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_6_2_ITCJ_parameter_recovery.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, parameter recovery. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the sixth *ITCJ analysis*. 
+:::
+
+:::
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-ITCJ2_rmse layout-ncol=2}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=100%}
+
+![](/figures/ITCJ_analysis/non-cropped/4_6_2_ITCJ_parameter_rmse.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, RMSE. *Leftmost four panels* show the *CBTL analysis*. *Top right panel* of *CBTL analysis* exclude the 'extreme' estimates for the stimuli traits. *Rightmost two panels* show the sixth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred1 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_confusion.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for confusion matrix. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the sixth *ITCJ analysis*.
+:::
+
+:::
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred2 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_stimulus.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for stimuli wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the sixth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-ITCJ2_posterior_pred3 layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_individual.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, posterior predictive for individual wins. *Left panel* show the *CBTL analysis*, which assumes normality of stimuli traits by Central Limit Theorem (CLT). *Right panel* show the sixth *ITCJ analysis*.
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+
+Second, we fit the **sixth** ITCJ model to the data using the specified priors.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-ITCJ2_influential layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=100%}
+
+![](/figures/ITCJ_analysis/cropped/4_6_2_ITCJ_individual_influential.png){width=100%}
+
+*ITCJ* versus *CBTL* analysis, influential points. *Left panel* shows the points identified in the *CBTL* stimuli traits analysis. *Right panel* show the sixth *ITCJ analysis*.
+:::
+
+:::
 
 
 <!-- ######################################### -->

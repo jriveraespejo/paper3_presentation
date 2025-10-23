@@ -982,7 +982,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <h2>4.2 From Design to Sample: Step 2</h2>
 <p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;23</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;29</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1122,7 +1122,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <p>Similarly, prior selection for the six ITCJ models relied on <strong>prior predictive checks</strong>, the results of which are presented in <a href="#/sec-results" class="quarto-xref">Section&nbsp;13</a>.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models1" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>The <strong>first model</strong> only considers the stimulus’ traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
@@ -1173,10 +1173,10 @@ s_{A} &amp; \sim \text{Exponential}( 1/5 )
 \]</span></p>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model would be akin to the first step of the <em>CBTL analysis</em>, with a different prior.</p>
+<p><span class="math inline">\(*\)</span> This model is akin to Step <span class="math inline">\(1\)</span> of the <em>CBTL analysis</em>, but with a different prior.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-2" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models2" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>Building on the first, the <strong>second model</strong> integrates the <em>hierarchical structural component</em> that captures the nesting structure of stimulus within individuals<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
@@ -1242,10 +1242,10 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \]</span></p>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model would be akin to the combination of steps one and three from the <em>CBTL analysis</em>, without covariates for the individuals.</p>
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, without covariates for the individuals.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-3" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models3" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>Extending the second, the <strong>third model</strong> integrates covariates into the <em>structural component</em> to account for factors that may affect individual traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
@@ -1325,10 +1325,10 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model would be akin to the combination of steps one and three from the <em>CBTL analysis</em>, with covariates for the individuals.</p>
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, with covariates for the individuals.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-4" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models4" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>Also building upon the second, but in contrast to the third, the <strong>fourth model</strong> only incorporates judges’ biases<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
@@ -1400,10 +1400,10 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 \]</span></p>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model would be akin to the combination of all three steps from the <em>CBTL analysis</em>, without any covariates for individuals or judges. However, technically this is <strong>no</strong> longer a BTL model.</p>
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, without any covariates for individuals or judges. However, technically this is <strong>no</strong> longer a BTL model.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-5" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models5" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>Combining the 3rd and 4th, the <strong>fifth model</strong> integrates covariates to account for factors that may affect individual traits and judge biases<span class="math inline">\(^{*}\)</span>:</p>
 <div class="fragment" style="font-size:90%;">
@@ -1490,10 +1490,10 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model would be akin to the combination of all three steps from the <em>CBTL analysis</em>, with covariates for individuals or judges. However, this is <strong>no</strong> longer a BTL model.</p>
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, with covariates for individuals and judges. However, this is <strong>no</strong> longer a BTL model.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-6" class="slide level2" style="font-size:80%;">
+<section id="sec-ITCJ_models6" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
 <p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases. <strong>This model has no equivalent CBTL analysis</strong>.</p>
 <div class="fragment" style="font-size:90%;">
@@ -1580,6 +1580,9 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 </div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model has no equivalent in the current CJ literature.</p>
 </div>
 <!-- ######################################### -->
 </section></section>
@@ -1971,8 +1974,8 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">Judges’ mean latent biases across groups are assigned <strong>weakly informative priors</strong>, reflecting no directional preference in group-level means, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)\)</span>,</li>
-<li class="fragment">Due to the <span class="math inline">\([-1,1]\)</span> range in the residuals <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, the between-judge residual variability <span class="math inline">\((sd)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-2}=50^{-2}\)</span>. This reflects the <strong>strong belief</strong> in the absence of systematic judges biases,</li>
-<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
+<li class="fragment">Due to the <span class="math inline">\([-1,1]\)</span> range in the residuals <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, the between-judge residual variability <span class="math inline">\((sd)\)</span> is assigned a <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-2}=50^{-2}\)</span>. This reflects the <strong>strong belief</strong> in the absence of systematic judges biases,</li>
+<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned a <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
 </ul>
 </div>
 </div>
@@ -1983,25 +1986,33 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">Predictions still extend beyond the observed data range, despite the <strong>highly informative priors</strong> for the between-judge <span class="math inline">\((sd)\)</span> and within-judge <span class="math inline">\((sigma)\)</span> residual variability.</li>
-<li class="fragment">Although <strong>more informative priors</strong> could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.</li>
-</ul>
-</div>
-</div>
 <div id="fig-CBTL_judge_prior" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-CBTL_judge_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_judge_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the residuals.
+Figure&nbsp;24: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the residuals.
 </figcaption>
 </figure>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Predictions still extend beyond the observed data range, despite the <strong>highly informative priors</strong> for the between-judge <span class="math inline">\((sd)\)</span> and within-judge <span class="math inline">\((sigma)\)</span> residual variability.</li>
+<li>Although <strong>more informative priors</strong> could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
@@ -2028,7 +2039,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <ul>
 <li class="fragment"><strong>No directional preference</strong> is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for <span class="math inline">\(\beta_{XIc}\)</span> and <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]}\)</span>,</li>
 <li class="fragment">Between-individual residual variability <span class="math inline">\((sd)\)</span> is assigned a <strong>weakly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=1\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-1}=1\)</span>. This reflects the <strong>mild belief</strong> that individuals systematic variability is ‘around’ one,</li>
-<li class="fragment">Within-individual (between-stimuli) residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>weakly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=5^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=5^{-2}\)</span>. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., <span class="math inline">\(\lambda_{1}^{-1} &gt; \lambda_{2}^{-1}\)</span></li>
+<li class="fragment">Within-individual (between-stimuli) residual variability <span class="math inline">\((sigma)\)</span> is assigned a <strong>weakly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=5^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=5^{-2}\)</span>. This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., <span class="math inline">\(\lambda_{1}^{-1} &gt; \lambda_{2}^{-1}\)</span></li>
 </ul>
 </div>
 </div>
@@ -2039,30 +2050,38 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">Predictions capture the most likely range of the data, without trying to accommodate the ‘extreme’ estimates.</li>
-</ul>
-</div>
-</div>
 <div id="fig-CBTL_individual_prior" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-CBTL_individual_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_stimuli_trait_prior2.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_individual_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the estimated stimuli traits.
+Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the estimated stimuli traits.
 </figcaption>
 </figure>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Predictions capture the most likely range of the data, without trying to accommodate the ‘extreme’ estimates.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
-<p>First, <code>brms</code> parameters (Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>) achieve <strong>stationarity, convergence and and ‘good’ mixing</strong></p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-CBTL_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-CBTL_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2085,6 +2104,7 @@ Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression paramet
 <ul>
 <li>All <span class="math inline">\(\hat{R}\)</span> are in the vicinity of <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
 <li>Only <span class="math inline">\(bZJd[3]\)</span> has a <span class="math inline">\(n_{eff} &lt; 1000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 1300\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -2269,13 +2289,13 @@ Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for stimuli wins ba
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
-<div id="fig-CBTL_posterior_pred2" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-CBTL_posterior_pred3" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:50.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for stimuli wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
 </figcaption>
 </figure>
 </div>
@@ -2301,9 +2321,9 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for stimuli wins ba
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
-<div id="fig-CBTL_influential_points" class="quarto-layout-panel">
+<div id="fig-CBTL_influential" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-CBTL_influential_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-CBTL_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_judges_influential.png" style="width:70.0%"></p>
@@ -2313,7 +2333,7 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for stimuli wins ba
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_influential_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>. <em>Left panel</em> shows the points identified in the residuals analysis. <em>Right panel</em> shows the points identified in the stimuli traits analysis.
 </figcaption>
 </figure>
@@ -2336,13 +2356,1842 @@ Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span 
       }</style></aside>
 <!-- ######################################### -->
 </section></section>
-<section>
 <section id="data-modeling-the-itcj-analyses" class="title-slide slide level1 center">
 <h1>5.1.2.2 Data modeling: The ITCJ analyses</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2 Data modeling: The ITCJ analysis 1</h2>
+
+<section>
+<section id="data-modeling-the-itcj-analysis-1" class="title-slide slide level1 center">
+<h1>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-1-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models1" class="quarto-xref">Section&nbsp;11.2</a>, the <strong>first</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = e_{IA} \\
+  e_{IA} &amp; \sim \text{Normal}( 0, s_{A} )
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp; \sim \text{Exponential}( 1/5 )
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The between-stimuli variability <span class="math inline">\((s_{A})\)</span> is assigned a <strong>non-informative exponential prior</strong> with an average of <span class="math inline">\(\lambda^{-1}=5\)</span> and a variance of <span class="math inline">\(\lambda^{-2}=5^{2}\)</span>. This reflects the lack of any expectation regarding the between-stimuli variability.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model is akin to Step <span class="math inline">\(1\)</span> of the <em>CBTL analysis</em>, but with a different prior.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ1_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;35: First <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ1_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_1_2_stimuli_trait_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_1_2_stimuli_trait_rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;36: First <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_1_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;37: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_1_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-1-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
+<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ1_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ1_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_1_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;42: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="data-modeling-the-itcj-analysis-2" class="title-slide slide level1 center">
+<h1>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-2-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models2" class="quarto-xref">Section&nbsp;11.3</a>, the <strong>second</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = e_{I} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0  \\
+    0     &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Between-individual variability is assumed to be equal to <span class="math inline">\(1\)</span>. Thus, the prior distribution is used to define the scale of individual latent traits, as it is required in latent variable models <span class="citation" data-cites="Depaoli_2021">[<a href="#/references" role="doc-biblioref" onclick="">15</a>]</span>.</li>
+<li class="fragment">The within-individual (between-stimuli) variability <span class="math inline">\((s_{A})\)</span> is assigned a <strong>weakly informative Beta-proportion prior</strong> with an average of <span class="math inline">\(\mu=0.5\)</span> and a ‘sample size’ of <span class="math inline">\(M=5\)</span>. This reflects the expectation that the stimuli within the individuals are more homogeneous than the individuals themselves <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, without covariates for the individuals.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ2_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;43: Second <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_2_2_individual_trait_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_2_2_individual_trait_rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;44: Second <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_2_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;45: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_2_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-2-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_2_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;50: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="data-modeling-the-itcj-analysis-3" class="title-slide slide level1 center">
+<h1>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-3-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models3" class="quarto-xref">Section&nbsp;11.4</a>, the <strong>third</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0  \\
+    0     &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The effects of age and the hearing status groups on the mean latent trait of individuals has the same <strong>weakly informative prior</strong> as in the <em>CBTL analysis</em>,</li>
+<li class="fragment">Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ model.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, with covariates for the individuals.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ2_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;51: Third <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_3_2_betas_sigmas_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_3_2_betas_sigmas__rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;52: Third <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_3_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;53: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_3_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-3-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_3_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;58: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="data-modeling-the-itcj-analysis-4" class="title-slide slide level1 center">
+<h1>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-4-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models4" class="quarto-xref">Section&nbsp;11.5</a>, the <strong>fourth</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; := f_{O}(D_{R}, S, C) \\
+  D_{R} &amp; := f_{D}(T_{IA}, B_{J}) \\
+  T_{IA} &amp; := f_{T}(T_{I}, e_{IA}) \\
+  T_{I} &amp; := f_{T}(e_{I}) \\
+  B_{J} &amp; := f_{B}(e_{J}) \\
+  e_{IA} &amp; \:\bot\:\{ e_{I}, e_{J}\} \\
+  e_{I} &amp; \:\bot\:\{ e_{J}\}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0 &amp; 0 \\
+    0     &amp; 1 &amp; 0 \\
+    0     &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,</li>
+<li class="fragment">Between-judge variability is assumed to be equal to <span class="math inline">\(1\)</span>. Thus, the prior distribution is used to define the scale of judges latent biases, as it is required in latent variable models <span class="citation" data-cites="Depaoli_2021">[<a href="#/references" role="doc-biblioref" onclick="">15</a>]</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, without any covariates for individuals or judges. However, technically this is <strong>no</strong> longer a BTL model.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ2_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;59: Fourth <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_4_2_judge_bias_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_4_2_judge_bias_rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_4_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;61: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_4_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-4-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_4_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;66: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="data-modeling-the-itcj-analysis-5" class="title-slide slide level1 center">
+<h1>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-5-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models5" class="quarto-xref">Section&nbsp;11.6</a>, the <strong>fifth</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} &amp; = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+\beta_{ZJd}[GJ] &amp;\sim \text{Normal}(0, 0.3); \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix} ; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0 &amp; 0 \\
+    0     &amp; 1 &amp; 0 \\
+    0     &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The effects of age and the hearing status groups on the mean latent trait of individuals has the same <strong>weakly informative prior</strong> as in the <em>CBTL analysis</em>,</li>
+<li class="fragment">The effects of judges groups on the mean latent bias has the same <strong>weakly informative prior</strong> as in the <em>CBTL analysis</em>,</li>
+<li class="fragment">Between- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,</li>
+<li class="fragment">Between-judge variability has the same prior as the previous ITCJ models.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, with covariates for individuals and judges. However, this is <strong>no</strong> longer a BTL model.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ2_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;67: Fifth <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_5_2_betas_sigmas_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_5_2_betas_sigmas__rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_5_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;69: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_5_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-5-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_5_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;74: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="data-modeling-the-itcj-analysis-6" class="title-slide slide level1 center">
+<h1>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h1>
+
+</section>
+<section id="data-modeling-the-itcj-analysis-6-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As seen in <a href="#/sec-ITCJ_models6" class="quarto-xref">Section&nbsp;11.7</a>, the <strong>sixth</strong> ITCJ model is represented by,</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{aligned}
+  O_{R} &amp; \overset{iid}{\sim} \text{Bernoulli} \left[ \text{inv_logit}( D_{R} ) \right] \\
+  D_{R} &amp; = \left( T_{IA}[i,a] - T_{IA}[h,b] \right) \\
+  T_{IA} &amp; = T_{I} + e_{IA} \\
+  T_{I} &amp; = \beta_{XIc} XIc + \beta_{XId}[XId] + e_{I} \\
+  B_{J} &amp; = \beta_{ZJd}[ZJd] + e_{J} \\
+  \boldsymbol{e} &amp; \sim \text{Multi-Normal}( \boldsymbol{\mu}, \boldsymbol{\Sigma} )
+  \\
+  \boldsymbol{\Sigma} &amp;= \boldsymbol{V} \boldsymbol{Q} \boldsymbol{V}
+\end{aligned}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[
+\begin{split}
+\beta_{XIc} &amp;\sim \text{Normal}(0, 0.05); \\
+\beta_{XId}[GI] &amp;\sim \text{Normal}(0, 0.5); \\
+\beta_{ZJd}[GJ] &amp;\sim \text{Normal}(0, 0.3); \\
+hs_{I} &amp;\sim \text{Dirichlet}(5, GI) \; \rightarrow \; s_{XI} = GI \cdot hs_{I}; \\
+hs_{J} &amp;\sim \text{Dirichlet}(5, GJ); \; \rightarrow \; s_{ZJ} = GJ \cdot hs_{I}; \\
+s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
+\boldsymbol{\mu} &amp;= [0, 0, 0]^{T}; \;
+\boldsymbol{Q} = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1
+\end{bmatrix}; \;
+\boldsymbol{V} = \begin{bmatrix}
+    s_{A} &amp; 0      &amp; 0 \\
+    0     &amp; s_{XI} &amp; 0 \\
+    0     &amp; 0      &amp; s_{ZJ}
+\end{bmatrix}
+\end{split}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:80%;">
+<p>Assumptions:</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The effects of age and the hearing status groups on the mean latent trait of individuals has the same <strong>weakly informative prior</strong> as in the <em>CBTL analysis</em>,</li>
+<li class="fragment">The effects of judges groups on the mean latent bias has the same <strong>weakly informative prior</strong> as in the <em>CBTL analysis</em>,</li>
+<li class="fragment">Within-individual (between-stimuli) variability has the same prior as the previous ITCJ models.</li>
+<li class="fragment">Between-individual and between-judges variability are now constraint to add to one (i.e., a simplex) across hearing status and judges groups, respectively. This requirement is enforced through a <em>weakly informative Dirichlet prior</em>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment" style="font-size:60%; color:gray">
+<p><span class="math inline">\(*\)</span> This model has no equivalent in the current CJ literature.</p>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-2" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
+<div class="fragment" style="font-size:80%;">
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
+<div id="fig-ITCJ2_priors" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_confusion.png" style="width:75.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_stimulus.png" style="width:75.0%"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_individual.png" style="width:75.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;75: Sixth <em>ITCJ analysis</em>, prior predictive checks.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-3" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_6_2_betas_sigmas_trace.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_6_2_betas_sigmas__rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are equal to <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(s_{A}\)</span> has a <span class="math inline">\(n_{eff} \approx 3000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 10000\)</span></li>
+<li>There is sufficient information in the posterior distributions</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-4" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_recovery" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_6_2_ITCJ_parameter_recovery.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;77: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-5" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_rmse" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/non-cropped/4_6_2_ITCJ_parameter_rmse.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-6" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_confusion.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-7" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_stimulus.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_2_ITCJ_posterior_individual.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-itcj-analysis-6-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-ITCJ2_influential" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:100.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/ITCJ_analysis/cropped/4_6_2_ITCJ_individual_influential.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+</figcaption>
+</figure>
+</div>
+</div>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -2415,7 +4264,7 @@ Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span 
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;35: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;83: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -2430,7 +4279,7 @@ Figure&nbsp;35: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;36: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;84: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
