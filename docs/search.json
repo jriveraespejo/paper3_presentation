@@ -130,7 +130,7 @@
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5",
-    "text": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5\nNotably, each brms multilevel regression model within the CBTL analysis and each Bayesian model within the ITCJ analysis were estimated using:\n\n\n\nFour Markov chains of \\(4000\\) iterations, each with distinct starting values, where the first \\(2000\\) iterations served as warm-up, and the remaining \\(2000\\) were used as posterior samples (for a total of \\(8000\\) posterior samples).\nPrior predictive checks, which are reported in Section 13."
+    "text": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5\nNotably, each brms multilevel regression model within the CBTL analysis and each Bayesian model within the ITCJ analysis were estimated using:\n\n\n\nFour Markov chains of \\(4000\\) iterations, each with distinct starting values, where the first \\(2000\\) iterations served as warm-up, and the remaining \\(2000\\) were used as posterior samples (for a total of \\(8000\\) posterior samples)."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1",
@@ -144,14 +144,14 @@
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5",
-    "text": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5\nSpecifically, the CBTL analysis [4, 10–14, 31]:\n\n\n\nFits a multilevel regression on the stimulus’ trait estimates with the brms package [34, 35],\n\\(\\text{ability}_{i,a} \\sim -1 + XIc + XId + (1 | Is)\\)\n\n\n\n\nTo estimate the effect of age on the mean latent trait, i.e, \\(\\beta_{XIc}\\)\nTo test hypothesis of differences in mean latent traits between groups of children, i.e., \\(\\beta_{XId[g=1]} - \\beta_{XId[g=2]}\\), \\(\\beta_{XId[g=1]} - \\beta_{XId[g=3]}\\), and \\(\\beta_{XId[g=2]} - \\beta_{XId[g=3]}\\)\nTo assess the variability within and between children \\((1 | Is)\\), corresponding to the parameters \\(s_{A}\\) and \\(s_{XI}\\)\\(^{*}\\), respectively\nTo aggregate stimuli traits into individual level \\((T_{I})\\)\n\n\n\n\n\n\n\\(*\\) By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., \\(s_{XI}\\), versus multiple variability parameters defined by the individuals’ groups, i.e., \\(s_{XId}\\)."
+    "text": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5\nSpecifically, the CBTL analysis [4, 10–14, 31]:\n\n\n\nFits a multilevel regression on the stimulus’ trait estimates with the brms package [34, 35],\n\\(\\text{ability}_{i,a} \\sim -1 + XIc + XId + (1 | Is)\\)\n\n\n\n\nTo estimate the effect of age on the mean latent trait, i.e, \\(\\beta_{XIc}\\)\nTo test hypothesis of differences in mean latent traits between groups of children, i.e., \\(\\beta_{XId[g=1]} - \\beta_{XId[g=2]}\\), \\(\\beta_{XId[g=1]} - \\beta_{XId[g=3]}\\), and \\(\\beta_{XId[g=2]} - \\beta_{XId[g=3]}\\)\nTo assess the variability within and between children \\((1 | Is)\\), corresponding to the parameters \\(s_{A}\\) and \\(s_{XI}\\)\\(^{*}\\), respectively\nTo aggregate stimuli traits into individual level \\((T_{I})\\)\n\n\n\n\n\n\nPrior selection for the multilevel regression models in Steps \\(2\\) and \\(3\\) relied on prior predictive checks, the results of which are presented in Section 13.\n\n\n\\(*\\) By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., \\(s_{XI}\\), versus multiple variability parameters defined by the individuals’ groups, i.e., \\(s_{XId}\\)."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models",
     "href": "presentation.html#sec-ITCJ_models",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
-    "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nIn contrast, the ITCJ analysis [8], fits six \\((6)\\) increasingly complex CJ models, using:\n\n\n\nStan version 2.26.1 [36] with its interface package cmdstanr [37],\nAdditional R packages for model summaries, predictions, and diagnostics: loo [38], posterior [39], and bayesplot [37, 40]."
+    "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nIn contrast, the ITCJ analysis [8], fits six \\((6)\\) increasingly complex CJ models, using:\n\n\n\nStan version 2.26.1 [36] with its interface package cmdstanr [37],\nAdditional R packages for model summaries, predictions, and diagnostics: loo [38], posterior [39], and bayesplot [37, 40].\n\n\n\n\nSimilarly, prior selection for the six ITCJ models relied on prior predictive checks, the results of which are presented in Section 13."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1",
@@ -284,56 +284,105 @@
     "href": "presentation.html#data-modeling-the-cbtl-analysis-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nFirst, the BTL model is applied to the data to estimate the stimuli traits.\n\nThe model fit indicates that,\n\n\n\nThe BTL model recovers the stimuli traits reasonably well, though with some downward bias,\nIt struggles to accurately estimate traits for certain ‘extreme’ stimuli,\nThe misfit analysis fails to detect these ‘extreme’ cases, despite being conceptually similar to an outlier detection tool.\nExcluding the identified misfitting stimuli and judges from a model refit still produces new misfits, while the model continues to struggle with the ‘extreme’ stimuli and its downward bias estimates (not shown here).\n\n\n\n\n\n\n\n\n\nFigure 23: CBTL analysis, first BTL model fit. Left panel shows the trait estimates for all stimuli. Right panel shows the trait estimates for non-extreme stimuli."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nFirst, the BTL model is applied to the data to estimate the stimuli traits.\n\nThe first model fit indicates that,\n\n\n\nThe BTL model recovers the stimuli traits reasonably well, though with some downward bias,\nIt struggles to accurately estimate traits for certain ‘extreme’ stimuli,\nThe misfit analysis fails to detect these ‘extreme’ cases, despite being conceptually similar to an outlier detection tool.\nExcluding the identified misfitting stimuli and judges in a second model fit [4, 10] still results in new misfits and downward-biased estimates, as the model continues to struggle with the remaining ‘extreme’ stimuli (see next slides).\n\n\n\n\n\n\n\n\n\nFigure 23: CBTL analysis, first BTL model fit. Left panel shows the trait estimates for all stimuli. Right panel shows the trait estimates for non-extreme stimuli."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-2",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate priors must first be defined:\n\n\nThe multilevel regression on the residuals has the following specification, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & res ~ -1 + ZJd + (1 | Js), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(50), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(25), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\n\nAssumptions:\n\n\n\nJudges’ mean latent biases across groups are assigned weakly informative priors, reflecting no directional preference in group-level means, i.e., \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]} \\sim normal(0, 0.3)\\),\nDue to the \\([-1,1]\\) range in the residuals [4, 10], the between-judge residual variability \\((sd)\\) is assigned an highly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{1}^{-2}=50^{-2}\\). This reflects the strong belief in the absence of systematic judges biases,\nFor similar reasons, the within-judge residual variability \\((sigma)\\) is assigned an highly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=50^{-2}\\). This reflects the expectation of greater unexplained residual variability unrelated to systematic judge biases, i.e., \\(\\lambda_{1}^{-1} &lt; \\lambda_{2}^{-1}\\)"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nThe multilevel regression on the residuals (Step \\(2\\)) has the following specification, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & res ~ -1 + ZJd + (1 | Js), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(50), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(25), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nJudges’ mean latent biases across groups are assigned weakly informative priors, reflecting no directional preference in group-level means, i.e., \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]} \\sim normal(0, 0.3)\\),\nDue to the \\([-1,1]\\) range in the residuals [4, 10], the between-judge residual variability \\((sd)\\) is assigned an highly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{1}^{-2}=50^{-2}\\). This reflects the strong belief in the absence of systematic judges biases,\nFor similar reasons, the within-judge residual variability \\((sigma)\\) is assigned an highly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=50^{-2}\\). This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., \\(\\lambda_{1}^{-1} &lt; \\lambda_{2}^{-1}\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-3",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-3",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate priors must first be defined:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\nPredictions still extend beyond the observed data range, despite the highly informative priors for between-judge \\((sd)\\) and within-judge \\((sigma)\\) residual variability.\nHowever, the available data may be insufficient to overcome the constraints imposed by even more informative priors.\n\n\n\n\n\n\n\n\n\nFigure 24: CBTL analysis, Prior predictive check for multilevel regression model on the residuals."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\nPredictions still extend beyond the observed data range, despite the highly informative priors for the between-judge \\((sd)\\) and within-judge \\((sigma)\\) residual variability.\nAlthough more informative priors could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.\n\n\n\n\n\n\n\n\n\nFigure 24: CBTL analysis, Prior predictive check for multilevel regression model on the residuals."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-4",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-4",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate priors must first be defined:\n\n\nAfter evaluating four different priors, the multilevel regression for the stimuli traits follows, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & ability ~ -1 + XIc + XId + (1 | Is), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.05), \\text{class}=b, \\text{coef}=XIc ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(1), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(5), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\n\nAssumptions:\n\n\n\nNo directional preference is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for \\(\\beta_{XIc}\\) and \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]}\\),\nBetween-individual residual variability \\((sd)\\) is assigned a weakly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=1\\) and a variance of \\(\\lambda_{1}^{-1}=1\\). This reflects the mild belief that individuals systematic variability is ‘around’ one,\nWithin-individual (between-stimuli) residual variability \\((sigma)\\) is assigned an weakly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=5^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=5^{-2}\\). This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., \\(\\lambda_{1}^{-1} &gt; \\lambda_{2}^{-1}\\)"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAfter testing four prior specifications, the multilevel regression for stimuli traits (Step \\(3\\)) follows, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & ability ~ -1 + XIc + XId + (1 | Is), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.05), \\text{class}=b, \\text{coef}=XIc ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(1), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(5), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nNo directional preference is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for \\(\\beta_{XIc}\\) and \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]}\\),\nBetween-individual residual variability \\((sd)\\) is assigned a weakly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=1\\) and a variance of \\(\\lambda_{1}^{-1}=1\\). This reflects the mild belief that individuals systematic variability is ‘around’ one,\nWithin-individual (between-stimuli) residual variability \\((sigma)\\) is assigned an weakly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=5^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=5^{-2}\\). This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., \\(\\lambda_{1}^{-1} &gt; \\lambda_{2}^{-1}\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-5",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-5",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate priors must first be defined:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\nPredictions capture the most likely range of the data, without trying to accomodate the ‘extreme’ estimates.\n\n\n\n\n\n\n\n\n\nFigure 25: CBTL analysis, Prior predictive check for multilevel regression model on the residuals."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\nPredictions capture the most likely range of the data, without trying to accommodate the ‘extreme’ estimates.\n\n\n\n\n\n\n\n\n\nFigure 25: CBTL analysis, Prior predictive check for multilevel regression model on the estimated stimuli traits."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-6",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nUsing the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\nFigure 26: CBTL analysis, Parameter recovery for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nFirst, brms parameters (Steps \\(2\\) and \\(3\\)) achieve stationarity, convergence and and ‘good’ mixing\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 26: CBTL analysis, example of multilevel regression parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are in the vicinity of \\(1\\), and none is above \\(1.05\\)\nOnly \\(bZJd[3]\\) has a \\(n_{eff} &lt; 1000\\), the rest have \\(n_{eff} &gt; 1300\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-7",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nUsing the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\nFigure 27: CBTL analysis, Parameter recovery for all steps. Top right panel does not include the ‘extreme’ estimates for the stimuli traits."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\nFigure 27: CBTL analysis, parameter recovery for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nExtreme stimuli traits does not allow to see the trend of recovery"
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-8",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-8",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\nFigure 28: CBTL analysis, parameter recovery for all steps. Top right panel does not include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nIndividual traits are biased\nAlmost no recovery of judges biases\nNot so good estimation for betas and sigmas"
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-9",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-9",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\nFigure 29: CBTL analysis, RMSE for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits."
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-10",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-10",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\nFigure 30: CBTL analysis, RMSE for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nThis can only be understood comparatively"
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-11",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-11",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 31: CBTL analysis, posterior predictive for confusion matrix based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT)."
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-12",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-12",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 32: CBTL analysis, posterior predictive for stimuli wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-13",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-13",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 33: CBTL analysis, posterior predictive for stimuli wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
+  },
+  {
+    "objectID": "presentation.html#data-modeling-the-cbtl-analysis-14",
+    "href": "presentation.html#data-modeling-the-cbtl-analysis-14",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "5.1.2.1 Data modeling: The CBTL analysis",
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 34: CBTL analysis, influential points based on Steps \\(2\\) and \\(3\\). Left panel shows the points identified in the residuals analysis. Right panel shows the points identified in the stimuli traits analysis.\n\n\n\n\n\n\nOn a second misfit identification, no misfit stimuli is in the group of influential points"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
-    "section": "5.1.2.2 Data modeling: The ITCJ analysis",
-    "text": "5.1.2.2 Data modeling: The ITCJ analysis"
+    "section": "5.1.2.2 Data modeling: The ITCJ analysis 1",
+    "text": "5.1.2.2 Data modeling: The ITCJ analysis 1"
   },
   {
     "objectID": "presentation.html#discussion-1",
@@ -375,14 +424,14 @@
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "Appendix A - From Design to Sample: Step 2",
-    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 28: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost."
+    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 35: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "Appendix A - From Design to Sample: Step 2",
-    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 29: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
+    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 36: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
   },
   {
     "objectID": "presentation.html#licence-1",

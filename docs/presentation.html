@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-22">
+  <meta name="dcterms.date" content="2025-10-23">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-22</p>
+  <p class="date">2025-10-23</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -1030,7 +1030,6 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <div style="font-size:80%;">
 <ul>
 <li class="fragment"><strong>Four</strong> Markov chains of <span class="math inline">\(4000\)</span> iterations, each with distinct starting values, where the first <span class="math inline">\(2000\)</span> iterations served as warm-up, and the remaining <span class="math inline">\(2000\)</span> were used as posterior samples (for a total of <span class="math inline">\(8000\)</span> posterior samples).</li>
-<li class="fragment">Prior predictive checks, which are reported in <a href="#/sec-results" class="quarto-xref">Section&nbsp;13</a>.</li>
 </ul>
 </div>
 </div>
@@ -1096,6 +1095,9 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 </div>
+<div class="fragment">
+<p>Prior selection for the multilevel regression models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> relied on <strong>prior predictive checks</strong>, the results of which are presented in <a href="#/sec-results" class="quarto-xref">Section&nbsp;13</a>.</p>
+</div>
 <div class="fragment" style="font-size:60%; color:gray">
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., <span class="math inline">\(s_{XI}\)</span>, versus multiple variability parameters defined by the individuals’ groups, i.e., <span class="math inline">\(s_{XId}\)</span>.</p>
 </div>
@@ -1115,6 +1117,9 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <li class="fragment">Additional <code>R</code> packages for model summaries, predictions, and diagnostics: <code>loo</code> <span class="citation" data-cites="Vehtari_et_al_2024b">[<a href="#/references" role="doc-biblioref" onclick="">38</a>]</span>, <code>posterior</code> <span class="citation" data-cites="Burkner_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">39</a>]</span>, and <code>bayesplot</code> <span class="citation" data-cites="Gabry_et_al_2019 Gabry_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">37</a>, <a href="#/references" role="doc-biblioref" onclick="">40</a>]</span>.</li>
 </ul>
 </div>
+</div>
+<div class="fragment">
+<p>Similarly, prior selection for the six ITCJ models relied on <strong>prior predictive checks</strong>, the results of which are presented in <a href="#/sec-results" class="quarto-xref">Section&nbsp;13</a>.</p>
 </div>
 </section>
 <section id="from-estimator-and-sample-to-estimates-the-itcj-analysis-in-step-5-1" class="slide level2" style="font-size:80%;">
@@ -1920,23 +1925,23 @@ Figure&nbsp;22: Individual win rates.
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
 <p>First, the BTL model is applied to the data to estimate the stimuli traits.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The model fit indicates that,</p>
+<p>The first model fit indicates that,</p>
 <div>
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">The BTL model recovers the stimuli traits <strong>reasonably well</strong>, though with some downward bias,</li>
 <li class="fragment">It struggles to accurately estimate traits for certain <strong>‘extreme’ stimuli</strong>,</li>
 <li class="fragment">The <em>misfit</em> analysis fails to detect these ‘extreme’ cases, despite being <strong>conceptually similar to</strong> an <em>outlier</em> detection tool.</li>
-<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges from a model refit still produces new <em>misfits</em>, while the model continues to struggle with the <strong>‘extreme’ stimuli</strong> and its downward bias estimates (not shown here).</li>
+<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges in a second model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> still results in new misfits and downward-biased estimates, as the model continues to struggle with the remaining <strong>‘extreme’ stimuli</strong> (see next slides).</li>
 </ul>
 </div>
 </div>
-<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-CBTL_stimuli_trait1_2" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/3_2_CBTL_stimuli_trait_comparison_plot1_2.png" style="width:50.0%">
+<div aria-describedby="fig-CBTL_stimuli_trait1_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_stimuli_trait_comparison_plot1_2.png" style="width:50.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_stimuli_trait1_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23: <em>CBTL analysis</em>, first BTL model fit. <em>Left panel</em> shows the trait estimates for all stimuli. <em>Right panel</em> shows the trait estimates for non-extreme stimuli.
 </figcaption>
 </figure>
@@ -1945,10 +1950,9 @@ Figure&nbsp;23: <em>CBTL analysis</em>, first BTL model fit. <em>Left panel</em>
 </section>
 <section id="data-modeling-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
-<ul>
-<li>The <strong>multilevel regression</strong> on the residuals has the following specification, <span class="math display">\[
+<p>The <strong>multilevel regression</strong> on the residuals (Step <span class="math inline">\(2\)</span>) has the following specification, <span class="math display">\[
 \begin{split}
 brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 &amp; \; \text{family} \; &amp;= &amp; gaussian, \\
@@ -1959,8 +1963,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 &amp; &amp; &amp; \; \text{prior}( \; exponential(50), \text{class}=sd ), \\
 &amp; &amp; &amp; \; \text{prior}( \; exponential(25), \text{class}=sigma )
 \end{split}
-\]</span></li>
-</ul>
+\]</span></p>
 </div>
 <div class="fragment" style="font-size:80%;">
 <p>Assumptions:</p>
@@ -1969,7 +1972,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <ul>
 <li class="fragment">Judges’ mean latent biases across groups are assigned <strong>weakly informative priors</strong>, reflecting no directional preference in group-level means, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)\)</span>,</li>
 <li class="fragment">Due to the <span class="math inline">\([-1,1]\)</span> range in the residuals <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, the between-judge residual variability <span class="math inline">\((sd)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-2}=50^{-2}\)</span>. This reflects the <strong>strong belief</strong> in the absence of systematic judges biases,</li>
-<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of greater unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
+<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned an <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
 </ul>
 </div>
 </div>
@@ -1977,23 +1980,23 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </section>
 <section id="data-modeling-the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
-<p>As a result of the prior assumptions, the prior predictive check shows that:</p>
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Predictions still extend beyond the observed data range, despite the <strong>highly informative priors</strong> for between-judge <span class="math inline">\((sd)\)</span> and within-judge <span class="math inline">\((sigma)\)</span> residual variability.</li>
-<li class="fragment">However, the available data may be insufficient to overcome the constraints imposed by even <strong>more informative priors</strong>.</li>
+<li class="fragment">Predictions still extend beyond the observed data range, despite the <strong>highly informative priors</strong> for the between-judge <span class="math inline">\((sd)\)</span> and within-judge <span class="math inline">\((sigma)\)</span> residual variability.</li>
+<li class="fragment">Although <strong>more informative priors</strong> could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.</li>
 </ul>
 </div>
 </div>
-<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-CBTL_judge_prior" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/3_1_CBTL_judge_trait_prior1.png" style="width:50.0%">
+<div aria-describedby="fig-CBTL_judge_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png" style="width:50.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_judge_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;24: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the residuals.
 </figcaption>
 </figure>
@@ -2002,10 +2005,9 @@ Figure&nbsp;24: <em>CBTL analysis</em>, Prior predictive check for multilevel re
 </section>
 <section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
-<ul>
-<li>After evaluating four different priors, the <strong>multilevel regression</strong> for the stimuli traits follows, <span class="math display">\[
+<p>After testing four prior specifications, the <strong>multilevel regression</strong> for stimuli traits (Step <span class="math inline">\(3\)</span>) follows, <span class="math display">\[
 \begin{split}
 brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 &amp; \; \text{family} \; &amp;= &amp; gaussian, \\
@@ -2017,8 +2019,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 &amp; &amp; &amp; \; \text{prior}( \; exponential(1), \text{class}=sd ), \\
 &amp; &amp; &amp; \; \text{prior}( \; exponential(5), \text{class}=sigma )
 \end{split}
-\]</span></li>
-</ul>
+\]</span></p>
 </div>
 <div class="fragment" style="font-size:80%;">
 <p>Assumptions:</p>
@@ -2035,23 +2036,23 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </section>
 <section id="data-modeling-the-cbtl-analysis-5" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate <strong>priors</strong> must first be defined:</p>
+<p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
-<p>As a result of the prior assumptions, the prior predictive check shows that:</p>
+<p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Predictions capture the most likely range of the data, without trying to accomodate the ‘extreme’ estimates.</li>
+<li class="fragment">Predictions capture the most likely range of the data, without trying to accommodate the ‘extreme’ estimates.</li>
 </ul>
 </div>
 </div>
-<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<div id="fig-CBTL_individual_prior" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/3_1_CBTL_stimuli_trait_prior2.png" style="width:50.0%">
+<div aria-describedby="fig-CBTL_individual_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_stimuli_trait_prior2.png" style="width:50.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the residuals.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_individual_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25: <em>CBTL analysis</em>, Prior predictive check for multilevel regression model on the estimated stimuli traits.
 </figcaption>
 </figure>
 </div>
@@ -2059,50 +2060,289 @@ Figure&nbsp;25: <em>CBTL analysis</em>, Prior predictive check for multilevel re
 </section>
 <section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.</p>
-<div style="font-size:80%;">
-<p>The parameter recovery plots indicates that,</p>
-</div>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
-<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<p>First, <code>brms</code> parameters (Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>) achieve <strong>stationarity, convergence and and ‘good’ mixing</strong></p>
+<div id="fig-CBTL_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/3_2_CBTL_parameter_recovery1.png" style="width:50.0%">
+<div aria-describedby="fig-CBTL_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_individual_parameters_trace.png" style="width:100.0%"></p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;26: <em>CBTL analysis</em>, Parameter recovery for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/non-cropped/3_2_individual_parameters_rank.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>All <span class="math inline">\(\hat{R}\)</span> are in the vicinity of <span class="math inline">\(1\)</span>, and none is above <span class="math inline">\(1.05\)</span></li>
+<li>Only <span class="math inline">\(bZJd[3]\)</span> has a <span class="math inline">\(n_{eff} &lt; 1000\)</span>, the rest have <span class="math inline">\(n_{eff} &gt; 1300\)</span></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.</p>
-<div style="font-size:80%;">
-<p>The parameter recovery plots indicates that,</p>
-</div>
-<div style="font-size:80%;">
-<div id="fig-judge_trait_prior" class="quarto-figure quarto-figure-center quarto-float">
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-CBTL_recovery1" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/3_2_CBTL_parameter_recovery2.png" style="width:50.0%">
+<div aria-describedby="fig-CBTL_recovery1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery1.png" style="width:50.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judge_trait_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;27: <em>CBTL analysis</em>, Parameter recovery for all steps. <em>Top right panel</em> does not include the ‘extreme’ estimates for the stimuli traits.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_recovery1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
 </figcaption>
 </figure>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Extreme stimuli traits does not allow to see the trend of recovery</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div style="font-size:80%;">
+<p>The <strong>parameter recovery plots</strong> indicates that,</p>
+<div id="fig-CBTL_recovery2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_recovery2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_recovery2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> does not include the ‘extreme’ estimates for the stimuli traits.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Individual traits are biased</li>
+<li>Almost no recovery of judges biases</li>
+<li>Not so good estimation for betas and sigmas</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+<div id="fig-CBTL_rmse1" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_rmse1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse1.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_rmse1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;29: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-10" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div style="font-size:80%;">
+<p>The <strong>RMSE plots</strong> indicates that,</p>
+</div>
+<div style="font-size:80%;">
+<div id="fig-CBTL_rmse2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_rmse2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_rmse2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-11" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div class="fragment" style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-CBTL_posterior_pred1" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;31: <em>CBTL analysis</em>, posterior predictive for confusion matrix based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-12" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-CBTL_posterior_pred2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for stimuli wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-13" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-CBTL_posterior_pred2" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for stimuli wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-14" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<div style="font-size:80%;">
+<p>The <strong>influential points plots</strong> indicates that,</p>
+<div id="fig-CBTL_influential_points" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_influential_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_judges_influential.png" style="width:70.0%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_influential_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>. <em>Left panel</em> shows the points identified in the residuals analysis. <em>Right panel</em> shows the points identified in the stimuli traits analysis.
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>On a second misfit identification, no misfit stimuli is in the group of influential points</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis" class="title-slide slide level1 center">
-<h1>5.1.2.2 Data modeling: The ITCJ analysis</h1>
+<section id="data-modeling-the-itcj-analyses" class="title-slide slide level1 center">
+<h1>5.1.2.2 Data modeling: The ITCJ analyses</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2 Data modeling: The ITCJ analysis</h2>
+<h2>5.1.2.2 Data modeling: The ITCJ analysis 1</h2>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -2175,7 +2415,7 @@ Figure&nbsp;27: <em>CBTL analysis</em>, Parameter recovery for all steps. <em>To
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;28: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;35: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -2190,7 +2430,7 @@ Figure&nbsp;28: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;36: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>

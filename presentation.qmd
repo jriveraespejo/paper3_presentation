@@ -685,7 +685,6 @@ Notably, **each** `brms` multilevel regression model within the *CBTL analysis* 
 ::: incremental 
 ::: {style="font-size:80%;"}
 - **Four** Markov chains of $4000$ iterations, each with distinct starting values, where the first $2000$ iterations served as warm-up, and the remaining $2000$ were used as posterior samples (for a total of $8000$ posterior samples).
-- Prior predictive checks, which are reported in @sec-results.
 ::: 
 :::
 
@@ -752,6 +751,10 @@ Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_
 :::
 :::
 
+::: {.fragment}
+Prior selection for the multilevel regression models in Steps $2$ and $3$ relied on **prior predictive checks**, the results of which are presented in @sec-results.
+:::
+
 :::{.fragment style="font-size:60%; color:gray"}
 $*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$. 
 :::
@@ -769,6 +772,10 @@ In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasing
 - `Stan` version 2.26.1 [@Stan_2020] with its interface package `cmdstanr` [@Gabry_et_al_2025],
 - Additional `R` packages for model summaries, predictions, and diagnostics: `loo` [@Vehtari_et_al_2024b], `posterior` [@Burkner_et_al_2024], and `bayesplot` [@Gabry_et_al_2019; @Gabry_et_al_2025].
 :::
+:::
+
+::: {.fragment}
+Similarly, prior selection for the six ITCJ models relied on **prior predictive checks**, the results of which are presented in @sec-results.
 :::
 
 ---
@@ -1496,19 +1503,19 @@ Individual win rates.
 First, the BTL model is applied to the data to estimate the stimuli traits.
 
 ::: {.fragment style="font-size:80%;"}
-The model fit indicates that,
+The first model fit indicates that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
 - The BTL model recovers the stimuli traits **reasonably well**, though with some downward bias,
 - It struggles to accurately estimate traits for certain **'extreme' stimuli**,
-- The *misfit* analysis fails to detect these 'extreme' cases, despite being **conceptually similar to** an *outlier* detection tool. 
-- **Excluding** the identified *misfitting* stimuli and judges from a model refit still produces new *misfits*, while the model continues to struggle with the **'extreme' stimuli** and its downward bias estimates (not shown here).
+- The *misfit* analysis fails to detect these 'extreme' cases, despite being **conceptually similar to** an *outlier* detection tool.
+- **Excluding** the identified *misfitting* stimuli and judges in a second model fit [@Pollitt_2012a; @Pollitt_2012b] still results in new misfits and downward-biased estimates, as the model continues to struggle with the remaining **'extreme' stimuli** (see next slides).
 :::
 :::
 
-::: {#fig-judge_trait_prior}
-![](/figures/CBTL_analysis/3_2_CBTL_stimuli_trait_comparison_plot1_2.png){width=50%}
+::: {#fig-CBTL_stimuli_trait1_2}
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_stimuli_trait_comparison_plot1_2.png){width=50%}
 
 
 *CBTL analysis*, first BTL model fit. *Left panel* shows the trait estimates for all stimuli. *Right panel* shows the trait estimates for non-extreme stimuli.
@@ -1520,10 +1527,10 @@ The model fit indicates that,
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors**:
 
 ::: {.fragment style="font-size:80%;"}
-- The **multilevel regression** on the residuals has the following specification,
+The **multilevel regression** on the residuals (Step $2$) has the following specification,
 $$
 \begin{split}
 brm(& \; \text{data} \; &= & d, \\
@@ -1545,7 +1552,7 @@ Assumptions:
 ::: {style="font-size:80%;"}
 - Judges' mean latent biases across groups are assigned **weakly informative priors**, reflecting no directional preference in group-level means, i.e., $\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)$,
 - Due to the $[-1,1]$ range in the residuals [@Pollitt_2012a, pp. 164; @Pollitt_2012b, pp. 289], the between-judge residual variability $(sd)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{1}^{-1}=50^{-1}$ and a variance of $\lambda_{1}^{-2}=50^{-2}$. This reflects the **strong belief** in the absence of systematic judges biases,
-- For similar reasons, the within-judge residual variability $(sigma)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{2}^{-1}=50^{-1}$ and a variance of $\lambda_{2}^{-2}=50^{-2}$. This reflects the expectation of greater unexplained residual variability unrelated to systematic judge biases, i.e., $\lambda_{1}^{-1} < \lambda_{2}^{-1}$
+- For similar reasons, the within-judge residual variability $(sigma)$ is assigned an **highly informative exponential prior** with an average of $\lambda_{2}^{-1}=50^{-1}$ and a variance of $\lambda_{2}^{-2}=50^{-2}$. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., $\lambda_{1}^{-1} < \lambda_{2}^{-1}$
 :::
 :::
 :::
@@ -1554,20 +1561,20 @@ Assumptions:
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors**:
 
 ::: {.fragment style="font-size:80%;"}
-As a result of the prior assumptions, the prior predictive check shows that:
+As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Predictions still extend beyond the observed data range, despite the **highly informative priors** for between-judge $(sd)$ and within-judge $(sigma)$ residual variability.
-- However, the available data may be insufficient to overcome the constraints imposed by even **more informative priors**.
+- Predictions still extend beyond the observed data range, despite the **highly informative priors** for the between-judge $(sd)$ and within-judge $(sigma)$ residual variability.
+- Although **more informative priors** could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors.
 :::
 :::
 
-::: {#fig-judge_trait_prior}
-![](/figures/CBTL_analysis/3_1_CBTL_judge_trait_prior1.png){width=50%}
+::: {#fig-CBTL_judge_prior}
+![](/figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png){width=50%}
 
 *CBTL analysis*, Prior predictive check for multilevel regression model on the residuals.
 :::
@@ -1579,10 +1586,10 @@ As a result of the prior assumptions, the prior predictive check shows that:
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors**:
 
 ::: {.fragment style="font-size:80%;"}
-- After evaluating four different priors, the **multilevel regression** for the stimuli traits follows,
+After testing four prior specifications, the **multilevel regression** for stimuli traits (Step $3$) follows,
 $$
 \begin{split}
 brm(& \; \text{data} \; &= & d, \\
@@ -1614,21 +1621,21 @@ Assumptions:
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Second, using the results from the refitted BTL model, we run the multilevel regression models; however, appropriate **priors** must first be defined:
+Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors**:
 
 ::: {.fragment style="font-size:80%;"}
-As a result of the prior assumptions, the prior predictive check shows that:
+As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Predictions capture the most likely range of the data, without trying to accomodate the 'extreme' estimates.
+- Predictions capture the most likely range of the data, without trying to accommodate the 'extreme' estimates.
 :::
 :::
 
-::: {#fig-judge_trait_prior}
-![](/figures/CBTL_analysis/3_1_CBTL_stimuli_trait_prior2.png){width=50%}
+::: {#fig-CBTL_individual_prior}
+![](/figures/CBTL_analysis/cropped/3_1_CBTL_stimuli_trait_prior2.png){width=50%}
 
-*CBTL analysis*, Prior predictive check for multilevel regression model on the residuals.
+*CBTL analysis*, Prior predictive check for multilevel regression model on the estimated stimuli traits.
 :::
 
 :::
@@ -1637,20 +1644,69 @@ As a result of the prior assumptions, the prior predictive check shows that:
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.
-
-::: {style="font-size:80%;"}
-The parameter recovery plots indicates that, 
-:::
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
 
 ::: {.fragment style="font-size:80%;"}
+First, `brms` parameters (Steps $2$ and $3$) achieve **stationarity, convergence and and 'good' mixing**
 
-::: {#fig-judge_trait_prior}
-![](/figures/CBTL_analysis/3_2_CBTL_parameter_recovery1.png){width=50%}
+::: {#fig-CBTL_diagnostics layout-ncol=2}
 
-*CBTL analysis*, Parameter recovery for all steps. *Top right panel* include the 'extreme' estimates for the stimuli traits. 
+![](/figures/CBTL_analysis/non-cropped/3_2_individual_parameters_trace.png){width=100%}
+
+![](/figures/CBTL_analysis/non-cropped/3_2_individual_parameters_rank.png){width=100%}
+
+*CBTL analysis*, example of multilevel regression parameter diagnostics. *Leftmost six panels* show the trace plots. *Rightmost six panels* show the trace rank plots.
 :::
 
+:::
+
+::: {.notes}
+- All $\hat{R}$ are in the vicinity of $1$, and none is above $1.05$
+- Only $bZJd[3]$ has a $n_{eff} < 1000$, the rest have $n_{eff} > 1300$
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {.fragment style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-CBTL_recovery1}
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery1.png){width=50%}
+
+*CBTL analysis*, parameter recovery for all steps. *Top right panel* include the 'extreme' estimates for the stimuli traits. 
+:::
+
+:::
+
+::: {.notes}
+- Extreme stimuli traits does not allow to see the trend of recovery
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {style="font-size:80%;"}
+The **parameter recovery plots** indicates that, 
+
+::: {#fig-CBTL_recovery2}
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png){width=50%}
+
+*CBTL analysis*, parameter recovery for all steps. *Top right panel* does not include the 'extreme' estimates for the stimuli traits. 
+:::
+
+:::
+
+::: {.notes}
+- Individual traits are biased
+- Almost no recovery of judges biases
+- Not so good estimation for betas and sigmas
 :::
 
 
@@ -1658,30 +1714,137 @@ The parameter recovery plots indicates that,
 
 ## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
 
-Using the results from the refitted BTL model and the prior specifications, the CBTL analysis is complete.
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {.fragment style="font-size:80%;"}
+The **RMSE plots** indicates that, 
+
+::: {#fig-CBTL_rmse1}
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse1.png){width=50%}
+
+*CBTL analysis*, RMSE for all steps. *Top right panel* include the 'extreme' estimates for the stimuli traits. 
+:::
+
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
 
 ::: {style="font-size:80%;"}
-The parameter recovery plots indicates that, 
+The **RMSE plots** indicates that, 
 :::
 
 ::: {style="font-size:80%;"}
 
-::: {#fig-judge_trait_prior}
-![](/figures/CBTL_analysis/3_2_CBTL_parameter_recovery2.png){width=50%}
+::: {#fig-CBTL_rmse2}
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png){width=50%}
 
-*CBTL analysis*, Parameter recovery for all steps. *Top right panel* does not include the 'extreme' estimates for the stimuli traits. 
+*CBTL analysis*, RMSE for all steps. *Top right panel* include the 'extreme' estimates for the stimuli traits. 
 :::
 
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {.fragment style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-CBTL_posterior_pred1}
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png){width=50%}
+
+*CBTL analysis*, posterior predictive for confusion matrix based only on Step $1$. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+:::
+
+:::
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-CBTL_posterior_pred2}
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png){width=50%}
+
+*CBTL analysis*, posterior predictive for stimuli wins based only on Step $1$. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {style="font-size:80%;"}
+The **posterior predictive plots** indicates that, 
+
+::: {#fig-CBTL_posterior_pred2}
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png){width=50%}
+
+*CBTL analysis*, posterior predictive for stimuli wins based only on Step $1$. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+:::
+
+:::
+
+::: {.notes}
+- This can only be understood comparatively
+:::
+
+
+---
+
+## 5.1.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+Second, we use the refitted BTL model (without *misfits*) and the specified priors to fit the models in Steps $2$ and $3$, completing the *CBTL analysis*.
+
+::: {style="font-size:80%;"}
+The **influential points plots** indicates that, 
+
+::: {#fig-CBTL_influential_points layout-ncol=2}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_judges_influential.png){width=70%}
+
+![](/figures/CBTL_analysis/cropped/3_2_CBTL_individual_influential.png){width=70%}
+
+*CBTL analysis*, influential points based on Steps $2$ and $3$. *Left panel* shows the points identified in the residuals analysis. *Right panel* shows the points identified in the stimuli traits analysis.
+:::
+
+:::
+
+::: {.notes}
+- On a second misfit identification, no misfit stimuli is in the group of influential points
 :::
 
 
 <!-- ######################################### -->
 
-# 5.1.2.2 Data modeling: The ITCJ analysis 
+# 5.1.2.2 Data modeling: The ITCJ analyses 
 
 ---
 
-## 5.1.2.2 Data modeling: The ITCJ analysis {style="font-size:80%;"}
+## 5.1.2.2 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
 
 
 <!-- ######################################### -->
