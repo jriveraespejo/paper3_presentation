@@ -731,9 +731,9 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </div>
 <ol start="2" type="1">
 <li class="fragment"><p><strong>Design <span class="math inline">\(\rightarrow\)</span> Sample</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Generate <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population simulated in step <span class="math inline">\(1\)</span>;</p></li>
+<p>Generate a synthetic random sample and comparison datasets from the conceptual population simulated in step <span class="math inline">\(1\)</span>;</p></li>
 <li class="fragment"><p><strong>{Theory, Design, Estimand(s)} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Specify models for analyzing the <em><strong>first</strong> synthetic</em> random comparison dataset using both the CBTL and the ITCJ analysis;</p></li>
+<p>Specify models for analyzing the synthetic random comparison dataset using both the CBTL and the ITCJ analysis;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Prior predictive</strong> (<em>Tutorial</em>)</p>
 <p>Perform prior predictive checks;</p></li>
 </ol>
@@ -746,15 +746,15 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <div style="font-size:75%;">
 <ol start="5" type="1">
 <li class="fragment"><p><strong>{Estimator, Sample} <span class="math inline">\(\rightarrow\)</span> Estimate(s)</strong> (<em>Tutorial and Model validation</em>)</p>
-<p>Apply both the CBTL and ITCJ methods to the <em><strong>first</strong> synthetic</em> random comparison dataset;</p></li>
+<p>Apply both the CBTL and ITCJ methods to the synthetic random comparison dataset;</p></li>
 <li class="fragment"><p><strong>Estimate(s) <span class="math inline">\(\rightarrow\)</span> {Diagnostic, Post predictive}</strong> (<em>Tutorial</em>)</p>
 <p>Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample fit, approximate out-of-sample fit, and in-sample predictive accuracy;</p></li>
 <li class="fragment"><p><strong>{Diagnostic, Post predictive} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial</em>)</p>
 <p>Incrementally refine the statistical model repeating steps 3–6 until a <em>sufficiently trustworthy model</em> is obtained according to the criteria outlined in step 6;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Effects <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
-<p>Generate the <em>estimate(s)</em> of interest for the <em><strong>first</strong> synthetic</em> random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;</p></li>
+<p>Generate the <em>estimate(s)</em> of interest for the synthetic random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Predictions <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
-<p>Generate predictions for the <em><strong>second</strong> synthetic comparison dataset</em> using both the CBTL and ITCJ analysis, and compare their out-of-sample predictive accuracy.</p></li>
+<p>Generate predictions for the synthetic comparison dataset using both the CBTL and ITCJ analysis, and compare their in-sample and approximate out-of-sample predictive accuracy.</p></li>
 </ol>
 </div>
 </div>
@@ -980,9 +980,9 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </section>
 <section id="from-design-to-sample-step-2-1" class="slide level2" style="font-size:80%;">
 <h2>4.2 From Design to Sample: Step 2</h2>
-<p>Differing only by replication seed, the study generates <em><strong>two</strong> synthetic</em> random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
+<p>We generate a synthetic random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;29</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1495,7 +1495,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </section>
 <section id="sec-ITCJ_models6" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases. <strong>This model has no equivalent CBTL analysis</strong>.</p>
+<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases.</p>
+<p><strong>This model has no equivalent CBTL analysis</strong>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1635,16 +1636,6 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
-<li class="fragment"><strong><em>Approximate out-of-sample fit</em></strong>, using</li>
-</ol>
-<div>
-<div style="font-size:80%;">
-<ul>
-<li class="fragment">The Pareto Smoothing Importance Sampling criterion <span class="math inline">\((\text{PSIS})\)</span> <span class="citation" data-cites="Vehtari_et_al_2017 Vehtari_et_al_2024a">[<a href="#/references" role="doc-biblioref" onclick="">43</a>, <a href="#/references" role="doc-biblioref" onclick="">44</a>]</span>.</li>
-</ul>
-</div>
-</div>
-<ol start="4" type="1">
 <li class="fragment"><strong><em>In-sample predictive accuracy</em></strong>, using</li>
 </ol>
 <div>
@@ -1655,14 +1646,13 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </ul>
 </div>
 </div>
-<ol start="5" type="1">
-<li class="fragment"><strong><em>Out-of-sample predictive accuracy</em></strong>, using</li>
+<ol start="4" type="1">
+<li class="fragment"><strong><em>Approximate out-of-sample fit</em></strong>, using</li>
 </ol>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">Confusion matrix comparing expected posterior predictions <span class="math inline">\(E(\boldsymbol{\hat{y}})\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>second</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
-<li class="fragment">Multiple confusion matrices comparing posterior samples <span class="math inline">\(\boldsymbol{\hat{y}}_{s}\)</span> with observed outcomes <span class="math inline">\(\boldsymbol{y}\)</span> from the <strong>second</strong> synthetic dataset, aggregated and non-aggregated across stimuli and individuals.</li>
+<li class="fragment">The Pareto Smoothing Importance Sampling criterion <span class="math inline">\((\text{PSIS})\)</span> <span class="citation" data-cites="Vehtari_et_al_2017 Vehtari_et_al_2024a">[<a href="#/references" role="doc-biblioref" onclick="">43</a>, <a href="#/references" role="doc-biblioref" onclick="">44</a>]</span>.</li>
 </ul>
 </div>
 </div>
@@ -4192,6 +4182,15 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </figure>
 </div>
 </div>
+<!-- ######################################### -->
+</section></section>
+<section>
+<section id="model-comparison" class="title-slide slide level1 center">
+<h1>5.1.3 Model comparison</h1>
+
+</section>
+<section id="model-comparison-1" class="slide level2" style="font-size:80%;">
+<h2>5.1.3 Model comparison</h2>
 <!-- ######################################### -->
 </section></section>
 <section>

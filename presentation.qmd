@@ -381,11 +381,11 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 2. **Design $\rightarrow$ Sample** (*Tutorial and Model validation*)
     
-    Generate _**two** synthetic_ random sample and comparison datasets from the conceptual population simulated in step $1$;
+    Generate a synthetic random sample and comparison datasets from the conceptual population simulated in step $1$;
 
 3. **{Theory, Design, Estimand(s)} $\rightarrow$ Estimator** (*Tutorial and Model validation*)
 
-    Specify models for analyzing the _**first** synthetic_ random comparison dataset using both the CBTL and the ITCJ analysis;
+    Specify models for analyzing the synthetic random comparison dataset using both the CBTL and the ITCJ analysis;
     
 4. **Estimator $\rightarrow$ Prior predictive** (*Tutorial*)
 
@@ -401,7 +401,7 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 ::: {style="font-size:75%;"}
 5. **{Estimator, Sample} $\rightarrow$ Estimate(s)** (*Tutorial and Model validation*)
 
-    Apply both the CBTL and ITCJ methods to the _**first** synthetic_ random comparison dataset;
+    Apply both the CBTL and ITCJ methods to the synthetic random comparison dataset;
 
 6. **Estimate(s) $\rightarrow$ {Diagnostic, Post predictive}** (*Tutorial*)
 
@@ -413,11 +413,11 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 8. **Estimator $\rightarrow$ Estimate(s) $\rightarrow$ Effects $\leftarrow$ Estimand(s)** (*Model validation*)
 
-    Generate the *estimate(s)* of interest for the _**first** synthetic_ random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;
+    Generate the *estimate(s)* of interest for the synthetic random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;
     
 9. **Estimator $\rightarrow$ Estimate(s) $\rightarrow$ Predictions $\leftarrow$ Estimand(s)** (*Model validation*)
 
-    Generate predictions for the _**second** synthetic comparison dataset_ using both the CBTL and ITCJ analysis, and compare their out-of-sample predictive accuracy.
+    Generate predictions for the synthetic comparison dataset using both the CBTL and ITCJ analysis, and compare their in-sample and approximate out-of-sample predictive accuracy.
 :::
 :::
 
@@ -633,7 +633,7 @@ From the simulation parameters we can also define the **_estimands_** of interes
 
 ## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
 
-Differing only by replication seed, the study generates _**two** synthetic_ random sample and comparison datasets from the conceptual population in **Step 1**. 
+We generate a synthetic random sample and comparison datasets from the conceptual population in **Step 1**. 
 
 ::: {.fragment}
 More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms illustrated in @fig-cj17, sample size calculations were conducted (see @sec-AppA), and the following design was adopted:
@@ -1131,7 +1131,9 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models6 style="font-size:80%;"}
 
-Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases. **This model has no equivalent CBTL analysis**.
+Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases. 
+
+**This model has no equivalent CBTL analysis**.
 
 ::: {.fragment style="font-size:90%;"}
 
@@ -1263,15 +1265,7 @@ The study assess the quality of the models and estimate(s) in terms of:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-3. **_Approximate out-of-sample fit_**, using
-
-::: incremental 
-::: {style="font-size:80%;"}
-- The Pareto Smoothing Importance Sampling criterion $(\text{PSIS})$ [@Vehtari_et_al_2017; @Vehtari_et_al_2024a].
-:::
-:::
-
-4. **_In-sample predictive accuracy_**, using
+3. **_In-sample predictive accuracy_**, using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -1280,12 +1274,11 @@ The study assess the quality of the models and estimate(s) in terms of:
 :::
 :::
 
-5. **_Out-of-sample predictive accuracy_**, using
+4. **_Approximate out-of-sample fit_**, using
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- Confusion matrix comparing expected posterior predictions $E(\boldsymbol{\hat{y}})$ with observed outcomes $\boldsymbol{y}$ from the **second** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
-- Multiple confusion matrices comparing posterior samples $\boldsymbol{\hat{y}}_{s}$ with observed outcomes $\boldsymbol{y}$ from the **second** synthetic dataset, aggregated and non-aggregated across stimuli and individuals.
+- The Pareto Smoothing Importance Sampling criterion $(\text{PSIS})$ [@Vehtari_et_al_2017; @Vehtari_et_al_2024a].
 :::
 :::
 
@@ -3275,6 +3268,12 @@ The **influential points plots** indicates that,
 :::
 
 :::
+
+<!-- ######################################### -->
+
+# 5.1.3 Model comparison
+
+## 5.1.3 Model comparison {style="font-size:80%;"}
 
 
 <!-- ######################################### -->
