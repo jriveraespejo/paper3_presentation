@@ -291,7 +291,7 @@
     "href": "presentation.html#data-modeling-the-cbtl-analysis-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nThe multilevel regression on the residuals (Step \\(2\\)) has the following specification, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & res ~ -1 + ZJd + (1 | Js), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(50), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(25), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nJudges’ mean latent biases across groups are assigned weakly informative priors, reflecting no directional preference in group-level means, i.e., \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]} \\sim normal(0, 0.3)\\),\nDue to the \\([-1,1]\\) range in the residuals [4, 10], the between-judge residual variability \\((sd)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{1}^{-2}=50^{-2}\\). This reflects the strong belief in the absence of systematic judges biases,\nFor similar reasons, the within-judge residual variability \\((sigma)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=50^{-2}\\). This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., \\(\\lambda_{1}^{-1} &lt; \\lambda_{2}^{-1}\\)"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nThe multilevel regression on the residuals (Step \\(2\\)) has the following specification, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & res ~ -1 + ZJd + (1 | Js), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(50), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(25), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nJudges’ mean latent biases across groups are assigned weakly informative priors, reflecting no directional preference in group-level means, i.e., \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]} \\sim normal(0, 0.3)\\),\nDue to the \\([-1,1]\\) range in the residuals [4, 10], the between-judge residual variability \\((sd)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{1}^{-2}=50^{-2}\\). This reflects the strong belief in the absence of systematic judges biases,\nFor similar reasons, the within-judge residual variability \\((sigma)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=25^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=25^{-2}\\). This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., \\(\\lambda_{1}^{-1} &lt; \\lambda_{2}^{-1}\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-3",
@@ -354,28 +354,28 @@
     "href": "presentation.html#data-modeling-the-cbtl-analysis-11",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 31: CBTL analysis, posterior predictive for confusion matrix based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT)."
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 31: CBTL analysis, posterior predictive for confusion matrix based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT)."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-12",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-12",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 32: CBTL analysis, posterior predictive for stimuli wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 32: CBTL analysis, posterior predictive for stimuli wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-13",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-13",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 33: CBTL analysis, posterior predictive for individual wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 33: CBTL analysis, posterior predictive for individual wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-14",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-14",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The CBTL analysis",
-    "text": "5.1.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 34: CBTL analysis, influential points based on Steps \\(2\\) and \\(3\\). Left panel shows the points identified in the residuals analysis. Right panel shows the points identified in the stimuli traits analysis.\n\n\n\n\n\n\nOn a second misfit identification, no misfit stimuli is in the group of influential points"
+    "text": "5.1.2.1 Data modeling: The CBTL analysis\nFourth, we check if the models still shows signs of ‘trouble’.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 34: CBTL analysis, influential points based on Steps \\(2\\) and \\(3\\). Left panel shows the points identified in the residuals analysis. Right panel shows the points identified in the stimuli traits analysis.\n\n\n\n\n\n\nOn a second misfit identification, no misfit stimuli is in the group of influential points"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-1",
@@ -417,28 +417,28 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.1 Data modeling: The ITCJ analysis 1",
-    "text": "5.1.2.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 39: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis."
+    "text": "5.1.2.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 39: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.1 Data modeling: The ITCJ analysis 1",
-    "text": "5.1.2.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 40: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 40: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The ITCJ analysis 1",
-    "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 41: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 41: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.1 Data modeling: The ITCJ analysis 1",
-    "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 42: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the first ITCJ analysis."
+    "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 42: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-1",
@@ -480,28 +480,28 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.2 Data modeling: The ITCJ analysis 2",
-    "text": "5.1.2.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 47: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis."
+    "text": "5.1.2.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 47: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.2 Data modeling: The ITCJ analysis 2",
-    "text": "5.1.2.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 48: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 48: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2 Data modeling: The ITCJ analysis 2",
-    "text": "5.1.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 49: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 49: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2 Data modeling: The ITCJ analysis 2",
-    "text": "5.1.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 50: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the second ITCJ analysis."
+    "text": "5.1.2.2 Data modeling: The ITCJ analysis 2\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 50: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-1",
@@ -543,28 +543,28 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.3 Data modeling: The ITCJ analysis 3",
-    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 55: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis."
+    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 55: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.3 Data modeling: The ITCJ analysis 3",
-    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 56: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 56: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.3 Data modeling: The ITCJ analysis 3",
-    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 57: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 57: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.3 Data modeling: The ITCJ analysis 3",
-    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 58: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the third ITCJ analysis."
+    "text": "5.1.2.2.3 Data modeling: The ITCJ analysis 3\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 58: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-1",
@@ -606,28 +606,28 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.4 Data modeling: The ITCJ analysis 4",
-    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 63: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis."
+    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 63: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.4 Data modeling: The ITCJ analysis 4",
-    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 64: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 64: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.4 Data modeling: The ITCJ analysis 4",
-    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 65: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 65: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.4 Data modeling: The ITCJ analysis 4",
-    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 66: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fourth ITCJ analysis."
+    "text": "5.1.2.2.4 Data modeling: The ITCJ analysis 4\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 66: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-1",
@@ -669,28 +669,28 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.5 Data modeling: The ITCJ analysis 5",
-    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 71: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis."
+    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 71: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.5 Data modeling: The ITCJ analysis 5",
-    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 72: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 72: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.5 Data modeling: The ITCJ analysis 5",
-    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 73: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 73: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.5 Data modeling: The ITCJ analysis 5",
-    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 74: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fifth ITCJ analysis."
+    "text": "5.1.2.2.5 Data modeling: The ITCJ analysis 5\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 74: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-1",
@@ -732,35 +732,35 @@
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-6",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.6 Data modeling: The ITCJ analysis 6",
-    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 79: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis."
+    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 79: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-7",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.6 Data modeling: The ITCJ analysis 6",
-    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 80: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 80: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-8",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.6 Data modeling: The ITCJ analysis 6",
-    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 81: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
+    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 81: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-9",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.2.2.6 Data modeling: The ITCJ analysis 6",
-    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 82: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the sixth ITCJ analysis."
+    "text": "5.1.2.2.6 Data modeling: The ITCJ analysis 6\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 82: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#model-comparison-1",
     "href": "presentation.html#model-comparison-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.1.3 Model comparison",
-    "text": "5.1.3 Model comparison"
+    "text": "5.1.3 Model comparison\nFinally, we assess the approximate out-of-sample fit of the models.\n\nThe PSIS model comparison indicates that,\n\n\n\n\n\n\nFigure 83: ITCJ analysis, model comparison. Left panel shows all models. Right panel smaller set of models."
   },
   {
     "objectID": "presentation.html#discussion-1",
@@ -802,14 +802,14 @@
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "Appendix A - From Design to Sample: Step 2",
-    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 83: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost."
+    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 84: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "Appendix A - From Design to Sample: Step 2",
-    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 84: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
+    "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 85: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
   },
   {
     "objectID": "presentation.html#licence-1",

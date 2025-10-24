@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-23">
+  <meta name="dcterms.date" content="2025-10-24">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-23</p>
+  <p class="date">2025-10-24</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -1965,7 +1965,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <ul>
 <li class="fragment">Judges’ mean latent biases across groups are assigned <strong>weakly informative priors</strong>, reflecting no directional preference in group-level means, i.e., <span class="math inline">\(\beta_{ZJd[g=1]} = \beta_{ZJd[g=2]} = \beta_{ZJd[g=3]} \sim normal(0, 0.3)\)</span>,</li>
 <li class="fragment">Due to the <span class="math inline">\([-1,1]\)</span> range in the residuals <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, the between-judge residual variability <span class="math inline">\((sd)\)</span> is assigned a <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{1}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{1}^{-2}=50^{-2}\)</span>. This reflects the <strong>strong belief</strong> in the absence of systematic judges biases,</li>
-<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned a <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=50^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=50^{-2}\)</span>. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
+<li class="fragment">For similar reasons, the within-judge residual variability <span class="math inline">\((sigma)\)</span> is assigned a <strong>highly informative exponential prior</strong> with an average of <span class="math inline">\(\lambda_{2}^{-1}=25^{-1}\)</span> and a variance of <span class="math inline">\(\lambda_{2}^{-2}=25^{-2}\)</span>. This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., <span class="math inline">\(\lambda_{1}^{-1} &lt; \lambda_{2}^{-1}\)</span></li>
 </ul>
 </div>
 </div>
@@ -2227,7 +2227,7 @@ Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
 </section>
 <section id="data-modeling-the-cbtl-analysis-11" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-CBTL_posterior_pred1" class="quarto-figure quarto-figure-center quarto-float">
@@ -2244,7 +2244,7 @@ Figure&nbsp;31: <em>CBTL analysis</em>, posterior predictive for confusion matri
 </section>
 <section id="data-modeling-the-cbtl-analysis-12" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-CBTL_posterior_pred2" class="quarto-figure quarto-figure-center quarto-float">
@@ -2276,7 +2276,7 @@ Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for stimuli wins ba
 </section>
 <section id="data-modeling-the-cbtl-analysis-13" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-CBTL_posterior_pred3" class="quarto-figure quarto-figure-center quarto-float">
@@ -2308,7 +2308,7 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins
 </section>
 <section id="data-modeling-the-cbtl-analysis-14" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
-<p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
+<p>Fourth, we check if the models still shows signs of ‘trouble’.</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-CBTL_influential" class="quarto-layout-panel">
@@ -2517,7 +2517,7 @@ Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-1-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
-<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ1_posterior_pred1" class="quarto-layout-panel">
@@ -2541,7 +2541,7 @@ Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-1-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
-<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ1_posterior_pred2" class="quarto-layout-panel">
@@ -2580,7 +2580,7 @@ Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-1-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
-<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ1_posterior_pred3" class="quarto-layout-panel">
@@ -2619,7 +2619,7 @@ Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-1-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
-<p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ1_influential" class="quarto-layout-panel">
@@ -2821,7 +2821,7 @@ Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-2-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
-<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
@@ -2845,7 +2845,7 @@ Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-2-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
-<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
@@ -2884,7 +2884,7 @@ Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-2-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
-<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
@@ -2923,7 +2923,7 @@ Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-2-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
-<p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_influential" class="quarto-layout-panel">
@@ -3127,7 +3127,7 @@ Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-3-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
-<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
@@ -3151,7 +3151,7 @@ Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-3-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
-<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
@@ -3190,7 +3190,7 @@ Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-3-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
-<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
@@ -3229,7 +3229,7 @@ Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-3-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
-<p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_influential" class="quarto-layout-panel">
@@ -3433,7 +3433,7 @@ Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-4-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
-<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
@@ -3457,7 +3457,7 @@ Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-4-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
-<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
@@ -3496,7 +3496,7 @@ Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-4-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
-<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
@@ -3535,7 +3535,7 @@ Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-4-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
-<p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_influential" class="quarto-layout-panel">
@@ -3745,7 +3745,7 @@ Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-5-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
-<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
@@ -3769,7 +3769,7 @@ Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-5-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
-<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
@@ -3808,7 +3808,7 @@ Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-5-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
-<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
@@ -3847,7 +3847,7 @@ Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-5-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
-<p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_influential" class="quarto-layout-panel">
@@ -4059,7 +4059,7 @@ Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </section>
 <section id="data-modeling-the-itcj-analysis-6-6" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
-<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred1" class="quarto-layout-panel">
@@ -4083,7 +4083,7 @@ Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-6-7" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
-<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred2" class="quarto-layout-panel">
@@ -4122,7 +4122,7 @@ Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-6-8" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
-<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_posterior_pred3" class="quarto-layout-panel">
@@ -4161,7 +4161,7 @@ Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </section>
 <section id="data-modeling-the-itcj-analysis-6-9" class="slide level2" style="font-size:80%;">
 <h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
-<p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
+<p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
 <div id="fig-ITCJ2_influential" class="quarto-layout-panel">
@@ -4191,6 +4191,20 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section>
 <section id="model-comparison-1" class="slide level2" style="font-size:80%;">
 <h2>5.1.3 Model comparison</h2>
+<p>Finally, we assess the approximate out-of-sample fit of the models.</p>
+<div style="font-size:80%;">
+<p>The PSIS model comparison indicates that,</p>
+<div id="fig-model_comparison" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/ITCJ_analysis/cropped/5_ITCJ_model_comparison.png" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> shows all models. <em>Right panel</em> smaller set of models.
+</figcaption>
+</figure>
+</div>
+</div>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -4263,7 +4277,7 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;83: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;84: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -4278,7 +4292,7 @@ Figure&nbsp;83: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;84: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;85: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
