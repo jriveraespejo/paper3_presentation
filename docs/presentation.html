@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-24">
+  <meta name="dcterms.date" content="2025-10-27">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-24</p>
+  <p class="date">2025-10-27</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -748,13 +748,13 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <li class="fragment"><p><strong>{Estimator, Sample} <span class="math inline">\(\rightarrow\)</span> Estimate(s)</strong> (<em>Tutorial and Model validation</em>)</p>
 <p>Apply both the CBTL and ITCJ methods to the synthetic random comparison dataset;</p></li>
 <li class="fragment"><p><strong>Estimate(s) <span class="math inline">\(\rightarrow\)</span> {Diagnostic, Post predictive}</strong> (<em>Tutorial</em>)</p>
-<p>Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample fit, approximate out-of-sample fit, and in-sample predictive accuracy;</p></li>
+<p>Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample predictive accuracy, and approximate out-of-sample fit;</p></li>
 <li class="fragment"><p><strong>{Diagnostic, Post predictive} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial</em>)</p>
 <p>Incrementally refine the statistical model repeating steps 3–6 until a <em>sufficiently trustworthy model</em> is obtained according to the criteria outlined in step 6;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Effects <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
 <p>Generate the <em>estimate(s)</em> of interest for the synthetic random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;</p></li>
 <li class="fragment"><p><strong>Estimator <span class="math inline">\(\rightarrow\)</span> Estimate(s) <span class="math inline">\(\rightarrow\)</span> Predictions <span class="math inline">\(\leftarrow\)</span> Estimand(s)</strong> (<em>Model validation</em>)</p>
-<p>Generate predictions for the synthetic comparison dataset using both the CBTL and ITCJ analysis, and compare their in-sample and approximate out-of-sample predictive accuracy.</p></li>
+<p>Generate predictions for the synthetic comparison dataset using both the CBTL and ITCJ analysis, and compare their in-sample predictive accuracy, and approximate out-of-sample fit.</p></li>
 </ol>
 </div>
 </div>
@@ -955,7 +955,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </section>
 <section id="sec-pop_sim" class="slide level2" style="font-size:80%;">
 <h2>4.1 From Theory to Design: Steps 1a-1c</h2>
-<p>From the simulation parameters we can also define the <strong><em>estimands</em></strong> of interest:</p>
+<p>From the simulation parameters, we can also define the <strong><em>estimands</em></strong> of interest:</p>
 <div>
 <div style="font-size:65%;">
 <ul>
@@ -982,7 +982,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <h2>4.2 From Design to Sample: Step 2</h2>
 <p>We generate a synthetic random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;29</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1495,8 +1495,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </section>
 <section id="sec-ITCJ_models6" class="slide level2" style="font-size:80%;">
 <h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5</h2>
-<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases.</p>
-<p><strong>This model has no equivalent CBTL analysis</strong>.</p>
+<p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases<span class="math inline">\(^{*}\)</span>,</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
@@ -1583,7 +1582,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <div class="fragment" style="font-size:60%; color:gray">
-<p><span class="math inline">\(*\)</span> This model has no equivalent in the current CJ literature.</p>
+<p><span class="math inline">\(*\)</span> There is no equivalent in the CJ literature.</p>
 </div>
 <!-- ######################################### -->
 </section></section>
@@ -1669,8 +1668,9 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <h2>5. Results</h2>
 <p>In this section, the study will:</p>
 <div>
+<div style="font-size:80%;">
 <ol type="1">
-<li class="fragment">Describe the <em><strong>first</strong> synthetic</em> random comparison dataset;</li>
+<li class="fragment">Describe the synthetic random comparison dataset;</li>
 <li class="fragment">Progress through the steps <span class="math inline">\(3-7\)</span> of the Bayesian (research) workflow, described in <a href="#/sec-methods" class="quarto-xref">Section&nbsp;6.2</a>, using:</li>
 </ol>
 <div>
@@ -1680,20 +1680,16 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </ul>
 </div>
 </div>
+</div>
 <!-- ######################################### -->
 </section></section>
-<section id="the-first-synthetic-comparison-dataset" class="title-slide slide level1 center">
-<h1>5.1 The first synthetic comparison dataset</h1>
-
-</section>
-
 <section>
 <section id="data-description" class="title-slide slide level1 center">
-<h1>5.1.1 Data description</h1>
+<h1>5.1 Data description</h1>
 
 </section>
 <section id="data-description-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>In terms of design, the dataset reveals that:</p>
 <div>
 <div style="font-size:80%;">
@@ -1724,7 +1720,7 @@ Figure&nbsp;14: Comparison design. <em>Left panel</em> shows the number of compa
 </div>
 </section>
 <section id="data-description-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>In a similar manner, the data indicates:</p>
 <div>
 <div style="font-size:80%;">
@@ -1755,7 +1751,7 @@ Figure&nbsp;15: Comparison design. <em>Left panel</em> shows the number of compa
 </div>
 </section>
 <section id="data-description-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>On the other hand, the dataset shows:</p>
 <div>
 <div style="font-size:80%;">
@@ -1786,7 +1782,7 @@ Figure&nbsp;16: Comparison design. <em>Left panel</em> shows the judges <span cl
 </div>
 </section>
 <section id="data-description-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>Moreover,</p>
 <div>
 <div style="font-size:80%;">
@@ -1809,7 +1805,7 @@ Figure&nbsp;17: Bipartite graph of judges to individual comparison network.
 </div>
 </section>
 <section id="data-description-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>In terms of the comparison outcomes, we see some stimuli with higher win rates than others:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
@@ -1823,9 +1819,25 @@ Figure&nbsp;18: Stimuli win rates.
 </figure>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>One stimulus has win almost all comparisons, <span class="math inline">\(\text{IA}[6,7]\)</span></li>
+<li>Two stimuli has loss all comparisons, <span class="math inline">\(\text{IA}[5,2]\)</span> and <span class="math inline">\(\text{IA}[45,3]\)</span></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-description-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>Aggregated by individuals, we see some individuals with higher win rates than others:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
@@ -1841,7 +1853,7 @@ Figure&nbsp;19: Individual win rates.
 </div>
 </section>
 <section id="data-description-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>Divided by hearing status groups,</p>
 <div>
 <div style="font-size:80%;">
@@ -1865,7 +1877,7 @@ Figure&nbsp;20: Individual win rates per group. <em>Left panel</em> describe NH 
 </div>
 </section>
 <section id="data-description-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>However, no apparent relationship transpire between individual wins and age:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-stimuli_wins" class="quarto-figure quarto-figure-center quarto-float">
@@ -1881,7 +1893,7 @@ Figure&nbsp;21: Individual win rates versus age.
 </div>
 </section>
 <section id="data-description-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.1 Data description</h2>
+<h2>5.1 Data description</h2>
 <p>Considering the interaction of age and hearing status groups,</p>
 <div>
 <div style="font-size:80%;">
@@ -1905,17 +1917,17 @@ Figure&nbsp;22: Individual win rates.
 <!-- ######################################### -->
 </section></section>
 <section id="data-modeling" class="title-slide slide level1 center">
-<h1>5.1.2 Data modeling</h1>
+<h1>5.2 Data modeling</h1>
 
 </section>
 
 <section>
 <section id="data-modeling-the-cbtl-analysis" class="title-slide slide level1 center">
-<h1>5.1.2.1 Data modeling: The CBTL analysis</h1>
+<h1>5.2.1 Data modeling: The CBTL analysis</h1>
 
 </section>
 <section id="data-modeling-the-cbtl-analysis-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>First, the BTL model is applied to the data to estimate the stimuli traits.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The first model fit indicates that,</p>
@@ -1942,7 +1954,7 @@ Figure&nbsp;23: <em>CBTL analysis</em>, first BTL model fit. <em>Left panel</em>
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>multilevel regression</strong> on the residuals (Step <span class="math inline">\(2\)</span>) has the following specification, <span class="math display">\[
@@ -1972,7 +1984,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2005,7 +2017,7 @@ Figure&nbsp;24: <em>CBTL analysis</em>, prior predictive check for multilevel re
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>After testing four prior specifications, the <strong>multilevel regression</strong> for stimuli traits (Step <span class="math inline">\(3\)</span>) follows, <span class="math display">\[
@@ -2036,7 +2048,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2068,7 +2080,7 @@ Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel re
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -2109,7 +2121,7 @@ Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression paramet
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2141,7 +2153,7 @@ Figure&nbsp;27: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2175,7 +2187,7 @@ Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2192,7 +2204,7 @@ Figure&nbsp;29: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-10" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2226,7 +2238,7 @@ Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-11" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2243,7 +2255,7 @@ Figure&nbsp;31: <em>CBTL analysis</em>, posterior predictive for confusion matri
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-12" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2275,7 +2287,7 @@ Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for stimuli wins ba
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-13" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2307,7 +2319,7 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins
       }</style></aside>
 </section>
 <section id="data-modeling-the-cbtl-analysis-14" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The CBTL analysis</h2>
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Fourth, we check if the models still shows signs of ‘trouble’.</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -2347,17 +2359,17 @@ Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span 
 <!-- ######################################### -->
 </section></section>
 <section id="data-modeling-the-itcj-analyses" class="title-slide slide level1 center">
-<h1>5.1.2.2 Data modeling: The ITCJ analyses</h1>
+<h1>5.2.2 Data modeling: The ITCJ analyses</h1>
 
 </section>
 
 <section>
 <section id="data-modeling-the-itcj-analysis-1" class="title-slide slide level1 center">
-<h1>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h1>
+<h1>5.2.2.1 Data modeling: The ITCJ analysis 1</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-1-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models1" class="quarto-xref">Section&nbsp;11.2</a>, the <strong>first</strong> ITCJ model is represented by,</p>
@@ -2398,7 +2410,7 @@ s_{A} &amp; \sim \text{Exponential}( 1/5 )
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2427,7 +2439,7 @@ Figure&nbsp;35: First <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -2468,7 +2480,7 @@ Figure&nbsp;36: First <em>ITCJ analysis</em>, example of parameter diagnostics. 
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2492,7 +2504,7 @@ Figure&nbsp;37: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2516,7 +2528,7 @@ Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2540,7 +2552,7 @@ Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-1-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2644,11 +2656,11 @@ Figure&nbsp;42: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="data-modeling-the-itcj-analysis-2" class="title-slide slide level1 center">
-<h1>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h1>
+<h1>5.2.2.2 Data modeling: The ITCJ analysis 2</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-2-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models2" class="quarto-xref">Section&nbsp;11.3</a>, the <strong>second</strong> ITCJ model is represented by,</p>
@@ -2702,7 +2714,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2731,7 +2743,7 @@ Figure&nbsp;43: Second <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -2772,7 +2784,7 @@ Figure&nbsp;44: Second <em>ITCJ analysis</em>, example of parameter diagnostics.
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2796,7 +2808,7 @@ Figure&nbsp;45: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2820,7 +2832,7 @@ Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2844,7 +2856,7 @@ Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2883,7 +2895,7 @@ Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2922,7 +2934,7 @@ Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-2-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2 Data modeling: The ITCJ analysis 2</h2>
+<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -2948,11 +2960,11 @@ Figure&nbsp;50: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="data-modeling-the-itcj-analysis-3" class="title-slide slide level1 center">
-<h1>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h1>
+<h1>5.2.2.3 Data modeling: The ITCJ analysis 3</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-3-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models3" class="quarto-xref">Section&nbsp;11.4</a>, the <strong>third</strong> ITCJ model is represented by,</p>
@@ -3008,7 +3020,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3037,7 +3049,7 @@ Figure&nbsp;51: Third <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -3078,7 +3090,7 @@ Figure&nbsp;52: Third <em>ITCJ analysis</em>, example of parameter diagnostics. 
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3102,7 +3114,7 @@ Figure&nbsp;53: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3126,7 +3138,7 @@ Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3150,7 +3162,7 @@ Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3189,7 +3201,7 @@ Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3228,7 +3240,7 @@ Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-3-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3254,11 +3266,11 @@ Figure&nbsp;58: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="data-modeling-the-itcj-analysis-4" class="title-slide slide level1 center">
-<h1>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h1>
+<h1>5.2.2.4 Data modeling: The ITCJ analysis 4</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-4-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models4" class="quarto-xref">Section&nbsp;11.5</a>, the <strong>fourth</strong> ITCJ model is represented by,</p>
@@ -3314,7 +3326,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3343,7 +3355,7 @@ Figure&nbsp;59: Fourth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -3384,7 +3396,7 @@ Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics.
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3408,7 +3420,7 @@ Figure&nbsp;61: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3432,7 +3444,7 @@ Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3456,7 +3468,7 @@ Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3495,7 +3507,7 @@ Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3534,7 +3546,7 @@ Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-4-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3560,11 +3572,11 @@ Figure&nbsp;66: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="data-modeling-the-itcj-analysis-5" class="title-slide slide level1 center">
-<h1>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h1>
+<h1>5.2.2.5 Data modeling: The ITCJ analysis 5</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-5-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models5" class="quarto-xref">Section&nbsp;11.6</a>, the <strong>fifth</strong> ITCJ model is represented by,</p>
@@ -3626,7 +3638,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3655,7 +3667,7 @@ Figure&nbsp;67: Fifth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -3696,7 +3708,7 @@ Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. 
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3720,7 +3732,7 @@ Figure&nbsp;69: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3744,7 +3756,7 @@ Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3768,7 +3780,7 @@ Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3807,7 +3819,7 @@ Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3846,7 +3858,7 @@ Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-5-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3872,11 +3884,11 @@ Figure&nbsp;74: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="data-modeling-the-itcj-analysis-6" class="title-slide slide level1 center">
-<h1>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h1>
+<h1>5.2.2.6 Data modeling: The ITCJ analysis 6</h1>
 
 </section>
 <section id="data-modeling-the-itcj-analysis-6-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models6" class="quarto-xref">Section&nbsp;11.7</a>, the <strong>sixth</strong> ITCJ model is represented by,</p>
@@ -3940,7 +3952,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-2" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3969,7 +3981,7 @@ Figure&nbsp;75: Sixth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-3" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
@@ -4010,7 +4022,7 @@ Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. 
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-4" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -4034,7 +4046,7 @@ Figure&nbsp;77: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-5" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -4058,7 +4070,7 @@ Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-6" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4082,7 +4094,7 @@ Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-7" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4121,7 +4133,7 @@ Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4160,7 +4172,7 @@ Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
       }</style></aside>
 </section>
 <section id="data-modeling-the-itcj-analysis-6-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -4186,21 +4198,2407 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 </section></section>
 <section>
 <section id="model-comparison" class="title-slide slide level1 center">
-<h1>5.1.3 Model comparison</h1>
+<h1>5.3 Model comparison</h1>
 
 </section>
 <section id="model-comparison-1" class="slide level2" style="font-size:80%;">
-<h2>5.1.3 Model comparison</h2>
-<p>Finally, we assess the approximate out-of-sample fit of the models.</p>
+<h2>5.3 Model comparison</h2>
+<p>Finally, we compare the approximate out-of-sample fit for all <em>ITCJ models</em>.</p>
 <div style="font-size:80%;">
-<p>The PSIS model comparison indicates that,</p>
+<p>The <strong>PSIS model comparison</strong> indicates that,</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">There is a clear difference in out-of-sample fit between ITCJ models <span class="math inline">\(1-3\)</span> (i.e., <em>equivalent</em> Bayesian BTL models) and ITCJ models <span class="math inline">\(4-6\)</span>, which account for judges’ biases,</li>
+<li class="fragment">ITCJ model <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span> similar out-of-sample fit, that is, adding covariates to model <span class="math inline">\(4\)</span> (model <span class="math inline">\(5\)</span>) does not substantially improves its fit,</li>
+<li class="fragment">ITCJ model <span class="math inline">\(6\)</span> has the best relative out-of-sample fit.</li>
+</ul>
+</div>
+</div>
 <div id="fig-model_comparison" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="./figures/ITCJ_analysis/cropped/5_ITCJ_model_comparison.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> shows all models. <em>Right panel</em> smaller set of models.
+Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> shows all models. <em>Right panel</em> shows a smaller set of models.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="model-comparison-2" class="slide level2" style="font-size:80%;">
+<h2>5.3 Model comparison</h2>
+<p>Also, we compare and interpret the parameter estimates:</p>
+<div class="fragment" style="font-size:80%;">
+<div id="fig-parameter_estimates1" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-parameter_estimates1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div>
+<div id="bropjmwvbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bropjmwvbj table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bropjmwvbj thead, #bropjmwvbj tbody, #bropjmwvbj tfoot, #bropjmwvbj tr, #bropjmwvbj td, #bropjmwvbj th {
+  border-style: none;
+}
+
+#bropjmwvbj p {
+  margin: 0;
+  padding: 0;
+}
+
+#bropjmwvbj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bropjmwvbj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bropjmwvbj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bropjmwvbj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bropjmwvbj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bropjmwvbj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bropjmwvbj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bropjmwvbj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bropjmwvbj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bropjmwvbj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bropjmwvbj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bropjmwvbj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bropjmwvbj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bropjmwvbj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bropjmwvbj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bropjmwvbj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bropjmwvbj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bropjmwvbj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bropjmwvbj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bropjmwvbj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bropjmwvbj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bropjmwvbj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bropjmwvbj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bropjmwvbj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bropjmwvbj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bropjmwvbj .gt_left {
+  text-align: left;
+}
+
+#bropjmwvbj .gt_center {
+  text-align: center;
+}
+
+#bropjmwvbj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bropjmwvbj .gt_font_normal {
+  font-weight: normal;
+}
+
+#bropjmwvbj .gt_font_bold {
+  font-weight: bold;
+}
+
+#bropjmwvbj .gt_font_italic {
+  font-style: italic;
+}
+
+#bropjmwvbj .gt_super {
+  font-size: 65%;
+}
+
+#bropjmwvbj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bropjmwvbj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bropjmwvbj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bropjmwvbj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bropjmwvbj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bropjmwvbj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bropjmwvbj .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bropjmwvbj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bropjmwvbj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;">Parameter table</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">variable</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">mean</th>
+<th id="median" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">median</th>
+<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">sd</th>
+<th id="q5" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q5</th>
+<th id="q95" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q95</th>
+<th id="rmse" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">rmse</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXIc</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.049</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.079</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.080</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.112</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.216</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.212</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.358</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.800</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.369</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.267</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.148</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.148</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.455</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.899</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.602</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.479</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.406</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.408</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.459</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.158</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.359</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.751</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.010</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.010</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.047</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.068</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.087</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.048</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.001</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.044</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.074</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.072</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.044</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.012</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.012</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.024</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.050</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.027</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.027</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sA[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.200</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.372</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">2.371</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.077</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.249</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">2.504</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">2.682</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.866</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">2.842</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.296</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.423</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">3.385</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.876</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sK[1]<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.350</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.350</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.004</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.344</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.356</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.039</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.137</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.136</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.013</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.117</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.161</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.150</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="8" class="gt_footnote" style="text-align: left;"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> No equivalent parameter in original simulation.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div>
+<div id="ukbmayajku" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ukbmayajku table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ukbmayajku thead, #ukbmayajku tbody, #ukbmayajku tfoot, #ukbmayajku tr, #ukbmayajku td, #ukbmayajku th {
+  border-style: none;
+}
+
+#ukbmayajku p {
+  margin: 0;
+  padding: 0;
+}
+
+#ukbmayajku .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ukbmayajku .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ukbmayajku .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ukbmayajku .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ukbmayajku .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ukbmayajku .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ukbmayajku .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ukbmayajku .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ukbmayajku .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ukbmayajku .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ukbmayajku .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ukbmayajku .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ukbmayajku .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ukbmayajku .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ukbmayajku .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukbmayajku .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ukbmayajku .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ukbmayajku .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ukbmayajku .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukbmayajku .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ukbmayajku .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukbmayajku .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ukbmayajku .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukbmayajku .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ukbmayajku .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ukbmayajku .gt_left {
+  text-align: left;
+}
+
+#ukbmayajku .gt_center {
+  text-align: center;
+}
+
+#ukbmayajku .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ukbmayajku .gt_font_normal {
+  font-weight: normal;
+}
+
+#ukbmayajku .gt_font_bold {
+  font-weight: bold;
+}
+
+#ukbmayajku .gt_font_italic {
+  font-style: italic;
+}
+
+#ukbmayajku .gt_super {
+  font-size: 65%;
+}
+
+#ukbmayajku .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ukbmayajku .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ukbmayajku .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ukbmayajku .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ukbmayajku .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ukbmayajku .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ukbmayajku .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ukbmayajku .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ukbmayajku div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;">Parameter table</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">variable</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">mean</th>
+<th id="median" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">median</th>
+<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">sd</th>
+<th id="q5" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q5</th>
+<th id="q95" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q95</th>
+<th id="rmse" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">rmse</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXIc</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.047</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.047</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.044</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.025</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.118</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.069</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.583</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.585</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.354</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.161</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.547</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.037</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.032</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.348</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.529</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.613</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.349</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.620</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.628</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.374</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.220</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.009</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.533</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.043</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.044</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.171</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.322</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.232</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.176</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.043</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.040</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.198</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.370</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.282</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.202</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.164</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.165</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.202</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.487</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.169</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.260</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sA[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.200</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.208</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.211</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.062</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.100</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.304</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.062</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.588</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.582</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.151</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.353</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.846</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.175</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.750</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.478</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.465</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.149</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.260</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.744</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.310</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.750</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.935</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.928</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.169</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.665</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.223</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.250</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.546</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.537</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.124</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.357</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.764</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.132</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.779</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.775</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.130</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.575</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.002</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.256</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.675</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.673</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.133</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.458</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.894</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.220</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameter_estimates1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="model-comparison-3" class="slide level2" style="font-size:80%;">
+<h2>5.3 Model comparison</h2>
+<p>Also, we compare and interpret the parameter estimates:</p>
+<div class="fragment" style="font-size:80%;">
+<div id="fig-parameter_estimates2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-parameter_estimates2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div>
+<div id="yzzvbpexmw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yzzvbpexmw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#yzzvbpexmw thead, #yzzvbpexmw tbody, #yzzvbpexmw tfoot, #yzzvbpexmw tr, #yzzvbpexmw td, #yzzvbpexmw th {
+  border-style: none;
+}
+
+#yzzvbpexmw p {
+  margin: 0;
+  padding: 0;
+}
+
+#yzzvbpexmw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yzzvbpexmw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yzzvbpexmw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yzzvbpexmw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yzzvbpexmw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yzzvbpexmw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yzzvbpexmw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yzzvbpexmw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yzzvbpexmw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#yzzvbpexmw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yzzvbpexmw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yzzvbpexmw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yzzvbpexmw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yzzvbpexmw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yzzvbpexmw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yzzvbpexmw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yzzvbpexmw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yzzvbpexmw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#yzzvbpexmw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yzzvbpexmw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yzzvbpexmw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yzzvbpexmw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yzzvbpexmw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yzzvbpexmw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yzzvbpexmw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yzzvbpexmw .gt_left {
+  text-align: left;
+}
+
+#yzzvbpexmw .gt_center {
+  text-align: center;
+}
+
+#yzzvbpexmw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yzzvbpexmw .gt_font_normal {
+  font-weight: normal;
+}
+
+#yzzvbpexmw .gt_font_bold {
+  font-weight: bold;
+}
+
+#yzzvbpexmw .gt_font_italic {
+  font-style: italic;
+}
+
+#yzzvbpexmw .gt_super {
+  font-size: 65%;
+}
+
+#yzzvbpexmw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#yzzvbpexmw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yzzvbpexmw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yzzvbpexmw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yzzvbpexmw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yzzvbpexmw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yzzvbpexmw .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#yzzvbpexmw .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#yzzvbpexmw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;">Contrast table</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">variable</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">mean</th>
+<th id="median" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">median</th>
+<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">sd</th>
+<th id="q5" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q5</th>
+<th id="q95" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q95</th>
+<th id="rmse" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">rmse</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2] - bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.067</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.074</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.570</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.871</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.004</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.210</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.190</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.193</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.580</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.128</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.782</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.901</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.257</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.255</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.633</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.299</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.784</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.976</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2] - bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.011</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.010</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.066</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.120</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.097</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.066</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.022</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.023</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.052</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.108</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.065</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.057</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.011</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.011</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.050</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.092</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.071</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.051</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display">
+<div>
+<div id="tgqzrhncnp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tgqzrhncnp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tgqzrhncnp thead, #tgqzrhncnp tbody, #tgqzrhncnp tfoot, #tgqzrhncnp tr, #tgqzrhncnp td, #tgqzrhncnp th {
+  border-style: none;
+}
+
+#tgqzrhncnp p {
+  margin: 0;
+  padding: 0;
+}
+
+#tgqzrhncnp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tgqzrhncnp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tgqzrhncnp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tgqzrhncnp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tgqzrhncnp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tgqzrhncnp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tgqzrhncnp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tgqzrhncnp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tgqzrhncnp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tgqzrhncnp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tgqzrhncnp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tgqzrhncnp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tgqzrhncnp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tgqzrhncnp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tgqzrhncnp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tgqzrhncnp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tgqzrhncnp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tgqzrhncnp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tgqzrhncnp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tgqzrhncnp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tgqzrhncnp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tgqzrhncnp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tgqzrhncnp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tgqzrhncnp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tgqzrhncnp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tgqzrhncnp .gt_left {
+  text-align: left;
+}
+
+#tgqzrhncnp .gt_center {
+  text-align: center;
+}
+
+#tgqzrhncnp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tgqzrhncnp .gt_font_normal {
+  font-weight: normal;
+}
+
+#tgqzrhncnp .gt_font_bold {
+  font-weight: bold;
+}
+
+#tgqzrhncnp .gt_font_italic {
+  font-style: italic;
+}
+
+#tgqzrhncnp .gt_super {
+  font-size: 65%;
+}
+
+#tgqzrhncnp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tgqzrhncnp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tgqzrhncnp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tgqzrhncnp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tgqzrhncnp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tgqzrhncnp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tgqzrhncnp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#tgqzrhncnp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tgqzrhncnp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="8" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;">Contrast table</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">variable</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">mean</th>
+<th id="median" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">median</th>
+<th id="sd" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">sd</th>
+<th id="q5" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q5</th>
+<th id="q95" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">q95</th>
+<th id="rmse" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">rmse</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2] - bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.546</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.543</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.291</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.029</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.073</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.539</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-1.203</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-1.207</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.385</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.839</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.570</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.885</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.657</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.659</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.362</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.250</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.053</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.499</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2] - bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.001</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.260</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.429</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.432</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.260</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.121</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.122</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.260</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.548</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.311</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.286</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.121</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.126</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.280</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.577</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.341</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.305</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[2] - sI[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.750</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-1.110</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-1.114</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.247</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.506</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.693</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.437</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3] - sI[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.750</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.653</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.660</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.284</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.114</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.176</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.300</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3] - sI[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.457</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.465</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.281</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.018</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.903</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.536</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[2] - sJ[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.233</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.235</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.216</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.128</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.582</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.344</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3] - sJ[1]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.128</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.132</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.222</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.750</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.485</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.257</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3] - sJ[2]</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.896</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.897</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.232</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.503</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.270</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.459</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameter_estimates2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -4277,7 +6675,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 <img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;84: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;86: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -4292,7 +6690,7 @@ Figure&nbsp;84: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;85: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;87: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -4670,6 +7068,44 @@ Figure&nbsp;85: Judges’s sample size calculation, considering requirements for
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
