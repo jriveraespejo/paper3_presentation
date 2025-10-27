@@ -760,7 +760,7 @@
     "href": "presentation.html#model-comparison-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.3 Model comparison",
-    "text": "5.3 Model comparison\nFinally, we compare the approximate out-of-sample fit for all ITCJ models.\n\nThe PSIS model comparison indicates that,\n\n\n\nThere is a clear difference in out-of-sample fit between ITCJ models \\(1-3\\) (i.e., equivalent Bayesian BTL models) and ITCJ models \\(4-6\\), which account for judges’ biases,\nITCJ model \\(4\\) and \\(5\\) similar out-of-sample fit, that is, adding covariates to model \\(4\\) (model \\(5\\)) does not substantially improves its fit,\nITCJ model \\(6\\) has the best relative out-of-sample fit.\n\n\n\n\n\n\n\n\n\nFigure 83: ITCJ analysis, model comparison. Left panel shows all models. Right panel shows a smaller set of models."
+    "text": "5.3 Model comparison\nFinally, we compare the approximate out-of-sample fit for all ITCJ models.\n\nThe PSIS model comparison indicates that,\n\n\n\nThere is a clear difference in approximate out-of-sample fit between ITCJ models \\(1-3\\) (i.e., equivalent Bayesian BTL models) and ITCJ models \\(4-6\\), which account for judges’ biases,\nITCJ model \\(4\\) and \\(5\\) similar approximate out-of-sample fit, that is, adding covariates to model \\(4\\) (model \\(5\\)) does not substantially improves its fit,\nITCJ model \\(6\\) has the best relative approximate out-of-sample fit.\n\n\n\n\n\n\n\n\n\nFigure 83: ITCJ analysis, model comparison. Left panel shows all models. Right panel shows a smaller set of models."
   },
   {
     "objectID": "presentation.html#model-comparison-2",

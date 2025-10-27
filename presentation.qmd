@@ -3286,9 +3286,9 @@ The **PSIS model comparison** indicates that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- There is a clear difference in out-of-sample fit between ITCJ models $1-3$ (i.e., *equivalent* Bayesian BTL models) and ITCJ models $4-6$, which account for judges' biases,
-- ITCJ model $4$ and $5$ similar out-of-sample fit, that is, adding covariates to model $4$ (model $5$) does not substantially improves its fit,
-- ITCJ model $6$ has the best relative out-of-sample fit.
+- There is a clear difference in approximate out-of-sample fit between ITCJ models $1-3$ (i.e., *equivalent* Bayesian BTL models) and ITCJ models $4-6$, which account for judges' biases,
+- ITCJ model $4$ and $5$ similar approximate out-of-sample fit, that is, adding covariates to model $4$ (model $5$) does not substantially improves its fit,
+- ITCJ model $6$ has the best relative approximate out-of-sample fit.
 :::
 :::
 
