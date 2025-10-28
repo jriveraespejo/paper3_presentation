@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-27">
+  <meta name="dcterms.date" content="2025-10-28">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-27</p>
+  <p class="date">2025-10-28</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -1937,7 +1937,7 @@ Figure&nbsp;22: Individual win rates.
 <li class="fragment">The BTL model recovers the stimuli traits <strong>reasonably well</strong>, though with some downward bias,</li>
 <li class="fragment">It struggles to accurately estimate traits for certain <strong>‘extreme’ stimuli</strong>,</li>
 <li class="fragment">The <em>misfit</em> analysis fails to detect these ‘extreme’ cases, despite being <strong>conceptually similar to</strong> an <em>outlier</em> detection tool.</li>
-<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges in a second model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> still results in new misfits and downward-biased estimates, as the model continues to struggle with the remaining <strong>‘extreme’ stimuli</strong> (see next slides).</li>
+<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges in a second model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> still results in new stimuli misfits and downward-biased estimates, as the model continues to struggle with the remaining <strong>‘extreme’ stimuli</strong> (see next slides).</li>
 </ul>
 </div>
 </div>
@@ -2442,7 +2442,7 @@ Figure&nbsp;35: First <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ1_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ1_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2704,7 +2704,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">Between-individual variability is assumed to be equal to <span class="math inline">\(1\)</span>. Thus, the prior distribution is used to define the scale of individual latent traits, as it is required in latent variable models <span class="citation" data-cites="Depaoli_2021">[<a href="#/references" role="doc-biblioref" onclick="">15</a>]</span>.</li>
-<li class="fragment">The within-individual (between-stimuli) variability <span class="math inline">\((s_{A})\)</span> is assigned a <strong>weakly informative Beta-proportion prior</strong> with an average of <span class="math inline">\(\mu=0.5\)</span> and a ‘sample size’ of <span class="math inline">\(M=5\)</span>. This reflects the expectation that the stimuli within the individuals are more homogeneous than the individuals themselves <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
+<li class="fragment">The within-individual (between-stimuli) variability <span class="math inline">\((s_{A})\)</span> is assigned a <strong>weakly informative Beta-proportion prior</strong> with an average of <span class="math inline">\(\mu=0.5\)</span> and a ‘sample size’ of <span class="math inline">\(M=5\)</span>. This reflects the expectation that the stimuli are more homogeneous than the individuals <span class="citation" data-cites="Lawson_2015">[<a href="#/references" role="doc-biblioref" onclick="">25</a>]</span>.</li>
 </ul>
 </div>
 </div>
@@ -2746,7 +2746,7 @@ Figure&nbsp;43: Second <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3052,7 +3052,7 @@ Figure&nbsp;51: Third <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3358,7 +3358,7 @@ Figure&nbsp;59: Fourth <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3670,7 +3670,7 @@ Figure&nbsp;67: Fifth <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3984,7 +3984,7 @@ Figure&nbsp;75: Sixth <em>ITCJ analysis</em>, prior predictive checks.
 <h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The <strong>diagnostic statistics and plots</strong> indicate parameters achieve stationarity, convergence and and ‘good’ mixing,</p>
+<p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
 <div id="fig-ITCJ2_diagnostics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -4205,12 +4205,12 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <h2>5.3 Model comparison</h2>
 <p>Finally, we compare the approximate out-of-sample fit for all <em>ITCJ models</em>.</p>
 <div style="font-size:80%;">
-<p>The <strong>PSIS model comparison</strong> indicates that,</p>
+<p>The <strong>approximate out-of-sample fit comparison</strong> indicates that,</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">There is a clear difference in approximate out-of-sample fit between ITCJ models <span class="math inline">\(1-3\)</span> (i.e., <em>equivalent</em> Bayesian BTL models) and ITCJ models <span class="math inline">\(4-6\)</span>, which account for judges’ biases,</li>
-<li class="fragment">ITCJ model <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span> similar approximate out-of-sample fit, that is, adding covariates to model <span class="math inline">\(4\)</span> (model <span class="math inline">\(5\)</span>) does not substantially improves its fit,</li>
+<li class="fragment">There is a clear difference in between ITCJ models <span class="math inline">\(1-3\)</span> (i.e., <em>equivalent</em> Bayesian BTL models) and ITCJ models <span class="math inline">\(4-6\)</span>, which account for judges’ biases, even considering the parameter penalty!,</li>
+<li class="fragment">ITCJ model <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span> show similar performance, this implies that adding covariates to model <span class="math inline">\(4\)</span> (model <span class="math inline">\(5\)</span>) does not substantially improves its fit,</li>
 <li class="fragment">ITCJ model <span class="math inline">\(6\)</span> has the best relative approximate out-of-sample fit.</li>
 </ul>
 </div>
@@ -4238,23 +4238,23 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div>
-<div id="bropjmwvbj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bropjmwvbj table {
+<div id="rsojehfuni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rsojehfuni table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bropjmwvbj thead, #bropjmwvbj tbody, #bropjmwvbj tfoot, #bropjmwvbj tr, #bropjmwvbj td, #bropjmwvbj th {
+#rsojehfuni thead, #rsojehfuni tbody, #rsojehfuni tfoot, #rsojehfuni tr, #rsojehfuni td, #rsojehfuni th {
   border-style: none;
 }
 
-#bropjmwvbj p {
+#rsojehfuni p {
   margin: 0;
   padding: 0;
 }
 
-#bropjmwvbj .gt_table {
+#rsojehfuni .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4280,12 +4280,12 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-left-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_caption {
+#rsojehfuni .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bropjmwvbj .gt_title {
+#rsojehfuni .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4297,7 +4297,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-width: 0;
 }
 
-#bropjmwvbj .gt_subtitle {
+#rsojehfuni .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4309,7 +4309,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-top-width: 0;
 }
 
-#bropjmwvbj .gt_heading {
+#rsojehfuni .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4321,13 +4321,13 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_bottom_border {
+#rsojehfuni .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_col_headings {
+#rsojehfuni .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4342,7 +4342,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_col_heading {
+#rsojehfuni .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4362,7 +4362,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   overflow-x: hidden;
 }
 
-#bropjmwvbj .gt_column_spanner_outer {
+#rsojehfuni .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4374,15 +4374,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 4px;
 }
 
-#bropjmwvbj .gt_column_spanner_outer:first-child {
+#rsojehfuni .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bropjmwvbj .gt_column_spanner_outer:last-child {
+#rsojehfuni .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bropjmwvbj .gt_column_spanner {
+#rsojehfuni .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4394,11 +4394,11 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   width: 100%;
 }
 
-#bropjmwvbj .gt_spanner_row {
+#rsojehfuni .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bropjmwvbj .gt_group_heading {
+#rsojehfuni .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4424,7 +4424,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   text-align: left;
 }
 
-#bropjmwvbj .gt_empty_group_heading {
+#rsojehfuni .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4439,15 +4439,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   vertical-align: middle;
 }
 
-#bropjmwvbj .gt_from_md > :first-child {
+#rsojehfuni .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bropjmwvbj .gt_from_md > :last-child {
+#rsojehfuni .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bropjmwvbj .gt_row {
+#rsojehfuni .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4466,7 +4466,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   overflow-x: hidden;
 }
 
-#bropjmwvbj .gt_stub {
+#rsojehfuni .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4479,7 +4479,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#bropjmwvbj .gt_stub_row_group {
+#rsojehfuni .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4493,15 +4493,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   vertical-align: top;
 }
 
-#bropjmwvbj .gt_row_group_first td {
+#rsojehfuni .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bropjmwvbj .gt_row_group_first th {
+#rsojehfuni .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bropjmwvbj .gt_summary_row {
+#rsojehfuni .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4511,16 +4511,16 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#bropjmwvbj .gt_first_summary_row {
+#rsojehfuni .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_first_summary_row.thick {
+#rsojehfuni .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bropjmwvbj .gt_last_summary_row {
+#rsojehfuni .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4530,7 +4530,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_grand_summary_row {
+#rsojehfuni .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4540,7 +4540,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#bropjmwvbj .gt_first_grand_summary_row {
+#rsojehfuni .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4550,7 +4550,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-top-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_last_grand_summary_row_top {
+#rsojehfuni .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4560,11 +4560,11 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_striped {
+#rsojehfuni .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bropjmwvbj .gt_table_body {
+#rsojehfuni .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4573,7 +4573,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_footnotes {
+#rsojehfuni .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4587,7 +4587,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_footnote {
+#rsojehfuni .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4596,7 +4596,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#bropjmwvbj .gt_sourcenotes {
+#rsojehfuni .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4610,7 +4610,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#bropjmwvbj .gt_sourcenote {
+#rsojehfuni .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4618,72 +4618,72 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#bropjmwvbj .gt_left {
+#rsojehfuni .gt_left {
   text-align: left;
 }
 
-#bropjmwvbj .gt_center {
+#rsojehfuni .gt_center {
   text-align: center;
 }
 
-#bropjmwvbj .gt_right {
+#rsojehfuni .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bropjmwvbj .gt_font_normal {
+#rsojehfuni .gt_font_normal {
   font-weight: normal;
 }
 
-#bropjmwvbj .gt_font_bold {
+#rsojehfuni .gt_font_bold {
   font-weight: bold;
 }
 
-#bropjmwvbj .gt_font_italic {
+#rsojehfuni .gt_font_italic {
   font-style: italic;
 }
 
-#bropjmwvbj .gt_super {
+#rsojehfuni .gt_super {
   font-size: 65%;
 }
 
-#bropjmwvbj .gt_footnote_marks {
+#rsojehfuni .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bropjmwvbj .gt_asterisk {
+#rsojehfuni .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bropjmwvbj .gt_indent_1 {
+#rsojehfuni .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bropjmwvbj .gt_indent_2 {
+#rsojehfuni .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bropjmwvbj .gt_indent_3 {
+#rsojehfuni .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bropjmwvbj .gt_indent_4 {
+#rsojehfuni .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bropjmwvbj .gt_indent_5 {
+#rsojehfuni .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bropjmwvbj .katex-display {
+#rsojehfuni .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bropjmwvbj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rsojehfuni div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4707,113 +4707,113 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXIc</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.049</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.079</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.080</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.112</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.10</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.08</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.08</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.11</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.216</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.212</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.358</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.800</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.369</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.267</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.22</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.21</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.36</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.80</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.37</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.27</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.148</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.148</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.455</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.899</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.602</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.479</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.15</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.15</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.46</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.90</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.60</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.48</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.406</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.408</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.459</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.158</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.359</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.751</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.41</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.41</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.46</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.16</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.36</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.75</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.010</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.010</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.047</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.068</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.087</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.048</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.09</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.05</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.001</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.044</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.074</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.072</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.044</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.04</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.012</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.012</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.024</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.050</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.027</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.027</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.02</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.03</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.03</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sA[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.200</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.372</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">2.371</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.077</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.249</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">2.504</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">2.682</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.20</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.37</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">2.37</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.08</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.25</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">2.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">2.68</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.866</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">2.842</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.296</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.423</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">3.385</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.876</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">2.87</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">2.84</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.30</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">2.42</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">3.38</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.88</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sK[1]<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.350</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.350</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.004</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.344</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.356</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.039</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.10</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.35</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.35</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.34</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.36</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.04</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.137</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.136</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.013</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.117</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.161</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.150</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.14</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.14</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.16</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.15</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="odd">
@@ -4830,23 +4830,23 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div>
-<div id="ukbmayajku" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ukbmayajku table {
+<div id="pakodlagot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pakodlagot table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ukbmayajku thead, #ukbmayajku tbody, #ukbmayajku tfoot, #ukbmayajku tr, #ukbmayajku td, #ukbmayajku th {
+#pakodlagot thead, #pakodlagot tbody, #pakodlagot tfoot, #pakodlagot tr, #pakodlagot td, #pakodlagot th {
   border-style: none;
 }
 
-#ukbmayajku p {
+#pakodlagot p {
   margin: 0;
   padding: 0;
 }
 
-#ukbmayajku .gt_table {
+#pakodlagot .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4872,12 +4872,12 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-left-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_caption {
+#pakodlagot .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ukbmayajku .gt_title {
+#pakodlagot .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4889,7 +4889,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-width: 0;
 }
 
-#ukbmayajku .gt_subtitle {
+#pakodlagot .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4901,7 +4901,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-top-width: 0;
 }
 
-#ukbmayajku .gt_heading {
+#pakodlagot .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4913,13 +4913,13 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_bottom_border {
+#pakodlagot .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_col_headings {
+#pakodlagot .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4934,7 +4934,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_col_heading {
+#pakodlagot .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4954,7 +4954,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   overflow-x: hidden;
 }
 
-#ukbmayajku .gt_column_spanner_outer {
+#pakodlagot .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4966,15 +4966,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 4px;
 }
 
-#ukbmayajku .gt_column_spanner_outer:first-child {
+#pakodlagot .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ukbmayajku .gt_column_spanner_outer:last-child {
+#pakodlagot .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ukbmayajku .gt_column_spanner {
+#pakodlagot .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4986,11 +4986,11 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   width: 100%;
 }
 
-#ukbmayajku .gt_spanner_row {
+#pakodlagot .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ukbmayajku .gt_group_heading {
+#pakodlagot .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5016,7 +5016,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   text-align: left;
 }
 
-#ukbmayajku .gt_empty_group_heading {
+#pakodlagot .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5031,15 +5031,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   vertical-align: middle;
 }
 
-#ukbmayajku .gt_from_md > :first-child {
+#pakodlagot .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ukbmayajku .gt_from_md > :last-child {
+#pakodlagot .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ukbmayajku .gt_row {
+#pakodlagot .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5058,7 +5058,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   overflow-x: hidden;
 }
 
-#ukbmayajku .gt_stub {
+#pakodlagot .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5071,7 +5071,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#ukbmayajku .gt_stub_row_group {
+#pakodlagot .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5085,15 +5085,15 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   vertical-align: top;
 }
 
-#ukbmayajku .gt_row_group_first td {
+#pakodlagot .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ukbmayajku .gt_row_group_first th {
+#pakodlagot .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ukbmayajku .gt_summary_row {
+#pakodlagot .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5103,16 +5103,16 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#ukbmayajku .gt_first_summary_row {
+#pakodlagot .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_first_summary_row.thick {
+#pakodlagot .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ukbmayajku .gt_last_summary_row {
+#pakodlagot .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5122,7 +5122,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_grand_summary_row {
+#pakodlagot .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5132,7 +5132,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#ukbmayajku .gt_first_grand_summary_row {
+#pakodlagot .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5142,7 +5142,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-top-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_last_grand_summary_row_top {
+#pakodlagot .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5152,11 +5152,11 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_striped {
+#pakodlagot .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ukbmayajku .gt_table_body {
+#pakodlagot .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5165,7 +5165,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-bottom-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_footnotes {
+#pakodlagot .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5179,7 +5179,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_footnote {
+#pakodlagot .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5188,7 +5188,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#ukbmayajku .gt_sourcenotes {
+#pakodlagot .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5202,7 +5202,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   border-right-color: #D3D3D3;
 }
 
-#ukbmayajku .gt_sourcenote {
+#pakodlagot .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5210,72 +5210,72 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
   padding-right: 5px;
 }
 
-#ukbmayajku .gt_left {
+#pakodlagot .gt_left {
   text-align: left;
 }
 
-#ukbmayajku .gt_center {
+#pakodlagot .gt_center {
   text-align: center;
 }
 
-#ukbmayajku .gt_right {
+#pakodlagot .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ukbmayajku .gt_font_normal {
+#pakodlagot .gt_font_normal {
   font-weight: normal;
 }
 
-#ukbmayajku .gt_font_bold {
+#pakodlagot .gt_font_bold {
   font-weight: bold;
 }
 
-#ukbmayajku .gt_font_italic {
+#pakodlagot .gt_font_italic {
   font-style: italic;
 }
 
-#ukbmayajku .gt_super {
+#pakodlagot .gt_super {
   font-size: 65%;
 }
 
-#ukbmayajku .gt_footnote_marks {
+#pakodlagot .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ukbmayajku .gt_asterisk {
+#pakodlagot .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ukbmayajku .gt_indent_1 {
+#pakodlagot .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ukbmayajku .gt_indent_2 {
+#pakodlagot .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ukbmayajku .gt_indent_3 {
+#pakodlagot .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ukbmayajku .gt_indent_4 {
+#pakodlagot .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ukbmayajku .gt_indent_5 {
+#pakodlagot .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ukbmayajku .katex-display {
+#pakodlagot .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ukbmayajku div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pakodlagot div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5299,143 +5299,143 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXIc</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.100</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.047</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.047</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.044</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.025</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.118</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.069</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.10</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.03</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.07</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.583</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.585</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.354</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.161</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.547</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.35</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.16</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.55</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.037</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.032</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.348</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.529</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.613</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.349</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.03</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.35</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.53</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.61</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.35</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.620</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.628</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.374</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.220</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.009</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.533</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.62</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.63</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.37</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.22</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.53</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.043</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.044</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.171</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.322</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.232</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.176</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.17</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.32</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.23</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.18</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.043</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.040</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.198</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.370</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.282</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.202</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.04</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.20</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.37</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.28</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.20</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.164</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.165</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.202</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.487</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.169</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.260</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.16</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.17</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.20</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.49</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.17</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.26</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sA[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.200</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.208</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.211</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.062</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.100</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.304</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.062</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.20</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.21</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.21</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.06</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.10</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.30</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.06</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.588</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">1.582</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.151</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.353</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.846</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.175</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.59</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.15</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.35</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.85</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.17</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.750</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.478</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.465</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.149</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.260</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.744</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.310</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.75</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.48</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.47</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.15</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.26</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.74</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.31</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.750</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.935</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.928</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.169</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.665</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.223</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.250</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.75</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.94</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.93</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.17</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.67</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.22</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.25</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.546</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.537</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.124</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.357</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.764</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.132</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.55</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.54</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.36</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.76</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.13</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.779</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.775</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.130</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.575</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.002</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.256</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.78</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.78</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.57</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.26</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.675</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">1.673</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.133</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.458</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.894</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.220</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.68</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.67</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">1.46</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.89</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.22</td>
 </tr>
 </tbody>
 </table>
@@ -5464,23 +5464,23 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div>
-<div id="yzzvbpexmw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yzzvbpexmw table {
+<div id="zuxlctxxuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zuxlctxxuz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yzzvbpexmw thead, #yzzvbpexmw tbody, #yzzvbpexmw tfoot, #yzzvbpexmw tr, #yzzvbpexmw td, #yzzvbpexmw th {
+#zuxlctxxuz thead, #zuxlctxxuz tbody, #zuxlctxxuz tfoot, #zuxlctxxuz tr, #zuxlctxxuz td, #zuxlctxxuz th {
   border-style: none;
 }
 
-#yzzvbpexmw p {
+#zuxlctxxuz p {
   margin: 0;
   padding: 0;
 }
 
-#yzzvbpexmw .gt_table {
+#zuxlctxxuz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5506,12 +5506,12 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-left-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_caption {
+#zuxlctxxuz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yzzvbpexmw .gt_title {
+#zuxlctxxuz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5523,7 +5523,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-width: 0;
 }
 
-#yzzvbpexmw .gt_subtitle {
+#zuxlctxxuz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5535,7 +5535,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-top-width: 0;
 }
 
-#yzzvbpexmw .gt_heading {
+#zuxlctxxuz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5547,13 +5547,13 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_bottom_border {
+#zuxlctxxuz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_col_headings {
+#zuxlctxxuz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5568,7 +5568,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_col_heading {
+#zuxlctxxuz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5588,7 +5588,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   overflow-x: hidden;
 }
 
-#yzzvbpexmw .gt_column_spanner_outer {
+#zuxlctxxuz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5600,15 +5600,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 4px;
 }
 
-#yzzvbpexmw .gt_column_spanner_outer:first-child {
+#zuxlctxxuz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yzzvbpexmw .gt_column_spanner_outer:last-child {
+#zuxlctxxuz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yzzvbpexmw .gt_column_spanner {
+#zuxlctxxuz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5620,11 +5620,11 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   width: 100%;
 }
 
-#yzzvbpexmw .gt_spanner_row {
+#zuxlctxxuz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yzzvbpexmw .gt_group_heading {
+#zuxlctxxuz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5650,7 +5650,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   text-align: left;
 }
 
-#yzzvbpexmw .gt_empty_group_heading {
+#zuxlctxxuz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5665,15 +5665,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   vertical-align: middle;
 }
 
-#yzzvbpexmw .gt_from_md > :first-child {
+#zuxlctxxuz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yzzvbpexmw .gt_from_md > :last-child {
+#zuxlctxxuz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yzzvbpexmw .gt_row {
+#zuxlctxxuz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5692,7 +5692,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   overflow-x: hidden;
 }
 
-#yzzvbpexmw .gt_stub {
+#zuxlctxxuz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5705,7 +5705,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#yzzvbpexmw .gt_stub_row_group {
+#zuxlctxxuz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5719,15 +5719,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   vertical-align: top;
 }
 
-#yzzvbpexmw .gt_row_group_first td {
+#zuxlctxxuz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yzzvbpexmw .gt_row_group_first th {
+#zuxlctxxuz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yzzvbpexmw .gt_summary_row {
+#zuxlctxxuz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5737,16 +5737,16 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#yzzvbpexmw .gt_first_summary_row {
+#zuxlctxxuz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_first_summary_row.thick {
+#zuxlctxxuz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yzzvbpexmw .gt_last_summary_row {
+#zuxlctxxuz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5756,7 +5756,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_grand_summary_row {
+#zuxlctxxuz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5766,7 +5766,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#yzzvbpexmw .gt_first_grand_summary_row {
+#zuxlctxxuz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5776,7 +5776,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-top-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_last_grand_summary_row_top {
+#zuxlctxxuz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5786,11 +5786,11 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_striped {
+#zuxlctxxuz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yzzvbpexmw .gt_table_body {
+#zuxlctxxuz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5799,7 +5799,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_footnotes {
+#zuxlctxxuz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5813,7 +5813,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_footnote {
+#zuxlctxxuz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5822,7 +5822,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#yzzvbpexmw .gt_sourcenotes {
+#zuxlctxxuz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5836,7 +5836,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#yzzvbpexmw .gt_sourcenote {
+#zuxlctxxuz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5844,72 +5844,72 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#yzzvbpexmw .gt_left {
+#zuxlctxxuz .gt_left {
   text-align: left;
 }
 
-#yzzvbpexmw .gt_center {
+#zuxlctxxuz .gt_center {
   text-align: center;
 }
 
-#yzzvbpexmw .gt_right {
+#zuxlctxxuz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yzzvbpexmw .gt_font_normal {
+#zuxlctxxuz .gt_font_normal {
   font-weight: normal;
 }
 
-#yzzvbpexmw .gt_font_bold {
+#zuxlctxxuz .gt_font_bold {
   font-weight: bold;
 }
 
-#yzzvbpexmw .gt_font_italic {
+#zuxlctxxuz .gt_font_italic {
   font-style: italic;
 }
 
-#yzzvbpexmw .gt_super {
+#zuxlctxxuz .gt_super {
   font-size: 65%;
 }
 
-#yzzvbpexmw .gt_footnote_marks {
+#zuxlctxxuz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yzzvbpexmw .gt_asterisk {
+#zuxlctxxuz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yzzvbpexmw .gt_indent_1 {
+#zuxlctxxuz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yzzvbpexmw .gt_indent_2 {
+#zuxlctxxuz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yzzvbpexmw .gt_indent_3 {
+#zuxlctxxuz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yzzvbpexmw .gt_indent_4 {
+#zuxlctxxuz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yzzvbpexmw .gt_indent_5 {
+#zuxlctxxuz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yzzvbpexmw .katex-display {
+#zuxlctxxuz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yzzvbpexmw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zuxlctxxuz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5933,63 +5933,63 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2] - bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.067</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.074</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.570</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.871</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.004</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.210</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.57</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.87</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.21</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.190</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.193</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.580</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.128</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.782</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.901</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.19</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.19</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.78</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">1.90</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.257</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.255</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.633</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.299</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.784</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.976</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.26</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.26</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.63</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.30</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.78</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.98</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2] - bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.011</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.010</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.066</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.120</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.097</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.066</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.10</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.07</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.022</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.023</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.052</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.108</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.065</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.057</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.02</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.02</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.11</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.06</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.011</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.011</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.050</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.092</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.071</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.051</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.01</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.09</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.05</td>
 </tr>
 </tbody>
 </table>
@@ -6001,23 +6001,23 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell-output-display">
 <div>
-<div id="tgqzrhncnp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tgqzrhncnp table {
+<div id="nmaoewdled" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nmaoewdled table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tgqzrhncnp thead, #tgqzrhncnp tbody, #tgqzrhncnp tfoot, #tgqzrhncnp tr, #tgqzrhncnp td, #tgqzrhncnp th {
+#nmaoewdled thead, #nmaoewdled tbody, #nmaoewdled tfoot, #nmaoewdled tr, #nmaoewdled td, #nmaoewdled th {
   border-style: none;
 }
 
-#tgqzrhncnp p {
+#nmaoewdled p {
   margin: 0;
   padding: 0;
 }
 
-#tgqzrhncnp .gt_table {
+#nmaoewdled .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -6043,12 +6043,12 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-left-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_caption {
+#nmaoewdled .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tgqzrhncnp .gt_title {
+#nmaoewdled .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -6060,7 +6060,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-width: 0;
 }
 
-#tgqzrhncnp .gt_subtitle {
+#nmaoewdled .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -6072,7 +6072,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-top-width: 0;
 }
 
-#tgqzrhncnp .gt_heading {
+#nmaoewdled .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -6084,13 +6084,13 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_bottom_border {
+#nmaoewdled .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_col_headings {
+#nmaoewdled .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6105,7 +6105,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_col_heading {
+#nmaoewdled .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6125,7 +6125,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   overflow-x: hidden;
 }
 
-#tgqzrhncnp .gt_column_spanner_outer {
+#nmaoewdled .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6137,15 +6137,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 4px;
 }
 
-#tgqzrhncnp .gt_column_spanner_outer:first-child {
+#nmaoewdled .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tgqzrhncnp .gt_column_spanner_outer:last-child {
+#nmaoewdled .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tgqzrhncnp .gt_column_spanner {
+#nmaoewdled .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -6157,11 +6157,11 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   width: 100%;
 }
 
-#tgqzrhncnp .gt_spanner_row {
+#nmaoewdled .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tgqzrhncnp .gt_group_heading {
+#nmaoewdled .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6187,7 +6187,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   text-align: left;
 }
 
-#tgqzrhncnp .gt_empty_group_heading {
+#nmaoewdled .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -6202,15 +6202,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   vertical-align: middle;
 }
 
-#tgqzrhncnp .gt_from_md > :first-child {
+#nmaoewdled .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tgqzrhncnp .gt_from_md > :last-child {
+#nmaoewdled .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tgqzrhncnp .gt_row {
+#nmaoewdled .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6229,7 +6229,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   overflow-x: hidden;
 }
 
-#tgqzrhncnp .gt_stub {
+#nmaoewdled .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6242,7 +6242,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#tgqzrhncnp .gt_stub_row_group {
+#nmaoewdled .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6256,15 +6256,15 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   vertical-align: top;
 }
 
-#tgqzrhncnp .gt_row_group_first td {
+#nmaoewdled .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tgqzrhncnp .gt_row_group_first th {
+#nmaoewdled .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tgqzrhncnp .gt_summary_row {
+#nmaoewdled .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6274,16 +6274,16 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#tgqzrhncnp .gt_first_summary_row {
+#nmaoewdled .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_first_summary_row.thick {
+#nmaoewdled .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tgqzrhncnp .gt_last_summary_row {
+#nmaoewdled .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6293,7 +6293,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_grand_summary_row {
+#nmaoewdled .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6303,7 +6303,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#tgqzrhncnp .gt_first_grand_summary_row {
+#nmaoewdled .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6313,7 +6313,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-top-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_last_grand_summary_row_top {
+#nmaoewdled .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -6323,11 +6323,11 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_striped {
+#nmaoewdled .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tgqzrhncnp .gt_table_body {
+#nmaoewdled .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6336,7 +6336,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-bottom-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_footnotes {
+#nmaoewdled .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6350,7 +6350,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_footnote {
+#nmaoewdled .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -6359,7 +6359,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#tgqzrhncnp .gt_sourcenotes {
+#nmaoewdled .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6373,7 +6373,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   border-right-color: #D3D3D3;
 }
 
-#tgqzrhncnp .gt_sourcenote {
+#nmaoewdled .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -6381,72 +6381,72 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
   padding-right: 5px;
 }
 
-#tgqzrhncnp .gt_left {
+#nmaoewdled .gt_left {
   text-align: left;
 }
 
-#tgqzrhncnp .gt_center {
+#nmaoewdled .gt_center {
   text-align: center;
 }
 
-#tgqzrhncnp .gt_right {
+#nmaoewdled .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tgqzrhncnp .gt_font_normal {
+#nmaoewdled .gt_font_normal {
   font-weight: normal;
 }
 
-#tgqzrhncnp .gt_font_bold {
+#nmaoewdled .gt_font_bold {
   font-weight: bold;
 }
 
-#tgqzrhncnp .gt_font_italic {
+#nmaoewdled .gt_font_italic {
   font-style: italic;
 }
 
-#tgqzrhncnp .gt_super {
+#nmaoewdled .gt_super {
   font-size: 65%;
 }
 
-#tgqzrhncnp .gt_footnote_marks {
+#nmaoewdled .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tgqzrhncnp .gt_asterisk {
+#nmaoewdled .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tgqzrhncnp .gt_indent_1 {
+#nmaoewdled .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tgqzrhncnp .gt_indent_2 {
+#nmaoewdled .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tgqzrhncnp .gt_indent_3 {
+#nmaoewdled .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tgqzrhncnp .gt_indent_4 {
+#nmaoewdled .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tgqzrhncnp .gt_indent_5 {
+#nmaoewdled .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tgqzrhncnp .katex-display {
+#nmaoewdled .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tgqzrhncnp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nmaoewdled div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -6470,123 +6470,123 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[2] - bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.546</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.543</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.291</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.029</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.073</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.539</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.55</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.54</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.29</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.03</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.07</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.54</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-1.203</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-1.207</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.385</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.839</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.570</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.885</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−2.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−1.20</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−1.21</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.39</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.84</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.57</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.89</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bXId[3] - bXId[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.657</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.659</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.362</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.250</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.053</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.499</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.66</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.66</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.36</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.25</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.05</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.50</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[2] - bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.001</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.001</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.260</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.429</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.432</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.260</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.26</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.43</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.43</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.26</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.121</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.122</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.260</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.548</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.311</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.286</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.26</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.55</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.31</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.29</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">bZJd[3] - bZJd[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.121</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.126</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.280</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.577</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.341</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.305</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.12</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.28</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.34</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.30</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[2] - sI[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.750</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-1.110</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-1.114</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.247</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.506</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.693</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.437</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.75</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−1.11</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−1.11</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.25</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.51</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.69</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.44</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3] - sI[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.750</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">-0.653</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">-0.660</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.284</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-1.114</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">-0.176</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.300</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">−0.75</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">−0.65</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">−0.66</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.28</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−1.11</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">−0.18</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.30</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sI[3] - sI[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.457</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.465</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.281</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.018</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.903</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.536</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.46</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.47</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.28</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.02</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.90</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.54</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[2] - sJ[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.233</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.235</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.216</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">-0.128</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.582</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.344</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.23</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.23</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.22</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">−0.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">0.58</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.34</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3] - sJ[1]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">1.000</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.128</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">1.132</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.222</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.750</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.485</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.257</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">1.00</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">1.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">1.13</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.22</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.75</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.49</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.26</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" style="text-align: left;" headers="variable">sJ[3] - sJ[2]</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="value">0.500</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.896</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="median">0.897</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.232</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.503</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.270</td>
-<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.459</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="value">0.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="mean">0.90</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="median">0.90</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="sd">0.23</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q5">0.50</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="q95">1.27</td>
+<td class="gt_row gt_right" style="text-align: left;" headers="rmse">0.46</td>
 </tr>
 </tbody>
 </table>
@@ -6612,6 +6612,45 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 </section>
 <section id="discussion-1" class="slide level2" style="font-size:80%;">
 <h2>6. Discussion</h2>
+<p>This study fulfills its <strong>two overarching goals</strong>, that is,</p>
+<div class="fragment" style="font-size:80%;">
+<ol type="1">
+<li><p><em>To show how apply the ITCJ model to a simulated dataset</em>,</p>
+<p>A <strong>tutorial component</strong>, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software <code>R</code> and <code>Stan</code>.</p></li>
+<li><p><em>Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences</em>,</p>
+<p>A <strong>model validation component</strong> benchmarked against the CBTL analysis.</p></li>
+</ol>
+</div>
+</section>
+<section id="discussion-2" class="slide level2" style="font-size:80%;">
+<h2>6. Discussion</h2>
+<p>Moreover, the <em>CBTL analysis</em> results provide preliminary evidence that,</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment"><p>Researchers <strong>cannot</strong> treat “sample-freeness” as an inherent property of the BTL model, contrary to previous beliefs <span class="citation" data-cites="Bramley_2008 Andrich_1978">[<a href="#/references" role="doc-biblioref" onclick="">3</a>, <a href="#/references" role="doc-biblioref" onclick="">6</a>]</span>. Instead, the property depends on the specific data under analysis.</p></li>
+<li class="fragment"><p>When judges exhibit biases, the simplifying assumptions of the BTL model <strong>fail</strong> to capture the complexity of the simulated traits <span class="citation" data-cites="Thurstone_1927a Andrich_1978 Bramley_2008 Kelly_et_al_2022">[<a href="#/references" role="doc-biblioref" onclick="">3</a>, <a href="#/references" role="doc-biblioref" onclick="">6</a>, <a href="#/references" role="doc-biblioref" onclick="">7</a>, <a href="#/references" role="doc-biblioref" onclick="">9</a>]</span>, producing <strong>inaccurate and unreliable</strong> trait estimates <span class="citation" data-cites="Ackerman_1989 Zimmerman_1994 McElreath_2020 Hoyle_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">46</a>–<a href="#/references" role="doc-biblioref" onclick="">49</a>]</span>. This limitation is particularly evident in estimating judges’ biases.</p></li>
+<li class="fragment"><p>The BTL model is <strong>overconfident</strong> when predicting comparison outcomes, as shown by the posterior predictive checks.</p></li>
+<li class="fragment"><p>The BTL model struggles to accurately estimate the traits of certain <em>‘extreme’</em> stimuli, even though the simulation <strong>does not</strong> generate such stimuli.</p></li>
+<li class="fragment"><p>The ad hoc <em>misfit</em> analysis procedure <strong>fails</strong> to achieve its intended analytical purpose <span class="citation" data-cites="Kelly_et_al_2022">[<a href="#/references" role="doc-biblioref" onclick="">7</a>]</span>, because it <strong>miss classifies</strong> valid stimuli as <em>misfits</em> and <strong>fails to identify</strong> all biased judges <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>.</p></li>
+<li class="fragment"><p>The common CJ practice of excluding <em>misfit</em> stimuli and judges from the model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> <strong>does not</strong> improve trait estimation.</p></li>
+<li class="fragment"><p>Separating trait estimation from hypothesis testing, another common CJ practice <span class="citation" data-cites="Casalicchio_et_al_2015 Bramley_et_al_2019 Boonen_et_al_2020 Bouwer_et_al_2023 vanDaal_et_al_2017 Jones_et_al_2019 Gijsen_et_al_2021">[<a href="#/references" role="doc-biblioref" onclick="">11</a>, <a href="#/references" role="doc-biblioref" onclick="">12</a>, <a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">50</a>–<a href="#/references" role="doc-biblioref" onclick="">53</a>]</span>, <strong>introduces bias and reduces the reliability</strong> of inferences <span class="citation" data-cites="McElreath_2020 Kline_et_al_2023 Hoyle_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">48</a>, <a href="#/references" role="doc-biblioref" onclick="">49</a>, <a href="#/references" role="doc-biblioref" onclick="">54</a>]</span>.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="discussion-3" class="slide level2" style="font-size:80%;">
+<h2>6. Discussion</h2>
+<p>In contrast, results from the ITCJ analysis indicate that,</p>
+<div>
+<div style="font-size:80%;">
+<ul>
+<li class="fragment">The frequentist and the <em>equivalent</em> Bayesian ITCJ models (models <span class="math inline">\(1-3\)</span>) have <strong>similarly insufficient</strong> fit and recovery performance.</li>
+<li class="fragment">Incorporating the hierarchical structure of stimuli and accounting for judges’ biases (i.e., ITCJ model <span class="math inline">\(4\)</span>) <strong>improves</strong> the prediction of comparison outcomes by up to <span class="math inline">\(10\)</span> percentage points, as indicated by the posterior predictive checks.</li>
+<li class="fragment">Expanding the model to include the hierarchical structure of stimuli, judges’ biases, heterogeneity in discriminal dispersions, and measurement error in inferences (i.e., ITCJ model <span class="math inline">\(6\)</span>) <strong>enhances both</strong> the accuracy and reliability of trait estimation and the accuracy of statistical inferences. This improvement is evident across all traits and parameters.</li>
+</ul>
+</div>
+</div>
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -6621,6 +6660,10 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 </section>
 <section id="future-research-directions-1" class="slide level2" style="font-size:80%;">
 <h2>6.1 Future research directions</h2>
+<!-- - Moreover, the extent to which the exclusion of *misfit* stimuli and judges introduce bias into trait estimates remains to be assessed. The direction and magnitude of this bias are often unpredictable, as they depend on which observations are excluded from the analysis (Zimmerman 1994; O’Hagan 2018; McElreath 2020; Miller 2023) -->
+<!-- - ITCJ models shift the analytic paradigm from passively accepting the assumptions of the BTL model to actively testing their fit with observed data.  -->
+<!-- Despite the growing notion that various stimulus-related factors influence judges’ perceptions (van Daal et al. 2016; Lesterhuis et al. 2018; Chambers and Cunningham 2022) and that these influences may not always cancel each other out, empirical evidence of judges’ biases remains scarce in the CJ literature (Pollitt and Elliott 2003; van Daal et al. 2016; Bartholomew et al. 2020). This gap likely persists not from a lack of interest or research but because the identification of such biases often depends on ad-hoc detection methods, like ‘misfit’ statistics, that may not be well-suited for the task (Kelly, Richardson, and Isaacs 2022). To overcome this limitation, the present study treated judges’ biases as an integral component of the CJ system from the outset. This approach offers one key advantage: it provides a more accurate representation of the data-generating process behind pairwise comparisons, one that acknowledges that the discriminal processes of stimuli becomes an observable outcome only through judges’ perceptions, which may exhibit bias. -->
+<!-- further exploration is warranted into how judge selection influences the formation of a “shared consensus” and whether certain judge attributes introduce systematic biases or distortions in the stimuli trait distribution (Deffner, Rohrer, and McElreath 2022). Furthermore, if such attributes do in fact compromise the assumption of “sample-freeness,” it becomes essential to consider strategies for mitigating their effects and to determine how many judges (and how many judgments per judge) are required to produce reliable trait estimates under these conditions. -->
 <!-- ######################################### -->
 </section></section>
 <section>
@@ -6672,7 +6715,7 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <div id="fig-individual_ss" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/sim_individual_sample_size.png" style="width:100.0%">
+<img data-src="./figures/population_summary/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;86: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
@@ -6687,7 +6730,7 @@ Figure&nbsp;86: Individual’s sample size calculation, considering requirements
 <div id="fig-judges_ss" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/sim_judges_sample_size.png" style="width:100.0%">
+<img data-src="./figures/population_summary/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;87: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
@@ -6703,7 +6746,7 @@ Figure&nbsp;87: Judges’s sample size calculation, considering requirements for
 </section>
 <section id="licence-1" class="slide level2" style="font-size:80%;">
 <h2>Licence</h2>
-<p>All the code that is original to this study and not attributed to any other authors is copyrighted by <em>Jose Manuel Rivera Espejo</em> and released under the New BSD (3-Clause) License: <a href="https://opensource.org/license/BSD-3-Clause">https://opensource.org/license/BSD-3-Clause</a></p>
+<p>All the code that is original to this study and not attributed to any other authors is copyrighted by <em>Jose Manuel Rivera Espejo</em> and released under the new <a href="https://opensource.org/license/BSD-3-Clause">BSD-3-Clause</a> license.</p>
 <!-- ######################################### -->
 </section>
 <section class="slide level2">
@@ -6846,6 +6889,33 @@ Figure&nbsp;87: Judges’s sample size calculation, considering requirements for
 </div>
 <div id="ref-Betancourt_2024" class="csl-entry" role="listitem">
 <div class="csl-left-margin">45. </div><div class="csl-right-inline">Betancourt M (2024) <a href="https://betanalpha.github.io/assets/chapters_html/pairwise_comparison_modeling.html">Pairwise comparison modeling</a></div>
+</div>
+<div id="ref-Ackerman_1989" class="csl-entry" role="listitem">
+<div class="csl-left-margin">46. </div><div class="csl-right-inline">Ackerman T (1989) Unidimensional IRT calibration of compensatory and noncompensatory multidimensional items. Applied Psychological Measurement 13(2):113–127. <a href="https://doi.org/10.1177/014662168901300201">https://doi.org/10.1177/014662168901300201</a></div>
+</div>
+<div id="ref-Zimmerman_1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">47. </div><div class="csl-right-inline">Zimmerman D (1994) A note on the influence of outliers on parametric and nonparametric tests. The Journal of General Psychology 121(4):391–401. <a href="https://doi.org/10.1080/00221309.1994.9921213">https://doi.org/10.1080/00221309.1994.9921213</a></div>
+</div>
+<div id="ref-McElreath_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">48. </div><div class="csl-right-inline">McElreath R (2020) <a href="https://doi.org/10.1201/9780429029608">Statistical rethinking: A bayesian course with examples in r and STAN</a>. Chapman; Hall/CRC</div>
+</div>
+<div id="ref-Hoyle_et_al_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">49. </div><div class="csl-right-inline">Hoyle R(eds) (2023) <a href="">Handbook of structural equation modeling</a>. Guilford Press</div>
+</div>
+<div id="ref-Casalicchio_et_al_2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">50. </div><div class="csl-right-inline">Casalicchio G, Tutz G, Schauberger G (2015) Subject-specific bradley–terry–luce models with implicit variable selection. Statistical Modelling 15(6):526–547. <a href="https://doi.org/10.1177/1471082X15571817">https://doi.org/10.1177/1471082X15571817</a></div>
+</div>
+<div id="ref-Bramley_et_al_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">51. </div><div class="csl-right-inline">Bramley T, Vitello S (2019) The effect of adaptivity on the reliability coefficient in adaptive comparative judgement. Assessment in Education: Principles, Policy &amp; Practice 26(1):43–58. <a href="https://doi.org/10.1080/0969594X.2017.1418734">https://doi.org/10.1080/0969594X.2017.1418734</a></div>
+</div>
+<div id="ref-vanDaal_et_al_2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">52. </div><div class="csl-right-inline">van Daal T, Lesterhuis M, Coertjens L, van de Kamp MT, Donche V, De Maeyer S (2017) The complexity of assessing student work using comparative judgment: The moderating role of decision accuracy. Frontiers in Education 2. <a href="https://doi.org/10.3389/feduc.2017.00044">https://doi.org/10.3389/feduc.2017.00044</a></div>
+</div>
+<div id="ref-Gijsen_et_al_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">53. </div><div class="csl-right-inline">Gijsen M, van Daal T, Lesterhuis M, Gijbels D, De Maeyer S (2021) The complexity of comparative judgments in assessing argumentative writing: An eye tracking study. Frontiers in Education 5. <a href="https://doi.org/10.3389/feduc.2020.582800">https://doi.org/10.3389/feduc.2020.582800</a></div>
+</div>
+<div id="ref-Kline_et_al_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">54. </div><div class="csl-right-inline">Kline R (2023) <a href="">Principles and practice of structural equation modeling</a>. Guilford Press</div>
 </div>
 </div>
 

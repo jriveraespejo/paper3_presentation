@@ -1508,7 +1508,7 @@ The first model fit indicates that,
 - The BTL model recovers the stimuli traits **reasonably well**, though with some downward bias,
 - It struggles to accurately estimate traits for certain **'extreme' stimuli**,
 - The *misfit* analysis fails to detect these 'extreme' cases, despite being **conceptually similar to** an *outlier* detection tool.
-- **Excluding** the identified *misfitting* stimuli and judges in a second model fit [@Pollitt_2012a; @Pollitt_2012b] still results in new misfits and downward-biased estimates, as the model continues to struggle with the remaining **'extreme' stimuli** (see next slides).
+- **Excluding** the identified *misfitting* stimuli and judges in a second model fit [@Pollitt_2012a; @Pollitt_2012b] still results in new stimuli misfits and downward-biased estimates, as the model continues to struggle with the remaining **'extreme' stimuli** (see next slides).
 :::
 :::
 
@@ -1565,6 +1565,7 @@ Before proceeding to Steps $2$ and $3$, we need specify the appropriate **priors
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: {#fig-CBTL_judge_prior}
+
 ![](/figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png){width=50%}
 
 *CBTL analysis*, prior predictive check for multilevel regression model on the residuals.
@@ -1890,6 +1891,7 @@ First, we need specify the appropriate **priors** for the model:
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: {#fig-ITCJ1_priors layout-ncol=2 loyout-nrow=2}
+
 ![](/figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_confusion.png){width=75%}
 
 ![](/figures/ITCJ_analysis/cropped/4_1_1_ITCJ_prior_stimulus.png){width=75%}
@@ -1901,7 +1903,6 @@ First *ITCJ analysis*, prior predictive checks.
 
 :::
 
-
 ---
 
 ## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
@@ -1909,7 +1910,7 @@ First *ITCJ analysis*, prior predictive checks.
 Second, we fit the **first** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ1_diagnostics layout-ncol=2}
 
@@ -2109,7 +2110,7 @@ Assumptions:
 ::: incremental 
 ::: {style="font-size:80%;"}
 - Between-individual variability is assumed to be equal to $1$. Thus, the prior distribution is used to define the scale of individual latent traits, as it is required in latent variable models [@Depaoli_2021].
-- The within-individual (between-stimuli) variability $(s_{A})$ is assigned a **weakly informative Beta-proportion prior** with an average of $\mu=0.5$ and a 'sample size' of $M=5$. This reflects the expectation that the stimuli within the individuals are more homogeneous than the individuals themselves [@Lawson_2015].
+- The within-individual (between-stimuli) variability $(s_{A})$ is assigned a **weakly informative Beta-proportion prior** with an average of $\mu=0.5$ and a 'sample size' of $M=5$. This reflects the expectation that the stimuli are more homogeneous than the individuals [@Lawson_2015].
 :::
 :::
 :::
@@ -2129,6 +2130,7 @@ First, we need specify the appropriate **priors** for the model:
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+
 ![](/figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_confusion.png){width=75%}
 
 ![](/figures/ITCJ_analysis/cropped/4_2_1_ITCJ_prior_stimulus.png){width=75%}
@@ -2140,7 +2142,6 @@ Second *ITCJ analysis*, prior predictive checks.
 
 :::
 
-
 ---
 
 ## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
@@ -2148,7 +2149,7 @@ Second *ITCJ analysis*, prior predictive checks.
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ2_diagnostics layout-ncol=2}
 
@@ -2388,7 +2389,7 @@ Third *ITCJ analysis*, prior predictive checks.
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ2_diagnostics layout-ncol=2}
 
@@ -2628,7 +2629,7 @@ Fourth *ITCJ analysis*, prior predictive checks.
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ2_diagnostics layout-ncol=2}
 
@@ -2874,7 +2875,7 @@ Fifth *ITCJ analysis*, prior predictive checks.
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ2_diagnostics layout-ncol=2}
 
@@ -3103,6 +3104,7 @@ First, we need specify the appropriate **priors** for the model:
 As a result of the prior assumptions, the **prior predictive check** shows that:
 
 ::: {#fig-ITCJ2_priors layout-ncol=2 loyout-nrow=2}
+
 ![](/figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_confusion.png){width=75%}
 
 ![](/figures/ITCJ_analysis/cropped/4_6_1_ITCJ_prior_stimulus.png){width=75%}
@@ -3122,7 +3124,7 @@ Sixth *ITCJ analysis*, prior predictive checks.
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
 ::: {.fragment style="font-size:80%;"}
-The **diagnostic statistics and plots** indicate parameters achieve stationarity, convergence and and 'good' mixing,
+The **diagnostic statistics and plots** indicate that,
 
 ::: {#fig-ITCJ2_diagnostics layout-ncol=2}
 
@@ -3282,12 +3284,12 @@ The **influential points plots** indicates that,
 Finally, we compare the approximate out-of-sample fit for all *ITCJ models*.
 
 ::: {style="font-size:80%;"}
-The **PSIS model comparison** indicates that, 
+The **approximate out-of-sample fit comparison** indicates that, 
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- There is a clear difference in approximate out-of-sample fit between ITCJ models $1-3$ (i.e., *equivalent* Bayesian BTL models) and ITCJ models $4-6$, which account for judges' biases,
-- ITCJ model $4$ and $5$ similar approximate out-of-sample fit, that is, adding covariates to model $4$ (model $5$) does not substantially improves its fit,
+- There is a clear difference in between ITCJ models $1-3$ (i.e., *equivalent* Bayesian BTL models) and ITCJ models $4-6$, which account for judges' biases, even considering the parameter penalty!,
+- ITCJ model $4$ and $5$ show similar performance, this implies that adding covariates to model $4$ (model $5$) does not substantially improves its fit,
 - ITCJ model $6$ has the best relative approximate out-of-sample fit.
 :::
 :::
@@ -3349,7 +3351,7 @@ idx4 = with( param_ITCJ,
 param_CBTL[!(idx1 | idx2), var_int] |>
   gt() |>
   opt_table_font( size=12 ) |>
-  fmt_number( columns=2, decimals=3, use_seps = F ) |>
+  fmt_number( columns=everything(), decimals=2, use_seps=F ) |>
   tab_header( title = "Parameter table" ) |>
   tab_footnote(
     footnote = 'No equivalent parameter in original simulation.',
@@ -3360,7 +3362,7 @@ param_CBTL[!(idx1 | idx2), var_int] |>
 param_ITCJ[!(idx3 | idx4), var_int] |>
   gt() |>
   opt_table_font( size=12 ) |>
-  fmt_number( columns=2, decimals=3, use_seps = F ) |>
+  fmt_number( columns=everything(), decimals=2, use_seps=F ) |>
   tab_header( title = "Parameter table" )
 ```
 
@@ -3383,7 +3385,7 @@ Also, we compare and interpret the parameter estimates:
 param_CBTL[idx1, var_int] |>
   gt() |>
   opt_table_font( size=12 ) |>
-  fmt_number( columns=2, decimals=3, use_seps = F ) |>
+  fmt_number( columns=everything(), decimals=2, use_seps=F ) |>
   tab_header( title = "Contrast table" )
 ```
 
@@ -3391,7 +3393,7 @@ param_CBTL[idx1, var_int] |>
 param_ITCJ[idx3, var_int] |>
   gt() |>
   opt_table_font( size=12 ) |>
-  fmt_number( columns=2, decimals=3, use_seps = F ) |>
+  fmt_number( columns=everything(), decimals=2, use_seps=F ) |>
   tab_header( title = "Contrast table" )
 ```
 
@@ -3410,6 +3412,55 @@ Contrast estimates. *Left table* reports the *CBTL analysis*. *Right table* repo
 
 ## 6. Discussion {style="font-size:80%;"}
 
+This study fulfills its **two overarching goals**, that is,
+
+::: {.fragment style="font-size:80%;"}
+1. *To show how apply the ITCJ model to a simulated dataset*,
+
+    A **tutorial component**, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software `R` and `Stan`.
+
+2. *Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences*,
+
+    A **model validation component** benchmarked against the CBTL analysis.
+:::
+
+---
+
+## 6. Discussion {style="font-size:80%;"}
+
+Moreover, the *CBTL analysis* results provide preliminary evidence that,
+
+::: incremental 
+::: {style="font-size:80%;"}
+- Researchers **cannot** treat "sample-freeness" as an inherent property of the BTL model, contrary to previous beliefs [@Bramley_2008; @Andrich_1978]. Instead, the property depends on the specific data under analysis.
+
+- When judges exhibit biases, the simplifying assumptions of the BTL model **fail** to capture the complexity of the simulated traits [@Thurstone_1927a; @Andrich_1978; @Bramley_2008; @Kelly_et_al_2022], producing **inaccurate and unreliable** trait estimates [@Ackerman_1989; @Zimmerman_1994; @McElreath_2020; @Hoyle_et_al_2023]. This limitation is particularly evident in estimating judges' biases.
+
+- The BTL model is **overconfident** when predicting comparison outcomes, as shown by the posterior predictive checks.
+
+- The BTL model struggles to accurately estimate the traits of certain *'extreme'* stimuli, even though the simulation **does not** generate such stimuli.
+
+- The ad hoc *misfit* analysis procedure **fails** to achieve its intended analytical purpose [@Kelly_et_al_2022], because it **miss classifies** valid stimuli as *misfits* and **fails to identify** all biased judges [@Rivera_et_al_2025].
+
+- The common CJ practice of excluding *misfit* stimuli and judges from the model fit  [@Pollitt_2012a; @Pollitt_2012b] **does not** improve trait estimation.
+
+- Separating trait estimation from hypothesis testing, another common CJ practice [@Casalicchio_et_al_2015; @Bramley_et_al_2019; @Boonen_et_al_2020; @Bouwer_et_al_2023; @vanDaal_et_al_2017; @Jones_et_al_2019; @Gijsen_et_al_2021], **introduces bias and reduces the reliability** of inferences [@McElreath_2020; @Kline_et_al_2023; @Hoyle_et_al_2023].
+:::
+:::
+
+---
+
+## 6. Discussion {style="font-size:80%;"}
+
+In contrast, results from the ITCJ analysis indicate that,
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The frequentist and the *equivalent* Bayesian ITCJ models (models $1-3$) have **similarly insufficient** fit and recovery performance.
+- Incorporating the hierarchical structure of stimuli and accounting for judges' biases (i.e., ITCJ model $4$) **improves** the prediction of comparison outcomes by up to $10$ percentage points, as indicated by the posterior predictive checks.
+- Expanding the model to include the hierarchical structure of stimuli, judges' biases, heterogeneity in discriminal dispersions, and measurement error in inferences (i.e., ITCJ model $6$) **enhances both** the accuracy and reliability of trait estimation and the accuracy of statistical inferences. This improvement is evident across all traits and parameters. 
+:::
+:::
 
 <!-- ######################################### -->
 
@@ -3418,6 +3469,15 @@ Contrast estimates. *Left table* reports the *CBTL analysis*. *Right table* repo
 ---
 
 ## 6.1 Future research directions {style="font-size:80%;"}
+
+<!-- - Moreover, the extent to which the exclusion of *misfit* stimuli and judges introduce bias into trait estimates remains to be assessed. The direction and magnitude of this bias are often unpredictable, as they depend on which observations are excluded from the analysis (Zimmerman 1994; O’Hagan 2018; McElreath 2020; Miller 2023) -->
+
+<!-- - ITCJ models shift the analytic paradigm from passively accepting the assumptions of the BTL model to actively testing their fit with observed data.  -->
+
+
+<!-- Despite the growing notion that various stimulus-related factors influence judges’ perceptions (van Daal et al. 2016; Lesterhuis et al. 2018; Chambers and Cunningham 2022) and that these influences may not always cancel each other out, empirical evidence of judges’ biases remains scarce in the CJ literature (Pollitt and Elliott 2003; van Daal et al. 2016; Bartholomew et al. 2020). This gap likely persists not from a lack of interest or research but because the identification of such biases often depends on ad-hoc detection methods, like ‘misfit’ statistics, that may not be well-suited for the task (Kelly, Richardson, and Isaacs 2022). To overcome this limitation, the present study treated judges’ biases as an integral component of the CJ system from the outset. This approach offers one key advantage: it provides a more accurate representation of the data-generating process behind pairwise comparisons, one that acknowledges that the discriminal processes of stimuli becomes an observable outcome only through judges’ perceptions, which may exhibit bias. -->
+
+<!-- further exploration is warranted into how judge selection influences the formation of a “shared consensus” and whether certain judge attributes introduce systematic biases or distortions in the stimuli trait distribution (Deffner, Rohrer, and McElreath 2022). Furthermore, if such attributes do in fact compromise the assumption of “sample-freeness,” it becomes essential to consider strategies for mitigating their effects and to determine how many judges (and how many judgments per judge) are required to produce reliable trait estimates under these conditions. -->
 
 <!-- ######################################### -->
 
@@ -3468,7 +3528,7 @@ More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms shown 
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-individual_ss}
-![](/figures/sim_individual_sample_size.png){width=100%}
+![](/figures/population_summary/sim_individual_sample_size.png){width=100%}
 
 Individual's sample size calculation, considering requirements for Power, Efficiency and Cost.
 :::
@@ -3480,7 +3540,7 @@ Individual's sample size calculation, considering requirements for Power, Effici
 
 ::: {.fragment style="font-size:80%;"}
 ::: {#fig-judges_ss}
-![](/figures/sim_judges_sample_size.png){width=100%}
+![](/figures/population_summary/sim_judges_sample_size.png){width=100%}
 
 Judges's sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 :::
@@ -3495,7 +3555,9 @@ Judges's sample size calculation, considering requirements for Confidence, Effic
 
 ## Licence {style="font-size:80%;"}
 
-All the code that is original to this study and not attributed to any other authors is copyrighted by *Jose Manuel Rivera Espejo* and released under the New BSD (3-Clause) License: [https://opensource.org/license/BSD-3-Clause](https://opensource.org/license/BSD-3-Clause)
+All the code that is original to this study and not attributed to any other authors is copyrighted by *Jose Manuel Rivera Espejo* and released under the new [BSD-3-Clause](https://opensource.org/license/BSD-3-Clause) license. 
+
+
 
 <!-- ######################################### -->
 
