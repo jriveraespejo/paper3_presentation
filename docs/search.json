@@ -18,7 +18,7 @@
     "href": "presentation.html#research-goals-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "2. Research goals",
-    "text": "2. Research goals\nThus, this study has two overarching goals:\n\n\nTo show how apply the Information-Theoretical model for CJ to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\n\n\n\nOnce a sufficiently trustworthy model is found in goal 1,\n\nEvaluate whether the approach yield reliable trait estimates and accurate statistical inferences,\nA model validation component benchmarked against the classical BTL analysis."
+    "text": "2. Research goals\nThus, this study has two overarching goals:\n\n\nTo show how apply the Information-Theoretical model for CJ to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\n\n\n\nOnce a sufficiently trustworthy model is found in goal 1,\n\nEvaluate whether the approach yield accurate and reliable trait estimates and inference parameters,\nA model validation component benchmarked against the classical BTL analysis."
   },
   {
     "objectID": "presentation.html#a-tale-of-two-analytical-approaches",
@@ -116,7 +116,7 @@
     "href": "presentation.html#from-design-to-sample-step-2-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "4.2 From Design to Sample: Step 2",
-    "text": "4.2 From Design to Sample: Step 2\nWe generate a synthetic random sample and comparison datasets from the conceptual population in Step 1.\n\nMore specifically, for the sampling \\((S)\\) and comparison \\((C)\\) mechanisms illustrated in Figure 5, sample size calculations were conducted (see Section 29), and the following design was adopted:\n\n\n\nA sample of \\(54\\) individuals, divided into three hearing status groups: \\(40\\) NH \\((X_{Id}[g=1])\\), \\(7\\) HI-HA \\((X_{Id}[g=2])\\), and \\(7\\) HI-CI \\((X_{Id}[g=3])\\) children;\nA sample of \\(10\\) stimuli per individual;\nA sample of \\(60\\) judges, divided into three groups: \\(10\\) AU \\((Z_{Jd}[g=1])\\), \\(10\\) PT \\((Z_{Jd}[g=2])\\), and \\(40\\) IL \\((Z_{Jd}[g=3])\\);\nJudges conduct only one-comparison of the same stimulus pair (i.e., design is NOT a repeated measures design [25])\nEach stimulus is compared \\(20\\) times in total against other stimuli, across all judges."
+    "text": "4.2 From Design to Sample: Step 2\nWe generate a synthetic random sample and comparison datasets from the conceptual population in Step 1.\n\nMore specifically, for the sampling \\((S)\\) and comparison \\((C)\\) mechanisms illustrated in Figure 5, sample size calculations were conducted (see Section 30), and the following design was adopted:\n\n\n\nA sample of \\(54\\) individuals, divided into three hearing status groups: \\(40\\) NH \\((X_{Id}[g=1])\\), \\(7\\) HI-HA \\((X_{Id}[g=2])\\), and \\(7\\) HI-CI \\((X_{Id}[g=3])\\) children;\nA sample of \\(10\\) stimuli per individual;\nA sample of \\(60\\) judges, divided into three groups: \\(10\\) AU \\((Z_{Jd}[g=1])\\), \\(10\\) PT \\((Z_{Jd}[g=2])\\), and \\(40\\) IL \\((Z_{Jd}[g=3])\\);\nJudges conduct only one-comparison of the same stimulus pair (i.e., design is NOT a repeated measures design [25])\nEach stimulus is compared \\(20\\) times in total against other stimuli, across all judges."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-1",
@@ -760,7 +760,7 @@
     "href": "presentation.html#model-comparison-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.3 Model comparison",
-    "text": "5.3 Model comparison\nFinally, we compare the approximate out-of-sample fit for all ITCJ models.\n\nThe approximate out-of-sample fit comparison indicates that,\n\n\n\nThere is a clear difference in between ITCJ models \\(1-3\\) (i.e., equivalent Bayesian BTL models) and ITCJ models \\(4-6\\), which account for judges’ biases, even considering the parameter penalty!,\nITCJ model \\(4\\) and \\(5\\) show similar performance, this implies that adding covariates to model \\(4\\) (model \\(5\\)) does not substantially improves its fit,\nITCJ model \\(6\\) has the best relative approximate out-of-sample fit.\n\n\n\n\n\n\n\n\n\nFigure 83: ITCJ analysis, model comparison. Left panel shows all models. Right panel shows a smaller set of models."
+    "text": "5.3 Model comparison\nFinally, we compare the approximate out-of-sample fit for all ITCJ models.\n\nThe approximate out-of-sample fit comparison indicates that,\n\n\n\nThere is a clear difference in between ITCJ models \\(1-3\\) (Bayesian equivalent of the BTL model) and ITCJ models \\(4-6\\), which account for judges’ biases, even considering the parameter penalty!,\nITCJ model \\(4\\) and \\(5\\) show similar performance, this implies that adding covariates to model \\(4\\) (model \\(5\\)) does not substantially improves its approximate out-of-sample fit,\nITCJ model \\(6\\) has the best relative approximate out-of-sample fit.\n\n\n\n\n\n\n\n\n\nFigure 83: ITCJ analysis, model comparison. Left panel shows all models. Right panel shows a smaller set of models."
   },
   {
     "objectID": "presentation.html#model-comparison-2",
@@ -781,42 +781,56 @@
     "href": "presentation.html#discussion-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "6. Discussion",
-    "text": "6. Discussion\nThis study fulfills its two overarching goals, that is,\n\n\nTo show how apply the ITCJ model to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\nEvaluate whether the approach yield reliable trait estimates and accurate statistical inferences,\nA model validation component benchmarked against the CBTL analysis."
+    "text": "6. Discussion\nThis study fulfills its two overarching goals, that is,\n\n\nShowing how apply the ITCJ model to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\nEvaluating whether the approach yield accurate and reliable trait estimates and inference parameters,\nA model validation component benchmarked against the CBTL analysis."
   },
   {
     "objectID": "presentation.html#discussion-2",
     "href": "presentation.html#discussion-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "6. Discussion",
-    "text": "6. Discussion\nMoreover, the CBTL analysis results provide preliminary evidence that,\n\n\n\nResearchers cannot treat “sample-freeness” as an inherent property of the BTL model, contrary to previous beliefs [3, 6]. Instead, the property depends on the specific data under analysis.\nWhen judges exhibit biases, the simplifying assumptions of the BTL model fail to capture the complexity of the simulated traits [3, 6, 7, 9], producing inaccurate and unreliable trait estimates [46–49]. This limitation is particularly evident in estimating judges’ biases.\nThe BTL model is overconfident when predicting comparison outcomes, as shown by the posterior predictive checks.\nThe BTL model struggles to accurately estimate the traits of certain ‘extreme’ stimuli, even though the simulation does not generate such stimuli.\nThe ad hoc misfit analysis procedure fails to achieve its intended analytical purpose [7], because it miss classifies valid stimuli as misfits and fails to identify all biased judges [8].\nThe common CJ practice of excluding misfit stimuli and judges from the model fit [4, 10] does not improve trait estimation.\nSeparating trait estimation from hypothesis testing, another common CJ practice [11, 12, 14, 50–53], introduces bias and reduces the reliability of inferences [48, 49, 54]."
+    "text": "6. Discussion\nThe CBTL analysis results provide preliminary evidence that,\n\n\n\nResearchers cannot treat “sample-freeness” as an inherent property of the BTL model, contrary to previous beliefs [3, 6]. Instead, the property depends on the specific data under analysis.\nWhen judges exhibit bias, the CBTL analysis fails to capture the complexity of the traits [3, 6, 7, 9], producing inaccurate and unreliable estimates [46–49]. This limitation is particularly evident in the estimation of inference parameters and judges’ biases.\nThe common CJ practice of separating trait estimation from hypothesis testing [11, 12, 14, 50–53], introduces bias and reduces the reliability of inferences [48, 49, 54].\nThe BTL model is overconfident when predicting comparison outcomes, as shown by the posterior predictive checks based on the expected values.\nThe BTL model struggles to accurately estimate the traits of certain ‘extreme’ stimuli, even though the simulation does not generate such stimuli.\nThe ad hoc misfit analysis procedure miss classifies valid stimuli as misfits and fails to identify all biased judges [8], failing to achieve its intended analytical purpose [7].\nExcluding misfit stimuli and judges from the model fit, another common CJ practice [4, 10], does not improve trait estimation nor inferences."
   },
   {
     "objectID": "presentation.html#discussion-3",
     "href": "presentation.html#discussion-3",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "6. Discussion",
-    "text": "6. Discussion\nIn contrast, results from the ITCJ analysis indicate that,\n\n\n\nThe frequentist and the equivalent Bayesian ITCJ models (models \\(1-3\\)) have similarly insufficient fit and recovery performance.\nIncorporating the hierarchical structure of stimuli and accounting for judges’ biases (i.e., ITCJ model \\(4\\)) improves the prediction of comparison outcomes by up to \\(10\\) percentage points, as indicated by the posterior predictive checks.\nExpanding the model to include the hierarchical structure of stimuli, judges’ biases, heterogeneity in discriminal dispersions, and measurement error in inferences (i.e., ITCJ model \\(6\\)) enhances both the accuracy and reliability of trait estimation and the accuracy of statistical inferences. This improvement is evident across all traits and parameters."
+    "text": "6. Discussion\nIn contrast, results from the ITCJ analysis indicate that,\n\n\n\nThe frequentist BTL model and its equivalent Bayesian ITCJ models (models \\(1-3\\)) show similar insufficient fit; however, the ITCJ models exhibit a slightly better recovery performance due to the regularizing influence of weakly informative priors (see parameter recovery and RMSE plots).\nIncorporating the hierarchical structure of stimuli and accounting for judges’ biases (ITCJ model \\(4\\)) improves the prediction of comparison outcomes by up to \\(10\\) percentage points in the overall True Positives (TP) and True Negatives (TN), as indicated by posterior predictive checks.\nExpanding the model to include the hierarchical structure of stimuli, judges’ biases, heterogeneity in discriminal dispersions, and measurement error in inferences (ITCJ model \\(6\\)) enhances both the accuracy and reliability of all trait estimates and inference parameters.\nITCJ model \\(6\\) enables to test other inferences not available under the CBTL analysis"
   },
   {
     "objectID": "presentation.html#future-research-directions-1",
     "href": "presentation.html#future-research-directions-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "6.1 Future research directions",
-    "text": "6.1 Future research directions"
+    "text": "6.1 Future research directions\nBuilding upon Rivera et al. [8], four researh avenues deserve special attention.\n\n\n\nSampling and comparison mechanisms,\nThis study used random sampling and comparison algorithms. Future work should assess how alternative sampling strategies and comparison algorithms affect the accuracy and reliability of trait estimates and inference parameters, e.g.,\n\n\n\n\nwhat happens when data is not randomly sampled or when comparison are not random?\nis the Adaptive Comparative Judgment (ACJ) algorithm random or non-random?\n\n\n\n\nValidity of ‘misfit’ analysis,\nPreliminary evidence in this study suggest that ‘misfit’ analysis often miss classifies or fails to classify cases. Future work should then determine, e.g.,\n\n\n\n\nwhat ‘misfit’ analysis actually diagnose?\nare its conceptual and statistical definitions aligned?\ndoes the analysis function as an outlier detection tool?\ndoes it holds real analytical value in the CJ workflow?"
+  },
+  {
+    "objectID": "presentation.html#future-research-directions-2",
+    "href": "presentation.html#future-research-directions-2",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "6.1 Future research directions",
+    "text": "6.1 Future research directions\nBuilding upon Rivera et al. [8], four researh avenues deserve special attention.\n\n\n\nSources of judges biases,\nEvidence from this study indicates that researchers need to move beyond the traditional BTL model, explicitly integrating judges’ biases in CJ analyses. This opens the door for future studies to investigate which factors influence these biases. For instance,\n\n\n\n\ndo gender, age, culture, income, education, training, or expertise affect judges’ biases?,\nhow many stimuli/individuals and judges are needed to support specific inferences?\n\n\n\n\nProspective power and replication studies!\nConsidering the preliminary evidence of this study,\n\n\n\n\nin any random sample, what is the probability that at least one judge is biased?\nif that probability is not low, how confident can researchers be that their CJ data are free of judges’ biases?"
   },
   {
     "objectID": "presentation.html#study-limitations-1",
     "href": "presentation.html#study-limitations-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "6.2 Study limitations",
-    "text": "6.2 Study limitations"
+    "text": "6.2 Study limitations\nDespite its clear results, this study has some limitations:\n\n\n\nThe empirical test of the ITCJ analyses relies on a single, ‘small’ simulated dataset,\nThe assessment of out-of-sample fit depends on approximate measures, such as PSIS,\nThe analysis did not use other variables available in the simulated data to evaluate the models’ ability to not reject null hypotheses when the null is true (except for judges’ groups),\nThe properties of the ‘misfit’ analysis were not directly examined."
   },
   {
     "objectID": "presentation.html#conclusion-1",
     "href": "presentation.html#conclusion-1",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "7. Conclusion",
-    "text": "7. Conclusion"
+    "text": "7. Conclusion\nThis study achieves its two main goals,\n\n\n\nIt provides a practical tutorial in R and Stan on how to apply the ITCJ analysis to a CJ data,\nIt validates the model’s ability to produce accurate and reliable trait estimates and inference parameters compared to the CBTL analysis.\n\n\n\n\nThe results of the study indicates that,\n\n\n\nResearchers should move beyond the CBTL analysis toward a more systematic, integrated approach for trait estimation and inference, as exemplified by the ITCJ analysis [8].\nThere are several promising directions for future research."
+  },
+  {
+    "objectID": "presentation.html#licence-1",
+    "href": "presentation.html#licence-1",
+    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "section": "Licence",
+    "text": "Licence\nAll the code that is original to this study and not attributed to any other authors is copyrighted by Jose Manuel Rivera Espejo and released under the new BSD-3-Clause license."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2",
@@ -838,12 +852,5 @@
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "Appendix A - From Design to Sample: Step 2",
     "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 87: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
-  },
-  {
-    "objectID": "presentation.html#licence-1",
-    "href": "presentation.html#licence-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
-    "section": "Licence",
-    "text": "Licence\nAll the code that is original to this study and not attributed to any other authors is copyrighted by Jose Manuel Rivera Espejo and released under the new BSD-3-Clause license."
   }
 ]

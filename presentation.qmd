@@ -111,7 +111,7 @@ To address these concerns, Rivera et al. [@Rivera_et_al_2025] proposed *The Info
 Thus, this study has **two overarching goals**:
 
 ::: {.fragment style="font-size:80%;"}
-1. *To show how apply the Information-Theoretical model for CJ to a simulated dataset*,
+1. To show how apply the Information-Theoretical model for CJ to a simulated dataset,
 
     A **tutorial component**, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software `R` and `Stan`.
 :::
@@ -119,7 +119,7 @@ Thus, this study has **two overarching goals**:
 ::: {.fragment style="font-size:80%;"}
 Once a *sufficiently trustworthy model* is found in goal 1,
 
-2. *Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences*,
+2. Evaluate whether the approach yield accurate and reliable trait estimates and inference parameters,
 
     A **model validation component** benchmarked against the classical BTL analysis.
 :::
@@ -3288,8 +3288,8 @@ The **approximate out-of-sample fit comparison** indicates that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- There is a clear difference in between ITCJ models $1-3$ (i.e., *equivalent* Bayesian BTL models) and ITCJ models $4-6$, which account for judges' biases, even considering the parameter penalty!,
-- ITCJ model $4$ and $5$ show similar performance, this implies that adding covariates to model $4$ (model $5$) does not substantially improves its fit,
+- There is a clear difference in between ITCJ models $1-3$ (Bayesian *equivalent* of the BTL model) and ITCJ models $4-6$, which account for judges' biases, even considering the parameter penalty!,
+- ITCJ model $4$ and $5$ show similar performance, this implies that adding covariates to model $4$ (model $5$) does not substantially improves its approximate out-of-sample fit,
 - ITCJ model $6$ has the best relative approximate out-of-sample fit.
 :::
 :::
@@ -3415,36 +3415,36 @@ Contrast estimates. *Left table* reports the *CBTL analysis*. *Right table* repo
 This study fulfills its **two overarching goals**, that is,
 
 ::: {.fragment style="font-size:80%;"}
-1. *To show how apply the ITCJ model to a simulated dataset*,
+1. Showing how apply the *ITCJ model* to a simulated dataset,
 
     A **tutorial component**, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software `R` and `Stan`.
 
-2. *Evaluate whether the approach yield reliable trait estimates and accurate statistical inferences*,
+2. Evaluating whether the approach yield accurate and reliable trait estimates and inference parameters,
 
-    A **model validation component** benchmarked against the CBTL analysis.
+    A **model validation component** benchmarked against the *CBTL analysis*.
 :::
 
 ---
 
 ## 6. Discussion {style="font-size:80%;"}
 
-Moreover, the *CBTL analysis* results provide preliminary evidence that,
+The *CBTL analysis* results provide preliminary evidence that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
 - Researchers **cannot** treat "sample-freeness" as an inherent property of the BTL model, contrary to previous beliefs [@Bramley_2008; @Andrich_1978]. Instead, the property depends on the specific data under analysis.
 
-- When judges exhibit biases, the simplifying assumptions of the BTL model **fail** to capture the complexity of the simulated traits [@Thurstone_1927a; @Andrich_1978; @Bramley_2008; @Kelly_et_al_2022], producing **inaccurate and unreliable** trait estimates [@Ackerman_1989; @Zimmerman_1994; @McElreath_2020; @Hoyle_et_al_2023]. This limitation is particularly evident in estimating judges' biases.
+- When judges exhibit bias, the *CBTL analysis* **fails** to capture the complexity of the traits [@Thurstone_1927a; @Andrich_1978; @Bramley_2008; @Kelly_et_al_2022], producing **inaccurate and unreliable** estimates [@Ackerman_1989; @Zimmerman_1994; @McElreath_2020; @Hoyle_et_al_2023]. This limitation is particularly evident in the estimation of inference parameters and judges' biases.
 
-- The BTL model is **overconfident** when predicting comparison outcomes, as shown by the posterior predictive checks.
+- The common CJ practice of separating trait estimation from hypothesis testing [@Casalicchio_et_al_2015; @Bramley_et_al_2019; @Boonen_et_al_2020; @Bouwer_et_al_2023; @vanDaal_et_al_2017; @Jones_et_al_2019; @Gijsen_et_al_2021], **introduces bias and reduces the reliability** of inferences [@McElreath_2020; @Kline_et_al_2023; @Hoyle_et_al_2023].
+
+- The BTL model is **overconfident** when predicting comparison outcomes, as shown by the posterior predictive checks based on the expected values.
 
 - The BTL model struggles to accurately estimate the traits of certain *'extreme'* stimuli, even though the simulation **does not** generate such stimuli.
 
-- The ad hoc *misfit* analysis procedure **fails** to achieve its intended analytical purpose [@Kelly_et_al_2022], because it **miss classifies** valid stimuli as *misfits* and **fails to identify** all biased judges [@Rivera_et_al_2025].
+- The ad hoc *misfit* analysis procedure **miss classifies** valid stimuli as *misfits* and **fails** to identify all biased judges [@Rivera_et_al_2025], **failing** to achieve its intended analytical purpose [@Kelly_et_al_2022].
 
-- The common CJ practice of excluding *misfit* stimuli and judges from the model fit  [@Pollitt_2012a; @Pollitt_2012b] **does not** improve trait estimation.
-
-- Separating trait estimation from hypothesis testing, another common CJ practice [@Casalicchio_et_al_2015; @Bramley_et_al_2019; @Boonen_et_al_2020; @Bouwer_et_al_2023; @vanDaal_et_al_2017; @Jones_et_al_2019; @Gijsen_et_al_2021], **introduces bias and reduces the reliability** of inferences [@McElreath_2020; @Kline_et_al_2023; @Hoyle_et_al_2023].
+- Excluding *misfit* stimuli and judges from the model fit, another common CJ practice [@Pollitt_2012a; @Pollitt_2012b], **does not** improve trait estimation nor inferences.
 :::
 :::
 
@@ -3456,9 +3456,10 @@ In contrast, results from the ITCJ analysis indicate that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- The frequentist and the *equivalent* Bayesian ITCJ models (models $1-3$) have **similarly insufficient** fit and recovery performance.
-- Incorporating the hierarchical structure of stimuli and accounting for judges' biases (i.e., ITCJ model $4$) **improves** the prediction of comparison outcomes by up to $10$ percentage points, as indicated by the posterior predictive checks.
-- Expanding the model to include the hierarchical structure of stimuli, judges' biases, heterogeneity in discriminal dispersions, and measurement error in inferences (i.e., ITCJ model $6$) **enhances both** the accuracy and reliability of trait estimation and the accuracy of statistical inferences. This improvement is evident across all traits and parameters. 
+- The frequentist BTL model and its *equivalent* Bayesian ITCJ models (models $1-3$) show **similar insufficient fit**; however, the ITCJ models exhibit a slightly better recovery performance due to the regularizing influence of **weakly informative priors** (see parameter recovery and RMSE plots).
+- Incorporating the hierarchical structure of stimuli and accounting for judges' biases (ITCJ model $4$) **improves** the prediction of comparison outcomes by up to $10$ percentage points in the overall True Positives (TP) and True Negatives (TN), as indicated by posterior predictive checks.
+- Expanding the model to include the hierarchical structure of stimuli, judges' biases, heterogeneity in discriminal dispersions, and measurement error in inferences (ITCJ model $6$) **enhances both** the accuracy and reliability of all trait estimates and inference parameters. 
+- ITCJ model $6$ enables to test other inferences not available under the *CBTL analysis* 
 :::
 :::
 
@@ -3470,14 +3471,70 @@ In contrast, results from the ITCJ analysis indicate that,
 
 ## 6.1 Future research directions {style="font-size:80%;"}
 
-<!-- - Moreover, the extent to which the exclusion of *misfit* stimuli and judges introduce bias into trait estimates remains to be assessed. The direction and magnitude of this bias are often unpredictable, as they depend on which observations are excluded from the analysis (Zimmerman 1994; O’Hagan 2018; McElreath 2020; Miller 2023) -->
+Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deserve special attention.
 
-<!-- - ITCJ models shift the analytic paradigm from passively accepting the assumptions of the BTL model to actively testing their fit with observed data.  -->
+::: incremental 
+::: {style="font-size:80%;"}
+1. Sampling and comparison mechanisms,
 
+    This study used random sampling and comparison algorithms. Future work should assess how alternative sampling strategies and comparison algorithms affect the accuracy and reliability of trait estimates and inference parameters, e.g., 
 
-<!-- Despite the growing notion that various stimulus-related factors influence judges’ perceptions (van Daal et al. 2016; Lesterhuis et al. 2018; Chambers and Cunningham 2022) and that these influences may not always cancel each other out, empirical evidence of judges’ biases remains scarce in the CJ literature (Pollitt and Elliott 2003; van Daal et al. 2016; Bartholomew et al. 2020). This gap likely persists not from a lack of interest or research but because the identification of such biases often depends on ad-hoc detection methods, like ‘misfit’ statistics, that may not be well-suited for the task (Kelly, Richardson, and Isaacs 2022). To overcome this limitation, the present study treated judges’ biases as an integral component of the CJ system from the outset. This approach offers one key advantage: it provides a more accurate representation of the data-generating process behind pairwise comparisons, one that acknowledges that the discriminal processes of stimuli becomes an observable outcome only through judges’ perceptions, which may exhibit bias. -->
+::: incremental 
+::: {style="font-size:80%;"}
+- what happens when data is not randomly sampled or when comparison are not random? 
+- is the Adaptive Comparative Judgment (ACJ) algorithm random or non-random?
+:::
+:::
 
-<!-- further exploration is warranted into how judge selection influences the formation of a “shared consensus” and whether certain judge attributes introduce systematic biases or distortions in the stimuli trait distribution (Deffner, Rohrer, and McElreath 2022). Furthermore, if such attributes do in fact compromise the assumption of “sample-freeness,” it becomes essential to consider strategies for mitigating their effects and to determine how many judges (and how many judgments per judge) are required to produce reliable trait estimates under these conditions. -->
+2. Validity of *'misfit'* analysis,
+
+    Preliminary evidence in this study suggest that *'misfit'* analysis often miss classifies or fails to classify cases. Future work should then determine, e.g., 
+
+::: incremental 
+::: {style="font-size:80%;"}
+- what *'misfit'* analysis actually diagnose? 
+- are its conceptual and statistical definitions aligned? 
+- does the analysis function as an *outlier* detection tool? 
+- does it holds real analytical value in the CJ workflow?
+:::
+:::
+    
+:::
+:::
+
+---
+
+## 6.1 Future research directions {style="font-size:80%;"}
+
+Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deserve special attention.
+
+::: incremental 
+::: {style="font-size:80%;"}
+3. Sources of judges biases,
+
+    Evidence from this study indicates that researchers need to move beyond the traditional BTL model, explicitly integrating judges' biases in CJ analyses. This opens the door for future studies to investigate which factors influence these biases. For instance, 
+
+::: incremental 
+::: {style="font-size:80%;"}
+- do gender, age, culture, income, education, training, or expertise affect judges' biases?, 
+- how many stimuli/individuals and judges are needed to support specific inferences?
+:::
+:::
+
+4. Prospective power and replication studies!
+
+    Considering the preliminary evidence of this study, 
+    
+::: incremental 
+::: {style="font-size:80%;"}
+- in any random sample, what is the probability that at least one judge is biased?
+- if that probability is not low, how confident can researchers be that their CJ data are free of judges' biases? 
+:::
+:::
+
+:::
+:::
+
 
 <!-- ######################################### -->
 
@@ -3486,6 +3543,17 @@ In contrast, results from the ITCJ analysis indicate that,
 ---
 
 ## 6.2 Study limitations {style="font-size:80%;"}
+
+Despite its clear results, this study has some limitations:
+
+::: incremental 
+::: {style="font-size:80%;"}
+- The empirical test of the *ITCJ analyses* relies on a single, *'small'* simulated dataset,
+- The assessment of out-of-sample fit depends on approximate measures, such as PSIS, 
+- The analysis did not use other variables available in the simulated data to evaluate the models' ability to not reject null hypotheses when the null is true (except for judges' groups),
+- The properties of the *'misfit'* analysis were not directly examined.
+:::
+:::
 
 
 <!-- ######################################### -->
@@ -3496,9 +3564,38 @@ In contrast, results from the ITCJ analysis indicate that,
 
 ## 7. Conclusion {style="font-size:80%;"}
 
+This study achieves its **two main goals**, 
+
+::: incremental 
+::: {style="font-size:80%;"}
+1. It provides a practical tutorial in `R` and `Stan` on how to apply the *ITCJ analysis* to a CJ data, 
+2. It validates the model's ability to produce accurate and reliable trait estimates and inference parameters compared to the *CBTL analysis*.
+:::
+:::
+
+:::{.fragment }
+The results of the study indicates that,
+
+::: incremental 
+:::{style="font-size:80%;"}
+- Researchers should move beyond the *CBTL analysis* toward a more systematic, integrated approach for trait estimation and inference, as exemplified by the *ITCJ analysis* [@Rivera_et_al_2025]. 
+
+- There are several promising directions for future research.
+:::
+:::
+:::
+
 <!-- ######################################### -->
 
+# Licence {style="font-size:80%;"}
+
 ---
+
+## Licence {style="font-size:80%;"}
+
+All the code that is original to this study and not attributed to any other authors is copyrighted by [Jose Manuel Rivera Espejo](https://orcid.org/0000-0002-3088-2783) and released under the new [BSD-3-Clause](https://opensource.org/license/BSD-3-Clause) license. 
+
+<!-- ######################################### -->
 
 # Appendix A - From Design to Sample: Step 2 {#sec-AppA}
 
@@ -3545,21 +3642,6 @@ Individual's sample size calculation, considering requirements for Power, Effici
 Judges's sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 :::
 :::
-
-
-
-
-# Licence {style="font-size:80%;"}
-
----
-
-## Licence {style="font-size:80%;"}
-
-All the code that is original to this study and not attributed to any other authors is copyrighted by *Jose Manuel Rivera Espejo* and released under the new [BSD-3-Clause](https://opensource.org/license/BSD-3-Clause) license. 
-
-
-
-<!-- ######################################### -->
 
 ---
 
