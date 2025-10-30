@@ -3625,7 +3625,7 @@ All the code that is original to this study and not attributed to any other auth
 
 ## Appendix A - From Design to Sample: Step 2 {style="font-size:80%;"}
 
-Differing only by replication seed, the study generates _**two** synthetic_ random sample and comparison datasets from the conceptual population in **Step 1**. 
+The study generates a synthetic random sample and comparison datasets from the conceptual population simulated in **Step 1**. 
 
 ::: {.fragment}
 More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms shown in @fig-cj17, sample size calculations were conducted assuming:
