@@ -3509,11 +3509,15 @@ In contrast, results from the ITCJ analysis indicate that,
 ::: incremental 
 ::: {style="font-size:80%;"}
 - The frequentist BTL model and its *equivalent* Bayesian ITCJ models (models $1-3$) show **similar insufficient fit**; however, the ITCJ models exhibit a slightly better recovery performance due to the regularizing influence of **weakly informative priors** (see parameter recovery and RMSE plots).
-- Incorporating the hierarchical structure of stimuli and accounting for judges' biases (ITCJ model $4$) **improves** the prediction of comparison outcomes by up to $10$ percentage points in the overall True Positives (TP) and True Negatives (TN), as indicated by posterior predictive checks.
+
+    [ **Note:** ITCJ models $1-3$ can be estimated with the `BTm()` function; however, the practice is largely absent in the current CJ literature. ]{style="font-size:80%;"}
+    
+- Incorporating the hierarchical structure of stimuli and accounting for judges' biases (ITCJ model $4$) **improves** the prediction of comparison outcomes by up to $10$ percentage points in the overall True Positives (TP) and True Negatives (TN), as indicated by posterior predictive checks, more than including covariates in the model (model $3$).
 - Expanding the model to include the hierarchical structure of stimuli, judges' biases, heterogeneity in discriminal dispersions, and measurement error in inferences (ITCJ model $6$) **enhances both** the accuracy and reliability of all trait estimates and inference parameters. 
 - ITCJ model $6$ enables to test other inferences not available under the *CBTL analysis* 
 :::
 :::
+
 
 <!-- ######################################### -->
 
