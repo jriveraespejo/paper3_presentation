@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-10-30">
+  <meta name="dcterms.date" content="2025-10-31">
   <title>Bayesian modeling of comparative judgment data with R and Stan</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -401,7 +401,7 @@
     </div>
 </div>
 
-  <p class="date">2025-10-30</p>
+  <p class="date">2025-10-31</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -1930,14 +1930,13 @@ Figure&nbsp;22: Individual win rates.
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>First, the BTL model is applied to the data to estimate the stimuli traits.</p>
 <div class="fragment" style="font-size:80%;">
-<p>The first model fit indicates that,</p>
+<p>The initial model fit indicates that,</p>
 <div>
 <div style="font-size:80%;">
 <ul>
-<li class="fragment">The BTL model recovers the stimuli traits <strong>reasonably well</strong>, though with some downward bias,</li>
-<li class="fragment">It struggles to accurately estimate traits for certain <strong>‘extreme’ stimuli</strong>,</li>
-<li class="fragment">The <em>misfit</em> analysis fails to detect these ‘extreme’ cases, despite being <strong>conceptually similar to</strong> an <em>outlier</em> detection tool.</li>
-<li class="fragment"><strong>Excluding</strong> the identified <em>misfitting</em> stimuli and judges in a second model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> still results in new stimuli misfits and downward-biased estimates, as the model continues to struggle with the remaining <strong>‘extreme’ stimuli</strong> (see next slides).</li>
+<li class="fragment">The BTL model struggles to accurately estimate traits for certain <strong>‘extreme’ stimuli</strong>,</li>
+<li class="fragment">It recovers the stimuli traits <strong>reasonably well</strong>, though with some downward bias,</li>
+<li class="fragment">The purpose and diagnostic value of the <em>misfit</em> analysis <strong>remain unclear</strong>.</li>
 </ul>
 </div>
 </div>
@@ -1954,6 +1953,22 @@ Figure&nbsp;23: <em>CBTL analysis</em>, first BTL model fit. <em>Left panel</em>
 </div>
 </section>
 <section id="data-modeling-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
+<p>The purpose and diagnostic value of the <em>misfit</em> analysis <strong>remain unclear</strong>:</p>
+<div class="fragment" style="font-size:80%;">
+<div id="fig-data_preference" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-data_preference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_preference_order.png" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data_preference-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;24: Stimuli “Preference” Analysis, identifying comparative wins and losses. <em>Blue circles</em> represent wins, <em>red X’s</em> indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="data-modeling-the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
@@ -1983,7 +1998,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </div>
 </div>
 </section>
-<section id="data-modeling-the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
@@ -1994,7 +2009,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_judge_trait_prior1.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_judge_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the residuals.
+Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the residuals.
 </figcaption>
 </figure>
 </div>
@@ -2016,7 +2031,7 @@ Figure&nbsp;24: <em>CBTL analysis</em>, prior predictive check for multilevel re
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-4" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-5" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
@@ -2047,7 +2062,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 </div>
 </div>
 </section>
-<section id="data-modeling-the-cbtl-analysis-5" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Before proceeding to Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, we need specify the appropriate <strong>priors</strong>:</p>
 <div class="fragment" style="font-size:80%;">
@@ -2058,7 +2073,7 @@ brm(&amp; \; \text{data} \; &amp;= &amp; d, \\
 <img data-src="./figures/CBTL_analysis/cropped/3_1_CBTL_stimuli_trait_prior2.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_individual_prior-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the estimated stimuli traits.
+Figure&nbsp;26: <em>CBTL analysis</em>, prior predictive check for multilevel regression model on the estimated stimuli traits.
 </figcaption>
 </figure>
 </div>
@@ -2079,7 +2094,7 @@ Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel re
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-6" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-7" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
@@ -2097,7 +2112,7 @@ Figure&nbsp;25: <em>CBTL analysis</em>, prior predictive check for multilevel re
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;27: <em>CBTL analysis</em>, example of multilevel regression parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -2120,7 +2135,7 @@ Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression paramet
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-7" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-8" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
@@ -2131,7 +2146,7 @@ Figure&nbsp;26: <em>CBTL analysis</em>, example of multilevel regression paramet
 <img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery1.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_recovery1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;27: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
 </figcaption>
 </figure>
 </div>
@@ -2152,7 +2167,7 @@ Figure&nbsp;27: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-8" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-9" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
@@ -2163,7 +2178,7 @@ Figure&nbsp;27: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
 <img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_recovery2.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_recovery2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> does not include the ‘extreme’ estimates for the stimuli traits.
+Figure&nbsp;29: <em>CBTL analysis</em>, parameter recovery for all steps. <em>Top right panel</em> does not include the ‘extreme’ estimates for the stimuli traits.
 </figcaption>
 </figure>
 </div>
@@ -2186,7 +2201,7 @@ Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-9" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-10" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div class="fragment" style="font-size:80%;">
@@ -2197,13 +2212,13 @@ Figure&nbsp;28: <em>CBTL analysis</em>, parameter recovery for all steps. <em>To
 <img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse1.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_rmse1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="data-modeling-the-cbtl-analysis-10" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-11" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Second, we use the refitted BTL model (without <em>misfits</em>) and the specified priors to fit the models in Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, completing the <em>CBTL analysis</em>.</p>
 <div style="font-size:80%;">
@@ -2216,7 +2231,7 @@ Figure&nbsp;29: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
 <img data-src="./figures/CBTL_analysis/non-cropped/3_2_CBTL_parameter_rmse2.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_rmse2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
+Figure&nbsp;31: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel</em> include the ‘extreme’ estimates for the stimuli traits.
 </figcaption>
 </figure>
 </div>
@@ -2237,7 +2252,7 @@ Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-cbtl-analysis-11" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-12" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
@@ -2248,13 +2263,13 @@ Figure&nbsp;30: <em>CBTL analysis</em>, RMSE for all steps. <em>Top right panel<
 <img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_confusion.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;31: <em>CBTL analysis</em>, posterior predictive for confusion matrix based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for confusion matrix based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
-<section id="data-modeling-the-cbtl-analysis-12" class="slide level2" style="font-size:80%;">
+<section id="data-modeling-the-cbtl-analysis-13" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
@@ -2265,39 +2280,7 @@ Figure&nbsp;31: <em>CBTL analysis</em>, posterior predictive for confusion matri
 <img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_stimulus.png" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32: <em>CBTL analysis</em>, posterior predictive for stimuli wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
-</figcaption>
-</figure>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>This can only be understood comparatively</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="data-modeling-the-cbtl-analysis-13" class="slide level2" style="font-size:80%;">
-<h2>5.2.1 Data modeling: The CBTL analysis</h2>
-<p>Third, we assess the in-sample predictive accuracy of the model.</p>
-<div style="font-size:80%;">
-<p>The <strong>posterior predictive plots</strong> indicates that,</p>
-<div id="fig-CBTL_posterior_pred3" class="quarto-figure quarto-figure-center quarto-float">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:50.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for stimuli wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
 </figcaption>
 </figure>
 </div>
@@ -2320,6 +2303,38 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins
 </section>
 <section id="data-modeling-the-cbtl-analysis-14" class="slide level2" style="font-size:80%;">
 <h2>5.2.1 Data modeling: The CBTL analysis</h2>
+<p>Third, we assess the in-sample predictive accuracy of the model.</p>
+<div style="font-size:80%;">
+<p>The <strong>posterior predictive plots</strong> indicates that,</p>
+<div id="fig-CBTL_posterior_pred3" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="./figures/CBTL_analysis/cropped/3_2_CBTL_posterior_individual.png" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;34: <em>CBTL analysis</em>, posterior predictive for individual wins based only on Step <span class="math inline">\(1\)</span>. Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).
+</figcaption>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>This can only be understood comparatively</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-modeling-the-cbtl-analysis-15" class="slide level2" style="font-size:80%;">
+<h2>5.2.1 Data modeling: The CBTL analysis</h2>
 <p>Fourth, we check if the models still shows signs of ‘trouble’.</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -2336,7 +2351,7 @@ Figure&nbsp;33: <em>CBTL analysis</em>, posterior predictive for individual wins
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-CBTL_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;34: <em>CBTL analysis</em>, influential points based on Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>. <em>Left panel</em> shows the points identified in the residuals analysis. <em>Right panel</em> shows the points identified in the stimuli traits analysis.
+Figure&nbsp;35: <em>CBTL analysis</em>, influential points based on Steps <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>. <em>Left panel</em> shows the points identified in the residuals analysis. <em>Right panel</em> shows the points identified in the stimuli traits analysis.
 </figcaption>
 </figure>
 </div>
@@ -2432,7 +2447,7 @@ s_{A} &amp; \sim \text{Exponential}( 1/5 )
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;35: First <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;36: First <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -2456,7 +2471,7 @@ Figure&nbsp;35: First <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;36: First <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;37: First <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -2497,7 +2512,7 @@ Figure&nbsp;36: First <em>ITCJ analysis</em>, example of parameter diagnostics. 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;37: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2521,7 +2536,7 @@ Figure&nbsp;37: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2545,7 +2560,7 @@ Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2569,7 +2584,7 @@ Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2608,7 +2623,7 @@ Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;42: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2647,7 +2662,7 @@ Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ1_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;42: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the first <em>ITCJ analysis</em>.
+Figure&nbsp;43: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the first <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2736,7 +2751,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;43: Second <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;44: Second <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -2760,7 +2775,7 @@ Figure&nbsp;43: Second <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;44: Second <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;45: Second <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -2801,7 +2816,7 @@ Figure&nbsp;44: Second <em>ITCJ analysis</em>, example of parameter diagnostics.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;45: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2825,7 +2840,7 @@ Figure&nbsp;45: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2849,7 +2864,7 @@ Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2873,7 +2888,7 @@ Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2912,7 +2927,7 @@ Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;50: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -2951,7 +2966,7 @@ Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;50: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the second <em>ITCJ analysis</em>.
+Figure&nbsp;51: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the second <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3042,7 +3057,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;51: Third <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;52: Third <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -3066,7 +3081,7 @@ Figure&nbsp;51: Third <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;52: Third <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;53: Third <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -3107,7 +3122,7 @@ Figure&nbsp;52: Third <em>ITCJ analysis</em>, example of parameter diagnostics. 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;53: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3131,7 +3146,7 @@ Figure&nbsp;53: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3155,7 +3170,7 @@ Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3179,7 +3194,7 @@ Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3218,7 +3233,7 @@ Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;58: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3257,7 +3272,7 @@ Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;58: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the third <em>ITCJ analysis</em>.
+Figure&nbsp;59: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the third <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3348,7 +3363,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;59: Fourth <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -3372,7 +3387,7 @@ Figure&nbsp;59: Fourth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;61: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -3413,7 +3428,7 @@ Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;61: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3437,7 +3452,7 @@ Figure&nbsp;61: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3461,7 +3476,7 @@ Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3485,7 +3500,7 @@ Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3524,7 +3539,7 @@ Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;66: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3563,7 +3578,7 @@ Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;66: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
+Figure&nbsp;67: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fourth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3660,7 +3675,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;67: Fifth <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -3684,7 +3699,7 @@ Figure&nbsp;67: Fifth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;69: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -3725,7 +3740,7 @@ Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;69: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3749,7 +3764,7 @@ Figure&nbsp;69: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3773,7 +3788,7 @@ Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3797,7 +3812,7 @@ Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3836,7 +3851,7 @@ Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;74: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3875,7 +3890,7 @@ Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;74: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
+Figure&nbsp;75: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the fifth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -3974,7 +3989,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_priors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;75: Sixth <em>ITCJ analysis</em>, prior predictive checks.
+Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, prior predictive checks.
 </figcaption>
 </figure>
 </div>
@@ -3998,7 +4013,7 @@ Figure&nbsp;75: Sixth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
+Figure&nbsp;77: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. <em>Leftmost six panels</em> show the trace plots. <em>Rightmost six panels</em> show the trace rank plots.
 </figcaption>
 </figure>
 </div>
@@ -4039,7 +4054,7 @@ Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_recovery-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;77: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4063,7 +4078,7 @@ Figure&nbsp;77: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_rmse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost four panels</em> show the <em>CBTL analysis</em>. <em>Top right panel</em> of <em>CBTL analysis</em> exclude the ‘extreme’ estimates for the stimuli traits. <em>Rightmost two panels</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4087,7 +4102,7 @@ Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for confusion matrix. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4111,7 +4126,7 @@ Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for stimuli wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4150,7 +4165,7 @@ Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_posterior_pred3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictive for individual wins. <em>Left panel</em> show the <em>CBTL analysis</em>, which assumes normality of stimuli traits by Central Limit Theorem (CLT). <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4189,7 +4204,7 @@ Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ITCJ2_influential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
+Figure&nbsp;83: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points. <em>Left panel</em> shows the points identified in the <em>CBTL</em> stimuli traits analysis. <em>Right panel</em> show the sixth <em>ITCJ analysis</em>.
 </figcaption>
 </figure>
 </div>
@@ -4221,7 +4236,7 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <img data-src="./figures/ITCJ_analysis/cropped/5_ITCJ_model_comparison.png" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model_comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> shows all models. <em>Right panel</em> shows a smaller set of models.
+Figure&nbsp;84: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> shows all models. <em>Right panel</em> shows a smaller set of models.
 </figcaption>
 </figure>
 </div>
@@ -5447,7 +5462,7 @@ Figure&nbsp;83: <em>ITCJ analysis</em>, model comparison. <em>Left panel</em> sh
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameter_estimates1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
+Figure&nbsp;85: Parameter estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -6598,7 +6613,7 @@ Figure&nbsp;84: Parameter estimates. <em>Left table</em> reports the <em>CBTL an
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameter_estimates2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
+Figure&nbsp;86: Contrast estimates. <em>Left table</em> reports the <em>CBTL analysis</em>. <em>Right table</em> reports the <em>ITCJ analysis</em>, model <span class="math inline">\(6\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -6613,13 +6628,15 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <section id="discussion-1" class="slide level2" style="font-size:80%;">
 <h2>6. Discussion</h2>
 <p>This study fulfills its <strong>two overarching goals</strong>, that is,</p>
-<div class="fragment" style="font-size:80%;">
+<div>
+<div style="font-size:80%;">
 <ol type="1">
-<li><p>Showing how apply the <em>ITCJ model</em> to a simulated dataset,</p>
+<li class="fragment"><p>Showing how apply the <em>ITCJ model</em> to a simulated dataset,</p>
 <p>A <strong>tutorial component</strong>, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software <code>R</code> and <code>Stan</code>.</p></li>
-<li><p>Evaluating whether the approach yield accurate and reliable trait estimates and inference parameters,</p>
+<li class="fragment"><p>Evaluating whether the approach yield accurate and reliable trait estimates and inference parameters,</p>
 <p>A <strong>model validation component</strong> benchmarked against the <em>CBTL analysis</em>.</p></li>
 </ol>
+</div>
 </div>
 </section>
 <section id="discussion-2" class="slide level2" style="font-size:80%;">
@@ -6632,14 +6649,26 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <li class="fragment"><p>When judges exhibit bias, the <em>CBTL analysis</em> <strong>fails</strong> to capture the complexity of the traits <span class="citation" data-cites="Thurstone_1927a Andrich_1978 Bramley_2008 Kelly_et_al_2022">[<a href="#/references" role="doc-biblioref" onclick="">3</a>, <a href="#/references" role="doc-biblioref" onclick="">6</a>, <a href="#/references" role="doc-biblioref" onclick="">7</a>, <a href="#/references" role="doc-biblioref" onclick="">9</a>]</span>, producing <strong>inaccurate and unreliable</strong> estimates <span class="citation" data-cites="Ackerman_1989 Zimmerman_1994 McElreath_2020 Hoyle_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">46</a>–<a href="#/references" role="doc-biblioref" onclick="">49</a>]</span>. This limitation is particularly evident in the estimation of inference parameters and judges’ biases.</p></li>
 <li class="fragment"><p>The common CJ practice of separating trait estimation from hypothesis testing <span class="citation" data-cites="Casalicchio_et_al_2015 Bramley_et_al_2019 Boonen_et_al_2020 Bouwer_et_al_2023 vanDaal_et_al_2017 Jones_et_al_2019 Gijsen_et_al_2021">[<a href="#/references" role="doc-biblioref" onclick="">11</a>, <a href="#/references" role="doc-biblioref" onclick="">12</a>, <a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">50</a>–<a href="#/references" role="doc-biblioref" onclick="">53</a>]</span>, <strong>introduces bias and reduces the reliability</strong> of inferences <span class="citation" data-cites="McElreath_2020 Kline_et_al_2023 Hoyle_et_al_2023">[<a href="#/references" role="doc-biblioref" onclick="">48</a>, <a href="#/references" role="doc-biblioref" onclick="">49</a>, <a href="#/references" role="doc-biblioref" onclick="">54</a>]</span>.</p></li>
 <li class="fragment"><p>The BTL model is <strong>overconfident</strong> when predicting comparison outcomes, as shown by the posterior predictive checks based on the expected values.</p></li>
-<li class="fragment"><p>The BTL model struggles to accurately estimate the traits of certain <em>‘extreme’</em> stimuli, even though the simulation <strong>does not</strong> generate such stimuli.</p></li>
-<li class="fragment"><p>The ad hoc <em>misfit</em> analysis procedure <strong>miss classifies</strong> valid stimuli as <em>misfits</em> and <strong>fails</strong> to identify all biased judges <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <strong>failing</strong> to achieve its intended analytical purpose <span class="citation" data-cites="Kelly_et_al_2022">[<a href="#/references" role="doc-biblioref" onclick="">7</a>]</span>.</p></li>
-<li class="fragment"><p>Excluding <em>misfit</em> stimuli and judges from the model fit, another common CJ practice <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, <strong>does not</strong> improve trait estimation nor inferences.</p></li>
 </ul>
 </div>
 </div>
 </section>
 <section id="discussion-3" class="slide level2" style="font-size:80%;">
+<h2>6. Discussion</h2>
+<p>Moreover, the <em>CBTL analysis</em> results also provide preliminary evidence that,</p>
+<div>
+<div style="font-size:78%;">
+<ul>
+<li class="fragment"><p>Despite its <strong>statistical definition</strong> as an <em>outlier</em> detection tool <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <em>misfit</em> analysis <strong>fail</strong> to detect ‘extreme’ cases;</p></li>
+<li class="fragment"><p>Despite its <strong>conceptual definition</strong> as a “lack-of-consensus” identification tool <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span>, <em>misfit</em> analysis <strong>does not consistently classify all</strong> stimuli, judges or individual exhibiting consensus or lack of consensus (see <a href="#/data-modeling-the-cbtl-analysis-2" class="quarto-xref">Figure&nbsp;24</a>);</p>
+<p><span style="font-size:80%;"><strong>Note:</strong> The definition of consensus aligns with the microeconomics’ concept of transitivity, that is, if <span class="math inline">\(A \succ B \succ C\)</span>, then <span class="math inline">\(A \succ C\)</span> <span class="citation" data-cites="Regenwetter_et_al_2011">[<a href="#/references" role="doc-biblioref" onclick="">55</a>]</span>. As Pollit <span class="citation" data-cites="Pollitt_2012a">[<a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> explains: “If a portfolio’s WMS exceeds the criterion of mean plus two standard deviations, this means the judges did not judge it consistently, some considering it ‘better’ than others did. Significant portfolio misfit indicates a specific difference between judges in how they would <strong><em>rank order</em></strong> the portfolios, arising from a difference in how they understand or value the trait they are trying to assess.”</span></p></li>
+<li class="fragment"><p>In fact, as show in this study, simple features of the data-generating process can produce lack of consensus or transitivity. For example, <span class="math inline">\(\text{IA}[6,3] \succ \text{IA}[6,7] \succ \text{IA}[31,6]\)</span>, but <span class="math inline">\(\text{IA}[31,6] \succ \text{IA}[6,3]\)</span> (see <a href="#/data-modeling-the-cbtl-analysis-2" class="quarto-xref">Figure&nbsp;24</a>);</p></li>
+<li class="fragment"><p>Then, as expected, <strong>excluding</strong> <em>misfitting</em> stimuli and judges in a second model fit <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>]</span> <strong>does not</strong> improve trait estimation nor inferences, as the model continues to struggle with <strong>‘extreme’ stimuli</strong> and unmodeled data features.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="discussion-4" class="slide level2" style="font-size:80%;">
 <h2>6. Discussion</h2>
 <p>In contrast, results from the ITCJ analysis indicate that,</p>
 <div>
@@ -6661,7 +6690,7 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 </section>
 <section id="future-research-directions-1" class="slide level2" style="font-size:80%;">
 <h2>6.1 Future research directions</h2>
-<p>Building upon Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <strong>four</strong> researh avenues deserve special attention.</p>
+<p>Building upon Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <strong>four</strong> research avenues deserve attention.</p>
 <div>
 <div style="font-size:80%;">
 <ol type="1">
@@ -6695,7 +6724,7 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 </section>
 <section id="future-research-directions-2" class="slide level2" style="font-size:80%;">
 <h2>6.1 Future research directions</h2>
-<p>Building upon Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <strong>four</strong> researh avenues deserve special attention.</p>
+<p>Building upon Rivera et al. <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, <strong>four</strong> research avenues deserve attention.</p>
 <div>
 <div style="font-size:80%;">
 <ol start="3" type="1">
@@ -6733,14 +6762,14 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 </section>
 <section id="study-limitations-1" class="slide level2" style="font-size:80%;">
 <h2>6.2 Study limitations</h2>
-<p>Despite its clear results, this study has some limitations:</p>
+<p>Despite the relevance of its results, this study has some limitations:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
 <li class="fragment">The empirical test of the <em>ITCJ analyses</em> relies on a single, <em>‘small’</em> simulated dataset,</li>
 <li class="fragment">The assessment of out-of-sample fit depends on approximate measures, such as PSIS,</li>
-<li class="fragment">The analysis did not use other variables available in the simulated data to evaluate the models’ ability to not reject null hypotheses when the null is true (except for judges’ groups),</li>
-<li class="fragment">The properties of the <em>‘misfit’</em> analysis were not directly examined.</li>
+<li class="fragment">The analysis did not use additional variables from the simulated data to evaluate the the models’ ability to not reject null hypotheses when the null is true (except for judges’ groups),</li>
+<li class="fragment">The study did not explicitly design or plan the evaluation of the <em>misfit</em> analysis properties.</li>
 </ul>
 </div>
 </div>
@@ -6816,7 +6845,7 @@ Figure&nbsp;85: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <img data-src="./figures/population_summary/sim_individual_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-individual_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;86: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
+Figure&nbsp;87: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -6831,7 +6860,7 @@ Figure&nbsp;86: Individual’s sample size calculation, considering requirements
 <img data-src="./figures/population_summary/sim_judges_sample_size.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-judges_ss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;87: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
+Figure&nbsp;88: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost.
 </figcaption>
 </figure>
 </div>
@@ -7004,6 +7033,9 @@ Figure&nbsp;87: Judges’s sample size calculation, considering requirements for
 </div>
 <div id="ref-Kline_et_al_2023" class="csl-entry" role="listitem">
 <div class="csl-left-margin">54. </div><div class="csl-right-inline">Kline R (2023) <a href="">Principles and practice of structural equation modeling</a>. Guilford Press</div>
+</div>
+<div id="ref-Regenwetter_et_al_2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">55. </div><div class="csl-right-inline">Regenwetter M, Dana J, Davis-Stober C (2011) Transitivity of preferences. Psychological Review 118(1):42–56. <a href="https://doi.org/10.1037/a0021150">https://doi.org/10.1037/a0021150</a></div>
 </div>
 </div>
 

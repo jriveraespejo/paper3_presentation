@@ -1501,14 +1501,13 @@ Individual win rates.
 First, the BTL model is applied to the data to estimate the stimuli traits.
 
 ::: {.fragment style="font-size:80%;"}
-The first model fit indicates that,
+The initial model fit indicates that,
 
 ::: incremental 
 ::: {style="font-size:80%;"}
-- The BTL model recovers the stimuli traits **reasonably well**, though with some downward bias,
-- It struggles to accurately estimate traits for certain **'extreme' stimuli**,
-- The *misfit* analysis fails to detect these 'extreme' cases, despite being **conceptually similar to** an *outlier* detection tool.
-- **Excluding** the identified *misfitting* stimuli and judges in a second model fit [@Pollitt_2012a; @Pollitt_2012b] still results in new stimuli misfits and downward-biased estimates, as the model continues to struggle with the remaining **'extreme' stimuli** (see next slides).
+- The BTL model struggles to accurately estimate traits for certain **'extreme' stimuli**,
+- It recovers the stimuli traits **reasonably well**, though with some downward bias,
+- The purpose and diagnostic value of the *misfit* analysis **remain unclear**.
 :::
 :::
 
@@ -1519,6 +1518,21 @@ The first model fit indicates that,
 *CBTL analysis*, first BTL model fit. *Left panel* shows the trait estimates for all stimuli. *Right panel* shows the trait estimates for non-extreme stimuli.
 :::
 
+:::
+
+---
+
+## 5.2.1 Data modeling: The CBTL analysis {style="font-size:80%;"}
+
+The purpose and diagnostic value of the *misfit* analysis **remain unclear**:
+
+::: {.fragment style="font-size:80%;"}
+::: {#fig-data_preference}
+![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_preference_order.png){width=70%}
+
+
+Stimuli "Preference" Analysis, identifying comparative wins and losses. *Blue circles* represent wins, *red X's* indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes.
+:::
 :::
 
 ---
@@ -3436,7 +3450,8 @@ Contrast estimates. *Left table* reports the *CBTL analysis*. *Right table* repo
 
 This study fulfills its **two overarching goals**, that is,
 
-::: {.fragment style="font-size:80%;"}
+::: incremental 
+::: {style="font-size:80%;"}
 1. Showing how apply the *ITCJ model* to a simulated dataset,
 
     A **tutorial component**, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software `R` and `Stan`.
@@ -3444,6 +3459,7 @@ This study fulfills its **two overarching goals**, that is,
 2. Evaluating whether the approach yield accurate and reliable trait estimates and inference parameters,
 
     A **model validation component** benchmarked against the *CBTL analysis*.
+:::
 :::
 
 ---
@@ -3461,12 +3477,26 @@ The *CBTL analysis* results provide preliminary evidence that,
 - The common CJ practice of separating trait estimation from hypothesis testing [@Casalicchio_et_al_2015; @Bramley_et_al_2019; @Boonen_et_al_2020; @Bouwer_et_al_2023; @vanDaal_et_al_2017; @Jones_et_al_2019; @Gijsen_et_al_2021], **introduces bias and reduces the reliability** of inferences [@McElreath_2020; @Kline_et_al_2023; @Hoyle_et_al_2023].
 
 - The BTL model is **overconfident** when predicting comparison outcomes, as shown by the posterior predictive checks based on the expected values.
+:::
+:::
 
-- The BTL model struggles to accurately estimate the traits of certain *'extreme'* stimuli, even though the simulation **does not** generate such stimuli.
+--- 
 
-- The ad hoc *misfit* analysis procedure **miss classifies** valid stimuli as *misfits* and **fails** to identify all biased judges [@Rivera_et_al_2025], **failing** to achieve its intended analytical purpose [@Kelly_et_al_2022].
+## 6. Discussion {style="font-size:80%;"}
 
-- Excluding *misfit* stimuli and judges from the model fit, another common CJ practice [@Pollitt_2012a; @Pollitt_2012b], **does not** improve trait estimation nor inferences.
+Moreover, the *CBTL analysis* results also provide preliminary evidence that,
+
+::: incremental 
+::: {style="font-size:78%;"}
+- Despite its **statistical definition** as an *outlier* detection tool [@Rivera_et_al_2025], *misfit* analysis **fail** to detect 'extreme' cases;
+
+- Despite its **conceptual definition** as a "lack-of-consensus" identification tool [@Pollitt_2012a; @Pollitt_2012b], *misfit* analysis **does not consistently classify all** stimuli, judges or individual exhibiting consensus or lack of consensus (see @fig-data_preference);
+
+    [ **Note:** The definition of consensus aligns with the microeconomics' concept of transitivity, that is, if $A \succ B \succ C$, then $A \succ C$ [@Regenwetter_et_al_2011]. As Pollit [@Pollitt_2012a] explains: "If a portfolio's WMS exceeds the criterion of mean plus two standard deviations, this means the judges did not judge it consistently, some considering it ‘better’ than others did. Significant portfolio misfit indicates a specific difference between judges in how they would **_rank order_** the portfolios, arising from a difference in how they understand or value the trait they are trying to assess." ]{style="font-size:80%;"}
+
+- In fact, as show in this study, simple features of the data-generating process can produce lack of consensus or transitivity. For example, $\text{IA}[6,3] \succ \text{IA}[6,7] \succ \text{IA}[31,6]$, but $\text{IA}[31,6] \succ \text{IA}[6,3]$ (see @fig-data_preference);
+
+- Then, as expected, **excluding** *misfitting* stimuli and judges in a second model fit [@Pollitt_2012a; @Pollitt_2012b] **does not** improve trait estimation nor inferences, as the model continues to struggle with **'extreme' stimuli** and unmodeled data features.
 :::
 :::
 
@@ -3493,7 +3523,7 @@ In contrast, results from the ITCJ analysis indicate that,
 
 ## 6.1 Future research directions {style="font-size:80%;"}
 
-Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deserve special attention.
+Building upon Rivera et al. [@Rivera_et_al_2025], **four** research avenues deserve attention.
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -3528,7 +3558,7 @@ Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deser
 
 ## 6.1 Future research directions {style="font-size:80%;"}
 
-Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deserve special attention.
+Building upon Rivera et al. [@Rivera_et_al_2025], **four** research avenues deserve attention.
 
 ::: incremental 
 ::: {style="font-size:80%;"}
@@ -3566,14 +3596,14 @@ Building upon Rivera et al. [@Rivera_et_al_2025], **four** researh avenues deser
 
 ## 6.2 Study limitations {style="font-size:80%;"}
 
-Despite its clear results, this study has some limitations:
+Despite the relevance of its results, this study has some limitations:
 
 ::: incremental 
 ::: {style="font-size:80%;"}
 - The empirical test of the *ITCJ analyses* relies on a single, *'small'* simulated dataset,
 - The assessment of out-of-sample fit depends on approximate measures, such as PSIS, 
-- The analysis did not use other variables available in the simulated data to evaluate the models' ability to not reject null hypotheses when the null is true (except for judges' groups),
-- The properties of the *'misfit'* analysis were not directly examined.
+- The analysis did not use additional variables from the simulated data to evaluate the the models' ability to not reject null hypotheses when the null is true (except for judges' groups),
+- The study did not explicitly design or plan the evaluation of the *misfit* analysis properties.
 :::
 :::
 
