@@ -291,7 +291,7 @@
     "href": "presentation.html#data-modeling-the-cbtl-analysis-2",
     "title": "Bayesian modeling of comparative judgment data with R and Stan",
     "section": "5.2.1 Data modeling: The CBTL analysis",
-    "text": "5.2.1 Data modeling: The CBTL analysis\nThe purpose and diagnostic value of the misfit analysis remain unclear:\n\n\n\n\n\n\n\nFigure 24: Stimuli “Preference” Analysis, identifying comparative wins and losses. Blue circles represent wins, red X’s indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes."
+    "text": "5.2.1 Data modeling: The CBTL analysis\nThe purpose and diagnostic value of the misfit analysis remain unclear:\n\n\n\n\n\n\n\nFigure 24: Stimuli “Preference” Analysis, identifying comparative wins and losses. Blue circles represent wins, red X’s indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes. Stimuli are ordered from best (top) to worst (bottom) performing stimuli based on its true trait value."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-3",

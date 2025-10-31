@@ -1531,7 +1531,7 @@ The purpose and diagnostic value of the *misfit* analysis **remain unclear**:
 ![](/figures/CBTL_analysis/non-cropped/3_2_CBTL_preference_order.png){width=70%}
 
 
-Stimuli "Preference" Analysis, identifying comparative wins and losses. *Blue circles* represent wins, *red X's* indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes.
+Stimuli "Preference" Analysis, identifying comparative wins and losses. *Blue circles* represent wins, *red X's* indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes. Stimuli are ordered from best (top) to worst (bottom) performing stimuli based on its true trait value.
 :::
 :::
 
