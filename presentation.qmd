@@ -1,6 +1,6 @@
 ---
 title: |
-  Bayesian modeling of comparative judgment data with `R` and `Stan`
+  Finding CJ: The modeling of comparative judgment data with `R` (and `Stan`)
 author:
   - name: 
       given: Jose(ma)
@@ -3606,7 +3606,7 @@ Despite the relevance of its results, this study has some limitations:
 ::: {style="font-size:80%;"}
 - The empirical test of the *ITCJ analyses* relies on a single, *'small'* simulated dataset,
 - The assessment of out-of-sample fit depends on approximate measures, such as PSIS, 
-- The analysis did not use additional variables from the simulated data to evaluate the the models' ability to not reject null hypotheses when the null is true (except for judges' groups),
+- The analysis did not use additional variables from the simulated data to evaluate the models' ability to not reject null hypotheses when the null is true (except for judges' groups),
 - The study did not explicitly design or plan the evaluation of the *misfit* analysis properties.
 :::
 :::

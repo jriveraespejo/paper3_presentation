@@ -2,868 +2,868 @@
   {
     "objectID": "presentation.html#introduction-1",
     "href": "presentation.html#introduction-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "1. Introduction",
     "text": "1. Introduction\nThe Bradley-Terry-Luce (BTL) model [1, 2] offers a simple method for measuring traits and conducting statistical inference from comparative judgment (CJ) data [3, 4].\nIts simplicity stems from two features:\n\n\n\nA reliance on an extensive set of simplifying assumptions about the traits, judges, and stimuli involved in CJ assessments [5, 6],\nThe use of ad hoc procedures to handle inferences, including hypothesis testing [4].\n\n\n\n\nHowever, recent studies question whether:\n\n\n\nThese assumptions hold in modern CJ applications? [6–8]\nThe ad hoc procedures effectively fulfill their intended analytical purpose? [7, 8]"
   },
   {
     "objectID": "presentation.html#introduction-2",
     "href": "presentation.html#introduction-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "1. Introduction",
     "text": "1. Introduction\nTo address these concerns, Rivera et al. [8] proposed The Information-Theoretical model for CJ. The approach,\n1. Extends the general form of Thurstone’s law of comparative judgment [5, 9], combining Thurstone’s core theoretical principles with key CJ assessment design features.\n2. Enables the development of models tailored to the assumed data-generating process of the CJ system under study, thus:\n\n\n\nEliminating the need to rely on the simplifying assumptions of the BTL model,\nRemoving the dependence on ad hoc hypothesis-testing procedures.\n\n\n\nNevertheless, although approach has the potential to yield reliable trait estimates and accurate statistical inferences, this promise still needs to be empirically tested."
   },
   {
     "objectID": "presentation.html#research-goals-1",
     "href": "presentation.html#research-goals-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "2. Research goals",
     "text": "2. Research goals\nThus, this study has two overarching goals:\n\n\nTo show how apply the Information-Theoretical model for CJ to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\n\n\n\nOnce a sufficiently trustworthy model is found in goal 1,\n\nEvaluate whether the approach yield accurate and reliable trait estimates and inference parameters,\nA model validation component benchmarked against the classical BTL analysis."
   },
   {
     "objectID": "presentation.html#a-tale-of-two-analytical-approaches",
     "href": "presentation.html#a-tale-of-two-analytical-approaches",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "3. A tale of two analytical approaches",
     "text": "3. A tale of two analytical approaches\nCJ data can be analyzed under two analytical approaches:\n\n\nThe classical BTL analysis (hereafter, CBTL analysis) [4, 10],\nwhich relies on a sequence of separate methods to estimate traits and draw inferences,\nThe Information-Theoretical model for CJ (hereafter, ITCJ analysis) [8],\nwhich employs a single, systematic, and integrated approach for the same two purposes."
   },
   {
     "objectID": "presentation.html#sec-CBTL",
     "href": "presentation.html#sec-CBTL",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "3.1 The CBTL analysis",
     "text": "3.1 The CBTL analysis\nThis approach relies on a sequence of separate methods, each with different purposes [4, 10–14]. Specifically, the CBTL analysis:\n\n\n\nApply the BTL model to data, e.g.,\n\n\n\n\nTo estimate the traits of the stimuli (mean and standard error)\nTo generate the model residuals and conduct misfit analysis\n\n\n\n\nGenerate summaries or apply (multilevel) regression to the stimuli’ mean trait estimates, e.g.,\n\n\n\n\nTo aggregate the trait of the stimuli at the individual level\nTo separate the variability in between- and within-individuals\nTo summarize or conduct inferences at the level of stimuli and individuals\n\n\n\n\nGenerate summaries or apply (multilevel) regression to the model residuals, e.g.,\n\n\n\n\nTo aggregate the remaining variability at the judges level\nTo separate the remaining variability in between- and within-judges\nTo summarize or conduct inferences at the level of judges, including the investigation of bias"
   },
   {
     "objectID": "presentation.html#sec-ITCJ",
     "href": "presentation.html#sec-ITCJ",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "3.2 The ITCJ analysis",
     "text": "3.2 The ITCJ analysis\nThis approach applies a single, systematic, and integrated approach to estimate traits and conduct inferences [8]. In broad terms, the ITCJ analysis:\n\n\n\nBegins with the general CJ structure proposed by Rivera et al. [8] (see next slide),\nAdapts this structure to the assumed data-generating process of the CJ system under study,\nDevelops one or more bespoke statistical models for analyzing the CJ system.\nUse the one (or more) statistical model(s) to estimate traits and conduct inferences.\n\n\n\n\nWith these steps a researcher can:\n\n\n\nEstimate the traits of the stimuli and individuals (full distribution)\nAssess the variability and conduct inferences at the stimuli and individual levels\nEstimate the biases of the judges and judgments (full distribution)\nAssess the variability and conduct inferences at the judgments and judges levels\nConduct outlier identification for stimuli, individuals, judgments, and judges"
   },
   {
     "objectID": "presentation.html#sec-3.2",
     "href": "presentation.html#sec-3.2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "3.2 The ITCJ analysis",
     "text": "3.2 The ITCJ analysis\n\nThe general CJ structure proposed by Rivera et al. [8] takes the following form:\n\n\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}, e_{IA}, e_{JK} \\} \\\\\n  e_{J} & \\:\\bot\\:\\{ e_{IA}, e_{JK} \\} \\\\\n  e_{IA} & \\:\\bot\\:e_{JK}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 1: Comparative judgment model. Left panel illustrates the DAG. Right panel  depicts the associated SCM."
   },
   {
     "objectID": "presentation.html#the-information-theoretical-model-for-cj",
     "href": "presentation.html#the-information-theoretical-model-for-cj",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "3.2 The Information-Theoretical model for CJ",
     "text": "3.2 The Information-Theoretical model for CJ\nLeading to the general probabilistic and statistical model:\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, X_{IA}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{JK} & := f_{B}(B_{J}, Z_{JK}, e_{JK}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\ \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J}, e_{JK} \\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}, e_{JK} \\} \\\\\n  e_{J} & \\:\\bot\\:e_{JK}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA}, B_{JK} ) \\\\\n  & P( T_{IA} \\mid T_{I}, X_{IA}, e_{IA} ) \\\\\n  & P( T_{I} \\mid X_{I}, e_{I} ) \\\\\n  & P( B_{JK} \\mid B_{J}, Z_{JK}, e_{JK} ) \\\\\n  & P( B_{J} \\mid Z_{J}, e_{J} ) \\\\ \\\\\n  & P( e_{IA} ) P( e_{I} ) P( e_{J} ) P( e_{JK} ) \\\\ \\\\ \\\\\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) + B_{JK}[j,k] \\\\\n  T_{IA} & = T_{I} + \\beta_{XA} X_{IA} + e_{IA} \\\\\n  T_{I} & = \\beta_{XI} X_{I} + e_{I} \\\\\n  B_{JK} & = B_{J} + \\beta_{ZK} Z_{JK} + e_{JK} \\\\\n  B_{J} & = \\beta_{ZJ} Z_{J} + e_{J} \\\\ \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V} \\\\ \\\\\n\\end{aligned}\n\\]\n\n\n\n\nFigure 2: Comparative judgment model, assuming different discriminal dispersions for traits. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\n\nWith the following constraints to solve indeterminacies in location, orientation, and scale of \\(T_{I}\\), \\(T_{IA}\\), \\(B_{J}\\), and \\(B_{JK}\\) [15]:\n\n\n\n\n\n\\[\n\\boldsymbol{\\mu} = [0, 0, 0, 0]^{T}; \\quad\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 & 0 \\\\\n    0 & 1 & 0 & 0 \\\\\n    0 & 0 & 1 & 0 \\\\\n    0 & 0 & 0 & 1\n  \\end{bmatrix}; \\quad\n  \\boldsymbol{V} = \\begin{bmatrix}\n    s_{XI} & 0 & 0 & 0 \\\\\n    0 & s_{A} & 0 & 0 \\\\\n    0 & 0 & s_{ZJ} & 0 \\\\\n    0 & 0 & 0 & s_{K}\n  \\end{bmatrix}; \\quad\n  \\sum_{g=1}^{3} s_{XI}[g]/3 = 1; \\quad\n  0&lt; s_{A} &lt; 1; \\quad\n  \\sum_{g=1}^{3} s_{ZJ}[g]/3 = 1; \\quad\n  0&lt; s_{K} &lt; 1\n\\]\n\n\nFigure 3: Constraints of the CJ model to solve indeterminacies in location, orientation, and scale of \\(T_{I}\\), \\(T_{IA}\\), \\(B_{J}\\), and \\(B_{JK}\\)."
   },
   {
     "objectID": "presentation.html#methods-1",
     "href": "presentation.html#methods-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4. Methods",
     "text": "4. Methods\nTo meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow [16–22]:\n\n\nFigure 4: Bayesian (research) workflow."
   },
   {
     "objectID": "presentation.html#sec-methods",
     "href": "presentation.html#sec-methods",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4. Methods",
     "text": "4. Methods\nSpecifically, the study follows these steps (overarching goals in parenthesis):\n\n\n\nTheory \\(\\rightarrow\\) Estimand(s) \\(\\rightarrow\\) Design (Tutorial and Model validation)\nConsidering three steps:\n\n\n\nDefine a CJ structure of interest and explicitly state its assumptions from relevant literature;\nSpecify the estimand(s) of interest and provide formal definitions for each target parameter;\nSimulate a synthetic conceptual population that reflects the defined structure and assumptions;\n\n\n\nDesign \\(\\rightarrow\\) Sample (Tutorial and Model validation)\nGenerate a synthetic random sample and comparison datasets from the conceptual population simulated in step \\(1\\);\n{Theory, Design, Estimand(s)} \\(\\rightarrow\\) Estimator (Tutorial and Model validation)\nSpecify models for analyzing the synthetic random comparison dataset using both the CBTL and the ITCJ analysis;\nEstimator \\(\\rightarrow\\) Prior predictive (Tutorial)\nPerform prior predictive checks;"
   },
   {
     "objectID": "presentation.html#methods-2",
     "href": "presentation.html#methods-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4. Methods",
     "text": "4. Methods\n\n\n\n{Estimator, Sample} \\(\\rightarrow\\) Estimate(s) (Tutorial and Model validation)\nApply both the CBTL and ITCJ methods to the synthetic random comparison dataset;\nEstimate(s) \\(\\rightarrow\\) {Diagnostic, Post predictive} (Tutorial)\nAssess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample predictive accuracy, and approximate out-of-sample fit;\n{Diagnostic, Post predictive} \\(\\rightarrow\\) Estimator (Tutorial)\nIncrementally refine the statistical model repeating steps 3–6 until a sufficiently trustworthy model is obtained according to the criteria outlined in step 6;\nEstimator \\(\\rightarrow\\) Estimate(s) \\(\\rightarrow\\) Effects \\(\\leftarrow\\) Estimand(s) (Model validation)\nGenerate the estimate(s) of interest for the synthetic random comparison dataset using both the CBTL and ITCJ analysis, and interpret the results;\nEstimator \\(\\rightarrow\\) Estimate(s) \\(\\rightarrow\\) Predictions \\(\\leftarrow\\) Estimand(s) (Model validation)\nGenerate predictions for the synthetic comparison dataset using both the CBTL and ITCJ analysis, and compare their in-sample predictive accuracy, and approximate out-of-sample fit."
   },
   {
     "objectID": "presentation.html#from-theory-to-design-steps-1a-1c-1",
     "href": "presentation.html#from-theory-to-design-steps-1a-1c-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.1 From Theory to Design: Steps 1a-1c",
     "text": "4.1 From Theory to Design: Steps 1a-1c\nThe conceptual population simulation is based on the data characteristics and findings reported by Boonen et al. [12]:\n\nRegarding the data characteristics, the study:\n\n\n\nIncludes multiple stimuli nested within multiple individuals,\nConsiders individuals with different characteristics (e.g., age, hearing status),\nAssigns each judge to make only one comparison per stimulus pair,\nInvolves judges who differ in characteristics (e.g., experience level),\nSelects stimuli, individuals, and judges using a (pseudo-)random sampling algorithm,\nInvolves multiple judges performing multiple comparisons, assigned through a random comparison algorithm.\n\n\n\n\n\nRegarding the study findings, the study report that:\n\n\n\nIndividuals with different hearing statuses differ in both their average latent trait levels and their variability,\nThere is more unexplained variability between individuals than within individuals (i.e., at the stimulus level),\nNo evidence of systematic judge bias was found (although it was not tested but treated as a model assumption),\nJudges’ experience levels did not account for differences in mean latent traits between stimuli, but differences in their variabilities were not assessed."
   },
   {
     "objectID": "presentation.html#from-theory-to-design-steps-1a-1c-2",
     "href": "presentation.html#from-theory-to-design-steps-1a-1c-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.1 From Theory to Design: Steps 1a-1c",
     "text": "4.1 From Theory to Design: Steps 1a-1c\nThus, adapting the general CJ structure proposed by Rivera et al.’s [8] to the data characteristics reported by Boonen et al. [12] leads to the following conceptual population data-generating process:\n\n\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\ \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J} \\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J} \\}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 5: CJ data-generating process for the conceptual population. Left panel shows the DAG. Right panel  depicts the associated SCM."
   },
   {
     "objectID": "presentation.html#from-theory-to-design-steps-1a-1c-3",
     "href": "presentation.html#from-theory-to-design-steps-1a-1c-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.1 From Theory to Design: Steps 1a-1c",
     "text": "4.1 From Theory to Design: Steps 1a-1c\nMoreover, integrating the assumptions derived from Boonen et al. [12] leads to the following statistical data-generating process:\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{JK}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(X_{I}, e_{I}) \\\\\n  B_{J} & := f_{B}(Z_{J}, e_{J}) \\\\ \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J} \\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J} \\}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA}, B_{JK} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid X_{I}, e_{I} ) \\\\\n  & P( B_{J} \\mid Z_{J}, e_{J} ) \\\\ \\\\\n  & P( e_{IA} ) P( e_{I} ) P( e_{J} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) + B_{JK}[j,k] \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XI} X_{I} + e_{I} \\\\\n  B_{J} & = \\beta_{ZJ} Z_{J} + e_{J} \\\\ \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 6: Data-generating process for simulated CJ data. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\n\nWith the following parameter assumptions:\n\n\n\n\n\n\n\n\\[\n\\begin{split}\nX_{I} &= \\{ X_{Ic}, X_{Id}[g=1], X_{Id}[g=2], X_{Id}[g=3] \\} \\\\\nZ_{J} &= \\{ Z_{Jd}[g=1], Z_{Jd}[g=2], Z_{Jd}[g=3] \\} \\\\\n\\beta_{XI} & = \\{ \\beta_{XIc}, \\beta_{XId[g=1]}, \\beta_{XId[g=2]}, \\beta_{XId[g=3]} \\} = \\{ 0.1, 1, 0, -1\\} \\\\\n\\beta_{ZJ} &= \\{ \\beta_{ZJd[g=1]}, \\beta_{ZJd[g=2]}, \\beta_{ZJd[g=3]} \\} = \\{ 0, 0, 0\\}\n\\end{split}\n\\]\n\n\n\\[\n\\begin{split}\ns_{XI[g]} &= \\{ s_{XId[g=1]}, s_{XId[g=2]}, s_{XId[g=3]} \\} = \\{ 1.5, 0.75, 0.75\\} \\\\\ns_{ZJ} &= \\{ s_{ZJd[g=1]}, s_{ZJd[g=2]}, s_{ZJd[g=3]} \\} = \\{ 0.5, 1, 1.5\\} \\\\\ns_{A} &= 0.2 \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\quad\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix} ;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{XI} & 0 & 0 \\\\\n    0 & s_{A} & 0 \\\\\n    0 & 0 & s_{ZJ}\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\nFigure 7: Simulating parameter assumptions."
   },
   {
     "objectID": "presentation.html#from-theory-to-design-steps-1a-1c-4",
     "href": "presentation.html#from-theory-to-design-steps-1a-1c-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.1 From Theory to Design: Steps 1a-1c",
     "text": "4.1 From Theory to Design: Steps 1a-1c\nIn layman terms:\n\n\n\nNo stimuli characteristics \\((X_{IA})\\) are assumed to affect the comparisons;\nStimuli latent trait residual variability is smaller than average individual latent trait residual variability \\((s_{A} = 0.2 &lt; 1)\\);\nIndividual characteristics \\((X_{I})\\) include a continuous variable \\((X_{Ic})\\) for the age of children, and a categorical variable with three levels representing hearing status groups: normal-hearing (NH, \\(X_{Id}[g=1]\\)), hearing-impaired with hearing aids (HI-HA, \\(X_{Id}[g=2]\\)), and hearing-impaired with cochlear implants (HI-CI, \\(X_{Id}[g=3]\\)) children;\nThere is a “small” [23, 24] but increasing effect of age \\((\\beta_{XIc})\\) on the mean latent trait of individuals;\nThere are “very large” [23, 24] differences in the mean latent trait across hearing status groups \\((\\beta_{XId[g=1]} &gt; \\beta_{XId[g=2]} &gt; \\beta_{XId[g=3]})\\);\nIndividual latent trait residual variability differs by groups, i.e., \\(s_{XId[g=1]} &gt; s_{XId[g=2]} = s_{XId[g=3]}\\), with \\(\\sum_{g=1}^{3} s_{XId[g]}/3 = 1\\);\nJudges make only one comparison; thus, there are no judgment-level characteristics \\((Z_{JK})\\), judgement-level effects \\((\\beta_{ZJK})\\), or residual judgment variability \\((p_{JK})\\);\nJudges characteristics \\((Z_{J})\\) include a categorical variable with three levels representing judge groups: audiologist (AU, \\(Z_{Jd}[g=1]\\)), primary teachers (PT, \\(Z_{Jd}[g=2]\\)), and inexperienced listeners (IL, \\(Z_{Jd}[g=3]\\));\nJudges’ mean latent biases across judge groups are equal to zero \\((\\beta_{ZJd[g=1]}=\\beta_{ZJd[g=2]}=\\beta_{ZJd[g=3]}=0)\\);\nHowever, judges exhibit more or less bias depending on their experience, i.e., \\((s_{ZJd[g=1]}=0.5) &lt; (s_{ZJd[g=2]} = 1) &lt; (s_{ZJd[g=3]} = 1.5)\\), with \\(\\sum_{g=1}^{3} s_{ZJ[g]}/3 = 1\\);\nResidual latent errors \\((\\boldsymbol{e})\\) are centered around zero with zero correlation \\((\\boldsymbol{\\mu}, \\boldsymbol{Q})\\)."
   },
   {
     "objectID": "presentation.html#sec-pop_sim",
     "href": "presentation.html#sec-pop_sim",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.1 From Theory to Design: Steps 1a-1c",
     "text": "4.1 From Theory to Design: Steps 1a-1c\nFrom the simulation parameters, we can also define the estimands of interest:\n\n\n\nThe conditioned expected change in the individuals’ mean latent trait for one additional year of age \\((\\beta_{XIc})\\);\nThe conditioned expected differences in mean latent traits between NH and HI-HA children \\((\\beta_{XId[g=1]} - \\beta_{XId[g=2]})\\), NH and HI-CI children \\((\\beta_{XId[g=1]} - \\beta_{XId[g=3]})\\), and HI-HA versus HI-CI children \\((\\beta_{XId[g=2]} - \\beta_{XId[g=3]})\\);\nThe conditioned expected differences in mean latent bias between AU and PT judges \\((\\beta_{ZJd[g=1]} - \\beta_{ZJd[g=2]})\\), AU and IL judges \\((\\beta_{ZJd[g=1]} - \\beta_{ZJd[g=3]})\\), and PT and IL judges \\((\\beta_{ZJd[g=2]} - \\beta_{ZJd[g=3]})\\);\nThe latent trait residual variability of NH, HI-HA, and HI-CI children, i.e., \\(s_{XId[g=1]}\\), \\(s_{XId[g=2]}\\), and \\(s_{XId[g=3]}\\), respectively;\nThe conditioned expected differences in residual variability of the latent trait between NH and HI-HA children \\((s_{XId[g=1]} - s_{XId[g=2]})\\), NH and HI-CI children \\((s_{XId[g=1]} - s_{XId[g=3]})\\), and HI-HA versus HI-CI children \\((s_{XId[g=2]} - s_{XId[g=3]})\\);\nThe latent bias residual variability of AU, PT, and IL judges, i.e., \\(s_{ZJd[g=1]}\\), \\(s_{ZJd[g=2]}\\), and \\(s_{ZJd[g=3]}\\), respectively;\nThe conditioned expected differences in residual variability of the latent bias between AU and PT judges \\((s_{ZJd[g=1]} - s_{ZJd[g=2]})\\), AU and IL judges \\((s_{ZJd[g=1]} - s_{ZJd[g=3]})\\), and PT and IL judges \\((s_{ZJd[g=2]} - s_{ZJd[g=3]})\\);\nThe residual variability of the stimuli latent trait \\((s_{A})\\);\nLatent traits \\(T_{IA}\\), \\(T_{I}\\), and \\(B_{J}\\)."
   },
   {
     "objectID": "presentation.html#from-design-to-sample-step-2-1",
     "href": "presentation.html#from-design-to-sample-step-2-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.2 From Design to Sample: Step 2",
     "text": "4.2 From Design to Sample: Step 2\nWe generate a synthetic random sample and comparison datasets from the conceptual population in Step 1.\n\nMore specifically, for the sampling \\((S)\\) and comparison \\((C)\\) mechanisms illustrated in Figure 5, sample size calculations were conducted (see Section 30), and the following design was adopted:\n\n\n\nA sample of \\(54\\) individuals, divided into three hearing status groups: \\(40\\) NH \\((X_{Id}[g=1])\\), \\(7\\) HI-HA \\((X_{Id}[g=2])\\), and \\(7\\) HI-CI \\((X_{Id}[g=3])\\) children;\nA sample of \\(10\\) stimuli per individual;\nA sample of \\(60\\) judges, divided into three groups: \\(10\\) AU \\((Z_{Jd}[g=1])\\), \\(10\\) PT \\((Z_{Jd}[g=2])\\), and \\(40\\) IL \\((Z_{Jd}[g=3])\\);\nJudges conduct only one-comparison of the same stimulus pair (i.e., design is NOT a repeated measures design [25])\nEach stimulus is compared \\(20\\) times in total against other stimuli, across all judges."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-1",
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5",
     "text": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5\nThe study applies two data analysis approaches for the simulated CJ data (as described in Section 3):\n\n\nThe CBTL analysis [4, 10],\nThe ITCJ analysis [8]\n\n\n\nBoth analysis are conducted using R version 4.2.2 [26], with:\n\n\n\nAdditional R packages for data manipulation and visualization: tidyverse [27], igraph [28, 29], and RColorBrewer [30];\nSpecific user-defined functions (UDFs) to facilitate data manipulation, visualization, model summarization, diagnostics, and prediction from the approaches (all are provided in the main document)."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-2",
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5",
     "text": "4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5\nNotably, each brms multilevel regression model within the CBTL analysis and each Bayesian model within the ITCJ analysis were estimated using:\n\n\n\nFour Markov chains of \\(4000\\) iterations, each with distinct starting values, where the first \\(2000\\) iterations served as warm-up, and the remaining \\(2000\\) were used as posterior samples (for a total of \\(8000\\) posterior samples)."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1",
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5",
     "text": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5\nSpecifically, the CBTL analysis [4, 10–14, 31]:\n\n\n\nFits a BTL model using the BTm() function from the BradleyTerry2 package [32, 33],\n\n\n\n\nTo estimate the traits of the stimuli \\((\\text{ability}_{i,a})\\)\nTo generate the model residuals \\((\\text{res}_{j,a,b})\\) and conduct misfit analysis.\n\n\n\n\nFits a multilevel regression on the residuals using the brms package [34, 35],\n\\(\\text{res}_{j,a,b} \\sim -1 + ZJd + (1 | Js)\\)\n\n\n\n\nTo test hypothesis of differences in mean residuals between groups of judges, i.e., \\(\\beta_{ZJd[g=1]} - \\beta_{ZJd[g=2]}\\), \\(\\beta_{ZJd[g=1]} - \\beta_{ZJd[g=3]}\\), and \\(\\beta_{ZJd[g=2]} - \\beta_{ZJd[g=3]}\\);\nTo assess the variability within- and between-judges \\((1 | Js)\\), where the former has no direct equivalent parameter, while latter corresponds to \\(s_{ZJ}\\)\\(^{*}\\).\nTo aggregate model residuals into judges biases \\((B_{J})\\)\n\n\n\n\n\n\n\\(*\\) By model assumptions, the CBTL analysis only considers one variability parameter for judges, i.e., \\(s_{ZJ}\\), versus multiple variability parameters defined by the experience of the judges, i.e., \\(s_{ZJd}\\)."
   },
   {
     "objectID": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-2",
     "href": "presentation.html#from-estimator-and-sample-to-estimates-the-cbtl-analysis-in-step-5-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5",
     "text": "4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5\nSpecifically, the CBTL analysis [4, 10–14, 31]:\n\n\n\nFits a multilevel regression on the stimulus’ trait estimates with the brms package [34, 35],\n\\(\\text{ability}_{i,a} \\sim -1 + XIc + XId + (1 | Is)\\)\n\n\n\n\nTo estimate the effect of age on the mean latent trait, i.e, \\(\\beta_{XIc}\\)\nTo test hypothesis of differences in mean latent traits between groups of children, i.e., \\(\\beta_{XId[g=1]} - \\beta_{XId[g=2]}\\), \\(\\beta_{XId[g=1]} - \\beta_{XId[g=3]}\\), and \\(\\beta_{XId[g=2]} - \\beta_{XId[g=3]}\\)\nTo assess the variability within and between children \\((1 | Is)\\), corresponding to the parameters \\(s_{A}\\) and \\(s_{XI}\\)\\(^{*}\\), respectively\nTo aggregate stimuli traits into individual level \\((T_{I})\\)\n\n\n\n\n\n\nPrior selection for the multilevel regression models in Steps \\(2\\) and \\(3\\) relied on prior predictive checks, the results of which are presented in Section 13.\n\n\n\\(*\\) By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., \\(s_{XI}\\), versus multiple variability parameters defined by the individuals’ groups, i.e., \\(s_{XId}\\)."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models",
     "href": "presentation.html#sec-ITCJ_models",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nIn contrast, the ITCJ analysis [8], fits six \\((6)\\) increasingly complex CJ models, using:\n\n\n\nStan version 2.26.1 [36] with its interface package cmdstanr [37],\nAdditional R packages for model summaries, predictions, and diagnostics: loo [38], posterior [39], and bayesplot [37, 40].\n\n\n\n\nSimilarly, prior selection for the six ITCJ models relied on prior predictive checks, the results of which are presented in Section 13."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models1",
     "href": "presentation.html#sec-ITCJ_models1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nThe first model only considers the stimulus’ traits\\(^{*}\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}) \\\\\n  T_{IA} & := f_{T}(e_{IA}) \\\\\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA} ) \\\\\n  & P( T_{IA} \\mid e_{IA} ) \\\\\n  & P( e_{IA} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = e_{IA} \\\\\n  e_{IA} & \\sim \\text{Normal}( 0, s_{A} )\n\\end{aligned}\n\\]\n\n\n\n\nFigure 8: First ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\\[\n\\begin{split}\ns_{A} & \\sim \\text{Exponential}( 1/5 )\n\\end{split}\n\\]\n\n\n\\(*\\) This model is akin to Step \\(1\\) of the CBTL analysis, but with a different prior."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models2",
     "href": "presentation.html#sec-ITCJ_models2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nBuilding on the first, the second model integrates the hierarchical structural component that captures the nesting structure of stimulus within individuals\\(^{*}\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(e_{I}) \\\\\n  e_{IA} & \\:\\bot\\:e_{I}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid e_{I} ) \\\\\n  & P( e_{IA} ) P( e_{I} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = e_{I} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 9: Second ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 \\\\\n    0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0  \\\\\n    0     & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\\(*\\) This model is akin to the combination of Steps \\(1\\) and \\(3\\) from the CBTL analysis, without covariates for the individuals."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models3",
     "href": "presentation.html#sec-ITCJ_models3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nExtending the second, the third model integrates covariates into the structural component to account for factors that may affect individual traits\\(^{*}\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(XI, e_{I}) \\\\\n  e_{IA} & \\:\\bot\\:e_{I}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid XI, e_{I} ) \\\\\n  & P( e_{IA} ) P( e_{I} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 10: Third ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\n\\end{split}\n\\]\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 \\\\\n    0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0  \\\\\n    0     & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\n\\(*\\) This model is akin to the combination of Steps \\(1\\) and \\(3\\) from the CBTL analysis, with covariates for the individuals."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models4",
     "href": "presentation.html#sec-ITCJ_models4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nAlso building upon the second, but in contrast to the third, the fourth model only incorporates judges’ biases\\(^{*}\\).\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{J}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(e_{I}) \\\\\n  B_{J} & := f_{B}(e_{J}) \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J}\\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}\\}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA}, B_{J} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid e_{I} ) \\\\\n  & P( B_{J} \\mid e_{J} ) \\\\\n  & P( e_{IA} ) P( e_{I} ) P( e_{J} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) + B_{J}[j]\\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = e_{I} \\\\\n  B_{J} & = e_{J} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 11: Fourth ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0 & 0 \\\\\n    0     & 1 & 0 \\\\\n    0     & 0 & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\\(*\\) This model is akin to the combination of all three steps from the CBTL analysis, without any covariates for individuals or judges. However, technically this is no longer a BTL model."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models5",
     "href": "presentation.html#sec-ITCJ_models5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nCombining the 3rd and 4th, the fifth model integrates covariates to account for factors that may affect individual traits and judge biases\\(^{*}\\):\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(XI, e_{I}) \\\\\n  B_{J} & := f_{B}(ZJ, e_{J}) \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J}\\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}\\}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid XI, e_{I} ) \\\\\n  & P( B_{J} \\mid ZJ, e_{J} ) \\\\\n  & P( e_{IA} ) P( e_{I} ) P( e_{J} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  B_{J} & = \\beta_{ZJd}[ZJd] + e_{J} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 12: Fifth ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\n\\beta_{ZJd}[GJ] &\\sim \\text{Normal}(0, 0.3); \\\\\n\\end{split}\n\\]\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0 & 0 \\\\\n    0     & 1 & 0 \\\\\n    0     & 0 & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\n\\(*\\) This model is akin to the combination of all three steps from the CBTL analysis, with covariates for individuals and judges. However, this is no longer a BTL model."
   },
   {
     "objectID": "presentation.html#sec-ITCJ_models6",
     "href": "presentation.html#sec-ITCJ_models6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5",
     "text": "4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5\nLastly, building upon the fifth, the sixth model accounts for differences in the variability of individual traits and judge biases\\(^{*}\\),\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(XI, e_{I}) \\\\\n  B_{J} & := f_{B}(ZJ, e_{J}) \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J}\\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}\\}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  & P( O_{R} \\mid D_{R}, S, C ) \\\\\n  & P( D_{R} \\mid T_{IA} ) \\\\\n  & P( T_{IA} \\mid T_{I}, e_{IA} ) \\\\\n  & P( T_{I} \\mid XI, e_{I} ) \\\\\n  & P( B_{J} \\mid ZJ, e_{J} ) \\\\\n  & P( e_{IA} ) P( e_{I} ) P( e_{J} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  B_{J} & = \\beta_{ZJd}[ZJd] + e_{J} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\n\nFigure 13: Sixth ITCJ model. Left panel illustrates the SCM. Middle panel shows the probabilistic model. Right panel illustrates the statistical model.\n\n\n\n\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\n\\beta_{ZJd}[GJ] &\\sim \\text{Normal}(0, 0.3);\n\\end{split}\n\\]\n\n\n\\[\n\\begin{split}\nhs_{I} &\\sim \\text{Dirichlet}(5, GI) \\; \\rightarrow \\; s_{XI} = GI \\cdot hs_{I}; \\\\\nhs_{J} &\\sim \\text{Dirichlet}(5, GJ); \\; \\rightarrow \\; s_{ZJ} = GJ \\cdot hs_{I}; \\\\\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix}; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0      & 0 \\\\\n    0     & s_{XI} & 0 \\\\\n    0     & 0      & s_{ZJ}\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\n\\(*\\) There is no equivalent in the CJ literature."
   },
   {
     "objectID": "presentation.html#from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-1",
     "href": "presentation.html#from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6",
     "text": "4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6\nThe study assess the quality of the models and estimate(s) in terms of:\n\n\n\nStationarity, convergence, and mixing (for brms and Bayesian models only), using\n\n\n\n\nGraphical analyses, including trace plots, rank-normalized trace plots, autocorrelation function (ACF) plots, and comparison plots of prior to posterior distributions,\nDiagnostic statistics, including the potential scale reduction factor statistics \\((\\hat{R})\\) with a cut-off value of \\(1.05\\) [41] and effective sample size statistics \\((n_{\\text{eff}})\\) [42].\n\n\n\n\nParameter recovery, using\n\n\n\n\nThe graphical comparisons of “true” parameters values versus posterior estimates,\nThe parameter posterior Root Mean Squared Error \\((\\text{RMSE})\\), defined as follows:\n\n\n\n\n\n\n\\[\n\\text{RMSE}( \\boldsymbol{\\hat{\\theta}}, \\theta) = \\sqrt{ \\frac{1}{S} \\sum_{s=1}^{S} ( \\hat{\\theta}_{s} - \\theta )^2 }\n\\]\n\n\nwhere \\(\\boldsymbol{\\hat{\\theta}}\\) is the vector of posterior samples associated with the “true” parameter \\(\\theta\\), and \\(\\hat{\\theta}_{s}\\) is the \\(s\\)-th sample out of a total of \\(S\\) posterior draws."
   },
   {
     "objectID": "presentation.html#from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-2",
     "href": "presentation.html#from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6",
     "text": "4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6\nThe study assess the quality of the models and estimate(s) in terms of:\n\n\n\nIn-sample predictive accuracy, using\n\n\n\n\nConfusion matrix comparing expected posterior predictions \\(E(\\boldsymbol{\\hat{y}})\\) with observed outcomes \\(\\boldsymbol{y}\\) from the first synthetic dataset, aggregated and non-aggregated across stimuli and individuals.\nMultiple confusion matrices comparing posterior samples \\(\\boldsymbol{\\hat{y}}_{s}\\) with observed outcomes \\(\\boldsymbol{y}\\) from the first synthetic dataset, aggregated and non-aggregated across stimuli and individuals.\n\n\n\n\nApproximate out-of-sample fit, using\n\n\n\n\nThe Pareto Smoothing Importance Sampling criterion \\((\\text{PSIS})\\) [43, 44]."
   },
   {
     "objectID": "presentation.html#results",
     "href": "presentation.html#results",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5. Results",
     "text": "5. Results\nIn this section, the study will:\n\n\n\nDescribe the synthetic random comparison dataset;\nProgress through the steps \\(3-7\\) of the Bayesian (research) workflow, described in Section 6.2, using:\n\n\n\nThe CBTL analysis, and\nThe ITCJ analysis"
   },
   {
     "objectID": "presentation.html#data-description-1",
     "href": "presentation.html#data-description-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nIn terms of design, the dataset reveals that:\n\n\n\nMost stimuli were compared \\(20\\) times; only two stimuli (IDs \\(2\\) and \\(3\\)) from individual \\(58\\) were compared slightly fewer times due to random variation.\nThe stimuli comparison network indicates a random balanced design [25].\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 14: Comparison design. Left panel shows the number of comparisons for individuals \\((Is)\\) and stimuli \\((As)\\). Right panel shows the stimuli comparison network."
   },
   {
     "objectID": "presentation.html#data-description-2",
     "href": "presentation.html#data-description-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nIn a similar manner, the data indicates:\n\n\n\nMost individuals were compared \\(200\\) times (\\(20\\) comparisons × \\(10\\) stimuli each); only one individual (ID \\(58\\)) was compared slightly fewer times due to random design variation;\nThe connected component analysis [45] and individual comparison network indicates a fully connected network and a balanced design for individuals [25].\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 15: Comparison design. Left panel shows the number of comparisons for individuals. Right panel shows the individual comparison network."
   },
   {
     "objectID": "presentation.html#data-description-3",
     "href": "presentation.html#data-description-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nOn the other hand, the dataset shows:\n\n\n\nJudges compare individuals with frequencies ranging from \\(0\\) to \\(13\\) comparisons;\nMost judges completed \\(262\\) comparisons, while a few completed \\(264\\) due to random design variation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 16: Comparison design. Left panel shows the judges \\((Js)\\) versus the first \\(10\\) individuals \\((Is)\\). Right panel shows the total number of judges’ comparisons."
   },
   {
     "objectID": "presentation.html#data-description-4",
     "href": "presentation.html#data-description-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nMoreover,\n\n\n\nJudges to individual comparison network indicates a fully connected network\n\n\n\n\n\n\n\n\n\n\nFigure 17: Bipartite graph of judges to individual comparison network."
   },
   {
     "objectID": "presentation.html#data-description-5",
     "href": "presentation.html#data-description-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nIn terms of the comparison outcomes, we see some stimuli with higher win rates than others:\n\n\n\n\n\n\n\nFigure 18: Stimuli win rates.\n\n\n\n\n\n\nOne stimulus has win almost all comparisons, \\(\\text{IA}[6,7]\\)\nTwo stimuli has loss all comparisons, \\(\\text{IA}[5,2]\\) and \\(\\text{IA}[45,3]\\)"
   },
   {
     "objectID": "presentation.html#data-description-6",
     "href": "presentation.html#data-description-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nAggregated by individuals, we see some individuals with higher win rates than others:\n\n\n\n\n\n\n\nFigure 19: Individual win rates."
   },
   {
     "objectID": "presentation.html#data-description-7",
     "href": "presentation.html#data-description-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nDivided by hearing status groups,\n\n\n\nIt is harder to see average differences between the groups,\nHowever, we can easily notice the different variability between them\n\n\n\n\n\n\n\n\n\n\nFigure 20: Individual win rates per group. Left panel describe NH children. Middle panel describe HI-HA children. Right panel illustrate HI-CI children."
   },
   {
     "objectID": "presentation.html#data-description-8",
     "href": "presentation.html#data-description-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nHowever, no apparent relationship transpire between individual wins and age:\n\n\n\n\n\n\n\nFigure 21: Individual win rates versus age."
   },
   {
     "objectID": "presentation.html#data-description-9",
     "href": "presentation.html#data-description-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1 Data description",
     "text": "5.1 Data description\nConsidering the interaction of age and hearing status groups,\n\n\n\nWe notice a slightly decreasing trend in HI-HA and HI-CI children, indicating that in those groups, older children are less likely to win in a comparison, but the results are not unambiguous (Simpson’s, Berkson’s or another paradox?).\n\n\n\n\n\n\n\n\n\n\nFigure 22: Individual win rates."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-1",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nFirst, the BTL model is applied to the data to estimate the stimuli traits.\n\nThe initial model fit indicates that,\n\n\n\nThe BTL model struggles to accurately estimate traits for certain ‘extreme’ stimuli,\nIt recovers the stimuli traits reasonably well, though with some downward bias,\nThe purpose and diagnostic value of the misfit analysis remain unclear.\n\n\n\n\n\n\n\n\n\nFigure 23: CBTL analysis, first BTL model fit. Left panel shows the trait estimates for all stimuli. Right panel shows the trait estimates for non-extreme stimuli."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-2",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nThe purpose and diagnostic value of the misfit analysis remain unclear:\n\n\n\n\n\n\n\nFigure 24: Stimuli “Preference” Analysis, identifying comparative wins and losses. Blue circles represent wins, red X’s indicate losses. The diagonal line maps cases where the same stimulus appears on both the x- and y-axes. Stimuli are ordered from best (top) to worst (bottom) performing stimuli based on its true trait value."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-3",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nThe multilevel regression on the residuals (Step \\(2\\)) has the following specification, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & res ~ -1 + ZJd + (1 | Js), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.3), \\text{class}=b, \\text{coef}=ZJd3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(50), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(25), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nJudges’ mean latent biases across groups are assigned weakly informative priors, reflecting no directional preference in group-level means, i.e., \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]} \\sim normal(0, 0.3)\\),\nDue to the \\([-1,1]\\) range in the residuals [4, 10], the between-judge residual variability \\((sd)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=50^{-1}\\) and a variance of \\(\\lambda_{1}^{-2}=50^{-2}\\). This reflects the strong belief in the absence of systematic judges biases,\nFor similar reasons, the within-judge residual variability \\((sigma)\\) is assigned a highly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=25^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=25^{-2}\\). This reflects the expectation of a greater (though still narrow) unexplained residual variability unrelated to systematic judge biases, i.e., \\(\\lambda_{1}^{-1} &lt; \\lambda_{2}^{-1}\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-4",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\nFigure 25: CBTL analysis, prior predictive check for multilevel regression model on the residuals.\n\n\n\n\n\n\nPredictions still extend beyond the observed data range, despite the highly informative priors for the between-judge \\((sd)\\) and within-judge \\((sigma)\\) residual variability.\nAlthough more informative priors could constrain the range even more, the current priors are sufficient given the size of the residuals data, that is, the data will overcome the priors."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-5",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAfter testing four prior specifications, the multilevel regression for stimuli traits (Step \\(3\\)) follows, \\[\n\\begin{split}\nbrm(& \\; \\text{data} \\; &= & d, \\\\\n& \\; \\text{family} \\; &= & gaussian, \\\\\n& \\; \\text{formula} \\; &= & ability ~ -1 + XIc + XId + (1 | Is), \\\\\n& \\; \\text{prior} \\; &= c(& \\; \\text{prior}( \\; normal(0, 0.05), \\text{class}=b, \\text{coef}=XIc ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId1 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId2 ), \\\\\n& & & \\; \\text{prior}( \\; normal(0, 0.5), \\text{class}=b, \\text{coef}=XId3 ), \\\\\n& & & \\; \\text{prior}( \\; exponential(1), \\text{class}=sd ), \\\\\n& & & \\; \\text{prior}( \\; exponential(5), \\text{class}=sigma )\n\\end{split}\n\\]\n\n\nAssumptions:\n\n\n\nNo directional preference is assumed for the effects of age and hearing status on individuals’ mean latent traits; thus, weakly informative priors are set for \\(\\beta_{XIc}\\) and \\(\\beta_{ZJd[g=1]} = \\beta_{ZJd[g=2]} = \\beta_{ZJd[g=3]}\\),\nBetween-individual residual variability \\((sd)\\) is assigned a weakly informative exponential prior with an average of \\(\\lambda_{1}^{-1}=1\\) and a variance of \\(\\lambda_{1}^{-1}=1\\). This reflects the mild belief that individuals systematic variability is ‘around’ one,\nWithin-individual (between-stimuli) residual variability \\((sigma)\\) is assigned a weakly informative exponential prior with an average of \\(\\lambda_{2}^{-1}=5^{-1}\\) and a variance of \\(\\lambda_{2}^{-2}=5^{-2}\\). This reflects the expectation of less between-stimuli versus between-individuals variability, i.e., \\(\\lambda_{1}^{-1} &gt; \\lambda_{2}^{-1}\\)"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-6",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nBefore proceeding to Steps \\(2\\) and \\(3\\), we need specify the appropriate priors:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\nFigure 26: CBTL analysis, prior predictive check for multilevel regression model on the estimated stimuli traits.\n\n\n\n\n\n\nPredictions capture the most likely range of the data, without trying to accommodate the ‘extreme’ estimates."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-7",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 27: CBTL analysis, example of multilevel regression parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are in the vicinity of \\(1\\), and none is above \\(1.05\\)\nOnly \\(bZJd[3]\\) has a \\(n_{eff} &lt; 1000\\), the rest have \\(n_{eff} &gt; 1300\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-8",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\nFigure 28: CBTL analysis, parameter recovery for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nExtreme stimuli traits does not allow to see the trend of recovery"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-9",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\nFigure 29: CBTL analysis, parameter recovery for all steps. Top right panel does not include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nIndividual traits are biased\nAlmost no recovery of judges biases\nNot so good estimation for betas and sigmas"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-10",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-10",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\nFigure 30: CBTL analysis, RMSE for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-11",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-11",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nSecond, we use the refitted BTL model (without misfits) and the specified priors to fit the models in Steps \\(2\\) and \\(3\\), completing the CBTL analysis.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\nFigure 31: CBTL analysis, RMSE for all steps. Top right panel include the ‘extreme’ estimates for the stimuli traits.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-12",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-12",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 32: CBTL analysis, posterior predictive for confusion matrix based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT)."
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-13",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-13",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 33: CBTL analysis, posterior predictive for stimuli wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-14",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-14",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\nFigure 34: CBTL analysis, posterior predictive for individual wins based only on Step \\(1\\). Posterior simulations assume normality of stimuli traits by Central Limit Theorem (CLT).\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-cbtl-analysis-15",
     "href": "presentation.html#data-modeling-the-cbtl-analysis-15",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.1 Data modeling: The CBTL analysis",
     "text": "5.2.1 Data modeling: The CBTL analysis\nFourth, we check if the models still shows signs of ‘trouble’.\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 35: CBTL analysis, influential points based on Steps \\(2\\) and \\(3\\). Left panel shows the points identified in the residuals analysis. Right panel shows the points identified in the stimuli traits analysis.\n\n\n\n\n\n\nOn a second misfit identification, no misfit stimuli is in the group of influential points"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.2, the first ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = e_{IA} \\\\\n  e_{IA} & \\sim \\text{Normal}( 0, s_{A} )\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\ns_{A} & \\sim \\text{Exponential}( 1/5 )\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nThe between-stimuli variability \\((s_{A})\\) is assigned a non-informative exponential prior with an average of \\(\\lambda^{-1}=5\\) and a variance of \\(\\lambda^{-2}=5^{2}\\). This reflects the lack of any expectation regarding the between-stimuli variability.\n\n\n\n\n\n\\(*\\) This model is akin to Step \\(1\\) of the CBTL analysis, but with a different prior."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 36: First ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 37: First ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 38: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nSecond, we fit the first ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 39: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 40: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.2.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 41: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 42: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the first ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-1-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-1-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.1.2.1 Data modeling: The ITCJ analysis 1",
     "text": "5.1.2.1 Data modeling: The ITCJ analysis 1\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 43: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the first ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.3, the second ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = e_{I} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 \\\\\n    0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0  \\\\\n    0     & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nBetween-individual variability is assumed to be equal to \\(1\\). Thus, the prior distribution is used to define the scale of individual latent traits, as it is required in latent variable models [15].\nThe within-individual (between-stimuli) variability \\((s_{A})\\) is assigned a weakly informative Beta-proportion prior with an average of \\(\\mu=0.5\\) and a ‘sample size’ of \\(M=5\\). This reflects the expectation that the stimuli are more homogeneous than the individuals [25].\n\n\n\n\n\n\\(*\\) This model is akin to the combination of Steps \\(1\\) and \\(3\\) from the CBTL analysis, without covariates for the individuals."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 44: Second ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 45: Second ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 46: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 47: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 48: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 49: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 50: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the second ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-2-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-2-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.2 Data modeling: The ITCJ analysis 2",
     "text": "5.2.2.2 Data modeling: The ITCJ analysis 2\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 51: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the second ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.4, the third ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 \\\\\n    0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0  \\\\\n    0     & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nThe effects of age and the hearing status groups on the mean latent trait of individuals has the same weakly informative prior as in the CBTL analysis,\nBetween- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ model.\n\n\n\n\n\n\\(*\\) This model is akin to the combination of Steps \\(1\\) and \\(3\\) from the CBTL analysis, with covariates for the individuals."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 52: Third ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 53: Third ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 54: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nSecond, we fit the third ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 55: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 56: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 57: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 58: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the third ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-3-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-3-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.3 Data modeling: The ITCJ analysis 3",
     "text": "5.2.2.3 Data modeling: The ITCJ analysis 3\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 59: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the third ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.5, the fourth ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & := f_{O}(D_{R}, S, C) \\\\\n  D_{R} & := f_{D}(T_{IA}, B_{J}) \\\\\n  T_{IA} & := f_{T}(T_{I}, e_{IA}) \\\\\n  T_{I} & := f_{T}(e_{I}) \\\\\n  B_{J} & := f_{B}(e_{J}) \\\\\n  e_{IA} & \\:\\bot\\:\\{ e_{I}, e_{J}\\} \\\\\n  e_{I} & \\:\\bot\\:\\{ e_{J}\\}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0 & 0 \\\\\n    0     & 1 & 0 \\\\\n    0     & 0 & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nBetween- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,\nBetween-judge variability is assumed to be equal to \\(1\\). Thus, the prior distribution is used to define the scale of judges latent biases, as it is required in latent variable models [15].\n\n\n\n\n\n\\(*\\) This model is akin to the combination of all three steps from the CBTL analysis, without any covariates for individuals or judges. However, technically this is no longer a BTL model."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 60: Fourth ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 61: Fourth ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 62: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nSecond, we fit the fourth ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 63: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 64: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 65: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 66: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fourth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-4-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-4-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.4 Data modeling: The ITCJ analysis 4",
     "text": "5.2.2.4 Data modeling: The ITCJ analysis 4\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 67: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fourth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.6, the fifth ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  B_{J} & = \\beta_{ZJd}[ZJd] + e_{J} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\n\\beta_{ZJd}[GJ] &\\sim \\text{Normal}(0, 0.3); \\\\\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix} ; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0 & 0 \\\\\n    0     & 1 & 0 \\\\\n    0     & 0 & 1\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nThe effects of age and the hearing status groups on the mean latent trait of individuals has the same weakly informative prior as in the CBTL analysis,\nThe effects of judges groups on the mean latent bias has the same weakly informative prior as in the CBTL analysis,\nBetween- and within-individual (between-stimuli) variability has the same prior as the previous ITCJ models,\nBetween-judge variability has the same prior as the previous ITCJ models.\n\n\n\n\n\n\\(*\\) This model is akin to the combination of all three steps from the CBTL analysis, with covariates for individuals and judges. However, this is no longer a BTL model."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 68: Fifth ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 69: Fifth ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 70: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nSecond, we fit the fifth ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 71: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 72: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 73: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 74: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the fifth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-5-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-5-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.5 Data modeling: The ITCJ analysis 5",
     "text": "5.2.2.5 Data modeling: The ITCJ analysis 5\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 75: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the fifth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-1",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nFirst, we need specify the appropriate priors for the model:\n\nAs seen in Section 11.7, the sixth ITCJ model is represented by,\n\n\n\n\\[\n\\begin{aligned}\n  O_{R} & \\overset{iid}{\\sim} \\text{Bernoulli} \\left[ \\text{inv_logit}( D_{R} ) \\right] \\\\\n  D_{R} & = \\left( T_{IA}[i,a] - T_{IA}[h,b] \\right) \\\\\n  T_{IA} & = T_{I} + e_{IA} \\\\\n  T_{I} & = \\beta_{XIc} XIc + \\beta_{XId}[XId] + e_{I} \\\\\n  B_{J} & = \\beta_{ZJd}[ZJd] + e_{J} \\\\\n  \\boldsymbol{e} & \\sim \\text{Multi-Normal}( \\boldsymbol{\\mu}, \\boldsymbol{\\Sigma} )\n  \\\\\n  \\boldsymbol{\\Sigma} &= \\boldsymbol{V} \\boldsymbol{Q} \\boldsymbol{V}\n\\end{aligned}\n\\]\n\n\n\\[\n\\begin{split}\n\\beta_{XIc} &\\sim \\text{Normal}(0, 0.05); \\\\\n\\beta_{XId}[GI] &\\sim \\text{Normal}(0, 0.5); \\\\\n\\beta_{ZJd}[GJ] &\\sim \\text{Normal}(0, 0.3); \\\\\nhs_{I} &\\sim \\text{Dirichlet}(5, GI) \\; \\rightarrow \\; s_{XI} = GI \\cdot hs_{I}; \\\\\nhs_{J} &\\sim \\text{Dirichlet}(5, GJ); \\; \\rightarrow \\; s_{ZJ} = GJ \\cdot hs_{I}; \\\\\ns_{A} &\\sim \\text{Beta_proportion}(0.5, 5); \\\\\n\\boldsymbol{\\mu} &= [0, 0, 0]^{T}; \\;\n\\boldsymbol{Q} = \\begin{bmatrix}\n    1 & 0 & 0 \\\\\n    0 & 1 & 0 \\\\\n    0 & 0 & 1\n\\end{bmatrix}; \\;\n\\boldsymbol{V} = \\begin{bmatrix}\n    s_{A} & 0      & 0 \\\\\n    0     & s_{XI} & 0 \\\\\n    0     & 0      & s_{ZJ}\n\\end{bmatrix}\n\\end{split}\n\\]\n\n\n\n\n\nAssumptions:\n\n\n\nThe effects of age and the hearing status groups on the mean latent trait of individuals has the same weakly informative prior as in the CBTL analysis,\nThe effects of judges groups on the mean latent bias has the same weakly informative prior as in the CBTL analysis,\nWithin-individual (between-stimuli) variability has the same prior as the previous ITCJ models.\nBetween-individual and between-judges variability are now constraint to add to one (i.e., a simplex) across hearing status and judges groups, respectively. This requirement is enforced through a weakly informative Dirichlet prior.\n\n\n\n\n\n\\(*\\) This model has no equivalent in the current CJ literature."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-2",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nFirst, we need specify the appropriate priors for the model:\n\nAs a result of the prior assumptions, the prior predictive check shows that:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 76: Sixth ITCJ analysis, prior predictive checks."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-3",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the second ITCJ model to the data using the specified priors.\n\nThe diagnostic statistics and plots indicate that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 77: Sixth ITCJ analysis, example of parameter diagnostics. Leftmost six panels show the trace plots. Rightmost six panels show the trace rank plots.\n\n\n\n\n\n\nAll \\(\\hat{R}\\) are equal to \\(1\\), and none is above \\(1.05\\)\nOnly \\(s_{A}\\) has a \\(n_{eff} \\approx 3000\\), the rest have \\(n_{eff} &gt; 10000\\)\nThere is sufficient information in the posterior distributions"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-4",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe parameter recovery plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 78: ITCJ versus CBTL analysis, parameter recovery. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-5",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-5",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nSecond, we fit the sixth ITCJ model to the data using the specified priors.\n\nThe RMSE plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 79: ITCJ versus CBTL analysis, RMSE. Leftmost four panels show the CBTL analysis. Top right panel of CBTL analysis exclude the ‘extreme’ estimates for the stimuli traits. Rightmost two panels show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-6",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-6",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 80: ITCJ versus CBTL analysis, posterior predictive for confusion matrix. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-7",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-7",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 81: ITCJ versus CBTL analysis, posterior predictive for stimuli wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-8",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-8",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nThird, we assess the in-sample predictive accuracy of the model.\n\nThe posterior predictive plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 82: ITCJ versus CBTL analysis, posterior predictive for individual wins. Left panel show the CBTL analysis, which assumes normality of stimuli traits by Central Limit Theorem (CLT). Right panel show the sixth ITCJ analysis.\n\n\n\n\n\n\nThis can only be understood comparatively"
   },
   {
     "objectID": "presentation.html#data-modeling-the-itcj-analysis-6-9",
     "href": "presentation.html#data-modeling-the-itcj-analysis-6-9",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.2.2.6 Data modeling: The ITCJ analysis 6",
     "text": "5.2.2.6 Data modeling: The ITCJ analysis 6\nFourth, we check if the model still shows signs of ‘trouble’\n\nThe influential points plots indicates that,\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 83: ITCJ versus CBTL analysis, influential points. Left panel shows the points identified in the CBTL stimuli traits analysis. Right panel show the sixth ITCJ analysis."
   },
   {
     "objectID": "presentation.html#model-comparison-1",
     "href": "presentation.html#model-comparison-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.3 Model comparison",
     "text": "5.3 Model comparison\nFinally, we compare the approximate out-of-sample fit for all ITCJ models.\n\nThe approximate out-of-sample fit comparison indicates that,\n\n\n\nThere is a clear difference in between ITCJ models \\(1-3\\) (Bayesian equivalent of the BTL model) and ITCJ models \\(4-6\\), which account for judges’ biases, even considering the parameter penalty!,\nITCJ model \\(4\\) and \\(5\\) show similar performance, this implies that adding covariates to model \\(4\\) (model \\(5\\)) does not substantially improves its approximate out-of-sample fit,\nITCJ model \\(6\\) has the best relative approximate out-of-sample fit.\n\n\n\n\n\n\n\n\n\nFigure 84: ITCJ analysis, model comparison. Left panel shows all models. Right panel shows a smaller set of models."
   },
   {
     "objectID": "presentation.html#model-comparison-2",
     "href": "presentation.html#model-comparison-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.3 Model comparison",
     "text": "5.3 Model comparison\nAlso, we compare and interpret the parameter estimates:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParameter table\n\n\nvariable\nvalue\nmean\nmedian\nsd\nq5\nq95\nrmse\n\n\n\n\nbXIc\n0.10\n0.00\n0.00\n0.05\n−0.08\n0.08\n0.11\n\n\nbXId[1]\n1.00\n−0.22\n−0.21\n0.36\n−0.80\n0.37\n1.27\n\n\nbXId[2]\n0.00\n−0.15\n−0.15\n0.46\n−0.90\n0.60\n0.48\n\n\nbXId[3]\n−1.00\n−0.41\n−0.41\n0.46\n−1.16\n0.36\n0.75\n\n\nbZJd[1]\n0.00\n0.01\n0.01\n0.05\n−0.07\n0.09\n0.05\n\n\nbZJd[2]\n0.00\n0.00\n0.00\n0.04\n−0.07\n0.07\n0.04\n\n\nbZJd[3]\n0.00\n−0.01\n−0.01\n0.02\n−0.05\n0.03\n0.03\n\n\nsA[1]\n0.20\n2.37\n2.37\n0.08\n2.25\n2.50\n2.68\n\n\nsI[1]\n1.50\n2.87\n2.84\n0.30\n2.42\n3.38\n0.88\n\n\nsK[1]1\n0.10\n0.35\n0.35\n0.00\n0.34\n0.36\n0.04\n\n\nsJ[1]\n0.50\n0.14\n0.14\n0.01\n0.12\n0.16\n0.15\n\n\n\n1 No equivalent parameter in original simulation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParameter table\n\n\nvariable\nvalue\nmean\nmedian\nsd\nq5\nq95\nrmse\n\n\n\n\nbXIc\n0.10\n0.05\n0.05\n0.04\n−0.03\n0.12\n0.07\n\n\nbXId[1]\n1.00\n0.58\n0.58\n0.35\n0.00\n1.16\n0.55\n\n\nbXId[2]\n0.00\n0.04\n0.03\n0.35\n−0.53\n0.61\n0.35\n\n\nbXId[3]\n−1.00\n−0.62\n−0.63\n0.37\n−1.22\n−0.01\n0.53\n\n\nbZJd[1]\n0.00\n−0.04\n−0.04\n0.17\n−0.32\n0.23\n0.18\n\n\nbZJd[2]\n0.00\n−0.04\n−0.04\n0.20\n−0.37\n0.28\n0.20\n\n\nbZJd[3]\n0.00\n−0.16\n−0.17\n0.20\n−0.49\n0.17\n0.26\n\n\nsA[1]\n0.20\n0.21\n0.21\n0.06\n0.10\n0.30\n0.06\n\n\nsI[1]\n1.50\n1.59\n1.58\n0.15\n1.35\n1.85\n0.17\n\n\nsI[2]\n0.75\n0.48\n0.47\n0.15\n0.26\n0.74\n0.31\n\n\nsI[3]\n0.75\n0.94\n0.93\n0.17\n0.67\n1.22\n0.25\n\n\nsJ[1]\n0.50\n0.55\n0.54\n0.12\n0.36\n0.76\n0.13\n\n\nsJ[2]\n1.00\n0.78\n0.78\n0.13\n0.57\n1.00\n0.26\n\n\nsJ[3]\n1.50\n1.68\n1.67\n0.13\n1.46\n1.89\n0.22\n\n\n\n\n\n\n\n\n\n\n\nFigure 85: Parameter estimates. Left table reports the CBTL analysis. Right table reports the ITCJ analysis, model \\(6\\)."
   },
   {
     "objectID": "presentation.html#model-comparison-3",
     "href": "presentation.html#model-comparison-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "5.3 Model comparison",
     "text": "5.3 Model comparison\nAlso, we compare and interpret the parameter estimates:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContrast table\n\n\nvariable\nvalue\nmean\nmedian\nsd\nq5\nq95\nrmse\n\n\n\n\nbXId[2] - bXId[1]\n−1.00\n0.07\n0.07\n0.57\n−0.87\n1.00\n1.21\n\n\nbXId[3] - bXId[1]\n−2.00\n−0.19\n−0.19\n0.58\n−1.13\n0.78\n1.90\n\n\nbXId[3] - bXId[2]\n−1.00\n−0.26\n−0.26\n0.63\n−1.30\n0.78\n0.98\n\n\nbZJd[2] - bZJd[1]\n0.00\n−0.01\n−0.01\n0.07\n−0.12\n0.10\n0.07\n\n\nbZJd[3] - bZJd[1]\n0.00\n−0.02\n−0.02\n0.05\n−0.11\n0.06\n0.06\n\n\nbZJd[3] - bZJd[2]\n0.00\n−0.01\n−0.01\n0.05\n−0.09\n0.07\n0.05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContrast table\n\n\nvariable\nvalue\nmean\nmedian\nsd\nq5\nq95\nrmse\n\n\n\n\nbXId[2] - bXId[1]\n−1.00\n−0.55\n−0.54\n0.29\n−1.03\n−0.07\n0.54\n\n\nbXId[3] - bXId[1]\n−2.00\n−1.20\n−1.21\n0.39\n−1.84\n−0.57\n0.89\n\n\nbXId[3] - bXId[2]\n−1.00\n−0.66\n−0.66\n0.36\n−1.25\n−0.05\n0.50\n\n\nbZJd[2] - bZJd[1]\n0.00\n0.00\n0.00\n0.26\n−0.43\n0.43\n0.26\n\n\nbZJd[3] - bZJd[1]\n0.00\n−0.12\n−0.12\n0.26\n−0.55\n0.31\n0.29\n\n\nbZJd[3] - bZJd[2]\n0.00\n−0.12\n−0.13\n0.28\n−0.58\n0.34\n0.30\n\n\nsI[2] - sI[1]\n−0.75\n−1.11\n−1.11\n0.25\n−1.51\n−0.69\n0.44\n\n\nsI[3] - sI[1]\n−0.75\n−0.65\n−0.66\n0.28\n−1.11\n−0.18\n0.30\n\n\nsI[3] - sI[2]\n0.00\n0.46\n0.47\n0.28\n−0.02\n0.90\n0.54\n\n\nsJ[2] - sJ[1]\n0.50\n0.23\n0.23\n0.22\n−0.13\n0.58\n0.34\n\n\nsJ[3] - sJ[1]\n1.00\n1.13\n1.13\n0.22\n0.75\n1.49\n0.26\n\n\nsJ[3] - sJ[2]\n0.50\n0.90\n0.90\n0.23\n0.50\n1.27\n0.46\n\n\n\n\n\n\n\n\n\n\n\nFigure 86: Contrast estimates. Left table reports the CBTL analysis. Right table reports the ITCJ analysis, model \\(6\\)."
   },
   {
     "objectID": "presentation.html#discussion-1",
     "href": "presentation.html#discussion-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6. Discussion",
     "text": "6. Discussion\nThis study fulfills its two overarching goals, that is,\n\n\n\nShowing how apply the ITCJ model to a simulated dataset,\nA tutorial component, offering detailed guidance on data simulation, prior and model specification, estimation, and interpretation using the software R and Stan.\nEvaluating whether the approach yield accurate and reliable trait estimates and inference parameters,\nA model validation component benchmarked against the CBTL analysis."
   },
   {
     "objectID": "presentation.html#discussion-2",
     "href": "presentation.html#discussion-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6. Discussion",
     "text": "6. Discussion\nThe CBTL analysis results provide preliminary evidence that,\n\n\n\nResearchers cannot treat “sample-freeness” as an inherent property of the BTL model, contrary to previous beliefs [3, 6]. Instead, the property depends on the specific data under analysis.\nWhen judges exhibit bias, the CBTL analysis fails to capture the complexity of the traits [3, 6, 7, 9], producing inaccurate and unreliable estimates [46–49]. This limitation is particularly evident in the estimation of inference parameters and judges’ biases.\nThe common CJ practice of separating trait estimation from hypothesis testing [11, 12, 14, 50–53], introduces bias and reduces the reliability of inferences [48, 49, 54].\nThe BTL model is overconfident when predicting comparison outcomes, as shown by the posterior predictive checks based on the expected values."
   },
   {
     "objectID": "presentation.html#discussion-3",
     "href": "presentation.html#discussion-3",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6. Discussion",
     "text": "6. Discussion\nMoreover, the CBTL analysis results also provide preliminary evidence that,\n\n\n\nDespite its statistical definition as an outlier detection tool [8], misfit analysis fail to detect ‘extreme’ cases;\nDespite its conceptual definition as a “lack-of-consensus” identification tool [4, 10], misfit analysis does not consistently classify all stimuli, judges or individual exhibiting consensus or lack of consensus (see Figure 24);\nNote: The definition of consensus aligns with the microeconomics’ concept of transitivity, that is, if \\(A \\succ B \\succ C\\), then \\(A \\succ C\\) [55]. As Pollit [10] explains: “If a portfolio’s WMS exceeds the criterion of mean plus two standard deviations, this means the judges did not judge it consistently, some considering it ‘better’ than others did. Significant portfolio misfit indicates a specific difference between judges in how they would rank order the portfolios, arising from a difference in how they understand or value the trait they are trying to assess.”\nIn fact, as show in this study, simple features of the data-generating process can produce lack of consensus or transitivity. For example, \\(\\text{IA}[6,3] \\succ \\text{IA}[6,7] \\succ \\text{IA}[31,6]\\), but \\(\\text{IA}[31,6] \\succ \\text{IA}[6,3]\\) (see Figure 24);\nThen, as expected, excluding misfitting stimuli and judges in a second model fit [4, 10] does not improve trait estimation nor inferences, as the model continues to struggle with ‘extreme’ stimuli and unmodeled data features."
   },
   {
     "objectID": "presentation.html#discussion-4",
     "href": "presentation.html#discussion-4",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6. Discussion",
     "text": "6. Discussion\nIn contrast, results from the ITCJ analysis indicate that,\n\n\n\nThe frequentist BTL model and its equivalent Bayesian ITCJ models (models \\(1-3\\)) show similar insufficient fit; however, the ITCJ models exhibit a slightly better recovery performance due to the regularizing influence of weakly informative priors (see parameter recovery and RMSE plots).\nNote: ITCJ models \\(1-3\\) can be estimated with the BTm() function; however, the practice is largely absent in the current CJ literature.\nIncorporating the hierarchical structure of stimuli and accounting for judges’ biases (ITCJ model \\(4\\)) improves the prediction of comparison outcomes by up to \\(10\\) percentage points in the overall True Positives (TP) and True Negatives (TN), as indicated by posterior predictive checks, more than including covariates in the model (model \\(3\\)).\nExpanding the model to include the hierarchical structure of stimuli, judges’ biases, heterogeneity in discriminal dispersions, and measurement error in inferences (ITCJ model \\(6\\)) enhances both the accuracy and reliability of all trait estimates and inference parameters.\nITCJ model \\(6\\) enables to test other inferences not available under the CBTL analysis"
   },
   {
     "objectID": "presentation.html#future-research-directions-1",
     "href": "presentation.html#future-research-directions-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6.1 Future research directions",
     "text": "6.1 Future research directions\nBuilding upon Rivera et al. [8], four research avenues deserve attention.\n\n\n\nSampling and comparison mechanisms,\nThis study used random sampling and comparison algorithms. Future work should assess how alternative sampling strategies and comparison algorithms affect the accuracy and reliability of trait estimates and inference parameters, e.g.,\n\n\n\n\nwhat happens when data is not randomly sampled or when comparison are not random?\nis the Adaptive Comparative Judgment (ACJ) algorithm random or non-random?\n\n\n\n\nValidity of ‘misfit’ analysis,\nPreliminary evidence in this study suggest that ‘misfit’ analysis often miss classifies or fails to classify cases. Future work should then determine, e.g.,\n\n\n\n\nwhat ‘misfit’ analysis actually diagnose?\nare its conceptual and statistical definitions aligned?\ndoes the analysis function as an outlier detection tool?\ndoes it holds real analytical value in the CJ workflow?"
   },
   {
     "objectID": "presentation.html#future-research-directions-2",
     "href": "presentation.html#future-research-directions-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6.1 Future research directions",
     "text": "6.1 Future research directions\nBuilding upon Rivera et al. [8], four research avenues deserve attention.\n\n\n\nSources of judges biases,\nEvidence from this study indicates that researchers need to move beyond the traditional BTL model, explicitly integrating judges’ biases in CJ analyses. This opens the door for future studies to investigate which factors influence these biases. For instance,\n\n\n\n\ndo gender, age, culture, income, education, training, or expertise affect judges’ biases?,\nhow many stimuli/individuals and judges are needed to support specific inferences?\n\n\n\n\nProspective power and replication studies!\nConsidering the preliminary evidence of this study,\n\n\n\n\nin any random sample, what is the probability that at least one judge is biased?\nif that probability is not low, how confident can researchers be that their CJ data are free of judges’ biases?"
   },
   {
     "objectID": "presentation.html#study-limitations-1",
     "href": "presentation.html#study-limitations-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "6.2 Study limitations",
-    "text": "6.2 Study limitations\nDespite the relevance of its results, this study has some limitations:\n\n\n\nThe empirical test of the ITCJ analyses relies on a single, ‘small’ simulated dataset,\nThe assessment of out-of-sample fit depends on approximate measures, such as PSIS,\nThe analysis did not use additional variables from the simulated data to evaluate the the models’ ability to not reject null hypotheses when the null is true (except for judges’ groups),\nThe study did not explicitly design or plan the evaluation of the misfit analysis properties."
+    "text": "6.2 Study limitations\nDespite the relevance of its results, this study has some limitations:\n\n\n\nThe empirical test of the ITCJ analyses relies on a single, ‘small’ simulated dataset,\nThe assessment of out-of-sample fit depends on approximate measures, such as PSIS,\nThe analysis did not use additional variables from the simulated data to evaluate the models’ ability to not reject null hypotheses when the null is true (except for judges’ groups),\nThe study did not explicitly design or plan the evaluation of the misfit analysis properties."
   },
   {
     "objectID": "presentation.html#conclusion-1",
     "href": "presentation.html#conclusion-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "7. Conclusion",
     "text": "7. Conclusion\nThis study achieves its two main goals,\n\n\n\nIt provides a practical tutorial in R and Stan on how to apply the ITCJ analysis to a CJ data,\nIt validates the model’s ability to produce accurate and reliable trait estimates and inference parameters compared to the CBTL analysis.\n\n\n\n\nThe results of the study indicates that,\n\n\n\nResearchers should move beyond the CBTL analysis toward a more systematic, integrated approach for trait estimation and inference, as exemplified by the ITCJ analysis [8].\nThere are several promising directions for future research."
   },
   {
     "objectID": "presentation.html#licence-1",
     "href": "presentation.html#licence-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "Licence",
     "text": "Licence\nAll the code that is original to this study and not attributed to any other authors is copyrighted by Jose Manuel Rivera Espejo and released under the new BSD-3-Clause license."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2",
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "Appendix A - From Design to Sample: Step 2",
     "text": "Appendix A - From Design to Sample: Step 2\nThe study generates a synthetic random sample and comparison datasets from the conceptual population simulated in Step 1.\n\nMore specifically, for the sampling \\((S)\\) and comparison \\((C)\\) mechanisms shown in Figure 5, sample size calculations were conducted assuming:\n\n\n\nThat “reaching” one children from the HI-HA or HI-CI groups costs ten times \\((10x)\\) more that “reaching” one NH child.\nThree criteria for individual sample size selection: (1) a minimum power to detect \\(\\beta_{XIc}\\) of \\(80\\%\\) \\((1-\\beta)\\), (2) a minimum power to detect differences in \\(bXId\\) of \\(80\\%\\) \\((1-\\beta)\\), and (3) a maximum efficiency possible, i.e., less and more balanced sample sizes are preferred.\nThat “hiring” one AU judge cost five times \\((5x)\\) as much as “hiring” an IL judge, while “hiring” one PT judge cost three times \\((3x)\\) as much as an IL judge.\nThree criteria for judge sample size selection: (1) a minimum confidence of \\(95\\%\\) \\((1 - \\alpha)\\) to not reject \\(\\beta_{ZJc} = 0\\), (2) a minimum confidence of \\(95\\%\\) \\((1 - \\alpha)\\) to not reject differences in \\(\\beta_{ZJd}\\) equal to zero, and (3) maximum efficiency, i.e., less and more balanced sample sizes are preferred."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2-1",
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-1",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "Appendix A - From Design to Sample: Step 2",
     "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 87: Individual’s sample size calculation, considering requirements for Power, Efficiency and Cost."
   },
   {
     "objectID": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
     "href": "presentation.html#appendix-a---from-design-to-sample-step-2-2",
-    "title": "Bayesian modeling of comparative judgment data with R and Stan",
+    "title": "Finding CJ: The modeling of comparative judgment data with R (and Stan)",
     "section": "Appendix A - From Design to Sample: Step 2",
     "text": "Appendix A - From Design to Sample: Step 2\n\n\n\n\n\n\n\nFigure 88: Judges’s sample size calculation, considering requirements for Confidence, Efficiency and Cost."
   }
