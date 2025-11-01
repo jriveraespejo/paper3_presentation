@@ -1,6 +1,6 @@
 ---
 title: |
-  Finding CJ: The modeling of comparative judgment data with `R` (and `Stan`)
+  Finding CJ: modeling comparative judgment data with `R` (and `Stan`)
 author:
   - name: 
       given: Jose(ma)
