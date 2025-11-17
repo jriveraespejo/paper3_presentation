@@ -357,7 +357,7 @@ Constraints of the CJ model to solve indeterminacies in *location*, *orientation
 
 ## 4. Methods {style="font-size:80%;"}
 
-To meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow [@Depaoli_et_al_2017; @Neal_2020; @Gelman_et_al_2020; @Schad_et_al_2020; @Betancourt_2020; @McElreath_2024b; @McElreath_2024c]:
+To meet the tutorial and model validation goals, this study follows the Bayesian (research) workflow [@Depaoli_et_al_2017; @Pearl_et_al_2018; @Neal_2020; @Gelman_et_al_2020; @Schad_et_al_2020; @Betancourt_2020; @McElreath_2024b; @McElreath_2024c]:
 
 ::: {#fig-workflow}
 ![](/figures/workflow.png){width=80%}
