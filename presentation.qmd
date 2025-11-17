@@ -428,13 +428,13 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 <!-- ######################################### -->
 
-# 4.1 From Theory to Design: Steps 1a-1c
+# 4.1 From Theory to Design: Step 1
 
 ---
 
 ## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-The conceptual population simulation is based on the data characteristics and findings reported by Boonen et al. [@Boonen_et_al_2020]:
+The conceptual population simulation (step $1a$) is based on the data characteristics and findings reported by Boonen et al. [@Boonen_et_al_2020]:
 
 ::: {.fragment style="font-size:80%;"}
 Regarding the data characteristics, the study:
@@ -499,7 +499,7 @@ CJ data-generating process for the conceptual population. *Left panel* shows the
 
 ## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
 
-Moreover, integrating the assumptions derived from Boonen et al. [@Boonen_et_al_2020] leads to the following statistical data-generating process:
+Moreover, integrating the assumptions derived from Boonen et al. [@Boonen_et_al_2020] leads to the following statistical data-generating process (step $1c$):
 
 ::: {.fragment style="font-size:80%;"}
 
@@ -613,7 +613,7 @@ In layman terms:
 
 ## 4.1 From Theory to Design: Steps 1a-1c {#sec-pop_sim style="font-size:80%;"}
 
-From the simulation parameters, we can also define the **_estimands_** of interest:
+From the simulation parameters, we can also define the **_estimands_** of interest (step $1b$):
 
 ::: incremental 
 ::: {style="font-size:65%;"}
@@ -693,11 +693,11 @@ Notably, **each** `brms` multilevel regression model within the *CBTL analysis* 
 :::
 
 
-# 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5
+# 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis
 
 ---
 
-## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5 {style="font-size:80%;"}
+## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
@@ -733,7 +733,7 @@ $*$ By model assumptions, the CBTL analysis only considers one variability param
 
 ---
 
-## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis in step 5 {style="font-size:80%;"}
+## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
@@ -763,11 +763,11 @@ Prior selection for the multilevel regression models in Steps $2$ and $3$ relied
 $*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$. 
 :::
 
-# 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5
+# 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models style="font-size:80%;"}
 
 In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models, using:
 
@@ -784,7 +784,7 @@ Similarly, prior selection for the six ITCJ models relied on **prior predictive 
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models1 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models1 style="font-size:80%;"}
 
 The **first model** only considers the stimulus' traits$^{*}$. 
 
@@ -835,7 +835,7 @@ $*$ This model is akin to Step $1$ of the *CBTL analysis*, but with a different 
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models2 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models2 style="font-size:80%;"}
 
 Building on the first, the **second model** integrates the *hierarchical structural component* that captures the nesting structure of stimulus within individuals$^{*}$.
 
@@ -901,7 +901,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models3 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models3 style="font-size:80%;"}
 
 Extending the second, the **third model** integrates covariates into the *structural component* to account for factors that may affect individual traits$^{*}$. 
 
@@ -977,7 +977,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models4 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models4 style="font-size:80%;"}
 
 Also building upon the second, but in contrast to the third, the **fourth model** only incorporates judges' biases$^{*}$.
 
@@ -1049,7 +1049,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models5 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models5 style="font-size:80%;"}
 
 Combining the 3rd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases$^{*}$:
 
@@ -1133,7 +1133,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis in step 5 {#sec-ITCJ_models6 style="font-size:80%;"}
+## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models6 style="font-size:80%;"}
 
 Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases$^{*}$,
 
