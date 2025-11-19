@@ -14,7 +14,7 @@
   <meta name="author" content="Tine van Daal">
   <meta name="author" content="Sven De Maeyer">
   <meta name="author" content="Steven Gillis">
-  <meta name="dcterms.date" content="2025-11-17">
+  <meta name="dcterms.date" content="2025-11-19">
   <title>Finding Thurstone: modeling comparative judgment data with R (and Stan)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -406,7 +406,7 @@
     </div>
 </div>
 
-  <p class="date">2025-11-17</p>
+  <p class="date">2025-11-19</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" style="font-size:80%;">
@@ -770,8 +770,8 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <h1>4.1 From Theory to Design: Step 1</h1>
 
 </section>
-<section id="from-theory-to-design-steps-1a-1c" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Steps 1a-1c</h2>
+<section id="from-theory-to-design-step-1-1" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design: Step 1</h2>
 <p>The conceptual population simulation (step <span class="math inline">\(1a\)</span>) is based on the data characteristics and findings reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>Regarding the data characteristics, the study:</p>
@@ -802,8 +802,8 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-steps-1a-1c-1" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Steps 1a-1c</h2>
+<section id="from-theory-to-design-step-1-2" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design: Step 1</h2>
 <p>Thus, adapting the general CJ structure proposed by Rivera et al.’s <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> to the data characteristics reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following conceptual population data-generating process:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj17" class="quarto-layout-panel">
@@ -835,8 +835,8 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-steps-1a-1c-2" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Steps 1a-1c</h2>
+<section id="from-theory-to-design-step-1-3" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design: Step 1</h2>
 <p>Moreover, integrating the assumptions derived from Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following statistical data-generating process (step <span class="math inline">\(1c\)</span>):</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj18a" class="quarto-layout-panel">
@@ -937,8 +937,8 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-steps-1a-1c-3" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Steps 1a-1c</h2>
+<section id="from-theory-to-design-step-1-4" class="slide level2" style="font-size:80%;">
+<h2>4.1 From Theory to Design: Step 1</h2>
 <p>In layman terms:</p>
 <div>
 <div style="font-size:60%;">
@@ -959,7 +959,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section>
 <section id="sec-pop_sim" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Steps 1a-1c</h2>
+<h2>4.1 From Theory to Design: Step 1</h2>
 <p>From the simulation parameters, we can also define the <strong><em>estimands</em></strong> of interest (step <span class="math inline">\(1b\)</span>):</p>
 <div>
 <div style="font-size:65%;">
@@ -987,7 +987,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <h2>4.2 From Design to Sample: Step 2</h2>
 <p>We generate a synthetic random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-steps-1a-1c-1" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-step-1-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -6829,7 +6829,7 @@ Figure&nbsp;86: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <h2>Appendix A - From Design to Sample: Step 2</h2>
 <p>The study generates a synthetic random sample and comparison datasets from the conceptual population simulated in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms shown in <a href="#/from-theory-to-design-steps-1a-1c-1" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted assuming:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms shown in <a href="#/from-theory-to-design-step-1-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted assuming:</p>
 <div>
 <div style="font-size:80%;">
 <ul>

@@ -432,7 +432,7 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
 
 The conceptual population simulation (step $1a$) is based on the data characteristics and findings reported by Boonen et al. [@Boonen_et_al_2020]:
 
@@ -468,7 +468,7 @@ Regarding the study findings, the study report that:
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
 
 Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_al_2025] to the data characteristics reported by Boonen et al. [@Boonen_et_al_2020] leads to the following conceptual population data-generating process:
 
@@ -497,7 +497,7 @@ CJ data-generating process for the conceptual population. *Left panel* shows the
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
 
 Moreover, integrating the assumptions derived from Boonen et al. [@Boonen_et_al_2020] leads to the following statistical data-generating process (step $1c$):
 
@@ -588,7 +588,7 @@ Simulating parameter assumptions.
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {style="font-size:80%;"}
+## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
 
 In layman terms:
 
@@ -611,7 +611,7 @@ In layman terms:
 
 ---
 
-## 4.1 From Theory to Design: Steps 1a-1c {#sec-pop_sim style="font-size:80%;"}
+## 4.1 From Theory to Design: Step 1 {#sec-pop_sim style="font-size:80%;"}
 
 From the simulation parameters, we can also define the **_estimands_** of interest (step $1b$):
 
