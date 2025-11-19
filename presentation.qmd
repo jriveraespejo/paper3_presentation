@@ -383,7 +383,7 @@ b. Specify the estimand(s) of interest and provide formal definitions for each t
 c. Simulate a _synthetic conceptual population_ that reflects the defined structure and assumptions;
 :::
 
-2. **Design $\rightarrow$ Sample** (*Tutorial and Model validation*)
+2. **Design $\rightarrow$ Data** (*Tutorial and Model validation*)
     
     Generate a synthetic random sample and comparison datasets from the conceptual population simulated in step $1$;
 
@@ -403,7 +403,7 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 ::: incremental 
 ::: {style="font-size:75%;"}
-5. **{Estimator, Sample} $\rightarrow$ Estimate(s)** (*Tutorial and Model validation*)
+5. **{Estimator, Data} $\rightarrow$ Estimate(s)** (*Tutorial and Model validation*)
 
     Apply both the CBTL and ITCJ methods to the synthetic random comparison dataset;
 
@@ -428,11 +428,11 @@ c. Simulate a _synthetic conceptual population_ that reflects the defined struct
 
 <!-- ######################################### -->
 
-# 4.1 From Theory to Design: Step 1
+# 4.1 Step 1, from Theory to Design: Data-generating assumptions 
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 Step 1: Data-generating assumptions {style="font-size:80%;"}
 
 The conceptual population simulation (step $1a$) is based on the data characteristics and findings reported by Boonen et al. [@Boonen_et_al_2020]:
 
@@ -468,7 +468,7 @@ Regarding the study findings, the study report that:
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 Step 1: Data-generating assumptions {style="font-size:80%;"}
 
 Thus, adapting the general CJ structure proposed by Rivera et al.'s [@Rivera_et_al_2025] to the data characteristics reported by Boonen et al. [@Boonen_et_al_2020] leads to the following conceptual population data-generating process:
 
@@ -497,7 +497,7 @@ CJ data-generating process for the conceptual population. *Left panel* shows the
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 Step 1: Data-generating assumptions {style="font-size:80%;"}
 
 Moreover, integrating the assumptions derived from Boonen et al. [@Boonen_et_al_2020] leads to the following statistical data-generating process (step $1c$):
 
@@ -588,7 +588,7 @@ Simulating parameter assumptions.
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {style="font-size:80%;"}
+## 4.1 Step 1: Data-generating assumptions {style="font-size:80%;"}
 
 In layman terms:
 
@@ -611,7 +611,7 @@ In layman terms:
 
 ---
 
-## 4.1 From Theory to Design: Step 1 {#sec-pop_sim style="font-size:80%;"}
+## 4.1 Step 1: Data-generating assumptions {#sec-pop_sim style="font-size:80%;"}
 
 From the simulation parameters, we can also define the **_estimands_** of interest (step $1b$):
 
@@ -631,11 +631,11 @@ From the simulation parameters, we can also define the **_estimands_** of intere
 
 <!-- ######################################### -->
 
-# 4.2 From Design to Sample: Step 2
+# 4.2 Step 2, from Design to Data: Data simulation
 
 ---
 
-## 4.2 From Design to Sample: Step 2 {style="font-size:80%;"}
+## 4.2 Step 2: Data simulation {style="font-size:80%;"}
 
 We generate a synthetic random sample and comparison datasets from the conceptual population in **Step 1**. 
 
@@ -656,11 +656,11 @@ More specifically, for the sampling $(S)$ and comparison $(C)$ mechanisms illust
 
 <!-- ######################################### -->
 
-# 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5
+# 4.3 Step 5, from Estimator and Sample to Estimate(s): The analysis aproaches
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5 {style="font-size:80%;"}
+## 4.3 Step 5: The analysis aproaches {style="font-size:80%;"}
 
 The study applies two data analysis approaches for the simulated CJ data (as described in @sec-approaches):
 
@@ -682,7 +682,7 @@ Both analysis are conducted using `R` version 4.2.2 [@R_2015], with:
 
 ---
 
-## 4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5 {style="font-size:80%;"}
+## 4.3 Step 5: The analysis aproaches {style="font-size:80%;"}
 
 Notably, **each** `brms` multilevel regression model within the *CBTL analysis* and **each** Bayesian model within the *ITCJ analysis* were estimated using:
 
@@ -693,11 +693,11 @@ Notably, **each** `brms` multilevel regression model within the *CBTL analysis* 
 :::
 
 
-# 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis
+# 4.3.1 The CBTL analysis
 
 ---
 
-## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis {style="font-size:80%;"}
+## 4.3.1 The CBTL analysis {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
@@ -733,7 +733,7 @@ $*$ By model assumptions, the CBTL analysis only considers one variability param
 
 ---
 
-## 4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis {style="font-size:80%;"}
+## 4.3.1 The CBTL analysis {style="font-size:80%;"}
 
 Specifically, the *CBTL analysis* [@Pollitt_2012a; @Pollitt_2012b; @Jones_et_al_2019; @Boonen_et_al_2020; @Chambers_et_al_2022; @Bouwer_et_al_2023; @Thwaites_et_al_2024]:
 
@@ -763,11 +763,11 @@ Prior selection for the multilevel regression models in Steps $2$ and $3$ relied
 $*$ By model assumptions, the CBTL analysis only considers one variability parameter for individuals, i.e., $s_{XI}$, versus multiple variability parameters defined by the individuals' groups, i.e., $s_{XId}$. 
 :::
 
-# 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis
+# 4.3.2 The ITCJ analyses
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models style="font-size:80%;"}
 
 In contrast, the *ITCJ analysis* [@Rivera_et_al_2025], fits six $(6)$ increasingly complex CJ models, using:
 
@@ -784,7 +784,7 @@ Similarly, prior selection for the six ITCJ models relied on **prior predictive 
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models1 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models1 style="font-size:80%;"}
 
 The **first model** only considers the stimulus' traits$^{*}$. 
 
@@ -835,7 +835,7 @@ $*$ This model is akin to Step $1$ of the *CBTL analysis*, but with a different 
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models2 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models2 style="font-size:80%;"}
 
 Building on the first, the **second model** integrates the *hierarchical structural component* that captures the nesting structure of stimulus within individuals$^{*}$.
 
@@ -901,7 +901,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models3 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models3 style="font-size:80%;"}
 
 Extending the second, the **third model** integrates covariates into the *structural component* to account for factors that may affect individual traits$^{*}$. 
 
@@ -977,7 +977,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models4 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models4 style="font-size:80%;"}
 
 Also building upon the second, but in contrast to the third, the **fourth model** only incorporates judges' biases$^{*}$.
 
@@ -1049,7 +1049,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models5 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models5 style="font-size:80%;"}
 
 Combining the 3rd and 4th, the **fifth model** integrates covariates to account for factors that may affect individual traits and judge biases$^{*}$:
 
@@ -1133,7 +1133,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis {#sec-ITCJ_models6 style="font-size:80%;"}
+## 4.3.2 The ITCJ analyses {#sec-ITCJ_models6 style="font-size:80%;"}
 
 Lastly, building upon the fifth, the **sixth model** accounts for differences in the variability of individual traits and judge biases$^{*}$,
 
@@ -1218,11 +1218,11 @@ $*$ There is no equivalent in the CJ literature.
 
 <!-- ######################################### -->
 
-# 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6
+# 4.4 Step 6, from Estimate(s) to Diagnostics and Posterior predictives: The evaluation criteria
 
 ---
 
-## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.4 Step 6: The evaluation criteria {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
@@ -1261,7 +1261,7 @@ where $\boldsymbol{\hat{\theta}}$ is the vector of posterior samples associated 
 
 ---
 
-## 4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6 {style="font-size:80%;"}
+## 4.4 Step 6: The evaluation criteria {style="font-size:80%;"}
 
 The study assess the quality of the models and estimate(s) in terms of:
 
@@ -1855,11 +1855,11 @@ The **influential points plots** indicates that,
 
 # 5.2.2 Data modeling: The ITCJ analyses 
 
-# 5.2.2.1 Data modeling: The ITCJ analysis 1 
+# 5.2.2.1 The ITCJ analyses: Model 1 
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -1901,7 +1901,7 @@ $*$ This model is akin to Step $1$ of the *CBTL analysis*, but with a different 
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -1923,7 +1923,7 @@ First *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Second, we fit the **first** ITCJ model to the data using the specified priors.
 
@@ -1949,7 +1949,7 @@ First *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* s
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Second, we fit the **first** ITCJ model to the data using the specified priors.
 
@@ -1969,7 +1969,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Second, we fit the **first** ITCJ model to the data using the specified priors.
 
@@ -1989,7 +1989,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2009,7 +2009,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.2.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2034,7 +2034,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.1.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.1.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2059,7 +2059,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.1.2.1 Data modeling: The ITCJ analysis 1 {style="font-size:80%;"}
+## 5.1.2.1 The ITCJ analyses: Model 1 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 
@@ -2080,11 +2080,11 @@ The **influential points plots** indicates that,
 
 <!-- ######################################### -->
 
-# 5.2.2.2 Data modeling: The ITCJ analysis 2
+# 5.2.2.2 The ITCJ analyses: Model 2
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2140,7 +2140,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2162,7 +2162,7 @@ Second *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2188,7 +2188,7 @@ Second *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* 
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2208,7 +2208,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2228,7 +2228,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2248,7 +2248,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2273,7 +2273,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2298,7 +2298,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.2 Data modeling: The ITCJ analysis 2 {style="font-size:80%;"}
+## 5.2.2.2 The ITCJ analyses: Model 2 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 
@@ -2319,11 +2319,11 @@ The **influential points plots** indicates that,
 
 <!-- ######################################### -->
 
-# 5.2.2.3 Data modeling: The ITCJ analysis 3
+# 5.2.2.3 The ITCJ analyses: Model 3
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2380,7 +2380,7 @@ $*$ This model is akin to the combination of Steps $1$ and $3$ from the *CBTL an
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2402,7 +2402,7 @@ Third *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2428,7 +2428,7 @@ Third *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* s
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Second, we fit the **third** ITCJ model to the data using the specified priors.
 
@@ -2448,7 +2448,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Second, we fit the **third** ITCJ model to the data using the specified priors.
 
@@ -2468,7 +2468,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2488,7 +2488,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2513,7 +2513,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2538,7 +2538,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.3 Data modeling: The ITCJ analysis 3 {style="font-size:80%;"}
+## 5.2.2.3 The ITCJ analyses: Model 3 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 
@@ -2559,11 +2559,11 @@ The **influential points plots** indicates that,
 
 <!-- ######################################### -->
 
-# 5.2.2.4 Data modeling: The ITCJ analysis 4
+# 5.2.2.4 The ITCJ analyses: Model 4
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2620,7 +2620,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2642,7 +2642,7 @@ Fourth *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2668,7 +2668,7 @@ Fourth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* 
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Second, we fit the **fourth** ITCJ model to the data using the specified priors.
 
@@ -2688,7 +2688,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Second, we fit the **fourth** ITCJ model to the data using the specified priors.
 
@@ -2708,7 +2708,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2728,7 +2728,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2753,7 +2753,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2778,7 +2778,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.4 Data modeling: The ITCJ analysis 4 {style="font-size:80%;"}
+## 5.2.2.4 The ITCJ analyses: Model 4 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 
@@ -2799,11 +2799,11 @@ The **influential points plots** indicates that,
 
 <!-- ######################################### -->
 
-# 5.2.2.5 Data modeling: The ITCJ analysis 5
+# 5.2.2.5 The ITCJ analyses: Model 5
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2866,7 +2866,7 @@ $*$ This model is akin to the combination of all three steps from the *CBTL anal
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -2888,7 +2888,7 @@ Fifth *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -2914,7 +2914,7 @@ Fifth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* s
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Second, we fit the **fifth** ITCJ model to the data using the specified priors.
 
@@ -2934,7 +2934,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Second, we fit the **fifth** ITCJ model to the data using the specified priors.
 
@@ -2954,7 +2954,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2974,7 +2974,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -2999,7 +2999,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -3024,7 +3024,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.5 Data modeling: The ITCJ analysis 5 {style="font-size:80%;"}
+## 5.2.2.5 The ITCJ analyses: Model 5 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 
@@ -3045,11 +3045,11 @@ The **influential points plots** indicates that,
 
 <!-- ######################################### -->
 
-# 5.2.2.6 Data modeling: The ITCJ analysis 6
+# 5.2.2.6 The ITCJ analyses: Model 6
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -3114,7 +3114,7 @@ $*$ This model has no equivalent in the current CJ literature.
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 First, we need specify the appropriate **priors** for the model:
 
@@ -3137,7 +3137,7 @@ Sixth *ITCJ analysis*, prior predictive checks.
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Second, we fit the **second** ITCJ model to the data using the specified priors.
 
@@ -3163,7 +3163,7 @@ Sixth *ITCJ analysis*, example of parameter diagnostics. *Leftmost six panels* s
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Second, we fit the **sixth** ITCJ model to the data using the specified priors.
 
@@ -3183,7 +3183,7 @@ The **parameter recovery plots** indicates that,
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Second, we fit the **sixth** ITCJ model to the data using the specified priors.
 
@@ -3203,7 +3203,7 @@ The **RMSE plots** indicates that,
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -3223,7 +3223,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -3248,7 +3248,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Third, we assess the in-sample predictive accuracy of the model.
 
@@ -3273,7 +3273,7 @@ The **posterior predictive plots** indicates that,
 
 ---
 
-## 5.2.2.6 Data modeling: The ITCJ analysis 6 {style="font-size:80%;"}
+## 5.2.2.6 The ITCJ analyses: Model 6 {style="font-size:80%;"}
 
 Fourth, we check if the model still shows signs of 'trouble'
 

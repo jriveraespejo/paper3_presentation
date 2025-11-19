@@ -735,7 +735,7 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </ol>
 </div>
 <ol start="2" type="1">
-<li class="fragment"><p><strong>Design <span class="math inline">\(\rightarrow\)</span> Sample</strong> (<em>Tutorial and Model validation</em>)</p>
+<li class="fragment"><p><strong>Design <span class="math inline">\(\rightarrow\)</span> Data</strong> (<em>Tutorial and Model validation</em>)</p>
 <p>Generate a synthetic random sample and comparison datasets from the conceptual population simulated in step <span class="math inline">\(1\)</span>;</p></li>
 <li class="fragment"><p><strong>{Theory, Design, Estimand(s)} <span class="math inline">\(\rightarrow\)</span> Estimator</strong> (<em>Tutorial and Model validation</em>)</p>
 <p>Specify models for analyzing the synthetic random comparison dataset using both the CBTL and the ITCJ analysis;</p></li>
@@ -750,7 +750,7 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <div>
 <div style="font-size:75%;">
 <ol start="5" type="1">
-<li class="fragment"><p><strong>{Estimator, Sample} <span class="math inline">\(\rightarrow\)</span> Estimate(s)</strong> (<em>Tutorial and Model validation</em>)</p>
+<li class="fragment"><p><strong>{Estimator, Data} <span class="math inline">\(\rightarrow\)</span> Estimate(s)</strong> (<em>Tutorial and Model validation</em>)</p>
 <p>Apply both the CBTL and ITCJ methods to the synthetic random comparison dataset;</p></li>
 <li class="fragment"><p><strong>Estimate(s) <span class="math inline">\(\rightarrow\)</span> {Diagnostic, Post predictive}</strong> (<em>Tutorial</em>)</p>
 <p>Assess the quality of the models and estimate(s) in terms of stationarity, convergence, mixing, parameter recovery, in-sample predictive accuracy, and approximate out-of-sample fit;</p></li>
@@ -766,12 +766,12 @@ Figure&nbsp;4: Bayesian (research) workflow.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="from-theory-to-design-step-1" class="title-slide slide level1 center">
-<h1>4.1 From Theory to Design: Step 1</h1>
+<section id="step-1-from-theory-to-design-data-generating-assumptions" class="title-slide slide level1 center">
+<h1>4.1 Step 1, from Theory to Design: Data-generating assumptions</h1>
 
 </section>
-<section id="from-theory-to-design-step-1-1" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Step 1</h2>
+<section id="step-1-data-generating-assumptions" class="slide level2" style="font-size:80%;">
+<h2>4.1 Step 1: Data-generating assumptions</h2>
 <p>The conceptual population simulation (step <span class="math inline">\(1a\)</span>) is based on the data characteristics and findings reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span>:</p>
 <div class="fragment" style="font-size:80%;">
 <p>Regarding the data characteristics, the study:</p>
@@ -802,8 +802,8 @@ Figure&nbsp;4: Bayesian (research) workflow.
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-step-1-2" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Step 1</h2>
+<section id="step-1-data-generating-assumptions-1" class="slide level2" style="font-size:80%;">
+<h2>4.1 Step 1: Data-generating assumptions</h2>
 <p>Thus, adapting the general CJ structure proposed by Rivera et al.’s <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span> to the data characteristics reported by Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following conceptual population data-generating process:</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj17" class="quarto-layout-panel">
@@ -835,8 +835,8 @@ Figure&nbsp;5: CJ data-generating process for the conceptual population. <em>Lef
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-step-1-3" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Step 1</h2>
+<section id="step-1-data-generating-assumptions-2" class="slide level2" style="font-size:80%;">
+<h2>4.1 Step 1: Data-generating assumptions</h2>
 <p>Moreover, integrating the assumptions derived from Boonen et al. <span class="citation" data-cites="Boonen_et_al_2020">[<a href="#/references" role="doc-biblioref" onclick="">12</a>]</span> leads to the following statistical data-generating process (step <span class="math inline">\(1c\)</span>):</p>
 <div class="fragment" style="font-size:80%;">
 <div id="fig-cj18a" class="quarto-layout-panel">
@@ -937,8 +937,8 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 </section>
-<section id="from-theory-to-design-step-1-4" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Step 1</h2>
+<section id="step-1-data-generating-assumptions-3" class="slide level2" style="font-size:80%;">
+<h2>4.1 Step 1: Data-generating assumptions</h2>
 <p>In layman terms:</p>
 <div>
 <div style="font-size:60%;">
@@ -959,7 +959,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section>
 <section id="sec-pop_sim" class="slide level2" style="font-size:80%;">
-<h2>4.1 From Theory to Design: Step 1</h2>
+<h2>4.1 Step 1: Data-generating assumptions</h2>
 <p>From the simulation parameters, we can also define the <strong><em>estimands</em></strong> of interest (step <span class="math inline">\(1b\)</span>):</p>
 <div>
 <div style="font-size:65%;">
@@ -979,15 +979,15 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="from-design-to-sample-step-2" class="title-slide slide level1 center">
-<h1>4.2 From Design to Sample: Step 2</h1>
+<section id="step-2-from-design-to-data-data-simulation" class="title-slide slide level1 center">
+<h1>4.2 Step 2, from Design to Data: Data simulation</h1>
 
 </section>
-<section id="from-design-to-sample-step-2-1" class="slide level2" style="font-size:80%;">
-<h2>4.2 From Design to Sample: Step 2</h2>
+<section id="step-2-data-simulation" class="slide level2" style="font-size:80%;">
+<h2>4.2 Step 2: Data simulation</h2>
 <p>We generate a synthetic random sample and comparison datasets from the conceptual population in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/from-theory-to-design-step-1-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms illustrated in <a href="#/step-1-data-generating-assumptions-1" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted (see <a href="#/sec-AppA" class="quarto-xref">Section&nbsp;30</a>), and the following design was adopted:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
@@ -1003,12 +1003,12 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5" class="title-slide slide level1 center">
-<h1>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h1>
+<section id="step-5-from-estimator-and-sample-to-estimates-the-analysis-aproaches" class="title-slide slide level1 center">
+<h1>4.3 Step 5, from Estimator and Sample to Estimate(s): The analysis aproaches</h1>
 
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-1" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h2>
+<section id="step-5-the-analysis-aproaches" class="slide level2" style="font-size:80%;">
+<h2>4.3 Step 5: The analysis aproaches</h2>
 <p>The study applies two data analysis approaches for the simulated CJ data (as described in <a href="#/sec-approaches" class="quarto-xref">Section&nbsp;3</a>):</p>
 <div>
 <ol type="1">
@@ -1028,8 +1028,8 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-analysis-approaches-in-step-5-2" class="slide level2" style="font-size:80%;">
-<h2>4.3 From Estimator and Sample to Estimate(s): The analysis approaches in step 5</h2>
+<section id="step-5-the-analysis-aproaches-1" class="slide level2" style="font-size:80%;">
+<h2>4.3 Step 5: The analysis aproaches</h2>
 <p>Notably, <strong>each</strong> <code>brms</code> multilevel regression model within the <em>CBTL analysis</em> and <strong>each</strong> Bayesian model within the <em>ITCJ analysis</em> were estimated using:</p>
 <div>
 <div style="font-size:80%;">
@@ -1040,12 +1040,12 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section></section>
 <section>
-<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis" class="title-slide slide level1 center">
-<h1>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis</h1>
+<section id="the-cbtl-analysis-1" class="title-slide slide level1 center">
+<h1>4.3.1 The CBTL analysis</h1>
 
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-1" class="slide level2" style="font-size:80%;">
-<h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis</h2>
+<section id="the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
+<h2>4.3.1 The CBTL analysis</h2>
 <p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">32</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
@@ -1079,8 +1079,8 @@ Figure&nbsp;7: Simulating parameter assumptions.
 <p><span class="math inline">\(*\)</span> By model assumptions, the CBTL analysis only considers one variability parameter for judges, i.e., <span class="math inline">\(s_{ZJ}\)</span>, versus multiple variability parameters defined by the experience of the judges, i.e., <span class="math inline">\(s_{ZJd}\)</span>.</p>
 </div>
 </section>
-<section id="from-estimator-and-sample-to-estimates-the-cbtl-analysis-2" class="slide level2" style="font-size:80%;">
-<h2>4.3.1 From Estimator and Sample to Estimate(s): The CBTL analysis</h2>
+<section id="the-cbtl-analysis-3" class="slide level2" style="font-size:80%;">
+<h2>4.3.1 The CBTL analysis</h2>
 <p>Specifically, the <em>CBTL analysis</em> <span class="citation" data-cites="Pollitt_2012a Pollitt_2012b Jones_et_al_2019 Boonen_et_al_2020 Chambers_et_al_2022 Bouwer_et_al_2023 Thwaites_et_al_2024">[<a href="#/references" role="doc-biblioref" onclick="">4</a>, <a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">14</a>, <a href="#/references" role="doc-biblioref" onclick="">32</a>]</span>:</p>
 <div>
 <div style="font-size:80%;">
@@ -1108,12 +1108,12 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section></section>
 <section>
-<section id="from-estimator-and-sample-to-estimates-the-itcj-analysis" class="title-slide slide level1 center">
-<h1>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h1>
+<section id="the-itcj-analyses" class="title-slide slide level1 center">
+<h1>4.3.2 The ITCJ analyses</h1>
 
 </section>
 <section id="sec-ITCJ_models" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>In contrast, the <em>ITCJ analysis</em> <span class="citation" data-cites="Rivera_et_al_2025">[<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span>, fits six <span class="math inline">\((6)\)</span> increasingly complex CJ models, using:</p>
 <div>
 <div style="font-size:80%;">
@@ -1128,7 +1128,7 @@ Figure&nbsp;7: Simulating parameter assumptions.
 </div>
 </section>
 <section id="sec-ITCJ_models1" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>The <strong>first model</strong> only considers the stimulus’ traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj41" class="quarto-layout-panel">
@@ -1182,7 +1182,7 @@ s_{A} &amp; \sim \text{Exponential}( 1/5 )
 </div>
 </section>
 <section id="sec-ITCJ_models2" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>Building on the first, the <strong>second model</strong> integrates the <em>hierarchical structural component</em> that captures the nesting structure of stimulus within individuals<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj42" class="quarto-layout-panel">
@@ -1251,7 +1251,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="sec-ITCJ_models3" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>Extending the second, the <strong>third model</strong> integrates covariates into the <em>structural component</em> to account for factors that may affect individual traits<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj43" class="quarto-layout-panel">
@@ -1334,7 +1334,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="sec-ITCJ_models4" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>Also building upon the second, but in contrast to the third, the <strong>fourth model</strong> only incorporates judges’ biases<span class="math inline">\(^{*}\)</span>.</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj44" class="quarto-layout-panel">
@@ -1409,7 +1409,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="sec-ITCJ_models5" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>Combining the 3rd and 4th, the <strong>fifth model</strong> integrates covariates to account for factors that may affect individual traits and judge biases<span class="math inline">\(^{*}\)</span>:</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
@@ -1499,7 +1499,7 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 </div>
 </section>
 <section id="sec-ITCJ_models6" class="slide level2" style="font-size:80%;">
-<h2>4.3.2 From Estimator and Sample to Estimate(s): The ITCJ analysis</h2>
+<h2>4.3.2 The ITCJ analyses</h2>
 <p>Lastly, building upon the fifth, the <strong>sixth model</strong> accounts for differences in the variability of individual traits and judge biases<span class="math inline">\(^{*}\)</span>,</p>
 <div class="fragment" style="font-size:90%;">
 <div id="fig-cj45" class="quarto-layout-panel">
@@ -1592,12 +1592,12 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6" class="title-slide slide level1 center">
-<h1>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h1>
+<section id="step-6-from-estimates-to-diagnostics-and-posterior-predictives-the-evaluation-criteria" class="title-slide slide level1 center">
+<h1>4.4 Step 6, from Estimate(s) to Diagnostics and Posterior predictives: The evaluation criteria</h1>
 
 </section>
-<section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-1" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<section id="step-6-the-evaluation-criteria" class="slide level2" style="font-size:80%;">
+<h2>4.4 Step 6: The evaluation criteria</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
@@ -1634,8 +1634,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p>where <span class="math inline">\(\boldsymbol{\hat{\theta}}\)</span> is the vector of posterior samples associated with the “true” parameter <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(\hat{\theta}_{s}\)</span> is the <span class="math inline">\(s\)</span>-th sample out of a total of <span class="math inline">\(S\)</span> posterior draws.</p>
 </div>
 </section>
-<section id="from-estimates-to-diagnostics-and-post-predictive-the-evaluation-criteria-for-step-6-2" class="slide level2" style="font-size:80%;">
-<h2>4.4 From Estimate(s) to Diagnostics and Post predictive: The evaluation criteria for step 6</h2>
+<section id="step-6-the-evaluation-criteria-1" class="slide level2" style="font-size:80%;">
+<h2>4.4 Step 6: The evaluation criteria</h2>
 <p>The study assess the quality of the models and estimate(s) in terms of:</p>
 <div>
 <div style="font-size:80%;">
@@ -2384,12 +2384,12 @@ Figure&nbsp;35: <em>CBTL analysis</em>, influential points based on Steps <span 
 </section>
 
 <section>
-<section id="data-modeling-the-itcj-analysis-1" class="title-slide slide level1 center">
-<h1>5.2.2.1 Data modeling: The ITCJ analysis 1</h1>
+<section id="the-itcj-analyses-model-1" class="title-slide slide level1 center">
+<h1>5.2.2.1 The ITCJ analyses: Model 1</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-1-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models1" class="quarto-xref">Section&nbsp;11.2</a>, the <strong>first</strong> ITCJ model is represented by,</p>
@@ -2429,8 +2429,8 @@ s_{A} &amp; \sim \text{Exponential}( 1/5 )
 <p><span class="math inline">\(*\)</span> This model is akin to Step <span class="math inline">\(1\)</span> of the <em>CBTL analysis</em>, but with a different prior.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2458,8 +2458,8 @@ Figure&nbsp;36: First <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -2499,8 +2499,8 @@ Figure&nbsp;37: First <em>ITCJ analysis</em>, example of parameter diagnostics. 
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2523,8 +2523,8 @@ Figure&nbsp;38: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>Second, we fit the <strong>first</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2547,8 +2547,8 @@ Figure&nbsp;39: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2571,8 +2571,8 @@ Figure&nbsp;40: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.1 The ITCJ analyses: Model 1</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2610,8 +2610,8 @@ Figure&nbsp;41: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-8" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-8" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 The ITCJ analyses: Model 1</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2649,8 +2649,8 @@ Figure&nbsp;42: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-1-9" class="slide level2" style="font-size:80%;">
-<h2>5.1.2.1 Data modeling: The ITCJ analysis 1</h2>
+<section id="the-itcj-analyses-model-1-9" class="slide level2" style="font-size:80%;">
+<h2>5.1.2.1 The ITCJ analyses: Model 1</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -2675,12 +2675,12 @@ Figure&nbsp;43: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis-2" class="title-slide slide level1 center">
-<h1>5.2.2.2 Data modeling: The ITCJ analysis 2</h1>
+<section id="the-itcj-analyses-model-2" class="title-slide slide level1 center">
+<h1>5.2.2.2 The ITCJ analyses: Model 2</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-2-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models2" class="quarto-xref">Section&nbsp;11.3</a>, the <strong>second</strong> ITCJ model is represented by,</p>
@@ -2733,8 +2733,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, without covariates for the individuals.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -2762,8 +2762,8 @@ Figure&nbsp;44: Second <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -2803,8 +2803,8 @@ Figure&nbsp;45: Second <em>ITCJ analysis</em>, example of parameter diagnostics.
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -2827,8 +2827,8 @@ Figure&nbsp;46: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -2851,8 +2851,8 @@ Figure&nbsp;47: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2875,8 +2875,8 @@ Figure&nbsp;48: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2914,8 +2914,8 @@ Figure&nbsp;49: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-8" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-8" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -2953,8 +2953,8 @@ Figure&nbsp;50: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-2-9" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.2 Data modeling: The ITCJ analysis 2</h2>
+<section id="the-itcj-analyses-model-2-9" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.2 The ITCJ analyses: Model 2</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -2979,12 +2979,12 @@ Figure&nbsp;51: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis-3" class="title-slide slide level1 center">
-<h1>5.2.2.3 Data modeling: The ITCJ analysis 3</h1>
+<section id="the-itcj-analyses-model-3" class="title-slide slide level1 center">
+<h1>5.2.2.3 The ITCJ analyses: Model 3</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-3-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models3" class="quarto-xref">Section&nbsp;11.4</a>, the <strong>third</strong> ITCJ model is represented by,</p>
@@ -3039,8 +3039,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p><span class="math inline">\(*\)</span> This model is akin to the combination of Steps <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> from the <em>CBTL analysis</em>, with covariates for the individuals.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3068,8 +3068,8 @@ Figure&nbsp;52: Third <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -3109,8 +3109,8 @@ Figure&nbsp;53: Third <em>ITCJ analysis</em>, example of parameter diagnostics. 
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3133,8 +3133,8 @@ Figure&nbsp;54: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Second, we fit the <strong>third</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3157,8 +3157,8 @@ Figure&nbsp;55: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3181,8 +3181,8 @@ Figure&nbsp;56: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3220,8 +3220,8 @@ Figure&nbsp;57: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-8" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-8" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3259,8 +3259,8 @@ Figure&nbsp;58: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-3-9" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.3 Data modeling: The ITCJ analysis 3</h2>
+<section id="the-itcj-analyses-model-3-9" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.3 The ITCJ analyses: Model 3</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3285,12 +3285,12 @@ Figure&nbsp;59: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis-4" class="title-slide slide level1 center">
-<h1>5.2.2.4 Data modeling: The ITCJ analysis 4</h1>
+<section id="the-itcj-analyses-model-4" class="title-slide slide level1 center">
+<h1>5.2.2.4 The ITCJ analyses: Model 4</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-4-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models4" class="quarto-xref">Section&nbsp;11.5</a>, the <strong>fourth</strong> ITCJ model is represented by,</p>
@@ -3345,8 +3345,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, without any covariates for individuals or judges. However, technically this is <strong>no</strong> longer a BTL model.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3374,8 +3374,8 @@ Figure&nbsp;60: Fourth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -3415,8 +3415,8 @@ Figure&nbsp;61: Fourth <em>ITCJ analysis</em>, example of parameter diagnostics.
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3439,8 +3439,8 @@ Figure&nbsp;62: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Second, we fit the <strong>fourth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3463,8 +3463,8 @@ Figure&nbsp;63: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3487,8 +3487,8 @@ Figure&nbsp;64: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3526,8 +3526,8 @@ Figure&nbsp;65: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-8" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-8" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3565,8 +3565,8 @@ Figure&nbsp;66: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-4-9" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.4 Data modeling: The ITCJ analysis 4</h2>
+<section id="the-itcj-analyses-model-4-9" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.4 The ITCJ analyses: Model 4</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3591,12 +3591,12 @@ Figure&nbsp;67: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis-5" class="title-slide slide level1 center">
-<h1>5.2.2.5 Data modeling: The ITCJ analysis 5</h1>
+<section id="the-itcj-analyses-model-5" class="title-slide slide level1 center">
+<h1>5.2.2.5 The ITCJ analyses: Model 5</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-5-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models5" class="quarto-xref">Section&nbsp;11.6</a>, the <strong>fifth</strong> ITCJ model is represented by,</p>
@@ -3657,8 +3657,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p><span class="math inline">\(*\)</span> This model is akin to the combination of all three steps from the <em>CBTL analysis</em>, with covariates for individuals and judges. However, this is <strong>no</strong> longer a BTL model.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -3686,8 +3686,8 @@ Figure&nbsp;68: Fifth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -3727,8 +3727,8 @@ Figure&nbsp;69: Fifth <em>ITCJ analysis</em>, example of parameter diagnostics. 
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -3751,8 +3751,8 @@ Figure&nbsp;70: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Second, we fit the <strong>fifth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -3775,8 +3775,8 @@ Figure&nbsp;71: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3799,8 +3799,8 @@ Figure&nbsp;72: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3838,8 +3838,8 @@ Figure&nbsp;73: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-8" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-8" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -3877,8 +3877,8 @@ Figure&nbsp;74: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-5-9" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.5 Data modeling: The ITCJ analysis 5</h2>
+<section id="the-itcj-analyses-model-5-9" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.5 The ITCJ analyses: Model 5</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -3903,12 +3903,12 @@ Figure&nbsp;75: <em>ITCJ</em> versus <em>CBTL</em> analysis, influential points.
 <!-- ######################################### -->
 </section></section>
 <section>
-<section id="data-modeling-the-itcj-analysis-6" class="title-slide slide level1 center">
-<h1>5.2.2.6 Data modeling: The ITCJ analysis 6</h1>
+<section id="the-itcj-analyses-model-6" class="title-slide slide level1 center">
+<h1>5.2.2.6 The ITCJ analyses: Model 6</h1>
 
 </section>
-<section id="data-modeling-the-itcj-analysis-6-1" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-1" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As seen in <a href="#/sec-ITCJ_models6" class="quarto-xref">Section&nbsp;11.7</a>, the <strong>sixth</strong> ITCJ model is represented by,</p>
@@ -3971,8 +3971,8 @@ s_{A} &amp;\sim \text{Beta_proportion}(0.5, 5); \\
 <p><span class="math inline">\(*\)</span> This model has no equivalent in the current CJ literature.</p>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-2" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-2" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>First, we need specify the appropriate <strong>priors</strong> for the model:</p>
 <div class="fragment" style="font-size:80%;">
 <p>As a result of the prior assumptions, the <strong>prior predictive check</strong> shows that:</p>
@@ -4000,8 +4000,8 @@ Figure&nbsp;76: Sixth <em>ITCJ analysis</em>, prior predictive checks.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-3" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-3" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Second, we fit the <strong>second</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>diagnostic statistics and plots</strong> indicate that,</p>
@@ -4041,8 +4041,8 @@ Figure&nbsp;77: Sixth <em>ITCJ analysis</em>, example of parameter diagnostics. 
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-4" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-4" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>parameter recovery plots</strong> indicates that,</p>
@@ -4065,8 +4065,8 @@ Figure&nbsp;78: <em>ITCJ</em> versus <em>CBTL</em> analysis, parameter recovery.
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-5" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-5" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Second, we fit the <strong>sixth</strong> ITCJ model to the data using the specified priors.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>RMSE plots</strong> indicates that,</p>
@@ -4089,8 +4089,8 @@ Figure&nbsp;79: <em>ITCJ</em> versus <em>CBTL</em> analysis, RMSE. <em>Leftmost 
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-6" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-6" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div class="fragment" style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4113,8 +4113,8 @@ Figure&nbsp;80: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
 </div>
 </div>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-7" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-7" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4152,8 +4152,8 @@ Figure&nbsp;81: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-8" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-8" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Third, we assess the in-sample predictive accuracy of the model.</p>
 <div style="font-size:80%;">
 <p>The <strong>posterior predictive plots</strong> indicates that,</p>
@@ -4191,8 +4191,8 @@ Figure&nbsp;82: <em>ITCJ</em> versus <em>CBTL</em> analysis, posterior predictiv
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-modeling-the-itcj-analysis-6-9" class="slide level2" style="font-size:80%;">
-<h2>5.2.2.6 Data modeling: The ITCJ analysis 6</h2>
+<section id="the-itcj-analyses-model-6-9" class="slide level2" style="font-size:80%;">
+<h2>5.2.2.6 The ITCJ analyses: Model 6</h2>
 <p>Fourth, we check if the model still shows signs of ‘trouble’</p>
 <div style="font-size:80%;">
 <p>The <strong>influential points plots</strong> indicates that,</p>
@@ -6829,7 +6829,7 @@ Figure&nbsp;86: Contrast estimates. <em>Left table</em> reports the <em>CBTL ana
 <h2>Appendix A - From Design to Sample: Step 2</h2>
 <p>The study generates a synthetic random sample and comparison datasets from the conceptual population simulated in <strong>Step 1</strong>.</p>
 <div class="fragment">
-<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms shown in <a href="#/from-theory-to-design-step-1-2" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted assuming:</p>
+<p>More specifically, for the sampling <span class="math inline">\((S)\)</span> and comparison <span class="math inline">\((C)\)</span> mechanisms shown in <a href="#/step-1-data-generating-assumptions-1" class="quarto-xref">Figure&nbsp;5</a>, sample size calculations were conducted assuming:</p>
 <div>
 <div style="font-size:80%;">
 <ul>
